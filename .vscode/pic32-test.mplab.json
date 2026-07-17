@@ -6,6 +6,7 @@
             "id": "conf1",
             "device": "PIC32CM6408JH00048",
             "imagePath": "./out/pic32-test/default.elf",
+            "tool": "J-Link",
             "packs": [
                 {
                     "name": "PIC32CM-JH_DFP",
