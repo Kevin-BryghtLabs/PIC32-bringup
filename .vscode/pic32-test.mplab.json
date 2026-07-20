@@ -3,9 +3,10 @@
     "configurations": [
         {
             "name": "default",
-            "id": "conf1",
+            "id": "",
             "device": "PIC32CM6408JH00048",
             "imagePath": "./out/pic32-test/default.elf",
+            "toolProperties": "default-tool-base",
             "tool": "J-Link",
             "packs": [
                 {
@@ -52,6 +53,11 @@
                 "compiler++.isolate-each-function": "true",
                 "compiler++.optimization-level": "-O1"
             }
+        },
+        {
+            "name": "default-tool-base",
+            "type": "tool",
+            "properties": {}
         }
     ],
     "fileSets": [

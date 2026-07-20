@@ -9,5 +9,18 @@
         "embedded-debug",
         "gdb",
         "mplab-core-da"
-    ]
+    ],
+    "mplab.ioview.columnWidths": {
+        "pic32-test-default": [
+            199,
+            100,
+            69,
+            100,
+            100,
+            100
+        ]
+    },
+    "mplab.ioview.taggedNodes": {
+        "pic32-test-default": []
+    }
 }
