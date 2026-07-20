@@ -81,7 +81,8 @@
                 "config.mcc/src/config/default/peripheral/nvic/plib_nvic.c",
                 "config.mcc/src/config/default/startup_xc32.c",
                 "config.mcc/src/config/default/libc_syscalls.c",
-                "config.mcc/src/config/default/peripheral/tc/plib_tc0.c"
+                "config.mcc/src/config/default/peripheral/tc/plib_tc0.c",
+                "config.mcc/src/config/default/peripheral/sercom/usart/plib_sercom2_usart.c"
             ]
         }
     ]

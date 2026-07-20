@@ -141,7 +141,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '0x1000'
+            value: '0x1008'
           type: Dynamic
         type: Values
       type: String
@@ -1501,6 +1501,138 @@ data:
           type: Dynamic
         type: Values
       type: Boolean
+    SERCOM2_CORE_CLOCK_FREQUENCY:
+      attributes:
+        id: SERCOM2_CORE_CLOCK_FREQUENCY
+        label: SERCOM2_CORE Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '48000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_ID_21_FREQ:
+      attributes:
+        id: GCLK_ID_21_FREQ
+        label: 'Peripheral Channel 21 Frequency '
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '48000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_ID_21_CHEN:
+      attributes:
+        id: GCLK_ID_21_CHEN
+        label: Peripheral Channel 21 Clock Enable
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    SERCOM2_CORE_CLOCK_ENABLE:
+      attributes:
+        id: SERCOM2_CORE_CLOCK_ENABLE
+        label: SERCOM2_CORE Clock Enable
+      children:
+      - children:
+        - attributes:
+            id: sercom2
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    SERCOM2_INTERRUPT_ENABLE_UPDATE:
+      attributes:
+        id: SERCOM2_INTERRUPT_ENABLE_UPDATE
+        label: NVIC Peripheral Enable/Disable Update
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    NVIC_11_0_ENABLE:
+      attributes:
+        id: NVIC_11_0_ENABLE
+        label: Enable Serial Communication Interface 2 Interrupt
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    SERCOM2_INTERRUPT_ENABLE:
+      attributes:
+        id: SERCOM2_INTERRUPT_ENABLE
+        label: Vector Peripheral Enable
+      children:
+      - children:
+        - attributes:
+            id: sercom2
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    NVIC_11_0_HANDLER_LOCK:
+      attributes:
+        id: NVIC_11_0_HANDLER_LOCK
+        label: Handler Lock
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    SERCOM2_INTERRUPT_HANDLER_LOCK:
+      attributes:
+        id: SERCOM2_INTERRUPT_HANDLER_LOCK
+        label: Vector Peripheral Handler Lock
+      children:
+      - children:
+        - attributes:
+            id: sercom2
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    NVIC_11_0_HANDLER:
+      attributes:
+        id: NVIC_11_0_HANDLER
+        label: Handler
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: SERCOM2_USART_InterruptHandler
+          type: Dynamic
+        type: Values
+      type: String
+    SERCOM2_INTERRUPT_HANDLER:
+      attributes:
+        id: SERCOM2_INTERRUPT_HANDLER
+        label: Vector Peripheral Handler
+      children:
+      - children:
+        - attributes:
+            id: sercom2
+            value: SERCOM2_USART_InterruptHandler
+          type: Dynamic
+        type: Values
+      type: String
   userData:
     children:
     - attributes:
