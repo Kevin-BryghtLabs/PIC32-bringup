@@ -22,5 +22,6 @@
     },
     "mplab.ioview.taggedNodes": {
         "pic32-test-default": []
-    }
+    },
+    "C_Cpp.intelliSenseEngine": "disabled"
 }
