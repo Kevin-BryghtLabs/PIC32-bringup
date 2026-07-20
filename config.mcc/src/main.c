@@ -53,6 +53,7 @@ int main ( void )
     SYS_Initialize ( NULL );
 
     TC0_TimerCallbackRegister(tickISR, (uintptr_t)NULL);
+    TC0_TimerStart();
 
     while ( true )
     {
