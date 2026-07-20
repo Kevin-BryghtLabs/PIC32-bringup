@@ -144,6 +144,8 @@ void SYS_Initialize ( void* data )
 
     EVSYS_Initialize();
 
+    TC0_TimerInitialize();
+
 
     NVIC_Initialize();
 
