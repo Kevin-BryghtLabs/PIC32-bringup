@@ -41,6 +41,7 @@ int main ( void )
 
     while ( true )
     {
+        LED_CH_EN_Toggle();
         /* Maintain state machines of all polled MPLAB Harmony modules. */
         SYS_Tasks ( );
     }
