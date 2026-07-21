@@ -141,7 +141,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '0x1008'
+            value: '0x21008'
           type: Dynamic
         type: Values
       type: String
@@ -1633,6 +1633,54 @@ data:
           type: Dynamic
         type: Values
       type: String
+    ADC0_CLOCK_FREQUENCY:
+      attributes:
+        id: ADC0_CLOCK_FREQUENCY
+        label: ADC0 Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '48000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_ID_33_FREQ:
+      attributes:
+        id: GCLK_ID_33_FREQ
+        label: 'Peripheral Channel 33 Frequency '
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '48000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_ID_33_CHEN:
+      attributes:
+        id: GCLK_ID_33_CHEN
+        label: Peripheral Channel 33 Clock Enable
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    ADC0_CLOCK_ENABLE:
+      attributes:
+        id: ADC0_CLOCK_ENABLE
+        label: ADC0 Clock Enable
+      children:
+      - children:
+        - attributes:
+            id: adc0
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
   userData:
     children:
     - attributes:

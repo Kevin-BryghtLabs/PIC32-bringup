@@ -5,6 +5,7 @@ device: PIC32CM6408JH00048
 deviceLibrary: {}
 groupModules: []
 modules:
+- adc0
 - cmsis
 - core
 - dfp
@@ -16,7 +17,7 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/PIC32CM6408JH00048.ld
   hash: 65f6cc7bbdd30f18bf6e79c9369c7f755a4da37120ba08660dc9bcbe440ebf47
 - file: ../src/config/default/definitions.h
-  hash: db3d4845480a259badae64e26497d3445bbbce193fa2ab2c1fd083a28a5884b2
+  hash: 693bad3ece8b0ba21e028df1731c0349fee990c91a1529e768bfe68eddeec541
 - file: ../src/config/default/device.h
   hash: ebec3c93ae73497dd0456e83a24acc27bca9da841c0ad5d8c8bd053b270f3b87
 - file: ../src/config/default/device_cache.h
@@ -26,15 +27,21 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/exceptions.c
   hash: d1567a190561858cc1cb7e796cf1a29720e52b9799bbd88b087993d8539e137f
 - file: ../src/config/default/initialization.c
-  hash: 27bf499879b726441ddffeda8acae1f9f960a752ef0b766844c42b526ae5649e
+  hash: 61e97617747b8e824b9a0dc3ef38b4cf29dc36dddc4b65ba6c3f3a5a93b327b0
 - file: ../src/config/default/interrupts.c
   hash: 3604dc331c57696322af15f80509bad50f7122cf73ac3a9aac26a69b78c791ec
 - file: ../src/config/default/interrupts.h
   hash: ffeee795137e94a0576ba2c7b7b94516b0e3def1e48b9c472157411ad3bfe981
 - file: ../src/config/default/libc_syscalls.c
   hash: c9afc1b1257829415a1a6746ce3744f0a768b339d59fff2ab3ca1fab58b2a916
+- file: ../src/config/default/peripheral/adc/plib_adc0.c
+  hash: 8d26df0689ebd115a42732e061cb70134080d07f30049f17f0e78f49565103ee
+- file: ../src/config/default/peripheral/adc/plib_adc0.h
+  hash: cea1d95751212e42a22fd26a1a37f5aba58d6cd7506a5da1fca4d0e4059793bd
+- file: ../src/config/default/peripheral/adc/plib_adc_common.h
+  hash: 35ad76e53c160402e7183e57e85cb656efa929008b2db976f150ea603570b63e
 - file: ../src/config/default/peripheral/clock/plib_clock.c
-  hash: 670893483f067ed26fe9bf9f389c139fe97082174b24de403ca3615c54df1764
+  hash: 06c6d3556262e44faf018d7d176b49e84f6c3ae03b6abed47afe5c4e10e1774c
 - file: ../src/config/default/peripheral/clock/plib_clock.h
   hash: 01c269741541514e997ef61546f4dbb0e23f66e27c6a957162557f13b4638baf
 - file: ../src/config/default/peripheral/evsys/plib_evsys.c
