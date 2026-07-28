@@ -112,17 +112,23 @@ bool fletcher_check(void)
 
 
 static void sendTestMessage() {
-  static uint8_t message[9] = { NRF52_HEADER, 5, 'H', 'e', 'l', 'l', 'o' };
-  if (message[7] == 0 && message[8] == 0) {
-    fletcher_reset();
-    fletcher_update(message, 7);
-    uint16_t csum = fletcher_finish();
-    // Little endian
-    message[7] = csum & 0xFF;
-    message[8] = csum >> 8;
-  }
+  static uint8_t message[11] = { NRF52_HEADER, sizeof(message)-4, 'H', 'e', 'l', 'l', 'o' };
+  static const uint8_t fletcherStart = sizeof(message) - 2;
+  static const uint8_t adcStart = 7;
 
   if (getCurrentTimeMs() >= nextSendTime) {
+      uint16_t alsVal = ADC0_ConversionResultGet();
+
+      message[adcStart + 0] = alsVal >> 8;
+      message[adcStart + 1] = alsVal & 0xff;
+
+      fletcher_reset();
+      fletcher_update(message, sizeof(message) - 2);
+      uint16_t csum = fletcher_finish();
+      // Little endian
+      message[fletcherStart + 0] = csum & 0xFF;
+      message[fletcherStart + 1] = csum >> 8;
+
       SERCOM2_USART_Write(message, sizeof(message));
       nextSendTime += sendIntervalMs;
   }
@@ -136,6 +142,8 @@ int main ( void )
     TC0_TimerCallbackRegister(tickISR, (uintptr_t)NULL);
     TC0_TimerStart();
 
+    ADC0_Enable();
+    
     while ( true )
     {
         LED_CH_EN_Toggle();
