@@ -26,30 +26,13 @@
 #include <stdbool.h>                    // Defines true
 #include <stdlib.h>                     // Defines EXIT_FAILURE
 #include "definitions.h"                // SYS function prototypes
-
+#include "timer.h"
 
 // *****************************************************************************
 // *****************************************************************************
 // Section: Main Entry Point
 // *****************************************************************************
 // *****************************************************************************
-
-static volatile uint32_t ticksMs;
-
-static void tickISR(TC_TIMER_STATUS status, uintptr_t context) {
-  ticksMs++;
-}
-
-static uint32_t getCurrentTimeMs() {
-  return ticksMs;
-}
-
-static void delay(uint32_t ms) {
-  const uint32_t endTime = ticksMs + ms + 1;
-
-  while (getCurrentTimeMs() < endTime) {
-  }
-}
 
 #define NRF52_HEADER   0x30
 
@@ -139,11 +122,10 @@ int main ( void )
     /* Initialize all modules */
     SYS_Initialize ( NULL );
 
-    TC0_TimerCallbackRegister(tickISR, (uintptr_t)NULL);
-    TC0_TimerStart();
+    timerInit();
 
     ADC0_Enable();
-    
+
     while ( true )
     {
         LED_CH_EN_Toggle();

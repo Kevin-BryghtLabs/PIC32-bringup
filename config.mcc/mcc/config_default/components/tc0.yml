@@ -336,7 +336,7 @@ data:
       - children:
         - attributes:
             id: tc0
-            value: '999'
+            value: '99'
           type: Dynamic
         type: Values
       type: Long
@@ -350,14 +350,25 @@ data:
             id: max
           children:
           - type: Value
-            value: '65.536'
+            value: '65536.0'
           type: Float
         type: Attributes
+      - children:
+        - attributes:
+            value: '100.0'
+          type: User
+        type: Values
       type: Float
     TC_TIMER_UNIT:
       attributes:
         id: TC_TIMER_UNIT
         label: Timer Period Unit
+      children:
+      - children:
+        - attributes:
+            value: microsecond
+          type: User
+        type: Values
       type: Combo
     TIMER_PERIOD_MAX:
       attributes:
