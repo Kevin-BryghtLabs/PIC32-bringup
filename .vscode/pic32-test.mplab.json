@@ -21,16 +21,22 @@
                 }
             ],
             "fileSet": "default",
-            "toolchain": "default-XC32"
+            "toolchain": "default-XC32",
+            "userVariables": "default-uservariables"
         }
     ],
     "propertyGroups": [
+        {
+            "name": "default-uservariables",
+            "type": "uservariables",
+            "properties": {}
+        },
         {
             "name": "default-XC32",
             "type": "toolchain",
             "provider": "microchip.toolchains:xc32@5.00",
             "properties": {
-                "linker.heap-size": "512",
+                "linker.heap-size": "0",
                 "compiler.extra-include-directories": [
                     "config.mcc/src",
                     "config.mcc/src/config/default",
@@ -51,7 +57,11 @@
                 "compiler.place-data-into-section": "true",
                 "linker.remove-unused-sections": "true",
                 "compiler++.isolate-each-function": "true",
-                "compiler++.optimization-level": "-O1"
+                "compiler++.optimization-level": "-O1",
+                "linker.additional-options": [
+                    "-DROM_ORIGIN=0x2000",
+                    "-DROM_LENGTH=0xE000"
+                ]
             }
         },
         {
