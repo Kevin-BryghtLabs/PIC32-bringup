@@ -74,6 +74,14 @@
 #define BLCTRL_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 10U)) & 0x01U)
 #define BLCTRL_PIN                  PORT_PIN_PB10
 
+/*** Macros for PIC_TX pin ***/
+#define PIC_TX_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 12U)) & 0x01U)
+#define PIC_TX_PIN                  PORT_PIN_PA12
+
+/*** Macros for PIC_RX pin ***/
+#define PIC_RX_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 13U)) & 0x01U)
+#define PIC_RX_PIN                  PORT_PIN_PA13
+
 /*** Macros for PSPARE1 pin ***/
 #define PSPARE1_Set()               (PORT_REGS->GROUP[0].PORT_OUTSET = ((uint32_t)1U << 22U))
 #define PSPARE1_Clear()             (PORT_REGS->GROUP[0].PORT_OUTCLR = ((uint32_t)1U << 22U))

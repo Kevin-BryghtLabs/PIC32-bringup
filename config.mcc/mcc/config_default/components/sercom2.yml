@@ -451,6 +451,13 @@ data:
       attributes:
         id: USART_7816_BAUD_VALUE
         label: ISO7816 Baud Rate Value
+      children:
+      - children:
+        - attributes:
+            id: sercom2
+            value: '6'
+          type: Dynamic
+        type: Values
       type: Integer
     USART_7816_CARD_DETECT:
       attributes:
@@ -496,6 +503,12 @@ data:
       attributes:
         id: USART_BAUD_RATE
         label: Baud Rate in Hz
+      children:
+      - children:
+        - attributes:
+            value: '250000'
+          type: User
+        type: Values
       type: Integer
     USART_BAUD_VALUE:
       attributes:
@@ -505,7 +518,7 @@ data:
       - children:
         - attributes:
             id: sercom2
-            value: '63019'
+            value: '60074'
           type: Dynamic
         type: Values
       type: Integer
@@ -763,7 +776,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '0'
           type: User
         type: Values
       type: KeyValueSet

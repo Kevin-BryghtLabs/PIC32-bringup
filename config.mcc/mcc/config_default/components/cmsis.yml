@@ -9,9 +9,9 @@ dependency:
   type: module
   version: ''
 - dependencyPackage: ''
-  name: CMSIS_5
+  name: CMSIS_6
   type: package
-  version: 5.9.1-dev
+  version: v6.3.0
 - dependencyPackage: ''
   name: csp
   type: package

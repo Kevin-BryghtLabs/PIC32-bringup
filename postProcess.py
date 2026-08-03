@@ -11,9 +11,9 @@ from intelhex.compat import array_tobytes
 import os
 
 FLASH_START = 0x0
-FLASH_END = 32768
+FLASH_END = 65536
 BOOT_START = 0x0
-BOOT_END = 0x1000
+BOOT_END = 0x2000
 APP_START = BOOT_END
 APP_END = FLASH_END - 4
 CRC_START = APP_END
@@ -21,7 +21,7 @@ CRC_END = FLASH_END
 CRC_SIZE = CRC_END - CRC_START
 
 parser = argparse.ArgumentParser(
-                    prog='SamPostProcess',
+                    prog='SHubPostProcess',
                     description='Adjusts hex file, removing BOCOR and adding CRC')
 parser.add_argument('--inHex', type=str, required=True, nargs='+', help='input hex file. ')
 parser.add_argument('--printInputSegments', action='store_true')
@@ -30,6 +30,7 @@ parser.add_argument('--pruneBocor', action='store_true')
 parser.add_argument('--trimAppCrc', action='store_true')
 parser.add_argument('--outAppC', type=argparse.FileType('w', encoding='latin-1'), help='output C header.')
 parser.add_argument('--outFactory', type=argparse.FileType('w', encoding='latin-1'), help='output factory hex.')
+parser.add_argument('--outFlashHex', type=argparse.FileType('w', encoding='latin-1'), help='output application-only hex file with CRC.')
 args = parser.parse_args()
 
 ih = IntelHex()
@@ -113,3 +114,6 @@ if args.outAppC != None:
 
 if args.outFactory != None:
     ih.write_hex_file(args.outFactory)
+
+if args.outFlashHex != None:
+    ih[APP_START:CRC_END].write_hex_file(args.outFlashHex)

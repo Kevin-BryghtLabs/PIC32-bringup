@@ -25,75 +25,79 @@
 #include <stddef.h>                     // Defines NULL
 #include <stdbool.h>                    // Defines true
 #include <stdlib.h>                     // Defines EXIT_FAILURE
+#include "bl_ble_parser.h"
 #include "definitions.h"                // SYS function prototypes
 #include "timer.h"
+#include "bl_ble_packet_headers.h"
+#include "bl_sensor_hub_firmware_version.h"
+#include "bl_uart.h"
 
 // *****************************************************************************
 // *****************************************************************************
 // Section: Main Entry Point
 // *****************************************************************************
 // *****************************************************************************
+//#define SENSOR_HUB_VERSION_MAJOR 0
+//#define SENSOR_HUB_VERSION_MINOR 0
+//#define SENSOR_HUB_VERSION_MICRO 1
 
-#define NRF52_HEADER   0x30
+#if 0
+void sendFirmwareVersion(void){
+    static const uint8_t verData[3] = {SENSOR_HUB_VERSION_MAJOR, SENSOR_HUB_VERSION_MINOR, SENSOR_HUB_VERSION_MICRO};
+    sendGeneric(NRF52_FW_VER, sizeof(verData), verData);
+}
+#endif
 
-static const uint32_t sendIntervalMs = 1000;
-static uint32_t nextSendTime;
+enum {
+    APP_ADD_FIRST_STATE_HERE = 1,
+};
 
+void signalStateInit(void) {
+    // Leave levels unchanged from bootloader
+    PSPARE1_OutputEnable();
+    PSPARE2_OutputEnable();
 
-#define FLETCHER_MOD 255
+    // App keeps PSPARE1 low and sets it low to wiggle PSPARE2, opposite of bootloader
+    PSPARE1_Clear();
+    PSPARE2_Set();
 
-uint8_t fletcher_state1 = 0;
-uint8_t fletcher_state2 = 0;
-
-void fletcher_reset()
-{
-    fletcher_state1 = 0;
-    fletcher_state2 = 0;
+    // Wiggle PSPARE2 once with PSPARE1 high to indicate bootloader running
+    PSPARE2_Clear();
+    PSPARE2_Set();
 }
 
-void fletcher_update(const uint8_t *data, int count)
-{
-   while(count)
-   {
-      fletcher_state1 = ((uint32_t)fletcher_state1 + *data) % FLETCHER_MOD;
-      fletcher_state2 = ((uint32_t)fletcher_state2 + fletcher_state1) % FLETCHER_MOD;
-      data++;
-      count--;
-   }
+void signalState(int pulses) {
+    PSPARE1_Set();
+    for (unsigned i = 0; i < pulses; ++i) {
+        PSPARE2_Clear();
+        PSPARE2_Set();
+    }
+    PSPARE1_Clear();
 }
 
-//Emit the checksum value
-uint16_t fletcher_finish(void)
-{
-   return (fletcher_state2 << 8) | fletcher_state1;
+void commStartup() {
+  //Wait a bit to ensure the UART lines have come up and other side should be ready.
+  for(unsigned i = 0; i < 5; ++i){
+    delay(1);
+  }
+
+  //Send 300B of zeros to reset the ESP32 parser in the event it is mid-frame
+  for(unsigned i = 0; i < 300; ++i){
+    sendGenericData1(0x00);
+  }
+
+  sendFirmwareVersion();
 }
 
-//Emit a modified checksum value, so that a checksum including this value == 0
-uint16_t fletcher_gencheck(void)
-{
-    uint32_t csum = fletcher_finish();
-
-    uint32_t f0 = csum & 0xff;
-    uint32_t f1 = (csum >> 8) & 0xff;
-    uint32_t c0 = 0xff - ((f0 + f1) % FLETCHER_MOD);
-    uint32_t c1 = 0xff - ((f0 + c0) % FLETCHER_MOD);
-    //Pack so we can transmit from a little-endian CPU.
-    //Everything on ChessUp2 is little-endian.
-    return (uint16_t)((c1 << 8) | c0);
-}
-
-bool fletcher_check(void)
-{
-    return fletcher_finish() == 0;
+void commProcess() {
+    while (processRxFifo()) {
+        DecodePacketData(uartRxBuffer, bleDataLength);
+    }
 }
 
 
 
-
-
-
-
-
+#if 0
 static void sendTestMessage() {
   static uint8_t message[11] = { NRF52_HEADER, sizeof(message)-4, 'H', 'e', 'l', 'l', 'o' };
   static const uint8_t fletcherStart = sizeof(message) - 2;
@@ -116,24 +120,28 @@ static void sendTestMessage() {
       nextSendTime += sendIntervalMs;
   }
 }
+  #endif
 
 int main ( void )
 {
     /* Initialize all modules */
     SYS_Initialize ( NULL );
 
+    signalStateInit();
+
     timerInit();
 
     ADC0_Enable();
 
+    commStartup();
+
     while ( true )
     {
-        LED_CH_EN_Toggle();
-        sendTestMessage();
-
         /* Maintain state machines of all polled MPLAB Harmony modules. */
         SYS_Tasks ( );
 
+        commProcess();
+        
         delay(1);
     }
 

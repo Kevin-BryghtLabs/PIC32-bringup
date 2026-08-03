@@ -1681,6 +1681,28 @@ data:
           type: Dynamic
         type: Values
       type: Boolean
+    PIN_21_FUNCTION_NAME:
+      attributes:
+        id: PIN_21_FUNCTION_NAME
+        label: Name
+      children:
+      - children:
+        - attributes:
+            value: PIC_TX
+          type: User
+        type: Values
+      type: String
+    PIN_22_FUNCTION_NAME:
+      attributes:
+        id: PIN_22_FUNCTION_NAME
+        label: Name
+      children:
+      - children:
+        - attributes:
+            value: PIC_RX
+          type: User
+        type: Values
+      type: String
   userData:
     children:
     - attributes:
