@@ -1,6 +1,5 @@
 configVersion: 1.0.0
 coreVersion: 5.9.0
-spaHostVersion: 1.3.0
 device: PIC32CM6408JH00048
 deviceLibrary: {}
 groupModules: []
@@ -10,11 +9,7 @@ modules:
 - core
 - dfp
 - evsys
-- lib_qtouch
 - nvmctrl
-- pm
-- ptc
-- rtc
 - sercom2
 - tc0
 generatedFileHashHistoryMap:

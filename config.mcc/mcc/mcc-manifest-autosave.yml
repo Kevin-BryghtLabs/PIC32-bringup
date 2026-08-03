@@ -2,7 +2,7 @@
 
 manifest_file_version: 1.0.0
 project: config_default
-creation_date: 2026-08-03T14:23:22.110-05:00[America/Chicago]
+creation_date: 2026-08-03T17:01:56.299-05:00[America/Chicago]
 operating_system: Linux
 mcc_mode: VSCodePlugin
 mcc_mode_version: Unknown
@@ -20,3 +20,4 @@ packs: {name: PIC32CM-JH_DFP, version: 1.5.236}
 modules:
 - {name: CMSIS_6, type: HARMONY, version: v6.3.0}
 - {name: csp, type: HARMONY, version: v3.26.0}
+- {name: touch, type: HARMONY, version: v3.20.1}

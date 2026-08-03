@@ -10,11 +10,7 @@ modules:
 - core
 - dfp
 - evsys
-- lib_qtouch
 - nvmctrl
-- pm
-- ptc
-- rtc
 - sercom2
 - tc0
 generatedFileHashHistoryMap:
