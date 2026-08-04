@@ -49,6 +49,8 @@ static void OSCCTRL_Initialize(void)
 {
     uint32_t calibValue = (uint32_t)(((*(uint64_t*)0x00806020UL) >> 19 ) & 0x3fffffUL);
     OSCCTRL_REGS->OSCCTRL_CAL48M = calibValue;
+    /* Configure 48MHz Oscillator */
+    OSCCTRL_REGS->OSCCTRL_OSC48MCTRL = (uint8_t)(OSCCTRL_OSC48MCTRL_ENABLE_Msk | OSCCTRL_OSC48MCTRL_RUNSTDBY_Msk );
 
 
     /* Selection of the Division Value */
@@ -88,6 +90,17 @@ static void GCLK0_Initialize(void)
 }
 
 
+static void GCLK1_Initialize(void)
+{
+    GCLK_REGS->GCLK_GENCTRL[1] = GCLK_GENCTRL_DIV(12UL) | GCLK_GENCTRL_SRC(6UL) | GCLK_GENCTRL_RUNSTDBY_Msk | GCLK_GENCTRL_GENEN_Msk;
+
+    while((GCLK_REGS->GCLK_SYNCBUSY & GCLK_SYNCBUSY_GENCTRL1_Msk) == GCLK_SYNCBUSY_GENCTRL1_Msk)
+    {
+        /* wait for the Generator 1 synchronization */
+    }
+}
+
+
 static void GCLK2_Initialize(void)
 {
     GCLK_REGS->GCLK_GENCTRL[2] = GCLK_GENCTRL_DIV(48UL) | GCLK_GENCTRL_SRC(6UL) | GCLK_GENCTRL_GENEN_Msk;
@@ -107,9 +120,17 @@ void CLOCK_Initialize (void)
     OSC32KCTRL_Initialize();
 
     GCLK0_Initialize();
+    GCLK1_Initialize();
     GCLK2_Initialize();
 
 
+    /* Selection of the Generator and write Lock for EVSYS_0 */
+    GCLK_REGS->GCLK_PCHCTRL[6] = GCLK_PCHCTRL_GEN(0x1UL)  | GCLK_PCHCTRL_CHEN_Msk;
+
+    while ((GCLK_REGS->GCLK_PCHCTRL[6] & GCLK_PCHCTRL_CHEN_Msk) != GCLK_PCHCTRL_CHEN_Msk)
+    {
+        /* Wait for synchronization */
+    }
     /* Selection of the Generator and write Lock for SERCOM2_CORE */
     GCLK_REGS->GCLK_PCHCTRL[21] = GCLK_PCHCTRL_GEN(0x0UL)  | GCLK_PCHCTRL_CHEN_Msk;
 
@@ -131,11 +152,18 @@ void CLOCK_Initialize (void)
     {
         /* Wait for synchronization */
     }
+    /* Selection of the Generator and write Lock for PTC */
+    GCLK_REGS->GCLK_PCHCTRL[37] = GCLK_PCHCTRL_GEN(0x1UL)  | GCLK_PCHCTRL_CHEN_Msk;
+
+    while ((GCLK_REGS->GCLK_PCHCTRL[37] & GCLK_PCHCTRL_CHEN_Msk) != GCLK_PCHCTRL_CHEN_Msk)
+    {
+        /* Wait for synchronization */
+    }
 
 
 
     /* Configure the APBC Bridge Clocks */
-    MCLK_REGS->MCLK_APBCMASK = 0x21008U;
+    MCLK_REGS->MCLK_APBCMASK = 0x421009U;
 
 
 }

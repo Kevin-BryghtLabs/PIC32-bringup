@@ -1,22 +1,28 @@
 /*******************************************************************************
-  NVIC PLIB Implementation
+  Power Manager(PM) PLIB
 
-  Company:
+  Company
     Microchip Technology Inc.
 
-  File Name:
-    plib_nvic.c
+  File Name
+    plib_pm.h
 
-  Summary:
-    NVIC PLIB Source File
+  Summary
+    PM PLIB Header File.
 
-  Description:
-    None
+  Description
+    This file defines the interface to the PM peripheral library. This
+    library provides access to and control of the associated peripheral
+    instance.
+
+  Remarks:
+    None.
 
 *******************************************************************************/
 
+// DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -37,89 +43,46 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
+// DOM-IGNORE-END
 
-#include "device.h"
-#include "plib_nvic.h"
-
+#ifndef PLIB_PM_H    // Guards against multiple inclusion
+#define PLIB_PM_H
 
 // *****************************************************************************
 // *****************************************************************************
-// Section: NVIC Implementation
+// Section: Included Files
 // *****************************************************************************
 // *****************************************************************************
+/* This section lists the other files that are included in this file.
+*/
 
-void NVIC_Initialize( void )
-{
+#include <stdbool.h>
+#include <stddef.h>
 
-    /* Enable NVIC Controller */
-    __DMB();
-    __enable_irq();
+// DOM-IGNORE-BEGIN
+#ifdef __cplusplus // Provide C++ Compatibility
 
-    /* Enable the interrupt sources and configure the priorities as configured
-     * from within the "Interrupt Manager" of MHC. */
-    NVIC_SetPriority(RTC_IRQn, 3);
-    NVIC_EnableIRQ(RTC_IRQn);
-    NVIC_SetPriority(SERCOM2_IRQn, 3);
-    NVIC_EnableIRQ(SERCOM2_IRQn);
-    NVIC_SetPriority(TC0_IRQn, 3);
-    NVIC_EnableIRQ(TC0_IRQn);
-    NVIC_SetPriority(PTC_IRQn, 3);
-    NVIC_EnableIRQ(PTC_IRQn);
+    extern "C" {
 
+#endif
+// DOM-IGNORE-END
 
+// *****************************************************************************
+// *****************************************************************************
+// Section: Interface Routines
+// *****************************************************************************
+// *****************************************************************************
+void PM_Initialize( void );
+void PM_IdleModeEnter( void );
 
+void PM_StandbyModeEnter( void );
 
-}
+// DOM-IGNORE-BEGIN
+#ifdef __cplusplus  // Provide C++ Compatibility
 
-void NVIC_INT_Enable( void )
-{
-    __DMB();
-    __enable_irq();
-}
-
-bool NVIC_INT_Disable( void )
-{
-    bool processorStatus = (__get_PRIMASK() == 0U);
-
-    __disable_irq();
-    __DMB();
-
-    return processorStatus;
-}
-
-void NVIC_INT_Restore( bool state )
-{
-    if( state == true )
-    {
-        __DMB();
-        __enable_irq();
-    }
-    else
-    {
-        __disable_irq();
-        __DMB();
-    }
-}
-
-bool NVIC_INT_SourceDisable( IRQn_Type source )
-{
-    bool processorStatus;
-    bool intSrcStatus;
-
-    processorStatus = NVIC_INT_Disable();
-    intSrcStatus = (NVIC_GetEnableIRQ(source) != 0U);
-    NVIC_DisableIRQ( source );
-    NVIC_INT_Restore( processorStatus );
-
-    /* return the source status */
-    return intSrcStatus;
-}
-
-void NVIC_INT_SourceRestore( IRQn_Type source, bool status )
-{
-    if( status ) {
-       NVIC_EnableIRQ( source );
     }
 
-    return;
-}
+#endif
+// DOM-IGNORE-END
+
+#endif /* PLIB_PM_H */

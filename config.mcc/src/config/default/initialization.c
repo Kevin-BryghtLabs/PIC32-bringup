@@ -132,6 +132,8 @@ void SYS_Initialize ( void* data )
 
     NVMCTRL_REGS->NVMCTRL_CTRLB = NVMCTRL_CTRLB_RWS(3UL);
 
+    PM_Initialize();
+
   
     PORT_Initialize();
 
@@ -140,9 +142,9 @@ void SYS_Initialize ( void* data )
 
 
 
-    SERCOM2_USART_Initialize();
-
     NVMCTRL_Initialize( );
+
+    SERCOM2_USART_Initialize();
 
     EVSYS_Initialize();
 
@@ -150,7 +152,21 @@ void SYS_Initialize ( void* data )
     ADC0_Initialize();
     TC0_TimerInitialize();
 
+    RTC_Initialize();
 
+
+    /* MISRAC 2023 deviation block start */
+    /* Following MISRA-C rules deviated in this block  */
+    /* MISRA C-2023 Rule 11.3 - Deviation record ID - H3_MISRAC_2023_R_11_3_DR_1 */
+    /* MISRA C-2023 Rule 11.8 - Deviation record ID - H3_MISRAC_2023_R_11_8_DR_1 */
+
+
+
+    
+	touch_init();
+
+
+    /* MISRAC 2023 deviation block end */
     NVIC_Initialize();
 
 
