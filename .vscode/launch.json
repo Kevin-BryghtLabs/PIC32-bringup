@@ -14,6 +14,15 @@
       "stopOnEntry": true,
       "preLaunchTask": "pic32-test: default - Build",
       "program": "${workspaceFolder}/out/pic32-test/default.elf"
+    },
+    {
+      // Note: Properties here can override MPLAB project settings
+      "name": "Attach pic32-test: default",
+      "type": "mplab-core-da",
+      "request": "attach",
+      "project": "pic32-test",
+      "configuration": "default",
+      "preLaunchTask": "pic32-test: default - Build",
     }
   ]
 }
