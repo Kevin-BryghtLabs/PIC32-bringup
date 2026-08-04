@@ -2831,16 +2831,34 @@ data:
       attributes:
         id: DEF_NOD_PTC_PRESCALER0
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER1:
       attributes:
         id: DEF_NOD_PTC_PRESCALER1
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER10:
       attributes:
         id: DEF_NOD_PTC_PRESCALER10
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER100:
       attributes:
@@ -2896,6 +2914,12 @@ data:
       attributes:
         id: DEF_NOD_PTC_PRESCALER11
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER110:
       attributes:
@@ -2951,6 +2975,12 @@ data:
       attributes:
         id: DEF_NOD_PTC_PRESCALER12
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER120:
       attributes:
@@ -3006,6 +3036,12 @@ data:
       attributes:
         id: DEF_NOD_PTC_PRESCALER13
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER130:
       attributes:
@@ -3041,276 +3077,606 @@ data:
       attributes:
         id: DEF_NOD_PTC_PRESCALER14
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER15:
       attributes:
         id: DEF_NOD_PTC_PRESCALER15
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER16:
       attributes:
         id: DEF_NOD_PTC_PRESCALER16
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER17:
       attributes:
         id: DEF_NOD_PTC_PRESCALER17
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER18:
       attributes:
         id: DEF_NOD_PTC_PRESCALER18
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER19:
       attributes:
         id: DEF_NOD_PTC_PRESCALER19
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER2:
       attributes:
         id: DEF_NOD_PTC_PRESCALER2
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER20:
       attributes:
         id: DEF_NOD_PTC_PRESCALER20
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER21:
       attributes:
         id: DEF_NOD_PTC_PRESCALER21
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER22:
       attributes:
         id: DEF_NOD_PTC_PRESCALER22
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER23:
       attributes:
         id: DEF_NOD_PTC_PRESCALER23
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER24:
       attributes:
         id: DEF_NOD_PTC_PRESCALER24
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER25:
       attributes:
         id: DEF_NOD_PTC_PRESCALER25
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER26:
       attributes:
         id: DEF_NOD_PTC_PRESCALER26
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER27:
       attributes:
         id: DEF_NOD_PTC_PRESCALER27
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER28:
       attributes:
         id: DEF_NOD_PTC_PRESCALER28
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER29:
       attributes:
         id: DEF_NOD_PTC_PRESCALER29
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER3:
       attributes:
         id: DEF_NOD_PTC_PRESCALER3
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER30:
       attributes:
         id: DEF_NOD_PTC_PRESCALER30
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER31:
       attributes:
         id: DEF_NOD_PTC_PRESCALER31
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER32:
       attributes:
         id: DEF_NOD_PTC_PRESCALER32
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER33:
       attributes:
         id: DEF_NOD_PTC_PRESCALER33
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER34:
       attributes:
         id: DEF_NOD_PTC_PRESCALER34
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER35:
       attributes:
         id: DEF_NOD_PTC_PRESCALER35
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER36:
       attributes:
         id: DEF_NOD_PTC_PRESCALER36
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER37:
       attributes:
         id: DEF_NOD_PTC_PRESCALER37
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER38:
       attributes:
         id: DEF_NOD_PTC_PRESCALER38
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER39:
       attributes:
         id: DEF_NOD_PTC_PRESCALER39
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER4:
       attributes:
         id: DEF_NOD_PTC_PRESCALER4
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER40:
       attributes:
         id: DEF_NOD_PTC_PRESCALER40
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER41:
       attributes:
         id: DEF_NOD_PTC_PRESCALER41
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER42:
       attributes:
         id: DEF_NOD_PTC_PRESCALER42
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER43:
       attributes:
         id: DEF_NOD_PTC_PRESCALER43
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER44:
       attributes:
         id: DEF_NOD_PTC_PRESCALER44
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER45:
       attributes:
         id: DEF_NOD_PTC_PRESCALER45
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER46:
       attributes:
         id: DEF_NOD_PTC_PRESCALER46
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER47:
       attributes:
         id: DEF_NOD_PTC_PRESCALER47
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER48:
       attributes:
         id: DEF_NOD_PTC_PRESCALER48
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER49:
       attributes:
         id: DEF_NOD_PTC_PRESCALER49
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER5:
       attributes:
         id: DEF_NOD_PTC_PRESCALER5
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER50:
       attributes:
         id: DEF_NOD_PTC_PRESCALER50
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER51:
       attributes:
         id: DEF_NOD_PTC_PRESCALER51
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER52:
       attributes:
         id: DEF_NOD_PTC_PRESCALER52
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER53:
       attributes:
         id: DEF_NOD_PTC_PRESCALER53
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER54:
       attributes:
         id: DEF_NOD_PTC_PRESCALER54
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER55:
       attributes:
         id: DEF_NOD_PTC_PRESCALER55
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER56:
       attributes:
         id: DEF_NOD_PTC_PRESCALER56
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER57:
       attributes:
         id: DEF_NOD_PTC_PRESCALER57
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER58:
       attributes:
         id: DEF_NOD_PTC_PRESCALER58
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER59:
       attributes:
         id: DEF_NOD_PTC_PRESCALER59
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER6:
       attributes:
         id: DEF_NOD_PTC_PRESCALER6
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER60:
       attributes:
         id: DEF_NOD_PTC_PRESCALER60
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER61:
       attributes:
         id: DEF_NOD_PTC_PRESCALER61
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER62:
       attributes:
         id: DEF_NOD_PTC_PRESCALER62
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER63:
       attributes:
         id: DEF_NOD_PTC_PRESCALER63
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER64:
       attributes:
@@ -3346,6 +3712,12 @@ data:
       attributes:
         id: DEF_NOD_PTC_PRESCALER7
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER70:
       attributes:
@@ -3401,6 +3773,12 @@ data:
       attributes:
         id: DEF_NOD_PTC_PRESCALER8
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER80:
       attributes:
@@ -3456,6 +3834,12 @@ data:
       attributes:
         id: DEF_NOD_PTC_PRESCALER9
         label: PTC Clock (MHz)
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_PTC_PRESCALER90:
       attributes:
@@ -11205,11 +11589,25 @@ data:
       attributes:
         id: FTL_X_INFO
         label: Comma separated Lump X configuration per node
+      children:
+      - children:
+        - attributes:
+            id: lib_qtouch
+            value: X(0),X(0),X(0),X(0),X(0),X(0),X(0),X(0),X(7),X(7),X(7),X(7),X(7),X(7),X(7),X(7),X(1),X(1),X(1),X(1),X(1),X(1),X(1),X(1),X(6),X(6),X(6),X(6),X(6),X(6),X(6),X(6),X(2),X(2),X(2),X(2),X(2),X(2),X(2),X(2),X(5),X(5),X(5),X(5),X(5),X(5),X(5),X(5),X(3),X(3),X(3),X(3),X(3),X(3),X(3),X(3),X(4),X(4),X(4),X(4),X(4),X(4),X(4),X(4),X(9),X(8),X(9),X(8),X(9),X(8),X(9),X(8),X(9),X(8),X(9),X(8),X(9)
+          type: Dynamic
+        type: Values
       type: String
     FTL_Y_INFO:
       attributes:
         id: FTL_Y_INFO
         label: Comma separated Lump Y configuration per node
+      children:
+      - children:
+        - attributes:
+            id: lib_qtouch
+            value: Y(9),Y(8),Y(14),Y(15),Y(2),Y(3),Y(4),Y(5),Y(9),Y(8),Y(14),Y(15),Y(2),Y(3),Y(4),Y(5),Y(9),Y(8),Y(14),Y(15),Y(2),Y(3),Y(4),Y(5),Y(9),Y(8),Y(14),Y(15),Y(2),Y(3),Y(4),Y(5),Y(9),Y(8),Y(14),Y(15),Y(2),Y(3),Y(4),Y(5),Y(9),Y(8),Y(14),Y(15),Y(2),Y(3),Y(4),Y(5),Y(9),Y(8),Y(14),Y(15),Y(2),Y(3),Y(4),Y(5),Y(9),Y(8),Y(14),Y(15),Y(2),Y(3),Y(4),Y(5),Y(5),Y(5),Y(4),Y(4),Y(3),Y(3),Y(2),Y(2),Y(15),Y(15),Y(14),Y(9),Y(9)
+          type: Dynamic
+        type: Values
       type: String
     GET_PTC_CLOCK_FREQUENCY:
       attributes:
@@ -11219,7 +11617,7 @@ data:
       - children:
         - attributes:
             id: lib_qtouch
-            value: '48000000'
+            value: '4000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -11227,6 +11625,12 @@ data:
       attributes:
         id: HELPER_STATE
         label: Touch Helper State
+      children:
+      - children:
+        - attributes:
+            value: '{"alert":null,"matrix":{"xSignals":["X0","X1","X2","X3","X4","X5","X6","X7","X8","X9"],"ySignals":["Y2","Y3","Y4","Y5","Y8","Y9","Y14","Y15"]},"target":{"xSignals":["X0  (PA08)","X1  (PA09)","X2  (PA10)","X3  (PA11)","X4  (PA16)","X5  (PA17)","X6  (PA18)","X7  (PA19)","X8  (PA20)","X9  (PA21)"],"ySignals":["Y2  (PA04)","Y3  (PA05)","Y4  (PA06)","Y5  (PA07)","Y8  (PB02)","Y9  (PB03)","Y14  (PB08)","Y15  (PB09)"]}}'
+          type: User
+        type: Values
       type: String
     HOP_FREQ0:
       attributes:
@@ -11342,16 +11746,34 @@ data:
       attributes:
         id: MUTL-X-INPUT_0
         label: Select X Pin for Channel 0
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_1:
       attributes:
         id: MUTL-X-INPUT_1
         label: Select X Pin for Channel 1
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_10:
       attributes:
         id: MUTL-X-INPUT_10
         label: Select X Pin for Channel 10
+      children:
+      - children:
+        - attributes:
+            value: '7'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_100:
       attributes:
@@ -11407,6 +11829,12 @@ data:
       attributes:
         id: MUTL-X-INPUT_11
         label: Select X Pin for Channel 11
+      children:
+      - children:
+        - attributes:
+            value: '7'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_110:
       attributes:
@@ -11462,6 +11890,12 @@ data:
       attributes:
         id: MUTL-X-INPUT_12
         label: Select X Pin for Channel 12
+      children:
+      - children:
+        - attributes:
+            value: '7'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_120:
       attributes:
@@ -11517,6 +11951,12 @@ data:
       attributes:
         id: MUTL-X-INPUT_13
         label: Select X Pin for Channel 13
+      children:
+      - children:
+        - attributes:
+            value: '7'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_130:
       attributes:
@@ -11552,346 +11992,760 @@ data:
       attributes:
         id: MUTL-X-INPUT_14
         label: Select X Pin for Channel 14
+      children:
+      - children:
+        - attributes:
+            value: '7'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_15:
       attributes:
         id: MUTL-X-INPUT_15
         label: Select X Pin for Channel 15
+      children:
+      - children:
+        - attributes:
+            value: '7'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_16:
       attributes:
         id: MUTL-X-INPUT_16
         label: Select X Pin for Channel 16
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_17:
       attributes:
         id: MUTL-X-INPUT_17
         label: Select X Pin for Channel 17
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_18:
       attributes:
         id: MUTL-X-INPUT_18
         label: Select X Pin for Channel 18
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_19:
       attributes:
         id: MUTL-X-INPUT_19
         label: Select X Pin for Channel 19
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_2:
       attributes:
         id: MUTL-X-INPUT_2
         label: Select X Pin for Channel 2
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_20:
       attributes:
         id: MUTL-X-INPUT_20
         label: Select X Pin for Channel 20
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_21:
       attributes:
         id: MUTL-X-INPUT_21
         label: Select X Pin for Channel 21
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_22:
       attributes:
         id: MUTL-X-INPUT_22
         label: Select X Pin for Channel 22
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_23:
       attributes:
         id: MUTL-X-INPUT_23
         label: Select X Pin for Channel 23
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_24:
       attributes:
         id: MUTL-X-INPUT_24
         label: Select X Pin for Channel 24
+      children:
+      - children:
+        - attributes:
+            value: '6'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_25:
       attributes:
         id: MUTL-X-INPUT_25
         label: Select X Pin for Channel 25
+      children:
+      - children:
+        - attributes:
+            value: '6'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_26:
       attributes:
         id: MUTL-X-INPUT_26
         label: Select X Pin for Channel 26
+      children:
+      - children:
+        - attributes:
+            value: '6'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_27:
       attributes:
         id: MUTL-X-INPUT_27
         label: Select X Pin for Channel 27
+      children:
+      - children:
+        - attributes:
+            value: '6'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_28:
       attributes:
         id: MUTL-X-INPUT_28
         label: Select X Pin for Channel 28
+      children:
+      - children:
+        - attributes:
+            value: '6'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_29:
       attributes:
         id: MUTL-X-INPUT_29
         label: Select X Pin for Channel 29
+      children:
+      - children:
+        - attributes:
+            value: '6'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_3:
       attributes:
         id: MUTL-X-INPUT_3
         label: Select X Pin for Channel 3
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_30:
       attributes:
         id: MUTL-X-INPUT_30
         label: Select X Pin for Channel 30
+      children:
+      - children:
+        - attributes:
+            value: '6'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_31:
       attributes:
         id: MUTL-X-INPUT_31
         label: Select X Pin for Channel 31
+      children:
+      - children:
+        - attributes:
+            value: '6'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_32:
       attributes:
         id: MUTL-X-INPUT_32
         label: Select X Pin for Channel 32
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_33:
       attributes:
         id: MUTL-X-INPUT_33
         label: Select X Pin for Channel 33
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_34:
       attributes:
         id: MUTL-X-INPUT_34
         label: Select X Pin for Channel 34
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_35:
       attributes:
         id: MUTL-X-INPUT_35
         label: Select X Pin for Channel 35
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_36:
       attributes:
         id: MUTL-X-INPUT_36
         label: Select X Pin for Channel 36
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_37:
       attributes:
         id: MUTL-X-INPUT_37
         label: Select X Pin for Channel 37
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_38:
       attributes:
         id: MUTL-X-INPUT_38
         label: Select X Pin for Channel 38
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_39:
       attributes:
         id: MUTL-X-INPUT_39
         label: Select X Pin for Channel 39
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_4:
       attributes:
         id: MUTL-X-INPUT_4
         label: Select X Pin for Channel 4
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_40:
       attributes:
         id: MUTL-X-INPUT_40
         label: Select X Pin for Channel 40
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_41:
       attributes:
         id: MUTL-X-INPUT_41
         label: Select X Pin for Channel 41
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_42:
       attributes:
         id: MUTL-X-INPUT_42
         label: Select X Pin for Channel 42
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_43:
       attributes:
         id: MUTL-X-INPUT_43
         label: Select X Pin for Channel 43
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_44:
       attributes:
         id: MUTL-X-INPUT_44
         label: Select X Pin for Channel 44
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_45:
       attributes:
         id: MUTL-X-INPUT_45
         label: Select X Pin for Channel 45
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_46:
       attributes:
         id: MUTL-X-INPUT_46
         label: Select X Pin for Channel 46
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_47:
       attributes:
         id: MUTL-X-INPUT_47
         label: Select X Pin for Channel 47
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_48:
       attributes:
         id: MUTL-X-INPUT_48
         label: Select X Pin for Channel 48
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_49:
       attributes:
         id: MUTL-X-INPUT_49
         label: Select X Pin for Channel 49
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_5:
       attributes:
         id: MUTL-X-INPUT_5
         label: Select X Pin for Channel 5
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_50:
       attributes:
         id: MUTL-X-INPUT_50
         label: Select X Pin for Channel 50
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_51:
       attributes:
         id: MUTL-X-INPUT_51
         label: Select X Pin for Channel 51
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_52:
       attributes:
         id: MUTL-X-INPUT_52
         label: Select X Pin for Channel 52
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_53:
       attributes:
         id: MUTL-X-INPUT_53
         label: Select X Pin for Channel 53
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_54:
       attributes:
         id: MUTL-X-INPUT_54
         label: Select X Pin for Channel 54
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_55:
       attributes:
         id: MUTL-X-INPUT_55
         label: Select X Pin for Channel 55
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_56:
       attributes:
         id: MUTL-X-INPUT_56
         label: Select X Pin for Channel 56
+      children:
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_57:
       attributes:
         id: MUTL-X-INPUT_57
         label: Select X Pin for Channel 57
+      children:
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_58:
       attributes:
         id: MUTL-X-INPUT_58
         label: Select X Pin for Channel 58
+      children:
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_59:
       attributes:
         id: MUTL-X-INPUT_59
         label: Select X Pin for Channel 59
+      children:
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_6:
       attributes:
         id: MUTL-X-INPUT_6
         label: Select X Pin for Channel 6
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_60:
       attributes:
         id: MUTL-X-INPUT_60
         label: Select X Pin for Channel 60
+      children:
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_61:
       attributes:
         id: MUTL-X-INPUT_61
         label: Select X Pin for Channel 61
+      children:
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_62:
       attributes:
         id: MUTL-X-INPUT_62
         label: Select X Pin for Channel 62
+      children:
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_63:
       attributes:
         id: MUTL-X-INPUT_63
         label: Select X Pin for Channel 63
+      children:
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_64:
       attributes:
         id: MUTL-X-INPUT_64
         label: Select X Pin for Channel 64
+      children:
+      - children:
+        - attributes:
+            value: '9'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_65:
       attributes:
         id: MUTL-X-INPUT_65
         label: Select X Pin for Channel 65
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_66:
       attributes:
         id: MUTL-X-INPUT_66
         label: Select X Pin for Channel 66
+      children:
+      - children:
+        - attributes:
+            value: '9'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_67:
       attributes:
         id: MUTL-X-INPUT_67
         label: Select X Pin for Channel 67
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_68:
       attributes:
         id: MUTL-X-INPUT_68
         label: Select X Pin for Channel 68
+      children:
+      - children:
+        - attributes:
+            value: '9'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_69:
       attributes:
         id: MUTL-X-INPUT_69
         label: Select X Pin for Channel 69
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_7:
       attributes:
         id: MUTL-X-INPUT_7
         label: Select X Pin for Channel 7
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_70:
       attributes:
         id: MUTL-X-INPUT_70
         label: Select X Pin for Channel 70
+      children:
+      - children:
+        - attributes:
+            value: '9'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_71:
       attributes:
         id: MUTL-X-INPUT_71
         label: Select X Pin for Channel 71
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_72:
       attributes:
         id: MUTL-X-INPUT_72
         label: Select X Pin for Channel 72
+      children:
+      - children:
+        - attributes:
+            value: '9'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_73:
       attributes:
         id: MUTL-X-INPUT_73
         label: Select X Pin for Channel 73
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_74:
       attributes:
         id: MUTL-X-INPUT_74
         label: Select X Pin for Channel 74
+      children:
+      - children:
+        - attributes:
+            value: '9'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_75:
       attributes:
         id: MUTL-X-INPUT_75
         label: Select X Pin for Channel 75
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_76:
       attributes:
         id: MUTL-X-INPUT_76
         label: Select X Pin for Channel 76
+      children:
+      - children:
+        - attributes:
+            value: '9'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_77:
       attributes:
@@ -11912,6 +12766,12 @@ data:
       attributes:
         id: MUTL-X-INPUT_8
         label: Select X Pin for Channel 8
+      children:
+      - children:
+        - attributes:
+            value: '7'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_80:
       attributes:
@@ -11967,6 +12827,12 @@ data:
       attributes:
         id: MUTL-X-INPUT_9
         label: Select X Pin for Channel 9
+      children:
+      - children:
+        - attributes:
+            value: '7'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_90:
       attributes:
@@ -12022,16 +12888,34 @@ data:
       attributes:
         id: MUTL-Y-INPUT_0
         label: Select Y Pin for Channel 0
+      children:
+      - children:
+        - attributes:
+            value: '7'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_1:
       attributes:
         id: MUTL-Y-INPUT_1
         label: Select Y Pin for Channel 1
+      children:
+      - children:
+        - attributes:
+            value: '6'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_10:
       attributes:
         id: MUTL-Y-INPUT_10
         label: Select Y Pin for Channel 10
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_100:
       attributes:
@@ -12087,6 +12971,12 @@ data:
       attributes:
         id: MUTL-Y-INPUT_11
         label: Select Y Pin for Channel 11
+      children:
+      - children:
+        - attributes:
+            value: '9'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_110:
       attributes:
@@ -12142,6 +13032,12 @@ data:
       attributes:
         id: MUTL-Y-INPUT_12
         label: Select Y Pin for Channel 12
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_120:
       attributes:
@@ -12197,6 +13093,12 @@ data:
       attributes:
         id: MUTL-Y-INPUT_13
         label: Select Y Pin for Channel 13
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_130:
       attributes:
@@ -12232,346 +13134,760 @@ data:
       attributes:
         id: MUTL-Y-INPUT_14
         label: Select Y Pin for Channel 14
+      children:
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_15:
       attributes:
         id: MUTL-Y-INPUT_15
         label: Select Y Pin for Channel 15
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_16:
       attributes:
         id: MUTL-Y-INPUT_16
         label: Select Y Pin for Channel 16
+      children:
+      - children:
+        - attributes:
+            value: '7'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_17:
       attributes:
         id: MUTL-Y-INPUT_17
         label: Select Y Pin for Channel 17
+      children:
+      - children:
+        - attributes:
+            value: '6'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_18:
       attributes:
         id: MUTL-Y-INPUT_18
         label: Select Y Pin for Channel 18
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_19:
       attributes:
         id: MUTL-Y-INPUT_19
         label: Select Y Pin for Channel 19
+      children:
+      - children:
+        - attributes:
+            value: '9'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_2:
       attributes:
         id: MUTL-Y-INPUT_2
         label: Select Y Pin for Channel 2
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_20:
       attributes:
         id: MUTL-Y-INPUT_20
         label: Select Y Pin for Channel 20
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_21:
       attributes:
         id: MUTL-Y-INPUT_21
         label: Select Y Pin for Channel 21
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_22:
       attributes:
         id: MUTL-Y-INPUT_22
         label: Select Y Pin for Channel 22
+      children:
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_23:
       attributes:
         id: MUTL-Y-INPUT_23
         label: Select Y Pin for Channel 23
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_24:
       attributes:
         id: MUTL-Y-INPUT_24
         label: Select Y Pin for Channel 24
+      children:
+      - children:
+        - attributes:
+            value: '7'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_25:
       attributes:
         id: MUTL-Y-INPUT_25
         label: Select Y Pin for Channel 25
+      children:
+      - children:
+        - attributes:
+            value: '6'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_26:
       attributes:
         id: MUTL-Y-INPUT_26
         label: Select Y Pin for Channel 26
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_27:
       attributes:
         id: MUTL-Y-INPUT_27
         label: Select Y Pin for Channel 27
+      children:
+      - children:
+        - attributes:
+            value: '9'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_28:
       attributes:
         id: MUTL-Y-INPUT_28
         label: Select Y Pin for Channel 28
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_29:
       attributes:
         id: MUTL-Y-INPUT_29
         label: Select Y Pin for Channel 29
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_3:
       attributes:
         id: MUTL-Y-INPUT_3
         label: Select Y Pin for Channel 3
+      children:
+      - children:
+        - attributes:
+            value: '9'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_30:
       attributes:
         id: MUTL-Y-INPUT_30
         label: Select Y Pin for Channel 30
+      children:
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_31:
       attributes:
         id: MUTL-Y-INPUT_31
         label: Select Y Pin for Channel 31
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_32:
       attributes:
         id: MUTL-Y-INPUT_32
         label: Select Y Pin for Channel 32
+      children:
+      - children:
+        - attributes:
+            value: '7'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_33:
       attributes:
         id: MUTL-Y-INPUT_33
         label: Select Y Pin for Channel 33
+      children:
+      - children:
+        - attributes:
+            value: '6'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_34:
       attributes:
         id: MUTL-Y-INPUT_34
         label: Select Y Pin for Channel 34
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_35:
       attributes:
         id: MUTL-Y-INPUT_35
         label: Select Y Pin for Channel 35
+      children:
+      - children:
+        - attributes:
+            value: '9'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_36:
       attributes:
         id: MUTL-Y-INPUT_36
         label: Select Y Pin for Channel 36
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_37:
       attributes:
         id: MUTL-Y-INPUT_37
         label: Select Y Pin for Channel 37
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_38:
       attributes:
         id: MUTL-Y-INPUT_38
         label: Select Y Pin for Channel 38
+      children:
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_39:
       attributes:
         id: MUTL-Y-INPUT_39
         label: Select Y Pin for Channel 39
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_4:
       attributes:
         id: MUTL-Y-INPUT_4
         label: Select Y Pin for Channel 4
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_40:
       attributes:
         id: MUTL-Y-INPUT_40
         label: Select Y Pin for Channel 40
+      children:
+      - children:
+        - attributes:
+            value: '7'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_41:
       attributes:
         id: MUTL-Y-INPUT_41
         label: Select Y Pin for Channel 41
+      children:
+      - children:
+        - attributes:
+            value: '6'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_42:
       attributes:
         id: MUTL-Y-INPUT_42
         label: Select Y Pin for Channel 42
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_43:
       attributes:
         id: MUTL-Y-INPUT_43
         label: Select Y Pin for Channel 43
+      children:
+      - children:
+        - attributes:
+            value: '9'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_44:
       attributes:
         id: MUTL-Y-INPUT_44
         label: Select Y Pin for Channel 44
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_45:
       attributes:
         id: MUTL-Y-INPUT_45
         label: Select Y Pin for Channel 45
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_46:
       attributes:
         id: MUTL-Y-INPUT_46
         label: Select Y Pin for Channel 46
+      children:
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_47:
       attributes:
         id: MUTL-Y-INPUT_47
         label: Select Y Pin for Channel 47
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_48:
       attributes:
         id: MUTL-Y-INPUT_48
         label: Select Y Pin for Channel 48
+      children:
+      - children:
+        - attributes:
+            value: '7'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_49:
       attributes:
         id: MUTL-Y-INPUT_49
         label: Select Y Pin for Channel 49
+      children:
+      - children:
+        - attributes:
+            value: '6'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_5:
       attributes:
         id: MUTL-Y-INPUT_5
         label: Select Y Pin for Channel 5
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_50:
       attributes:
         id: MUTL-Y-INPUT_50
         label: Select Y Pin for Channel 50
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_51:
       attributes:
         id: MUTL-Y-INPUT_51
         label: Select Y Pin for Channel 51
+      children:
+      - children:
+        - attributes:
+            value: '9'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_52:
       attributes:
         id: MUTL-Y-INPUT_52
         label: Select Y Pin for Channel 52
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_53:
       attributes:
         id: MUTL-Y-INPUT_53
         label: Select Y Pin for Channel 53
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_54:
       attributes:
         id: MUTL-Y-INPUT_54
         label: Select Y Pin for Channel 54
+      children:
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_55:
       attributes:
         id: MUTL-Y-INPUT_55
         label: Select Y Pin for Channel 55
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_56:
       attributes:
         id: MUTL-Y-INPUT_56
         label: Select Y Pin for Channel 56
+      children:
+      - children:
+        - attributes:
+            value: '7'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_57:
       attributes:
         id: MUTL-Y-INPUT_57
         label: Select Y Pin for Channel 57
+      children:
+      - children:
+        - attributes:
+            value: '6'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_58:
       attributes:
         id: MUTL-Y-INPUT_58
         label: Select Y Pin for Channel 58
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_59:
       attributes:
         id: MUTL-Y-INPUT_59
         label: Select Y Pin for Channel 59
+      children:
+      - children:
+        - attributes:
+            value: '9'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_6:
       attributes:
         id: MUTL-Y-INPUT_6
         label: Select Y Pin for Channel 6
+      children:
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_60:
       attributes:
         id: MUTL-Y-INPUT_60
         label: Select Y Pin for Channel 60
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_61:
       attributes:
         id: MUTL-Y-INPUT_61
         label: Select Y Pin for Channel 61
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_62:
       attributes:
         id: MUTL-Y-INPUT_62
         label: Select Y Pin for Channel 62
+      children:
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_63:
       attributes:
         id: MUTL-Y-INPUT_63
         label: Select Y Pin for Channel 63
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_64:
       attributes:
         id: MUTL-Y-INPUT_64
         label: Select Y Pin for Channel 64
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_65:
       attributes:
         id: MUTL-Y-INPUT_65
         label: Select Y Pin for Channel 65
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_66:
       attributes:
         id: MUTL-Y-INPUT_66
         label: Select Y Pin for Channel 66
+      children:
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_67:
       attributes:
         id: MUTL-Y-INPUT_67
         label: Select Y Pin for Channel 67
+      children:
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_68:
       attributes:
         id: MUTL-Y-INPUT_68
         label: Select Y Pin for Channel 68
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_69:
       attributes:
         id: MUTL-Y-INPUT_69
         label: Select Y Pin for Channel 69
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_7:
       attributes:
         id: MUTL-Y-INPUT_7
         label: Select Y Pin for Channel 7
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_70:
       attributes:
         id: MUTL-Y-INPUT_70
         label: Select Y Pin for Channel 70
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_71:
       attributes:
         id: MUTL-Y-INPUT_71
         label: Select Y Pin for Channel 71
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_72:
       attributes:
         id: MUTL-Y-INPUT_72
         label: Select Y Pin for Channel 72
+      children:
+      - children:
+        - attributes:
+            value: '9'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_73:
       attributes:
         id: MUTL-Y-INPUT_73
         label: Select Y Pin for Channel 73
+      children:
+      - children:
+        - attributes:
+            value: '9'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_74:
       attributes:
         id: MUTL-Y-INPUT_74
         label: Select Y Pin for Channel 74
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_75:
       attributes:
         id: MUTL-Y-INPUT_75
         label: Select Y Pin for Channel 75
+      children:
+      - children:
+        - attributes:
+            value: '7'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_76:
       attributes:
         id: MUTL-Y-INPUT_76
         label: Select Y Pin for Channel 76
+      children:
+      - children:
+        - attributes:
+            value: '7'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_77:
       attributes:
@@ -12592,6 +13908,12 @@ data:
       attributes:
         id: MUTL-Y-INPUT_8
         label: Select Y Pin for Channel 8
+      children:
+      - children:
+        - attributes:
+            value: '7'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_80:
       attributes:
@@ -12647,6 +13969,12 @@ data:
       attributes:
         id: MUTL-Y-INPUT_9
         label: Select Y Pin for Channel 9
+      children:
+      - children:
+        - attributes:
+            value: '6'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_90:
       attributes:
@@ -12717,6 +14045,16 @@ data:
       attributes:
         id: PTC_CLOCK_FREQ
         label: 'PTC Freqency Id '
+      children:
+      - children:
+        - attributes:
+            id: lib_qtouch
+            value: GCLK_ID_37_FREQ:sync
+          type: Dynamic
+        - attributes:
+            value: GCLK_ID_37_FREQ
+          type: User
+        type: Values
       type: String
     REL_VER:
       attributes:
@@ -13412,6 +14750,12 @@ data:
       attributes:
         id: SENSE_TECHNOLOGY
         label: Sensor Technology
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     SURFACE_ORIENTATION:
       attributes:
@@ -13652,21 +14996,45 @@ data:
       attributes:
         id: TOUCH_CHAN_ENABLE_CNT
         label: Number of nodes to enable
+      children:
+      - children:
+        - attributes:
+            value: '77'
+          type: User
+        type: Values
       type: Integer
     TOUCH_ENABLE_CH_0:
       attributes:
         id: TOUCH_ENABLE_CH_0
         label: Use touch channel 0
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_1:
       attributes:
         id: TOUCH_ENABLE_CH_1
         label: Use touch channel 1
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_10:
       attributes:
         id: TOUCH_ENABLE_CH_10
         label: Use touch channel 10
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_100:
       attributes:
@@ -13722,6 +15090,12 @@ data:
       attributes:
         id: TOUCH_ENABLE_CH_11
         label: Use touch channel 11
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_110:
       attributes:
@@ -13777,6 +15151,12 @@ data:
       attributes:
         id: TOUCH_ENABLE_CH_12
         label: Use touch channel 12
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_120:
       attributes:
@@ -13832,6 +15212,12 @@ data:
       attributes:
         id: TOUCH_ENABLE_CH_13
         label: Use touch channel 13
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_130:
       attributes:
@@ -13867,346 +15253,760 @@ data:
       attributes:
         id: TOUCH_ENABLE_CH_14
         label: Use touch channel 14
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_15:
       attributes:
         id: TOUCH_ENABLE_CH_15
         label: Use touch channel 15
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_16:
       attributes:
         id: TOUCH_ENABLE_CH_16
         label: Use touch channel 16
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_17:
       attributes:
         id: TOUCH_ENABLE_CH_17
         label: Use touch channel 17
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_18:
       attributes:
         id: TOUCH_ENABLE_CH_18
         label: Use touch channel 18
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_19:
       attributes:
         id: TOUCH_ENABLE_CH_19
         label: Use touch channel 19
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_2:
       attributes:
         id: TOUCH_ENABLE_CH_2
         label: Use touch channel 2
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_20:
       attributes:
         id: TOUCH_ENABLE_CH_20
         label: Use touch channel 20
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_21:
       attributes:
         id: TOUCH_ENABLE_CH_21
         label: Use touch channel 21
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_22:
       attributes:
         id: TOUCH_ENABLE_CH_22
         label: Use touch channel 22
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_23:
       attributes:
         id: TOUCH_ENABLE_CH_23
         label: Use touch channel 23
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_24:
       attributes:
         id: TOUCH_ENABLE_CH_24
         label: Use touch channel 24
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_25:
       attributes:
         id: TOUCH_ENABLE_CH_25
         label: Use touch channel 25
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_26:
       attributes:
         id: TOUCH_ENABLE_CH_26
         label: Use touch channel 26
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_27:
       attributes:
         id: TOUCH_ENABLE_CH_27
         label: Use touch channel 27
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_28:
       attributes:
         id: TOUCH_ENABLE_CH_28
         label: Use touch channel 28
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_29:
       attributes:
         id: TOUCH_ENABLE_CH_29
         label: Use touch channel 29
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_3:
       attributes:
         id: TOUCH_ENABLE_CH_3
         label: Use touch channel 3
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_30:
       attributes:
         id: TOUCH_ENABLE_CH_30
         label: Use touch channel 30
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_31:
       attributes:
         id: TOUCH_ENABLE_CH_31
         label: Use touch channel 31
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_32:
       attributes:
         id: TOUCH_ENABLE_CH_32
         label: Use touch channel 32
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_33:
       attributes:
         id: TOUCH_ENABLE_CH_33
         label: Use touch channel 33
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_34:
       attributes:
         id: TOUCH_ENABLE_CH_34
         label: Use touch channel 34
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_35:
       attributes:
         id: TOUCH_ENABLE_CH_35
         label: Use touch channel 35
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_36:
       attributes:
         id: TOUCH_ENABLE_CH_36
         label: Use touch channel 36
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_37:
       attributes:
         id: TOUCH_ENABLE_CH_37
         label: Use touch channel 37
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_38:
       attributes:
         id: TOUCH_ENABLE_CH_38
         label: Use touch channel 38
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_39:
       attributes:
         id: TOUCH_ENABLE_CH_39
         label: Use touch channel 39
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_4:
       attributes:
         id: TOUCH_ENABLE_CH_4
         label: Use touch channel 4
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_40:
       attributes:
         id: TOUCH_ENABLE_CH_40
         label: Use touch channel 40
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_41:
       attributes:
         id: TOUCH_ENABLE_CH_41
         label: Use touch channel 41
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_42:
       attributes:
         id: TOUCH_ENABLE_CH_42
         label: Use touch channel 42
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_43:
       attributes:
         id: TOUCH_ENABLE_CH_43
         label: Use touch channel 43
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_44:
       attributes:
         id: TOUCH_ENABLE_CH_44
         label: Use touch channel 44
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_45:
       attributes:
         id: TOUCH_ENABLE_CH_45
         label: Use touch channel 45
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_46:
       attributes:
         id: TOUCH_ENABLE_CH_46
         label: Use touch channel 46
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_47:
       attributes:
         id: TOUCH_ENABLE_CH_47
         label: Use touch channel 47
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_48:
       attributes:
         id: TOUCH_ENABLE_CH_48
         label: Use touch channel 48
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_49:
       attributes:
         id: TOUCH_ENABLE_CH_49
         label: Use touch channel 49
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_5:
       attributes:
         id: TOUCH_ENABLE_CH_5
         label: Use touch channel 5
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_50:
       attributes:
         id: TOUCH_ENABLE_CH_50
         label: Use touch channel 50
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_51:
       attributes:
         id: TOUCH_ENABLE_CH_51
         label: Use touch channel 51
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_52:
       attributes:
         id: TOUCH_ENABLE_CH_52
         label: Use touch channel 52
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_53:
       attributes:
         id: TOUCH_ENABLE_CH_53
         label: Use touch channel 53
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_54:
       attributes:
         id: TOUCH_ENABLE_CH_54
         label: Use touch channel 54
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_55:
       attributes:
         id: TOUCH_ENABLE_CH_55
         label: Use touch channel 55
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_56:
       attributes:
         id: TOUCH_ENABLE_CH_56
         label: Use touch channel 56
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_57:
       attributes:
         id: TOUCH_ENABLE_CH_57
         label: Use touch channel 57
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_58:
       attributes:
         id: TOUCH_ENABLE_CH_58
         label: Use touch channel 58
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_59:
       attributes:
         id: TOUCH_ENABLE_CH_59
         label: Use touch channel 59
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_6:
       attributes:
         id: TOUCH_ENABLE_CH_6
         label: Use touch channel 6
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_60:
       attributes:
         id: TOUCH_ENABLE_CH_60
         label: Use touch channel 60
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_61:
       attributes:
         id: TOUCH_ENABLE_CH_61
         label: Use touch channel 61
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_62:
       attributes:
         id: TOUCH_ENABLE_CH_62
         label: Use touch channel 62
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_63:
       attributes:
         id: TOUCH_ENABLE_CH_63
         label: Use touch channel 63
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_64:
       attributes:
         id: TOUCH_ENABLE_CH_64
         label: Use touch channel 64
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_65:
       attributes:
         id: TOUCH_ENABLE_CH_65
         label: Use touch channel 65
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_66:
       attributes:
         id: TOUCH_ENABLE_CH_66
         label: Use touch channel 66
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_67:
       attributes:
         id: TOUCH_ENABLE_CH_67
         label: Use touch channel 67
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_68:
       attributes:
         id: TOUCH_ENABLE_CH_68
         label: Use touch channel 68
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_69:
       attributes:
         id: TOUCH_ENABLE_CH_69
         label: Use touch channel 69
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_7:
       attributes:
         id: TOUCH_ENABLE_CH_7
         label: Use touch channel 7
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_70:
       attributes:
         id: TOUCH_ENABLE_CH_70
         label: Use touch channel 70
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_71:
       attributes:
         id: TOUCH_ENABLE_CH_71
         label: Use touch channel 71
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_72:
       attributes:
         id: TOUCH_ENABLE_CH_72
         label: Use touch channel 72
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_73:
       attributes:
         id: TOUCH_ENABLE_CH_73
         label: Use touch channel 73
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_74:
       attributes:
         id: TOUCH_ENABLE_CH_74
         label: Use touch channel 74
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_75:
       attributes:
         id: TOUCH_ENABLE_CH_75
         label: Use touch channel 75
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_76:
       attributes:
         id: TOUCH_ENABLE_CH_76
         label: Use touch channel 76
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_77:
       attributes:
@@ -14227,6 +16027,12 @@ data:
       attributes:
         id: TOUCH_ENABLE_CH_8
         label: Use touch channel 8
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_80:
       attributes:
@@ -14282,6 +16088,12 @@ data:
       attributes:
         id: TOUCH_ENABLE_CH_9
         label: Use touch channel 9
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_90:
       attributes:
@@ -14337,16 +16149,34 @@ data:
       attributes:
         id: TOUCH_ENABLE_KEY_0
         label: Use touch channel 0
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_1:
       attributes:
         id: TOUCH_ENABLE_KEY_1
         label: Use touch channel 1
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_10:
       attributes:
         id: TOUCH_ENABLE_KEY_10
         label: Use touch channel 10
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_100:
       attributes:
@@ -14402,6 +16232,12 @@ data:
       attributes:
         id: TOUCH_ENABLE_KEY_11
         label: Use touch channel 11
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_110:
       attributes:
@@ -14457,6 +16293,12 @@ data:
       attributes:
         id: TOUCH_ENABLE_KEY_12
         label: Use touch channel 12
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_120:
       attributes:
@@ -14512,6 +16354,12 @@ data:
       attributes:
         id: TOUCH_ENABLE_KEY_13
         label: Use touch channel 13
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_130:
       attributes:
@@ -14547,346 +16395,760 @@ data:
       attributes:
         id: TOUCH_ENABLE_KEY_14
         label: Use touch channel 14
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_15:
       attributes:
         id: TOUCH_ENABLE_KEY_15
         label: Use touch channel 15
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_16:
       attributes:
         id: TOUCH_ENABLE_KEY_16
         label: Use touch channel 16
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_17:
       attributes:
         id: TOUCH_ENABLE_KEY_17
         label: Use touch channel 17
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_18:
       attributes:
         id: TOUCH_ENABLE_KEY_18
         label: Use touch channel 18
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_19:
       attributes:
         id: TOUCH_ENABLE_KEY_19
         label: Use touch channel 19
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_2:
       attributes:
         id: TOUCH_ENABLE_KEY_2
         label: Use touch channel 2
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_20:
       attributes:
         id: TOUCH_ENABLE_KEY_20
         label: Use touch channel 20
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_21:
       attributes:
         id: TOUCH_ENABLE_KEY_21
         label: Use touch channel 21
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_22:
       attributes:
         id: TOUCH_ENABLE_KEY_22
         label: Use touch channel 22
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_23:
       attributes:
         id: TOUCH_ENABLE_KEY_23
         label: Use touch channel 23
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_24:
       attributes:
         id: TOUCH_ENABLE_KEY_24
         label: Use touch channel 24
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_25:
       attributes:
         id: TOUCH_ENABLE_KEY_25
         label: Use touch channel 25
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_26:
       attributes:
         id: TOUCH_ENABLE_KEY_26
         label: Use touch channel 26
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_27:
       attributes:
         id: TOUCH_ENABLE_KEY_27
         label: Use touch channel 27
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_28:
       attributes:
         id: TOUCH_ENABLE_KEY_28
         label: Use touch channel 28
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_29:
       attributes:
         id: TOUCH_ENABLE_KEY_29
         label: Use touch channel 29
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_3:
       attributes:
         id: TOUCH_ENABLE_KEY_3
         label: Use touch channel 3
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_30:
       attributes:
         id: TOUCH_ENABLE_KEY_30
         label: Use touch channel 30
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_31:
       attributes:
         id: TOUCH_ENABLE_KEY_31
         label: Use touch channel 31
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_32:
       attributes:
         id: TOUCH_ENABLE_KEY_32
         label: Use touch channel 32
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_33:
       attributes:
         id: TOUCH_ENABLE_KEY_33
         label: Use touch channel 33
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_34:
       attributes:
         id: TOUCH_ENABLE_KEY_34
         label: Use touch channel 34
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_35:
       attributes:
         id: TOUCH_ENABLE_KEY_35
         label: Use touch channel 35
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_36:
       attributes:
         id: TOUCH_ENABLE_KEY_36
         label: Use touch channel 36
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_37:
       attributes:
         id: TOUCH_ENABLE_KEY_37
         label: Use touch channel 37
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_38:
       attributes:
         id: TOUCH_ENABLE_KEY_38
         label: Use touch channel 38
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_39:
       attributes:
         id: TOUCH_ENABLE_KEY_39
         label: Use touch channel 39
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_4:
       attributes:
         id: TOUCH_ENABLE_KEY_4
         label: Use touch channel 4
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_40:
       attributes:
         id: TOUCH_ENABLE_KEY_40
         label: Use touch channel 40
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_41:
       attributes:
         id: TOUCH_ENABLE_KEY_41
         label: Use touch channel 41
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_42:
       attributes:
         id: TOUCH_ENABLE_KEY_42
         label: Use touch channel 42
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_43:
       attributes:
         id: TOUCH_ENABLE_KEY_43
         label: Use touch channel 43
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_44:
       attributes:
         id: TOUCH_ENABLE_KEY_44
         label: Use touch channel 44
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_45:
       attributes:
         id: TOUCH_ENABLE_KEY_45
         label: Use touch channel 45
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_46:
       attributes:
         id: TOUCH_ENABLE_KEY_46
         label: Use touch channel 46
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_47:
       attributes:
         id: TOUCH_ENABLE_KEY_47
         label: Use touch channel 47
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_48:
       attributes:
         id: TOUCH_ENABLE_KEY_48
         label: Use touch channel 48
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_49:
       attributes:
         id: TOUCH_ENABLE_KEY_49
         label: Use touch channel 49
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_5:
       attributes:
         id: TOUCH_ENABLE_KEY_5
         label: Use touch channel 5
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_50:
       attributes:
         id: TOUCH_ENABLE_KEY_50
         label: Use touch channel 50
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_51:
       attributes:
         id: TOUCH_ENABLE_KEY_51
         label: Use touch channel 51
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_52:
       attributes:
         id: TOUCH_ENABLE_KEY_52
         label: Use touch channel 52
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_53:
       attributes:
         id: TOUCH_ENABLE_KEY_53
         label: Use touch channel 53
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_54:
       attributes:
         id: TOUCH_ENABLE_KEY_54
         label: Use touch channel 54
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_55:
       attributes:
         id: TOUCH_ENABLE_KEY_55
         label: Use touch channel 55
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_56:
       attributes:
         id: TOUCH_ENABLE_KEY_56
         label: Use touch channel 56
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_57:
       attributes:
         id: TOUCH_ENABLE_KEY_57
         label: Use touch channel 57
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_58:
       attributes:
         id: TOUCH_ENABLE_KEY_58
         label: Use touch channel 58
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_59:
       attributes:
         id: TOUCH_ENABLE_KEY_59
         label: Use touch channel 59
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_6:
       attributes:
         id: TOUCH_ENABLE_KEY_6
         label: Use touch channel 6
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_60:
       attributes:
         id: TOUCH_ENABLE_KEY_60
         label: Use touch channel 60
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_61:
       attributes:
         id: TOUCH_ENABLE_KEY_61
         label: Use touch channel 61
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_62:
       attributes:
         id: TOUCH_ENABLE_KEY_62
         label: Use touch channel 62
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_63:
       attributes:
         id: TOUCH_ENABLE_KEY_63
         label: Use touch channel 63
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_64:
       attributes:
         id: TOUCH_ENABLE_KEY_64
         label: Use touch channel 64
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_65:
       attributes:
         id: TOUCH_ENABLE_KEY_65
         label: Use touch channel 65
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_66:
       attributes:
         id: TOUCH_ENABLE_KEY_66
         label: Use touch channel 66
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_67:
       attributes:
         id: TOUCH_ENABLE_KEY_67
         label: Use touch channel 67
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_68:
       attributes:
         id: TOUCH_ENABLE_KEY_68
         label: Use touch channel 68
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_69:
       attributes:
         id: TOUCH_ENABLE_KEY_69
         label: Use touch channel 69
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_7:
       attributes:
         id: TOUCH_ENABLE_KEY_7
         label: Use touch channel 7
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_70:
       attributes:
         id: TOUCH_ENABLE_KEY_70
         label: Use touch channel 70
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_71:
       attributes:
         id: TOUCH_ENABLE_KEY_71
         label: Use touch channel 71
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_72:
       attributes:
         id: TOUCH_ENABLE_KEY_72
         label: Use touch channel 72
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_73:
       attributes:
         id: TOUCH_ENABLE_KEY_73
         label: Use touch channel 73
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_74:
       attributes:
         id: TOUCH_ENABLE_KEY_74
         label: Use touch channel 74
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_75:
       attributes:
         id: TOUCH_ENABLE_KEY_75
         label: Use touch channel 75
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_76:
       attributes:
         id: TOUCH_ENABLE_KEY_76
         label: Use touch channel 76
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_77:
       attributes:
@@ -14907,6 +17169,12 @@ data:
       attributes:
         id: TOUCH_ENABLE_KEY_8
         label: Use touch channel 8
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_80:
       attributes:
@@ -14962,6 +17230,12 @@ data:
       attributes:
         id: TOUCH_ENABLE_KEY_9
         label: Use touch channel 9
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_90:
       attributes:
@@ -15697,11 +17971,23 @@ data:
       attributes:
         id: TOUCH_KEY_ENABLE_CNT
         label: Number of keys to enable
+      children:
+      - children:
+        - attributes:
+            value: '77'
+          type: User
+        type: Values
       type: Integer
     TOUCH_LOADED:
       attributes:
         id: TOUCH_LOADED
         label: Project Loaded
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_PRE_GENERATE:
       attributes:
@@ -15719,6 +18005,13 @@ data:
       attributes:
         id: TOUCH_SCRIPT_EVENT
         label: 'Script Event '
+      children:
+      - children:
+        - attributes:
+            id: lib_qtouch
+            value: ptcclock
+          type: Dynamic
+        type: Values
       type: String
     TOUCH_SCROLLER_ENABLE_CNT:
       attributes:

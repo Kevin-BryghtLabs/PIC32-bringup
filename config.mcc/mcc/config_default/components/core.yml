@@ -141,7 +141,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '0x421008'
+            value: '0x421009'
           type: Dynamic
         type: Values
       type: String
@@ -452,6 +452,10 @@ data:
       children:
       - children:
         - attributes:
+            id: lib_qtouch
+            value: ''
+          type: Dynamic
+        - attributes:
             value: GPIO
           type: User
         type: Values
@@ -528,6 +532,10 @@ data:
         label: Type
       children:
       - children:
+        - attributes:
+            id: lib_qtouch
+            value: ''
+          type: Dynamic
         - attributes:
             value: GPIO
           type: User
@@ -782,6 +790,10 @@ data:
       children:
       - children:
         - attributes:
+            id: lib_qtouch
+            value: ''
+          type: Dynamic
+        - attributes:
             value: ADC0_AIN0
           type: User
         type: Values
@@ -814,6 +826,10 @@ data:
         label: Type
       children:
       - children:
+        - attributes:
+            id: lib_qtouch
+            value: ''
+          type: Dynamic
         - attributes:
             value: ADC0_AIN1/VREFP
           type: User
@@ -1771,7 +1787,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '48000000'
+            value: '4000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -1783,7 +1799,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '48000000'
+            value: '4000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -1895,6 +1911,567 @@ data:
           type: Dynamic
         type: Values
       type: String
+    PIN_29_FUNCTION_TYPE:
+      attributes:
+        id: PIN_29_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            id: lib_qtouch
+            value: PTC_X8/Y24
+          type: Dynamic
+        type: Values
+      type: String
+    PIN_9_FUNCTION_TYPE:
+      attributes:
+        id: PIN_9_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            id: lib_qtouch
+            value: PTC_Y2
+          type: Dynamic
+        type: Values
+      type: String
+    PIN_48_FUNCTION_TYPE:
+      attributes:
+        id: PIN_48_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            id: lib_qtouch
+            value: PTC_Y9
+          type: Dynamic
+        type: Values
+      type: String
+    PIN_47_FUNCTION_TYPE:
+      attributes:
+        id: PIN_47_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            id: lib_qtouch
+            value: PTC_Y8
+          type: Dynamic
+        type: Values
+      type: String
+    PIN_11_FUNCTION_TYPE:
+      attributes:
+        id: PIN_11_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            id: lib_qtouch
+            value: PTC_Y4
+          type: Dynamic
+        type: Values
+      type: String
+    PIN_26_FUNCTION_TYPE:
+      attributes:
+        id: PIN_26_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            id: lib_qtouch
+            value: PTC_X5/Y21
+          type: Dynamic
+        type: Values
+      type: String
+    PIN_10_FUNCTION_TYPE:
+      attributes:
+        id: PIN_10_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            id: lib_qtouch
+            value: PTC_Y3
+          type: Dynamic
+        type: Values
+      type: String
+    PIN_25_FUNCTION_TYPE:
+      attributes:
+        id: PIN_25_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            id: lib_qtouch
+            value: PTC_X4/Y20
+          type: Dynamic
+        type: Values
+      type: String
+    PIN_16_FUNCTION_TYPE:
+      attributes:
+        id: PIN_16_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            id: lib_qtouch
+            value: PTC_X3/Y19
+          type: Dynamic
+        type: Values
+      type: String
+    PIN_30_FUNCTION_TYPE:
+      attributes:
+        id: PIN_30_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            id: lib_qtouch
+            value: PTC_X9/Y25
+          type: Dynamic
+        type: Values
+      type: String
+    PIN_15_FUNCTION_TYPE:
+      attributes:
+        id: PIN_15_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            id: lib_qtouch
+            value: PTC_X2/Y18
+          type: Dynamic
+        type: Values
+      type: String
+    PIN_13_FUNCTION_TYPE:
+      attributes:
+        id: PIN_13_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            id: lib_qtouch
+            value: PTC_X0/Y16
+          type: Dynamic
+        type: Values
+      type: String
+    PIN_28_FUNCTION_TYPE:
+      attributes:
+        id: PIN_28_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            id: lib_qtouch
+            value: PTC_X7/Y23
+          type: Dynamic
+        type: Values
+      type: String
+    PIN_12_FUNCTION_TYPE:
+      attributes:
+        id: PIN_12_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            id: lib_qtouch
+            value: PTC_Y5
+          type: Dynamic
+        type: Values
+      type: String
+    PIN_27_FUNCTION_TYPE:
+      attributes:
+        id: PIN_27_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            id: lib_qtouch
+            value: PTC_X6/Y22
+          type: Dynamic
+        type: Values
+      type: String
+    PIN_8_FUNCTION_TYPE:
+      attributes:
+        id: PIN_8_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            id: lib_qtouch
+            value: PTC_Y15
+          type: Dynamic
+        type: Values
+      type: String
+    PIN_7_FUNCTION_TYPE:
+      attributes:
+        id: PIN_7_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            id: lib_qtouch
+            value: PTC_Y14
+          type: Dynamic
+        type: Values
+      type: String
+    PIN_14_FUNCTION_TYPE:
+      attributes:
+        id: PIN_14_FUNCTION_TYPE
+        label: Type
+      children:
+      - children:
+        - attributes:
+            id: lib_qtouch
+            value: PTC_X1/Y17
+          type: Dynamic
+        type: Values
+      type: String
+    GCLK_ID_37_GENSEL:
+      attributes:
+        id: GCLK_ID_37_GENSEL
+        label: Generator Selection
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
+    GCLK_IO_5_FREQ:
+      attributes:
+        id: GCLK_IO_5_FREQ
+        label: External Output (GCLK_IO[5]) Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_5_FREQ:
+      attributes:
+        id: GCLK_5_FREQ
+        label: GCLK5 Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_8_FREQ:
+      attributes:
+        id: GCLK_8_FREQ
+        label: GCLK8 Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_IO_3_FREQ:
+      attributes:
+        id: GCLK_IO_3_FREQ
+        label: External Output (GCLK_IO[3]) Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_3_FREQ:
+      attributes:
+        id: GCLK_3_FREQ
+        label: GCLK3 Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_IO_7_FREQ:
+      attributes:
+        id: GCLK_IO_7_FREQ
+        label: External Output (GCLK_IO[7]) Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_7_FREQ:
+      attributes:
+        id: GCLK_7_FREQ
+        label: GCLK7 Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_IO_0_FREQ:
+      attributes:
+        id: GCLK_IO_0_FREQ
+        label: External Output (GCLK_IO[0]) Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+    SYSTICK_PERIOD:
+      attributes:
+        id: SYSTICK_PERIOD
+        label: SysTick Period
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0xBB80'
+          type: Dynamic
+        type: Values
+      type: String
+    SYSTICK_PERIOD_US:
+      attributes:
+        id: SYSTICK_PERIOD_US
+        label: SYSTICK_PERIOD_US
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '1000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CPU_CLOCK_FREQUENCY:
+      attributes:
+        id: CPU_CLOCK_FREQUENCY
+        label: Main Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '48000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_0_FREQ:
+      attributes:
+        id: GCLK_0_FREQ
+        label: GCLK0 Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '48000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_IO_4_FREQ:
+      attributes:
+        id: GCLK_IO_4_FREQ
+        label: External Output (GCLK_IO[4]) Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_4_FREQ:
+      attributes:
+        id: GCLK_4_FREQ
+        label: GCLK4 Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_ID_6_FREQ:
+      attributes:
+        id: GCLK_ID_6_FREQ
+        label: 'Peripheral Channel 6 Frequency '
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '4000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_IO_6_FREQ:
+      attributes:
+        id: GCLK_IO_6_FREQ
+        label: External Output (GCLK_IO[6]) Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_6_FREQ:
+      attributes:
+        id: GCLK_6_FREQ
+        label: GCLK6 Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_IO_1_FREQ:
+      attributes:
+        id: GCLK_IO_1_FREQ
+        label: External Output (GCLK_IO[1]) Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_1_FREQ:
+      attributes:
+        id: GCLK_1_FREQ
+        label: GCLK1 Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '4000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_INST_NUM1:
+      attributes:
+        id: GCLK_INST_NUM1
+        label: Enable Generic Clock Generator 1
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    GCLK_1_DIVIDER_VALUE:
+      attributes:
+        id: GCLK_1_DIVIDER_VALUE
+        label: GCLK_1_DIVIDER_VALUE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '12'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_1_DIV:
+      attributes:
+        id: GCLK_1_DIV
+        label: Division Factor
+      children:
+      - children:
+        - attributes:
+            value: '12'
+          type: User
+        type: Values
+      type: Integer
+    CONFIG_CLOCK_OSC48M_RUNSTDY:
+      attributes:
+        id: CONFIG_CLOCK_OSC48M_RUNSTDY
+        label: Run Oscillator in Standby Sleep Mode
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    GCLK_1_RUNSTDBY:
+      attributes:
+        id: GCLK_1_RUNSTDBY
+        label: GCLK should keep running in Standby mode
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    GCLK_ID_6_CHEN:
+      attributes:
+        id: GCLK_ID_6_CHEN
+        label: Peripheral Channel 6 Clock Enable
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    GCLK_ID_6_GENSEL:
+      attributes:
+        id: GCLK_ID_6_GENSEL
+        label: Generator Selection
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
+    EVSYS_0_CLOCK_FREQUENCY:
+      attributes:
+        id: EVSYS_0_CLOCK_FREQUENCY
+        label: EVSYS_0 Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '4000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    EVSYS_0_CLOCK_ENABLE:
+      attributes:
+        id: EVSYS_0_CLOCK_ENABLE
+        label: EVSYS_0 Clock Enable
+      children:
+      - children:
+        - attributes:
+            id: evsys
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
   userData:
     children:
     - attributes:
