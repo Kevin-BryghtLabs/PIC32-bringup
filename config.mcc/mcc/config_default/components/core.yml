@@ -2170,7 +2170,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '0'
+            value: '2000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -2470,6 +2470,142 @@ data:
             id: evsys
             value: 'true'
           type: Dynamic
+        type: Values
+      type: Boolean
+    GCLK_INST_NUM8:
+      attributes:
+        id: GCLK_INST_NUM8
+        label: Enable Generic Clock Generator 8
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    GCLK_8_DIVIDER_VALUE:
+      attributes:
+        id: GCLK_8_DIVIDER_VALUE
+        label: GCLK_8_DIVIDER_VALUE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '24'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_8_DIV:
+      attributes:
+        id: GCLK_8_DIV
+        label: Division Factor
+      children:
+      - children:
+        - attributes:
+            value: '24'
+          type: User
+        type: Values
+      type: Integer
+    DPLL96M_CLOCK_FREQ:
+      attributes:
+        id: DPLL96M_CLOCK_FREQ
+        label: FDPLL96M Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '52250000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_ID_0_FREQ:
+      attributes:
+        id: GCLK_ID_0_FREQ
+        label: 'Peripheral Channel 0 Frequency '
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '2000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_ID_0_GENSEL:
+      attributes:
+        id: GCLK_ID_0_GENSEL
+        label: Generator Selection
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
+      type: KeyValueSet
+    GCLK_ID_0_CHEN:
+      attributes:
+        id: GCLK_ID_0_CHEN
+        label: Peripheral Channel 0 Clock Enable
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    CONFIG_CLOCK_DPLL_REF_CLOCK:
+      attributes:
+        id: CONFIG_CLOCK_DPLL_REF_CLOCK
+        label: DPLL Reference Clock Source
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: KeyValueSet
+    CONFIG_CLOCK_DPLL_MULTIPLIER_VALUE:
+      attributes:
+        id: CONFIG_CLOCK_DPLL_MULTIPLIER_VALUE
+        label: CONFIG_CLOCK_DPLL_MULTIPLIER_VALUE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '26.125'
+          type: Dynamic
+        type: Values
+      type: Float
+    CONFIG_CLOCK_DPLL_LDR_INTEGER:
+      attributes:
+        id: CONFIG_CLOCK_DPLL_LDR_INTEGER
+        label: DPLL Loop Divider Ratio Integer Part
+      children:
+      - children:
+        - attributes:
+            value: '25'
+          type: User
+        type: Values
+      type: Integer
+    CONFIG_CLOCK_DPLL_LDRFRAC_FRACTION:
+      attributes:
+        id: CONFIG_CLOCK_DPLL_LDRFRAC_FRACTION
+        label: DPLL Loop Divider Ratio Fractional Part
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: Integer
+    CONFIG_CLOCK_DPLL_ENABLE:
+      attributes:
+        id: CONFIG_CLOCK_DPLL_ENABLE
+        label: 'Digital Phase Locked Loop(DPLL) Enable '
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
         type: Values
       type: Boolean
   userData:
