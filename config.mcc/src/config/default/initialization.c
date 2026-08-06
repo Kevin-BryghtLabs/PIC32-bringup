@@ -142,17 +142,17 @@ void SYS_Initialize ( void* data )
 
 
 
-    NVMCTRL_Initialize( );
-
     SERCOM2_USART_Initialize();
+
+    NVMCTRL_Initialize( );
 
     EVSYS_Initialize();
 
 
     ADC0_Initialize();
-    TC0_TimerInitialize();
-
     RTC_Initialize();
+
+    TC0_TimerInitialize();
 
 
     /* MISRAC 2023 deviation block start */
