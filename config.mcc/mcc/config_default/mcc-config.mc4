@@ -17,6 +17,7 @@ modules:
 - rtc
 - sercom2
 - tc0
+- tcc0
 generatedFileHashHistoryMap:
 - file: ../src/config/default/PIC32CM6408JH00048.ld
   hash: 65f6cc7bbdd30f18bf6e79c9369c7f755a4da37120ba08660dc9bcbe440ebf47
