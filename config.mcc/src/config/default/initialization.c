@@ -148,12 +148,14 @@ void SYS_Initialize ( void* data )
 
     EVSYS_Initialize();
 
-
-    ADC0_Initialize();
     RTC_Initialize();
 
     TC0_TimerInitialize();
 
+    TCC0_PWMInitialize();
+
+
+    ADC0_Initialize();
 
     /* MISRAC 2023 deviation block start */
     /* Following MISRA-C rules deviated in this block  */

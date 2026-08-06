@@ -141,6 +141,17 @@ static void GCLK2_Initialize(void)
 }
 
 
+static void GCLK3_Initialize(void)
+{
+    GCLK_REGS->GCLK_GENCTRL[3] = GCLK_GENCTRL_DIV(1UL) | GCLK_GENCTRL_SRC(7UL) | GCLK_GENCTRL_GENEN_Msk;
+
+    while((GCLK_REGS->GCLK_SYNCBUSY & GCLK_SYNCBUSY_GENCTRL3_Msk) == GCLK_SYNCBUSY_GENCTRL3_Msk)
+    {
+        /* wait for the Generator 3 synchronization */
+    }
+}
+
+
 static void GCLK8_Initialize(void)
 {
     GCLK_REGS->GCLK_GENCTRL[8] = GCLK_GENCTRL_DIV(24UL) | GCLK_GENCTRL_SRC(6UL) | GCLK_GENCTRL_GENEN_Msk;
@@ -164,6 +175,7 @@ void CLOCK_Initialize (void)
     GCLK1_Initialize();
     GCLK2_Initialize();
     FDPLL_Initialize();
+    GCLK3_Initialize();
 
 
     /* Selection of the Generator and write Lock for OSCCTRL_FDPLL */
@@ -184,6 +196,13 @@ void CLOCK_Initialize (void)
     GCLK_REGS->GCLK_PCHCTRL[21] = GCLK_PCHCTRL_GEN(0x0UL)  | GCLK_PCHCTRL_CHEN_Msk;
 
     while ((GCLK_REGS->GCLK_PCHCTRL[21] & GCLK_PCHCTRL_CHEN_Msk) != GCLK_PCHCTRL_CHEN_Msk)
+    {
+        /* Wait for synchronization */
+    }
+    /* Selection of the Generator and write Lock for TCC0 TCC1 */
+    GCLK_REGS->GCLK_PCHCTRL[28] = GCLK_PCHCTRL_GEN(0x0UL)  | GCLK_PCHCTRL_CHEN_Msk;
+
+    while ((GCLK_REGS->GCLK_PCHCTRL[28] & GCLK_PCHCTRL_CHEN_Msk) != GCLK_PCHCTRL_CHEN_Msk)
     {
         /* Wait for synchronization */
     }
@@ -212,7 +231,7 @@ void CLOCK_Initialize (void)
 
 
     /* Configure the APBC Bridge Clocks */
-    MCLK_REGS->MCLK_APBCMASK = 0x421009U;
+    MCLK_REGS->MCLK_APBCMASK = 0x421209U;
 
 
 }
