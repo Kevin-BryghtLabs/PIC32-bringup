@@ -26,6 +26,7 @@
 #include <stdbool.h>                    // Defines true
 #include <stdlib.h>                     // Defines EXIT_FAILURE
 #include "bl_ble_parser.h"
+#include "bl_piece_id.hpp"
 #include "definitions.h"                // SYS function prototypes
 #include "timer.h"
 #include "bl_ble_packet_headers.h"
@@ -54,11 +55,11 @@ enum {
 
 void signalStateInit(void) {
     // Leave levels unchanged from bootloader
-    PSPARE1_OutputEnable();
+    //PSPARE1_OutputEnable();
     PSPARE2_OutputEnable();
 
     // App keeps PSPARE1 low and sets it low to wiggle PSPARE2, opposite of bootloader
-    PSPARE1_Clear();
+    //PSPARE1_Clear();
     PSPARE2_Set();
 
     // Wiggle PSPARE2 once with PSPARE1 high to indicate bootloader running
@@ -67,12 +68,12 @@ void signalStateInit(void) {
 }
 
 void signalState(int pulses) {
-    PSPARE1_Set();
+    //PSPARE1_Set();
     for (unsigned i = 0; i < pulses; ++i) {
         PSPARE2_Clear();
         PSPARE2_Set();
     }
-    PSPARE1_Clear();
+    //PSPARE1_Clear();
 }
 
 void commStartup() {
@@ -134,6 +135,11 @@ int main ( void )
     ADC0_Enable();
 
     commStartup();
+
+    //TCC0_PWMStart();
+
+    initPieceId();
+    startPieceId();
 
     while ( true )
     {
