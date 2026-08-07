@@ -142,15 +142,15 @@ void SYS_Initialize ( void* data )
 
 
 
-    SERCOM2_USART_Initialize();
-
     NVMCTRL_Initialize( );
+
+    SERCOM2_USART_Initialize();
 
     EVSYS_Initialize();
 
-    RTC_Initialize();
-
     TC0_TimerInitialize();
+
+    RTC_Initialize();
 
     TCC0_PWMInitialize();
 
