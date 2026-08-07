@@ -23,6 +23,29 @@
             "fileSet": "default",
             "toolchain": "default-XC32",
             "userVariables": "default-uservariables"
+        },
+        {
+            "name": "no-bootloader",
+            "id": "conf1",
+            "device": "PIC32CM6408JH00048",
+            "imageType": "application",
+            "imagePath": "./out/pic32-test/no-bootloader.elf",
+            "toolProperties": "no-bootloader_tool",
+            "tool": "J-Link",
+            "packs": [
+                {
+                    "name": "PIC32CM-JH_DFP",
+                    "vendor": "Microchip",
+                    "version": "1.7.296"
+                },
+                {
+                    "name": "CMSIS",
+                    "vendor": "ARM",
+                    "version": "6.3.0"
+                }
+            ],
+            "fileSet": "no-bootloader_files",
+            "toolchain": "no-bootloader_toolchain"
         }
     ],
     "propertyGroups": [
@@ -65,7 +88,40 @@
             }
         },
         {
+            "name": "no-bootloader_toolchain",
+            "type": "toolchain",
+            "provider": "microchip.toolchains:xc32@5.00",
+            "properties": {
+                "linker.heap-size": "512",
+                "compiler.extra-include-directories": [
+                    "config.mcc/src",
+                    "config.mcc/src/config/default",
+                    "config.mcc/src/packs/CMSIS",
+                    "config.mcc/src/packs/CMSIS/CMSIS/Core/Include",
+                    "config.mcc/src/packs/PIC32CM6408JH00048_DFP"
+                ],
+                "compiler++.extra-include-directories": [
+                    "config.mcc/src",
+                    "config.mcc/src/config/default",
+                    "config.mcc/src/packs/CMSIS",
+                    "config.mcc/src/packs/CMSIS/CMSIS/Core/Include",
+                    "config.mcc/src/packs/PIC32CM6408JH00048_DFP"
+                ],
+                "linker.no-device-startup-code": "true",
+                "compiler.isolate-each-function": "true",
+                "compiler.optimization-level": "-O1",
+                "compiler.place-data-into-section": "true",
+                "linker.remove-unused-sections": "true",
+                "compiler++.isolate-each-function": "true"
+            }
+        },
+        {
             "name": "default-tool-base",
+            "type": "tool",
+            "properties": {}
+        },
+        {
+            "name": "no-bootloader_tool",
             "type": "tool",
             "properties": {}
         }
@@ -73,6 +129,36 @@
     "fileSets": [
         {
             "name": "default",
+            "files": [
+                {
+                    "include": "**/*",
+                    "exclude": "**/@(build|_build|out|cmake|.vscode)/**/*"
+                },
+                "config.mcc/src/config/default/peripheral/nvmctrl/plib_nvmctrl.c",
+                "config.mcc/src/config/default/peripheral/evsys/plib_evsys.c",
+                "config.mcc/src/main.c",
+                "config.mcc/src/config/default/initialization.c",
+                "config.mcc/src/config/default/interrupts.c",
+                "config.mcc/src/config/default/exceptions.c",
+                "config.mcc/src/config/default/PIC32CM6408JH00048.ld",
+                "config.mcc/src/config/default/stdio/xc32_monitor.c",
+                "config.mcc/src/config/default/peripheral/port/plib_port.c",
+                "config.mcc/src/config/default/peripheral/clock/plib_clock.c",
+                "config.mcc/src/config/default/peripheral/nvic/plib_nvic.c",
+                "config.mcc/src/config/default/startup_xc32.c",
+                "config.mcc/src/config/default/libc_syscalls.c",
+                "config.mcc/src/config/default/peripheral/tc/plib_tc0.c",
+                "config.mcc/src/config/default/peripheral/sercom/usart/plib_sercom2_usart.c",
+                "config.mcc/src/config/default/peripheral/adc/plib_adc0.c",
+                "config.mcc/src/config/default/peripheral/pm/plib_pm.c",
+                "config.mcc/src/config/default/touch/touch.c",
+                "config.mcc/src/config/default/touch/touch_example.c",
+                "config.mcc/src/config/default/peripheral/rtc/plib_rtc_timer.c",
+                "config.mcc/src/config/default/peripheral/tcc/plib_tcc0.c"
+            ]
+        },
+        {
+            "name": "no-bootloader_files",
             "files": [
                 {
                     "include": "**/*",

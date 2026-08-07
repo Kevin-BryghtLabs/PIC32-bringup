@@ -3,6 +3,10 @@
         {
             "reference": "default",
             "toolSerial": "51006773"
+        },
+        {
+            "reference": "@conf1",
+            "toolSerial": "51006773"
         }
     ]
 }

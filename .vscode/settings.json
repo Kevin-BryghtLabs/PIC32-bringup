@@ -18,10 +18,19 @@
             100,
             100,
             100
+        ],
+        "pic32-test-no-bootloader": [
+            165,
+            100,
+            100,
+            100,
+            100,
+            100
         ]
     },
     "mplab.ioview.taggedNodes": {
-        "pic32-test-default": []
+        "pic32-test-default": [],
+        "pic32-test-no-bootloader": []
     },
     "C_Cpp.intelliSenseEngine": "disabled"
 }
