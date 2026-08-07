@@ -252,6 +252,12 @@ data:
       attributes:
         id: TCC_0_WEXCTRL_DTIEN
         label: Enable Dead Time
+      children:
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
       type: Boolean
     TCC_1PATT_PGE:
       attributes:
@@ -297,6 +303,12 @@ data:
       attributes:
         id: TCC_1_WEXCTRL_DTIEN
         label: Enable Dead Time
+      children:
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
       type: Boolean
     TCC_2PATT_PGE:
       attributes:
@@ -342,6 +354,12 @@ data:
       attributes:
         id: TCC_2_WEXCTRL_DTIEN
         label: Enable Dead Time
+      children:
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
       type: Boolean
     TCC_3PATT_PGE:
       attributes:
@@ -387,6 +405,12 @@ data:
       attributes:
         id: TCC_3_WEXCTRL_DTIEN
         label: Enable Dead Time
+      children:
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
       type: Boolean
     TCC_4PATT_PGE:
       attributes:
@@ -902,6 +926,13 @@ data:
       attributes:
         id: TCC_MODULE_FREQUENCY
         label: TCC_MODULE_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: tcc0
+            value: '52250000'
+          type: Dynamic
+        type: Values
       type: Integer
     TCC_NUM_CHANNELS:
       attributes:
@@ -1028,11 +1059,27 @@ data:
       attributes:
         id: TCC_TIMER_PERIOD
         label: Period Register
+      children:
+      - children:
+        - attributes:
+            id: tcc0
+            value: '52249'
+          type: Dynamic
+        type: Values
       type: Long
     TCC_TIMER_TIME_MS:
       attributes:
         id: TCC_TIMER_TIME_MS
         label: Time
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '321.09506'
+          type: Float
+        type: Attributes
       type: Float
     TCC_TIMER_UNIT:
       attributes:

@@ -2338,7 +2338,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '0'
+            value: '52250000'
           type: Dynamic
         type: Values
       type: Integer
@@ -3768,7 +3768,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '48000000'
+            value: '52250000'
           type: Dynamic
         type: Values
       type: Integer
@@ -3780,7 +3780,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '48000000'
+            value: '52250000'
           type: Dynamic
         type: Values
       type: Integer
@@ -3823,6 +3823,39 @@ data:
       attributes:
         id: GCLK_INST_NUM3
         label: Enable Generic Clock Generator 3
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    GCLK_ID_28_GENSEL:
+      attributes:
+        id: GCLK_ID_28_GENSEL
+        label: Generator Selection
+      children:
+      - children:
+        - attributes:
+            value: '6'
+          type: User
+        type: Values
+      type: KeyValueSet
+    GCLK_6_SRC:
+      attributes:
+        id: GCLK_6_SRC
+        label: Source Selection
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: KeyValueSet
+    GCLK_INST_NUM6:
+      attributes:
+        id: GCLK_INST_NUM6
+        label: Enable Generic Clock Generator 6
       children:
       - children:
         - attributes:
