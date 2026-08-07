@@ -4,6 +4,7 @@ cmdfile=$(mktemp "/tmp/jlink-XXXXXX")
 
 echo "erase 0x2000 0x10000" >> ${cmdfile}
 echo "loadfile ${HOME}/pic32-out/flash.hex" >> ${cmdfile}
+echo "exit" >> ${cmdfile}
 
 cat ${cmdfile}
 
