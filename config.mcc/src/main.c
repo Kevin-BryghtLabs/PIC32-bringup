@@ -141,6 +141,8 @@ int main ( void )
     initPieceId();
     startPieceId();
 
+    uint32_t nextSwitchMs = getCurrentTimeMs() + 5000;
+
     while ( true )
     {
         /* Maintain state machines of all polled MPLAB Harmony modules. */
@@ -148,6 +150,12 @@ int main ( void )
 
         commProcess();
         
+        uint32_t now = getCurrentTimeMs();
+        if (now >= nextSwitchMs) {
+          nextSwitchMs += 5000;
+          switchPieceId();
+        }
+
         delay(1);
     }
 

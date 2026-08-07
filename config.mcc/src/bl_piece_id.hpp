@@ -7,6 +7,7 @@ extern "C" {
 
 void initPieceId();
 void startPieceId();
+void switchPieceId();
 
 #ifdef __cplusplus
 }
