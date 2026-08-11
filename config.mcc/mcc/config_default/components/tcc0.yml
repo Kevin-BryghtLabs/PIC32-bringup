@@ -810,7 +810,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '5'
+            value: '3'
           type: User
         type: Values
       type: KeyValueSet

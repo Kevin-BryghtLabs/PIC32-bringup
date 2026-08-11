@@ -166,21 +166,24 @@ void setPieceId(unsigned idx) {
 #endif
 
     TCC0_PWMStop();
+    TC0_CompareStop();
     disablePll();
     disableGclk(8);
 
+    setGclkDiv(8, config.gclkDiv);
+
     const uint32_t whole = config.ldr / 16 - 1;
     const uint32_t frac = config.ldr % 16;
+
+    setPllMult(whole, frac);
+    enablePll();
+
+    TCC0_PWMInitialize();
 
     uint32_t period = config.tccCnt;
     if (period & 1) {
         period++;
     }
-
-    setGclkDiv(8, config.gclkDiv);
-
-    setPllMult(whole, frac);
-    enablePll();
 
     TCC0_REGS->TCC_CC[1] = period / 2;
     TCC0_REGS->TCC_PER = period;
@@ -190,10 +193,13 @@ void setPieceId(unsigned idx) {
         /* Wait for sync */
     }
 
+    TC0_CompareInitialize();
     setPulseCount(10);
     TC0_CompareStart();
 
     TCC0_PWMStart();
+    // "Retrigger" TCC0 to start after stop
+    //TCC0_REGS->TCC_CTRLBSET = TCC_CTRLBSET_CMD(1);
 }
 
 unsigned freqIdx = 0;

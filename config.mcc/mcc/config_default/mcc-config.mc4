@@ -91,7 +91,7 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/peripheral/tc/plib_tc_common.h
   hash: 487b4f489229b8e16b24ab48ddc1f414b095585439f0e10d53b2285fc3979f63
 - file: ../src/config/default/peripheral/tcc/plib_tcc0.c
-  hash: 80be4f13724401b9f1e6b3eb271eb7a0fcf4c129111ea0c1c0a14deee1c48540
+  hash: d73e6a5c792c6e2bbb373deddd2d4b1cf22ba3ac4c19ff6a94ceee65103ad790
 - file: ../src/config/default/peripheral/tcc/plib_tcc0.h
   hash: 81f7d4577b88b3b9113e4e29151b4d5e8f528334ae653924dd9a6ce364147c25
 - file: ../src/config/default/peripheral/tcc/plib_tcc_common.h

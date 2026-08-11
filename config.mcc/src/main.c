@@ -153,7 +153,7 @@ int main ( void )
         uint32_t now = getCurrentTimeMs();
         if (now >= nextSwitchMs) {
           nextSwitchMs += 5000;
-          //switchPieceId();
+          switchPieceId();
         }
 
         delay(1);
