@@ -147,14 +147,14 @@
                 "config.mcc/src/config/default/peripheral/nvic/plib_nvic.c",
                 "config.mcc/src/config/default/startup_xc32.c",
                 "config.mcc/src/config/default/libc_syscalls.c",
-                "config.mcc/src/config/default/peripheral/tc/plib_tc0.c",
                 "config.mcc/src/config/default/peripheral/sercom/usart/plib_sercom2_usart.c",
                 "config.mcc/src/config/default/peripheral/adc/plib_adc0.c",
                 "config.mcc/src/config/default/peripheral/pm/plib_pm.c",
                 "config.mcc/src/config/default/touch/touch.c",
                 "config.mcc/src/config/default/touch/touch_example.c",
                 "config.mcc/src/config/default/peripheral/rtc/plib_rtc_timer.c",
-                "config.mcc/src/config/default/peripheral/tcc/plib_tcc0.c"
+                "config.mcc/src/config/default/peripheral/tcc/plib_tcc0.c",
+                "config.mcc/src/config/default/peripheral/tc/plib_tc4.c"
             ]
         },
         {
@@ -177,7 +177,6 @@
                 "config.mcc/src/config/default/peripheral/nvic/plib_nvic.c",
                 "config.mcc/src/config/default/startup_xc32.c",
                 "config.mcc/src/config/default/libc_syscalls.c",
-                "config.mcc/src/config/default/peripheral/tc/plib_tc0.c",
                 "config.mcc/src/config/default/peripheral/sercom/usart/plib_sercom2_usart.c",
                 "config.mcc/src/config/default/peripheral/adc/plib_adc0.c",
                 "config.mcc/src/config/default/peripheral/pm/plib_pm.c",

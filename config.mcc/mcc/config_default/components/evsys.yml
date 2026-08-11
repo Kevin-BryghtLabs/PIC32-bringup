@@ -93,13 +93,6 @@ data:
       attributes:
         id: GENERATOR_TC0_OVF_ACTIVE
         label: GENERATOR_TC0_OVF_ACTIVE
-      children:
-      - children:
-        - attributes:
-            id: tc0
-            value: 'true'
-          type: Dynamic
-        type: Values
       type: Boolean
     EVSYS_CHANNEL_0:
       attributes:

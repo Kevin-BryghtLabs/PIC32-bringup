@@ -83,7 +83,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: 'true'
+            value: 'false'
           type: Dynamic
         type: Values
       type: Boolean
@@ -95,7 +95,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '1000000'
+            value: '0'
           type: Dynamic
         type: Values
       type: Integer
@@ -106,7 +106,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '0'
           type: User
         type: Values
       type: KeyValueSet
@@ -141,7 +141,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '0x421209'
+            value: '0x430209'
           type: Dynamic
         type: Values
       type: String
@@ -153,7 +153,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: 'true'
+            value: 'false'
           type: Dynamic
         type: Values
       type: Boolean
@@ -165,7 +165,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: TC0_TimerInterruptHandler
+            value: TC0_Handler
           type: Dynamic
         type: Values
       type: String
@@ -177,7 +177,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: 'true'
+            value: 'false'
           type: Dynamic
         type: Values
       type: Boolean
@@ -1453,7 +1453,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: 'true'
+            value: 'false'
           type: Dynamic
         type: Values
       type: Boolean
@@ -1465,7 +1465,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '1000000'
+            value: '0'
           type: Dynamic
         type: Values
       type: Integer
@@ -1473,13 +1473,6 @@ data:
       attributes:
         id: TC0_INTERRUPT_ENABLE
         label: Vector Peripheral Enable
-      children:
-      - children:
-        - attributes:
-            id: tc0
-            value: 'true'
-          type: Dynamic
-        type: Values
       type: Boolean
     TC0_INTERRUPT_ENABLE_UPDATE:
       attributes:
@@ -1489,7 +1482,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: 'false'
+            value: 'true'
           type: Dynamic
         type: Values
       type: Boolean
@@ -1497,25 +1490,11 @@ data:
       attributes:
         id: TC0_INTERRUPT_HANDLER
         label: Vector Peripheral Handler
-      children:
-      - children:
-        - attributes:
-            id: tc0
-            value: TC0_TimerInterruptHandler
-          type: Dynamic
-        type: Values
       type: String
     TC0_INTERRUPT_HANDLER_LOCK:
       attributes:
         id: TC0_INTERRUPT_HANDLER_LOCK
         label: Vector Peripheral Handler Lock
-      children:
-      - children:
-        - attributes:
-            id: tc0
-            value: 'true'
-          type: Dynamic
-        type: Values
       type: Boolean
     SERCOM2_CORE_CLOCK_FREQUENCY:
       attributes:
@@ -3861,6 +3840,152 @@ data:
         - attributes:
             value: 'true'
           type: User
+        type: Values
+      type: Boolean
+    GCLK_ID_32_FREQ:
+      attributes:
+        id: GCLK_ID_32_FREQ
+        label: 'Peripheral Channel 32 Frequency '
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '1000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_ID_32_GENSEL:
+      attributes:
+        id: GCLK_ID_32_GENSEL
+        label: Generator Selection
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: KeyValueSet
+    GCLK_ID_32_CHEN:
+      attributes:
+        id: GCLK_ID_32_CHEN
+        label: Peripheral Channel 32 Clock Enable
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    TC4_CLOCK_FREQUENCY:
+      attributes:
+        id: TC4_CLOCK_FREQUENCY
+        label: TC4 Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '1000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    TC4_CLOCK_ENABLE:
+      attributes:
+        id: TC4_CLOCK_ENABLE
+        label: TC4 Clock Enable
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC4_INTERRUPT_ENABLE_UPDATE:
+      attributes:
+        id: TC4_INTERRUPT_ENABLE_UPDATE
+        label: NVIC Peripheral Enable/Disable Update
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    NVIC_24_0_ENABLE:
+      attributes:
+        id: NVIC_24_0_ENABLE
+        label: Enable Timer/Counter 4 Interrupt
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC4_INTERRUPT_ENABLE:
+      attributes:
+        id: TC4_INTERRUPT_ENABLE
+        label: Vector Peripheral Enable
+      children:
+      - children:
+        - attributes:
+            id: tc4
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    NVIC_24_0_HANDLER:
+      attributes:
+        id: NVIC_24_0_HANDLER
+        label: Handler
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: TC4_TimerInterruptHandler
+          type: Dynamic
+        type: Values
+      type: String
+    TC4_INTERRUPT_HANDLER:
+      attributes:
+        id: TC4_INTERRUPT_HANDLER
+        label: Vector Peripheral Handler
+      children:
+      - children:
+        - attributes:
+            id: tc4
+            value: TC4_TimerInterruptHandler
+          type: Dynamic
+        type: Values
+      type: String
+    NVIC_24_0_HANDLER_LOCK:
+      attributes:
+        id: NVIC_24_0_HANDLER_LOCK
+        label: Handler Lock
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC4_INTERRUPT_HANDLER_LOCK:
+      attributes:
+        id: TC4_INTERRUPT_HANDLER_LOCK
+        label: Vector Peripheral Handler Lock
+      children:
+      - children:
+        - attributes:
+            id: tc4
+            value: 'true'
+          type: Dynamic
         type: Values
       type: Boolean
   userData:

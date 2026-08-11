@@ -1,11 +1,11 @@
 configVersion: 1.0.0
-componentName: tc0
+componentName: tc4
 coreVersion: 5.9.1
 device: PIC32CM6408JH00048
 library: []
 dependency:
 - dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
-  name: tc0
+  name: tc4
   type: module
   version: ''
 - dependencyPackage: ''
@@ -251,13 +251,6 @@ data:
       attributes:
         id: TC_FREQUENCY
         label: Clock Frequency
-      children:
-      - children:
-        - attributes:
-            id: tc0
-            value: '1000000'
-          type: Dynamic
-        type: Values
       type: Integer
     TC_INSTANCE_NAME:
       attributes:
@@ -298,12 +291,6 @@ data:
       attributes:
         id: TC_TIMER_EVCTRL_OVFEO
         label: Enable Timer Period Overflow Event
-      children:
-      - children:
-        - attributes:
-            value: 'true'
-          type: User
-        type: Values
       type: Boolean
     TC_TIMER_EVCTRL_TCINV:
       attributes:
@@ -335,7 +322,7 @@ data:
         type: Attributes
       - children:
         - attributes:
-            id: tc0
+            id: tc4
             value: '99'
           type: Dynamic
         type: Values

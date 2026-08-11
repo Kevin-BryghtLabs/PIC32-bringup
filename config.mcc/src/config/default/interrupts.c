@@ -93,10 +93,10 @@ extern void SERCOM3_Handler            ( void ) __attribute__((weak, alias("Dumm
 extern void TCC0_Handler               ( void ) __attribute__((weak, alias("Dummy_Handler"),noreturn));
 extern void TCC1_Handler               ( void ) __attribute__((weak, alias("Dummy_Handler"),noreturn));
 extern void TCC2_Handler               ( void ) __attribute__((weak, alias("Dummy_Handler"),noreturn));
+extern void TC0_Handler                ( void ) __attribute__((weak, alias("Dummy_Handler"),noreturn));
 extern void TC1_Handler                ( void ) __attribute__((weak, alias("Dummy_Handler"),noreturn));
 extern void TC2_Handler                ( void ) __attribute__((weak, alias("Dummy_Handler"),noreturn));
 extern void TC3_Handler                ( void ) __attribute__((weak, alias("Dummy_Handler"),noreturn));
-extern void TC4_Handler                ( void ) __attribute__((weak, alias("Dummy_Handler"),noreturn));
 extern void ADC0_Handler               ( void ) __attribute__((weak, alias("Dummy_Handler"),noreturn));
 extern void AC_Handler                 ( void ) __attribute__((weak, alias("Dummy_Handler"),noreturn));
 
@@ -137,11 +137,11 @@ const H3DeviceVectors exception_table=
     .pfnTCC0_Handler               = TCC0_Handler,
     .pfnTCC1_Handler               = TCC1_Handler,
     .pfnTCC2_Handler               = TCC2_Handler,
-    .pfnTC0_Handler                = TC0_TimerInterruptHandler,
+    .pfnTC0_Handler                = TC0_Handler,
     .pfnTC1_Handler                = TC1_Handler,
     .pfnTC2_Handler                = TC2_Handler,
     .pfnTC3_Handler                = TC3_Handler,
-    .pfnTC4_Handler                = TC4_Handler,
+    .pfnTC4_Handler                = TC4_TimerInterruptHandler,
     .pfnADC0_Handler               = ADC0_Handler,
     .pfnAC_Handler                 = AC_Handler,
     .pfnPTC_Handler                = PTC_Handler,

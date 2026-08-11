@@ -7,8 +7,8 @@ static void tickISR(TC_TIMER_STATUS status, uintptr_t context) {
 }
 
 void timerInit() {
-    TC0_TimerCallbackRegister(tickISR, (uintptr_t)NULL);
-    TC0_TimerStart();
+    TC4_TimerCallbackRegister(tickISR, (uintptr_t)NULL);
+    TC4_TimerStart();
 }
 
 uint32_t getCurrentTimeMs() {

@@ -218,10 +218,10 @@ void CLOCK_Initialize (void)
     {
         /* Wait for synchronization */
     }
-    /* Selection of the Generator and write Lock for TC0 TC1 */
-    GCLK_REGS->GCLK_PCHCTRL[30] = GCLK_PCHCTRL_GEN(0x2UL)  | GCLK_PCHCTRL_CHEN_Msk;
+    /* Selection of the Generator and write Lock for TC4 */
+    GCLK_REGS->GCLK_PCHCTRL[32] = GCLK_PCHCTRL_GEN(0x2UL)  | GCLK_PCHCTRL_CHEN_Msk;
 
-    while ((GCLK_REGS->GCLK_PCHCTRL[30] & GCLK_PCHCTRL_CHEN_Msk) != GCLK_PCHCTRL_CHEN_Msk)
+    while ((GCLK_REGS->GCLK_PCHCTRL[32] & GCLK_PCHCTRL_CHEN_Msk) != GCLK_PCHCTRL_CHEN_Msk)
     {
         /* Wait for synchronization */
     }
@@ -243,7 +243,7 @@ void CLOCK_Initialize (void)
 
 
     /* Configure the APBC Bridge Clocks */
-    MCLK_REGS->MCLK_APBCMASK = 0x421209U;
+    MCLK_REGS->MCLK_APBCMASK = 0x430209U;
 
 
 }

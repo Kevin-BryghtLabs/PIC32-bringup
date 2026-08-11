@@ -1,14 +1,14 @@
 /*******************************************************************************
-  Timer/Counter(TC0) PLIB
+  Timer/Counter(TC4) PLIB
 
   Company
     Microchip Technology Inc.
 
   File Name
-    plib_tc0.h
+    plib_tc4.h
 
   Summary
-    TC0 PLIB Header File.
+    TC4 PLIB Header File.
 
   Description
     This file defines the interface to the TC peripheral library. This
@@ -45,8 +45,8 @@
 *******************************************************************************/
 // DOM-IGNORE-END
 
-#ifndef PLIB_TC0_H      // Guards against multiple inclusion
-#define PLIB_TC0_H
+#ifndef PLIB_TC4_H      // Guards against multiple inclusion
+#define PLIB_TC4_H
 
 // *****************************************************************************
 // *****************************************************************************
@@ -87,30 +87,30 @@
 
 // *****************************************************************************
 
-void TC0_TimerInitialize( void );
+void TC4_TimerInitialize( void );
 
-void TC0_TimerStart( void );
+void TC4_TimerStart( void );
 
-void TC0_TimerStop( void );
+void TC4_TimerStop( void );
 
-uint32_t TC0_TimerFrequencyGet( void );
-
-
-void TC0_Timer16bitPeriodSet( uint16_t period );
-
-uint16_t TC0_Timer16bitPeriodGet( void );
-
-uint16_t TC0_Timer16bitCounterGet( void );
-
-void TC0_Timer16bitCounterSet( uint16_t count );
+uint32_t TC4_TimerFrequencyGet( void );
 
 
+void TC4_Timer16bitPeriodSet( uint16_t period );
+
+uint16_t TC4_Timer16bitPeriodGet( void );
+
+uint16_t TC4_Timer16bitCounterGet( void );
+
+void TC4_Timer16bitCounterSet( uint16_t count );
 
 
-void TC0_TimerCallbackRegister( TC_TIMER_CALLBACK callback, uintptr_t context );
 
 
-void TC0_TimerCommandSet(TC_COMMAND command);
+void TC4_TimerCallbackRegister( TC_TIMER_CALLBACK callback, uintptr_t context );
+
+
+void TC4_TimerCommandSet(TC_COMMAND command);
 
 
 // DOM-IGNORE-BEGIN
@@ -121,4 +121,4 @@ void TC0_TimerCommandSet(TC_COMMAND command);
 #endif
 // DOM-IGNORE-END
 
-#endif /* PLIB_TC0_H */
+#endif /* PLIB_TC4_H */
