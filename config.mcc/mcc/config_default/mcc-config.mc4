@@ -23,7 +23,7 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/PIC32CM6408JH00048.ld
   hash: 65f6cc7bbdd30f18bf6e79c9369c7f755a4da37120ba08660dc9bcbe440ebf47
 - file: ../src/config/default/definitions.h
-  hash: aa99b002dc50458bb5d8b406cdfbe05712fa1fcd632aa768cbe0c77e2f549047
+  hash: 0b2b92db561878dfff6c587d9d7d8ad7f2e0ad7ba2a10add3284dfcdddc64add
 - file: ../src/config/default/device.h
   hash: ebec3c93ae73497dd0456e83a24acc27bca9da841c0ad5d8c8bd053b270f3b87
 - file: ../src/config/default/device_cache.h
@@ -33,7 +33,7 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/exceptions.c
   hash: d1567a190561858cc1cb7e796cf1a29720e52b9799bbd88b087993d8539e137f
 - file: ../src/config/default/initialization.c
-  hash: 4ec00b91b528ec243514ebdec9b059316dc5f3c404eb52f2fd2e7bc7e2d60bfd
+  hash: e58b9416450af375a29b8970071700ba0f577fd84e6ac3ae0d6c7f04170d5543
 - file: ../src/config/default/interrupts.c
   hash: 3eb20c1f10ba796836bc84ca5448148950f862beba2ab49e82378dcd13c70433
 - file: ../src/config/default/interrupts.h
@@ -47,13 +47,13 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/peripheral/adc/plib_adc_common.h
   hash: 35ad76e53c160402e7183e57e85cb656efa929008b2db976f150ea603570b63e
 - file: ../src/config/default/peripheral/clock/plib_clock.c
-  hash: 23d33158108a9318ad0802ea1310bbab2d3ed68864183161f508f62d416cb1c4
+  hash: 1498c51ea43950fe12b0db0a4bde01d69d30200b41f7b65afda36a8cb1ce359d
 - file: ../src/config/default/peripheral/clock/plib_clock.h
   hash: 01c269741541514e997ef61546f4dbb0e23f66e27c6a957162557f13b4638baf
 - file: ../src/config/default/peripheral/evsys/plib_evsys.c
-  hash: 42950009d5502151420f567f108cf29b49b6153c2f6b160e1298b509ef9910a5
+  hash: 9747657854ae92abd5e3b3d938590f75dd153a2aa180ddec9ebcc4ce24387452
 - file: ../src/config/default/peripheral/evsys/plib_evsys.h
-  hash: 7bf0ec7eb0763980ca2f91b2a2dbc7d090dad0294db9248c57698b77e3d2216e
+  hash: bf12e07e0a33e814173dc300f1889ad7e2939453291f8a3bf6157c48e290e5e3
 - file: ../src/config/default/peripheral/nvic/plib_nvic.c
   hash: 999464222fdaac43947c61ad465bbb029385c4f602529e5655492fc1536d5cd4
 - file: ../src/config/default/peripheral/nvic/plib_nvic.h

@@ -37,7 +37,7 @@ data:
       - children:
         - attributes:
             id: evsys
-            value: 'false'
+            value: 'true'
           type: Dynamic
         type: Values
       type: Boolean
@@ -49,7 +49,7 @@ data:
       - children:
         - attributes:
             id: evsys
-            value: 'false'
+            value: 'true'
           type: Dynamic
         type: Values
       type: Boolean
@@ -165,7 +165,7 @@ data:
       - children:
         - attributes:
             id: evsys
-            value: 'false'
+            value: 'true'
           type: Dynamic
         type: Values
       type: Boolean
@@ -177,7 +177,7 @@ data:
       - children:
         - attributes:
             id: evsys
-            value: 'false'
+            value: 'true'
           type: Dynamic
         type: Values
       type: Boolean
@@ -253,4 +253,75 @@ data:
           type: Dynamic
         type: Values
       type: Boolean
+    EVSYS_CHANNEL_1:
+      attributes:
+        id: EVSYS_CHANNEL_1
+        label: Enable Channel 1
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    EVSYS_CHANNEL_1_GENERATOR:
+      attributes:
+        id: EVSYS_CHANNEL_1_GENERATOR
+        label: Event Source
+      children:
+      - children:
+        - attributes:
+            value: '66'
+          type: User
+        type: Values
+      type: KeyValueSet
+    EVSYS_CHANNEL_2:
+      attributes:
+        id: EVSYS_CHANNEL_2
+        label: Enable Channel 2
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    EVSYS_CHANNEL_2_GENERATOR:
+      attributes:
+        id: EVSYS_CHANNEL_2_GENERATOR
+        label: Event Source
+      children:
+      - children:
+        - attributes:
+            value: '48'
+          type: User
+        type: Values
+      type: KeyValueSet
+    EVSYS_USER_1:
+      attributes:
+        id: EVSYS_USER_1
+        label: PORT_EV_0 Channel Selection
+      type: KeyValueSet
+    EVSYS_USER_23:
+      attributes:
+        id: EVSYS_USER_23
+        label: TC0_EVU Channel Selection
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: KeyValueSet
+    EVSYS_USER_10:
+      attributes:
+        id: EVSYS_USER_10
+        label: TCC0_EV_1 Channel Selection
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
+      type: KeyValueSet
   userData: {}

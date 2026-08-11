@@ -148,9 +148,9 @@ void SYS_Initialize ( void* data )
 
     EVSYS_Initialize();
 
-    RTC_Initialize();
-
     TC0_CompareInitialize();
+
+    RTC_Initialize();
 
     TC4_TimerInitialize();
 

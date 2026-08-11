@@ -4093,6 +4093,102 @@ data:
           type: Dynamic
         type: Values
       type: String
+    EVSYS_1_CLOCK_FREQUENCY:
+      attributes:
+        id: EVSYS_1_CLOCK_FREQUENCY
+        label: EVSYS_1 Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '48000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_ID_7_FREQ:
+      attributes:
+        id: GCLK_ID_7_FREQ
+        label: 'Peripheral Channel 7 Frequency '
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '48000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_ID_7_CHEN:
+      attributes:
+        id: GCLK_ID_7_CHEN
+        label: Peripheral Channel 7 Clock Enable
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    EVSYS_1_CLOCK_ENABLE:
+      attributes:
+        id: EVSYS_1_CLOCK_ENABLE
+        label: EVSYS_1 Clock Enable
+      children:
+      - children:
+        - attributes:
+            id: evsys
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    EVSYS_2_CLOCK_FREQUENCY:
+      attributes:
+        id: EVSYS_2_CLOCK_FREQUENCY
+        label: EVSYS_2 Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '48000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_ID_8_FREQ:
+      attributes:
+        id: GCLK_ID_8_FREQ
+        label: 'Peripheral Channel 8 Frequency '
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '48000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_ID_8_CHEN:
+      attributes:
+        id: GCLK_ID_8_CHEN
+        label: Peripheral Channel 8 Clock Enable
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    EVSYS_2_CLOCK_ENABLE:
+      attributes:
+        id: EVSYS_2_CLOCK_ENABLE
+        label: EVSYS_2 Clock Enable
+      children:
+      - children:
+        - attributes:
+            id: evsys
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
   userData:
     children:
     - attributes:
