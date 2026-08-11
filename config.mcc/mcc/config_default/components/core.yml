@@ -83,7 +83,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: 'false'
+            value: 'true'
           type: Dynamic
         type: Values
       type: Boolean
@@ -95,7 +95,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '0'
+            value: '48000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -141,7 +141,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '0x430209'
+            value: '0x431209'
           type: Dynamic
         type: Values
       type: String
@@ -1453,7 +1453,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: 'false'
+            value: 'true'
           type: Dynamic
         type: Values
       type: Boolean
@@ -1465,7 +1465,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '0'
+            value: '48000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -1473,6 +1473,13 @@ data:
       attributes:
         id: TC0_INTERRUPT_ENABLE
         label: Vector Peripheral Enable
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: 'false'
+          type: Dynamic
+        type: Values
       type: Boolean
     TC0_INTERRUPT_ENABLE_UPDATE:
       attributes:
@@ -1490,11 +1497,25 @@ data:
       attributes:
         id: TC0_INTERRUPT_HANDLER
         label: Vector Peripheral Handler
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: TC0_Handler
+          type: Dynamic
+        type: Values
       type: String
     TC0_INTERRUPT_HANDLER_LOCK:
       attributes:
         id: TC0_INTERRUPT_HANDLER_LOCK
         label: Vector Peripheral Handler Lock
+      children:
+      - children:
+        - attributes:
+            id: tc0
+            value: 'false'
+          type: Dynamic
+        type: Values
       type: Boolean
     SERCOM2_CORE_CLOCK_FREQUENCY:
       attributes:
@@ -3988,6 +4009,90 @@ data:
           type: Dynamic
         type: Values
       type: Boolean
+    TCC0_INTERRUPT_ENABLE_UPDATE:
+      attributes:
+        id: TCC0_INTERRUPT_ENABLE_UPDATE
+        label: NVIC Peripheral Enable/Disable Update
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    NVIC_17_0_ENABLE:
+      attributes:
+        id: NVIC_17_0_ENABLE
+        label: Enable Timer/Counter for Control Applications 0 Interrupt
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TCC0_INTERRUPT_ENABLE:
+      attributes:
+        id: TCC0_INTERRUPT_ENABLE
+        label: Vector Peripheral Enable
+      children:
+      - children:
+        - attributes:
+            id: tcc0
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    NVIC_17_0_HANDLER_LOCK:
+      attributes:
+        id: NVIC_17_0_HANDLER_LOCK
+        label: Handler Lock
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TCC0_INTERRUPT_HANDLER_LOCK:
+      attributes:
+        id: TCC0_INTERRUPT_HANDLER_LOCK
+        label: Vector Peripheral Handler Lock
+      children:
+      - children:
+        - attributes:
+            id: tcc0
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    NVIC_17_0_HANDLER:
+      attributes:
+        id: NVIC_17_0_HANDLER
+        label: Handler
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: TCC0_Handler
+          type: Dynamic
+        type: Values
+      type: String
+    TCC0_INTERRUPT_HANDLER:
+      attributes:
+        id: TCC0_INTERRUPT_HANDLER
+        label: Vector Peripheral Handler
+      children:
+      - children:
+        - attributes:
+            id: tcc0
+            value: TCC0_Handler
+          type: Dynamic
+        type: Values
+      type: String
   userData:
     children:
     - attributes:

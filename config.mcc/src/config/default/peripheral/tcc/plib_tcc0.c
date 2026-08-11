@@ -70,7 +70,7 @@ void TCC0_PWMInitialize(void)
                             | TCC_CTRLA_PRESCSYNC_PRESC ;
     TCC0_REGS->TCC_WEXCTRL = TCC_WEXCTRL_OTMX(0UL);
 
-    TCC0_REGS->TCC_WAVE = TCC_WAVE_WAVEGEN_NPWM | TCC_WAVE_RAMP_RAMP1;
+    TCC0_REGS->TCC_WAVE = TCC_WAVE_WAVEGEN_NPWM | TCC_WAVE_RAMP_RAMP1 | TCC_WAVE_POL1_Msk;
 
 
     /* Configure duty cycle values */
@@ -81,7 +81,11 @@ void TCC0_PWMInitialize(void)
     TCC0_REGS->TCC_PER = 2399U;
 
 
+    TCC0_REGS->TCC_DRVCTRL |= TCC_DRVCTRL_FILTERVAL0(0UL)
+          | TCC_DRVCTRL_FILTERVAL1(0UL);
 
+    TCC0_REGS->TCC_EVCTRL = TCC_EVCTRL_OVFEO_Msk
+ 	 	 | TCC_EVCTRL_TCEI1_Msk | TCC_EVCTRL_EVACT1_FAULT;
     while (TCC0_REGS->TCC_SYNCBUSY != 0U)
     {
         /* Wait for sync */

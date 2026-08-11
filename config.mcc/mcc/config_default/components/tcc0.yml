@@ -293,6 +293,12 @@ data:
       attributes:
         id: TCC_1_WAVE_POL_NPWM
         label: Output Polarity
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     TCC_1_WAVE_SWAP:
       attributes:
@@ -801,6 +807,12 @@ data:
       attributes:
         id: TCC_EVCTRL_EVACT1
         label: Select Input Event 1 Action
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
       type: KeyValueSet
     TCC_EVCTRL_MCEI_0:
       attributes:
@@ -846,6 +858,12 @@ data:
       attributes:
         id: TCC_EVCTRL_OVFEO
         label: Enable Period Event Out
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TCC_EVCTRL_TCINV0:
       attributes:
@@ -1141,4 +1159,16 @@ data:
         id: TIMER_WIDTH
         label: TIMER_WIDTH
       type: Integer
+    TCC_PWM_INTERRUPT_MODE:
+      attributes:
+        id: TCC_PWM_INTERRUPT_MODE
+        label: TCC_PWM_INTERRUPT_MODE
+      children:
+      - children:
+        - attributes:
+            id: tcc0
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
   userData: {}
