@@ -1,5 +1,6 @@
 #include "bl_piece_id.hpp"
 #include "bl_piece_id_freq_calc.hpp"
+#include "peripheral/tc/plib_tc0.h"
 #include "peripheral/tcc/plib_tcc0.h"
 #include "pic32cm6408jh00048.h"
 
@@ -106,6 +107,13 @@ void initPll() {
     }
 }
 
+void setPulseCount(uint8_t pulses) {
+    if (pulses > 0) {
+        pulses -= 1;
+    }
+    TC0_REGS->COUNT8.TC_COUNT = pulses;
+}
+
 void disablePll() {
     OSCCTRL_REGS->OSCCTRL_DPLLCTRLA = (uint8_t)(0);
 
@@ -131,35 +139,6 @@ void setPllMult(uint16_t whole, uint8_t frac) {
     {
         /* Waiting for the synchronization */
     }
-}
-
-void configPLL(const PllTccConfig & config) {
-    disablePll();
-    const uint32_t whole = config.ldr / 16 - 1;
-    const uint32_t frac = config.ldr % 16;
-    setPllMult(whole, frac);
-    enablePll();
-}
-
-void configTCC(const PllTccConfig & config) {
-    TCC0_PWMStop();
-
-    setGclkDiv(8, config.gclkDiv);
-
-    uint32_t period = config.tccCnt;
-    if (period & 1) {
-        period++;
-    }
-
-    TCC0_REGS->TCC_CC[1] = period / 2;
-    TCC0_REGS->TCC_PER = period;
-
-    while (TCC0_REGS->TCC_SYNCBUSY != 0U)
-    {
-        /* Wait for sync */
-    }
-
-    TCC0_PWMStart();
 }
 
 uint32_t frequencies[] = {
@@ -210,6 +189,9 @@ void setPieceId(unsigned idx) {
     {
         /* Wait for sync */
     }
+
+    setPulseCount(10);
+    TC0_CompareStart();
 
     TCC0_PWMStart();
 }
