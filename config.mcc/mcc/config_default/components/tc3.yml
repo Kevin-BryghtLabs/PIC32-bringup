@@ -1,11 +1,11 @@
 configVersion: 1.0.0
-componentName: tc0
+componentName: tc3
 coreVersion: 5.9.1
 device: PIC32CM6408JH00048
 library: []
 dependency:
 - dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
-  name: tc0
+  name: tc3
   type: module
   version: ''
 - dependencyPackage: ''
@@ -26,11 +26,25 @@ data:
       attributes:
         id: COMPARE_SET_API_NAME
         label: COMPARE_SET_API_NAME
+      children:
+      - children:
+        - attributes:
+            id: tc3
+            value: TC3_Timer16bitCompareSet
+          type: Dynamic
+        type: Values
       type: String
     COUNTER_GET_API_NAME:
       attributes:
         id: COUNTER_GET_API_NAME
         label: COUNTER_GET_API_NAME
+      children:
+      - children:
+        - attributes:
+            id: tc3
+            value: TC3_Timer16bitCounterGet
+          type: Dynamic
+        type: Values
       type: String
     DVRT_COMPONENT_ID:
       attributes:
@@ -56,6 +70,13 @@ data:
       attributes:
         id: PERIOD_SET_API_NAME
         label: PERIOD_SET_API_NAME
+      children:
+      - children:
+        - attributes:
+            id: tc3
+            value: TC3_Timer16bitPeriodSet
+          type: Dynamic
+        type: Values
       type: String
     SYS_TIME_COMPONENT_ID:
       attributes:
@@ -102,6 +123,19 @@ data:
         id: TC_CAPTURE_EVCTRL_MCEO1
         label: Enable Capture 1 Event Out
       type: Boolean
+    TC_CAPTURE_HEADER:
+      attributes:
+        id: TC_CAPTURE_HEADER
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      type: File
     TC_CAPTURE_INTSET_MC0:
       attributes:
         id: TC_CAPTURE_INTSET_MC0
@@ -117,6 +151,19 @@ data:
         id: TC_CAPTURE_OVF_INTERRUPT_MODE
         label: Enable Capture Overflow Interrupt
       type: Boolean
+    TC_CAPTURE_SOURCE:
+      attributes:
+        id: TC_CAPTURE_SOURCE
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      type: File
     TC_CAPTURE_TRIGGER_ACTION0:
       attributes:
         id: TC_CAPTURE_TRIGGER_ACTION0
@@ -144,12 +191,43 @@ data:
           - type: Value
             value: Compare 0 Value
           type: String
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '65535'
+          type: Long
         type: Attributes
+      - children:
+        - attributes:
+            value: '512'
+          type: User
+        type: Values
       type: Long
     TC_COMPARE_CC1:
       attributes:
         id: TC_COMPARE_CC1
         label: Compare 1 Value
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '65535'
+          type: Long
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '96'
+          type: User
+        type: Values
       type: Long
     TC_COMPARE_CTRLBSET_DIR:
       attributes:
@@ -158,7 +236,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '1'
+            value: '0'
           type: User
         type: Values
       type: KeyValueSet
@@ -171,6 +249,12 @@ data:
       attributes:
         id: TC_COMPARE_CTRLBSET_ONESHOT
         label: Enable One-Shot Mode
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TC_COMPARE_DRVCTRL_INVEN0:
       attributes:
@@ -197,20 +281,6 @@ data:
       attributes:
         id: TC_COMPARE_EVCTRL_EVACT
         label: Select Input Event Action
-      children:
-      - children:
-        - attributes:
-            id: visible
-          children:
-          - type: Value
-            value: 'true'
-          type: Boolean
-        type: Attributes
-      - children:
-        - attributes:
-            value: '2'
-          type: User
-        type: Values
       type: KeyValueSet
     TC_COMPARE_EVCTRL_MCEO0:
       attributes:
@@ -238,10 +308,29 @@ data:
         id: TC_COMPARE_EVCTRL_TCINV
         label: Invert Input Event
       type: Boolean
+    TC_COMPARE_HEADER:
+      attributes:
+        id: TC_COMPARE_HEADER
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
     TC_COMPARE_INTENSET_MC0:
       attributes:
         id: TC_COMPARE_INTENSET_MC0
         label: Enable Compare Match 0 Interrupt
+      children:
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
       type: Boolean
     TC_COMPARE_INTENSET_MC1:
       attributes:
@@ -253,11 +342,56 @@ data:
         id: TC_COMPARE_INTENSET_OVF
         label: Enable Period Interrupt
       type: Boolean
+    TC_COMPARE_INTERRUPT_MODE:
+      attributes:
+        id: TC_COMPARE_INTERRUPT_MODE
+        label: TC_COMPARE_INTERRUPT_MODE
+      children:
+      - children:
+        - attributes:
+            id: tc3
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
     TC_COMPARE_PERIOD:
       attributes:
         id: TC_COMPARE_PERIOD
         label: Period Value
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '65535'
+          type: Long
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '240'
+          type: User
+        type: Values
       type: Long
+    TC_COMPARE_SOURCE:
+      attributes:
+        id: TC_COMPARE_SOURCE
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
     TC_COMPARE_WAVE_WAVEGEN:
       attributes:
         id: TC_COMPARE_WAVE_WAVEGEN
@@ -265,7 +399,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '0'
           type: User
         type: Values
       type: KeyValueSet
@@ -273,6 +407,12 @@ data:
       attributes:
         id: TC_CTRLA_MODE
         label: Counter Mode
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     TC_CTRLA_ONDEMAND:
       attributes:
@@ -283,6 +423,12 @@ data:
       attributes:
         id: TC_CTRLA_PRESCALER
         label: Select Prescaler
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     TC_CTRLA_PRESCYNC:
       attributes:
@@ -301,7 +447,7 @@ data:
       children:
       - children:
         - attributes:
-            id: tc0
+            id: tc3
             value: '48000000'
           type: Dynamic
         type: Values
@@ -357,6 +503,19 @@ data:
         id: TC_TIMER_EVCTRL_TCINV
         label: Invert Input Event
       type: Boolean
+    TC_TIMER_HEADER:
+      attributes:
+        id: TC_TIMER_HEADER
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      type: File
     TC_TIMER_INTENSET_MC1:
       attributes:
         id: TC_TIMER_INTENSET_MC1
@@ -382,15 +541,37 @@ data:
         type: Attributes
       - children:
         - attributes:
-            id: tc0
+            id: tc3
             value: '47999'
           type: Dynamic
         type: Values
       type: Long
+    TC_TIMER_SOURCE:
+      attributes:
+        id: TC_TIMER_SOURCE
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      type: File
     TC_TIMER_TIME_MS:
       attributes:
         id: TC_TIMER_TIME_MS
         label: Time
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '1.3653333'
+          type: Float
+        type: Attributes
       type: Float
     TC_TIMER_UNIT:
       attributes:
@@ -401,6 +582,13 @@ data:
       attributes:
         id: TIMER_PERIOD_MAX
         label: TIMER_PERIOD_MAX
+      children:
+      - children:
+        - attributes:
+            id: tc3
+            value: '65535'
+          type: Dynamic
+        type: Values
       type: String
     TIMER_START_API_NAME:
       attributes:
@@ -416,83 +604,12 @@ data:
       attributes:
         id: TIMER_WIDTH
         label: TIMER_WIDTH
+      children:
+      - children:
+        - attributes:
+            id: tc3
+            value: '16'
+          type: Dynamic
+        type: Values
       type: Integer
-    TC_TIMER_HEADER:
-      attributes:
-        id: TC_TIMER_HEADER
-      children:
-      - children:
-        - attributes:
-            id: enabled
-          children:
-          - type: Value
-            value: 'false'
-          type: Boolean
-        type: Attributes
-      type: File
-    TC_TIMER_SOURCE:
-      attributes:
-        id: TC_TIMER_SOURCE
-      children:
-      - children:
-        - attributes:
-            id: enabled
-          children:
-          - type: Value
-            value: 'false'
-          type: Boolean
-        type: Attributes
-      type: File
-    TC_COMPARE_HEADER:
-      attributes:
-        id: TC_COMPARE_HEADER
-      children:
-      - children:
-        - attributes:
-            id: enabled
-          children:
-          - type: Value
-            value: 'true'
-          type: Boolean
-        type: Attributes
-      type: File
-    TC_COMPARE_SOURCE:
-      attributes:
-        id: TC_COMPARE_SOURCE
-      children:
-      - children:
-        - attributes:
-            id: enabled
-          children:
-          - type: Value
-            value: 'true'
-          type: Boolean
-        type: Attributes
-      type: File
-    TC_CAPTURE_HEADER:
-      attributes:
-        id: TC_CAPTURE_HEADER
-      children:
-      - children:
-        - attributes:
-            id: enabled
-          children:
-          - type: Value
-            value: 'false'
-          type: Boolean
-        type: Attributes
-      type: File
-    TC_CAPTURE_SOURCE:
-      attributes:
-        id: TC_CAPTURE_SOURCE
-      children:
-      - children:
-        - attributes:
-            id: enabled
-          children:
-          - type: Value
-            value: 'false'
-          type: Boolean
-        type: Attributes
-      type: File
   userData: {}

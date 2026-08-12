@@ -180,13 +180,8 @@ void setPieceId(unsigned idx) {
 
     TCC0_PWMInitialize();
 
-    uint32_t period = config.tccCnt;
-    if (period & 1) {
-        period++;
-    }
-
-    TCC0_REGS->TCC_CC[1] = period / 2;
-    TCC0_REGS->TCC_PER = period;
+    TCC0_REGS->TCC_CC[1] = config.tccCnt / 2;
+    TCC0_REGS->TCC_PER = config.tccCnt - 1;
 
     while (TCC0_REGS->TCC_SYNCBUSY != 0U)
     {

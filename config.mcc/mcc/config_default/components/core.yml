@@ -141,7 +141,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '0x431209'
+            value: '0x439209'
           type: Dynamic
         type: Values
       type: String
@@ -4186,6 +4186,225 @@ data:
         - attributes:
             id: evsys
             value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC1_CLOCK_FREQUENCY:
+      attributes:
+        id: TC1_CLOCK_FREQUENCY
+        label: TC1 Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+    TC1_CLOCK_ENABLE:
+      attributes:
+        id: TC1_CLOCK_ENABLE
+        label: TC1 Clock Enable
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC1_INTERRUPT_ENABLE_UPDATE:
+      attributes:
+        id: TC1_INTERRUPT_ENABLE_UPDATE
+        label: NVIC Peripheral Enable/Disable Update
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    NVIC_21_0_ENABLE:
+      attributes:
+        id: NVIC_21_0_ENABLE
+        label: Enable Timer/Counter 1 Interrupt
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC1_INTERRUPT_ENABLE:
+      attributes:
+        id: TC1_INTERRUPT_ENABLE
+        label: Vector Peripheral Enable
+      type: Boolean
+    NVIC_21_0_HANDLER:
+      attributes:
+        id: NVIC_21_0_HANDLER
+        label: Handler
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: TC1_Handler
+          type: Dynamic
+        type: Values
+      type: String
+    TC1_INTERRUPT_HANDLER:
+      attributes:
+        id: TC1_INTERRUPT_HANDLER
+        label: Vector Peripheral Handler
+      type: String
+    NVIC_21_0_HANDLER_LOCK:
+      attributes:
+        id: NVIC_21_0_HANDLER_LOCK
+        label: Handler Lock
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC1_INTERRUPT_HANDLER_LOCK:
+      attributes:
+        id: TC1_INTERRUPT_HANDLER_LOCK
+        label: Vector Peripheral Handler Lock
+      type: Boolean
+    TC3_CLOCK_FREQUENCY:
+      attributes:
+        id: TC3_CLOCK_FREQUENCY
+        label: TC3 Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '48000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_ID_31_FREQ:
+      attributes:
+        id: GCLK_ID_31_FREQ
+        label: 'Peripheral Channel 31 Frequency '
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '48000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_ID_31_CHEN:
+      attributes:
+        id: GCLK_ID_31_CHEN
+        label: Peripheral Channel 31 Clock Enable
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC3_CLOCK_ENABLE:
+      attributes:
+        id: TC3_CLOCK_ENABLE
+        label: TC3 Clock Enable
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC3_INTERRUPT_ENABLE_UPDATE:
+      attributes:
+        id: TC3_INTERRUPT_ENABLE_UPDATE
+        label: NVIC Peripheral Enable/Disable Update
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    NVIC_23_0_ENABLE:
+      attributes:
+        id: NVIC_23_0_ENABLE
+        label: Enable Timer/Counter 3 Interrupt
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC3_INTERRUPT_ENABLE:
+      attributes:
+        id: TC3_INTERRUPT_ENABLE
+        label: Vector Peripheral Enable
+      children:
+      - children:
+        - attributes:
+            id: tc3
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    NVIC_23_0_HANDLER:
+      attributes:
+        id: NVIC_23_0_HANDLER
+        label: Handler
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: TC3_Handler
+          type: Dynamic
+        type: Values
+      type: String
+    TC3_INTERRUPT_HANDLER:
+      attributes:
+        id: TC3_INTERRUPT_HANDLER
+        label: Vector Peripheral Handler
+      children:
+      - children:
+        - attributes:
+            id: tc3
+            value: TC3_Handler
+          type: Dynamic
+        type: Values
+      type: String
+    NVIC_23_0_HANDLER_LOCK:
+      attributes:
+        id: NVIC_23_0_HANDLER_LOCK
+        label: Handler Lock
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC3_INTERRUPT_HANDLER_LOCK:
+      attributes:
+        id: TC3_INTERRUPT_HANDLER_LOCK
+        label: Vector Peripheral Handler Lock
+      children:
+      - children:
+        - attributes:
+            id: tc3
+            value: 'false'
           type: Dynamic
         type: Values
       type: Boolean

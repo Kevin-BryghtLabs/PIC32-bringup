@@ -165,7 +165,7 @@ data:
       - children:
         - attributes:
             id: evsys
-            value: 'true'
+            value: 'false'
           type: Dynamic
         type: Values
       type: Boolean
@@ -317,6 +317,51 @@ data:
       attributes:
         id: EVSYS_USER_10
         label: TCC0_EV_1 Channel Selection
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
+      type: KeyValueSet
+    GENERATOR_TC1_OVF_ACTIVE:
+      attributes:
+        id: GENERATOR_TC1_OVF_ACTIVE
+        label: GENERATOR_TC1_OVF_ACTIVE
+      type: Boolean
+    USER_TC1_EVU_READY:
+      attributes:
+        id: USER_TC1_EVU_READY
+        label: USER_TC1_EVU_READY
+      type: Boolean
+    USER_TC3_EVU_READY:
+      attributes:
+        id: USER_TC3_EVU_READY
+        label: USER_TC3_EVU_READY
+      children:
+      - children:
+        - attributes:
+            id: tc3
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    GENERATOR_TC3_OVF_ACTIVE:
+      attributes:
+        id: GENERATOR_TC3_OVF_ACTIVE
+        label: GENERATOR_TC3_OVF_ACTIVE
+      children:
+      - children:
+        - attributes:
+            id: tc3
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    EVSYS_USER_26:
+      attributes:
+        id: EVSYS_USER_26
+        label: TC3_EVU Channel Selection
       children:
       - children:
         - attributes:
