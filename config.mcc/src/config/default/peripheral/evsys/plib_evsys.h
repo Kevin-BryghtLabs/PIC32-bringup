@@ -62,6 +62,10 @@
 #define    EVSYS_CHANNEL_1   (1U)
     /* EVSYS Channel 2 */
 #define    EVSYS_CHANNEL_2   (2U)
+    /* EVSYS Channel 3 */
+#define    EVSYS_CHANNEL_3   (3U)
+    /* EVSYS Channel 4 */
+#define    EVSYS_CHANNEL_4   (4U)
 typedef uint32_t EVSYS_CHANNEL;
 
 

@@ -61,7 +61,7 @@ data:
       - children:
         - attributes:
             id: evsys
-            value: 'false'
+            value: 'true'
           type: Dynamic
         type: Values
       type: Boolean
@@ -73,7 +73,7 @@ data:
       - children:
         - attributes:
             id: evsys
-            value: 'false'
+            value: 'true'
           type: Dynamic
         type: Values
       type: Boolean
@@ -201,7 +201,7 @@ data:
       - children:
         - attributes:
             id: evsys
-            value: 'false'
+            value: 'true'
           type: Dynamic
         type: Values
       type: Boolean
@@ -213,7 +213,7 @@ data:
       - children:
         - attributes:
             id: evsys
-            value: 'false'
+            value: 'true'
           type: Dynamic
         type: Values
       type: Boolean
@@ -237,7 +237,7 @@ data:
       - children:
         - attributes:
             id: tcc0
-            value: 'true'
+            value: 'false'
           type: Dynamic
         type: Values
       type: Boolean
@@ -301,6 +301,12 @@ data:
       attributes:
         id: EVSYS_USER_1
         label: PORT_EV_0 Channel Selection
+      children:
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
       type: KeyValueSet
     EVSYS_USER_23:
       attributes:
@@ -354,7 +360,7 @@ data:
       - children:
         - attributes:
             id: tc3
-            value: 'true'
+            value: 'false'
           type: Dynamic
         type: Values
       type: Boolean
@@ -369,4 +375,124 @@ data:
           type: User
         type: Values
       type: KeyValueSet
+    GENERATOR_TC3_MC_1_ACTIVE:
+      attributes:
+        id: GENERATOR_TC3_MC_1_ACTIVE
+        label: GENERATOR_TC3_MC_1_ACTIVE
+      children:
+      - children:
+        - attributes:
+            id: tc3
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    GENERATOR_TC3_MC_0_ACTIVE:
+      attributes:
+        id: GENERATOR_TC3_MC_0_ACTIVE
+        label: GENERATOR_TC3_MC_0_ACTIVE
+      children:
+      - children:
+        - attributes:
+            id: tc3
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    EVSYS_CHANNEL_3:
+      attributes:
+        id: EVSYS_CHANNEL_3
+        label: Enable Channel 3
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    EVSYS_CHANNEL_3_GENERATOR:
+      attributes:
+        id: EVSYS_CHANNEL_3_GENERATOR
+        label: Event Source
+      children:
+      - children:
+        - attributes:
+            value: '55'
+          type: User
+        type: Values
+      type: KeyValueSet
+    EVSYS_USER_2:
+      attributes:
+        id: EVSYS_USER_2
+        label: PORT_EV_1 Channel Selection
+      type: KeyValueSet
+    EVSYS_CHANNEL_4:
+      attributes:
+        id: EVSYS_CHANNEL_4
+        label: Enable Channel 4
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    EVSYS_CHANNEL_4_GENERATOR:
+      attributes:
+        id: EVSYS_CHANNEL_4_GENERATOR
+        label: Event Source
+      children:
+      - children:
+        - attributes:
+            value: '56'
+          type: User
+        type: Values
+      type: KeyValueSet
+    EVSYS_USER_28:
+      attributes:
+        id: EVSYS_USER_28
+        label: ADC0_START Channel Selection
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
+      type: KeyValueSet
+    USER_ADC0_SYNC_READY:
+      attributes:
+        id: USER_ADC0_SYNC_READY
+        label: USER_ADC0_SYNC_READY
+      children:
+      - children:
+        - attributes:
+            id: adc0
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    USER_ADC0_START_READY:
+      attributes:
+        id: USER_ADC0_START_READY
+        label: USER_ADC0_START_READY
+      children:
+      - children:
+        - attributes:
+            id: adc0
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    USER_PORT_EV_0_READY:
+      attributes:
+        id: USER_PORT_EV_0_READY
+        label: USER_PORT_EV_0_READY
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
   userData: {}

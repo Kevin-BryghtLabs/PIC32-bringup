@@ -103,6 +103,12 @@ data:
       attributes:
         id: ADC_CONV_TRIGGER
         label: Select Conversion Trigger
+      children:
+      - children:
+        - attributes:
+            value: HW Event Trigger
+          type: User
+        type: Values
       type: Combo
     ADC_CTRLA_ONDEMAND:
       attributes:
@@ -158,6 +164,20 @@ data:
       attributes:
         id: ADC_EVCTRL_START
         label: Start Event Input
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     ADC_GET_RESULT_API:
       attributes:

@@ -1,6 +1,8 @@
 #include "bl_piece_id.hpp"
 #include "bl_piece_id_freq_calc.hpp"
+#include "peripheral/port/plib_port.h"
 #include "peripheral/tc/plib_tc0.h"
+#include "peripheral/tc/plib_tc3.h"
 #include "peripheral/tcc/plib_tcc0.h"
 #include "pic32cm6408jh00048.h"
 
@@ -142,13 +144,25 @@ void setPllMult(uint16_t whole, uint8_t frac) {
 }
 
 uint32_t frequencies[] = {
-  1'000'000,
-  1'500'000,
-  2'000'000,
-  2'500'000,
+  //1'000'000,
+  //1'500'000,
+  //2'000'000,
+  //2'500'000,
   3'000'000,
   3'500'000,
   4'000'000,
+  4'500'000,
+  5'000'000,
+  5'500'000,
+  6'000'000,
+  6'500'000,
+  7'000'000,
+  7'500'000,
+  8'000'000,
+  8'500'000,
+  9'000'000,
+  9'500'000,
+  10'000'000,
 };
 
 void initPieceId() {
@@ -157,13 +171,6 @@ void initPieceId() {
 
 void setPieceId(unsigned idx) {
     const PllTccConfig config = getPllTccConfigForFreq(frequencies[idx]);
-#if 0
-    PllTccConfig config = {
-        .gclkDiv = 24,
-        .ldr     = ((44 + 1) * 16) + 12,
-        .tccCnt  = 61,
-    };
-#endif
 
     TCC0_PWMStop();
     TC0_CompareStop();
@@ -172,8 +179,8 @@ void setPieceId(unsigned idx) {
 
     setGclkDiv(8, config.gclkDiv);
 
-    const uint32_t whole = config.ldr / 16 - 1;
-    const uint32_t frac = config.ldr % 16;
+    const uint32_t whole = config.ldrWhole- 1;
+    const uint32_t frac = config.ldrFrac;
 
     setPllMult(whole, frac);
     enablePll();
@@ -192,6 +199,29 @@ void setPieceId(unsigned idx) {
     setPulseCount(10);
     TC0_CompareStart();
 
+    // Enable does not start counting when an input START event is configured;
+    // this timer will not run until triggered by TC0
+    TC3_CompareStart();
+
+    uint16_t tc3StartCount = 0x0;
+
+    TC3_REGS->COUNT16.TC_CC[0] = 96;
+    TC3_REGS->COUNT16.TC_CC[1] = 255;
+
+    while((TC3_REGS->COUNT16.TC_SYNCBUSY) != 0U)
+    {
+        /* Wait for Write Synchronization */
+    }
+
+    // Clear PORTB 23 on event
+    PORT_REGS->GROUP[1].PORT_EVCTRL = PORT_EVCTRL_PORTEI0_Msk | PORT_EVCTRL_EVACT0(2) | PORT_EVCTRL_PID0(23);
+
+    // Enable does not start counting when an input START event is configured;
+    // this timer will not run until triggered by TC0
+    TC3_CompareStart();
+
+    PID_DRAIN_EN_Toggle();
+
     TCC0_PWMStart();
     // "Retrigger" TCC0 to start after stop
     //TCC0_REGS->TCC_CTRLBSET = TCC_CTRLBSET_CMD(1);
@@ -201,7 +231,7 @@ unsigned freqIdx = 0;
 
 void switchPieceId() {
   freqIdx++;
-  if (freqIdx >= 7) {
+  if (freqIdx >= sizeof(frequencies) / sizeof(frequencies[0])) {
     freqIdx = 0;
   }
   setPieceId(freqIdx);

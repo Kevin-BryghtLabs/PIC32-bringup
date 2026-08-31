@@ -141,7 +141,8 @@ int main ( void )
     initPieceId();
     startPieceId();
 
-    uint32_t nextSwitchMs = getCurrentTimeMs() + 5000;
+    uint32_t switchInterval = 15000;
+    uint32_t nextSwitchMs = getCurrentTimeMs() + switchInterval;
 
     while ( true )
     {
@@ -152,7 +153,7 @@ int main ( void )
         
         uint32_t now = getCurrentTimeMs();
         if (now >= nextSwitchMs) {
-          nextSwitchMs += 5000;
+          nextSwitchMs += switchInterval;
           switchPieceId();
         }
 

@@ -103,11 +103,13 @@ void ADC0_Initialize( void )
     ADC0_REGS->ADC_INPUTCTRL = (uint16_t) ADC_POSINPUT_AIN0;
 
     /* Resolution & Operation Mode */
-    ADC0_REGS->ADC_CTRLC = (uint16_t)(ADC_CTRLC_RESSEL_12BIT | ADC_CTRLC_WINMODE(0UL) | ADC_CTRLC_FREERUN_Msk);
+    ADC0_REGS->ADC_CTRLC = (uint16_t)(ADC_CTRLC_RESSEL_12BIT | ADC_CTRLC_WINMODE(0UL) );
 
 
     /* Clear all interrupt flags */
     ADC0_REGS->ADC_INTFLAG = (uint8_t)ADC_INTFLAG_Msk;
+    /* Events configuration  */
+    ADC0_REGS->ADC_EVCTRL = (uint8_t)(ADC_EVCTRL_STARTEI_Msk);
 
     while(0U != ADC0_REGS->ADC_SYNCBUSY)
     {

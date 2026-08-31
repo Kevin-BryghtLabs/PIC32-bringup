@@ -251,6 +251,13 @@ data:
       attributes:
         id: TC_FREQUENCY
         label: Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: tc4
+            value: '1000000'
+          type: Dynamic
+        type: Values
       type: Integer
     TC_INSTANCE_NAME:
       attributes:

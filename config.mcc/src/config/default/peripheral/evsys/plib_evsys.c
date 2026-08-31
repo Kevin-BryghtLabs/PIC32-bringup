@@ -44,9 +44,11 @@
 
 void EVSYS_Initialize( void )
 {    /*Event Channel User Configuration*/
+    EVSYS_REGS->EVSYS_USER[1] = EVSYS_USER_CHANNEL(0x4UL);
     EVSYS_REGS->EVSYS_USER[10] = EVSYS_USER_CHANNEL(0x3UL);
     EVSYS_REGS->EVSYS_USER[23] = EVSYS_USER_CHANNEL(0x2UL);
     EVSYS_REGS->EVSYS_USER[26] = EVSYS_USER_CHANNEL(0x3UL);
+    EVSYS_REGS->EVSYS_USER[28] = EVSYS_USER_CHANNEL(0x5UL);
 
     /* Event Channel 0 Configuration */
     EVSYS_REGS->EVSYS_CHANNEL[0] = EVSYS_CHANNEL_EVGEN(9UL) | EVSYS_CHANNEL_PATH(2UL) | EVSYS_CHANNEL_EDGSEL(0UL) \
@@ -56,6 +58,12 @@ void EVSYS_Initialize( void )
                                      ;
     /* Event Channel 2 Configuration */
     EVSYS_REGS->EVSYS_CHANNEL[2] = EVSYS_CHANNEL_EVGEN(52UL) | EVSYS_CHANNEL_PATH(2UL) | EVSYS_CHANNEL_EDGSEL(0UL) \
+                                     ;
+    /* Event Channel 3 Configuration */
+    EVSYS_REGS->EVSYS_CHANNEL[3] = EVSYS_CHANNEL_EVGEN(62UL) | EVSYS_CHANNEL_PATH(2UL) | EVSYS_CHANNEL_EDGSEL(0UL) \
+                                     ;
+    /* Event Channel 4 Configuration */
+    EVSYS_REGS->EVSYS_CHANNEL[4] = EVSYS_CHANNEL_EVGEN(63UL) | EVSYS_CHANNEL_PATH(2UL) | EVSYS_CHANNEL_EDGSEL(0UL) \
                                      ;
 
 }

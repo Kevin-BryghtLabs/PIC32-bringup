@@ -84,7 +84,7 @@ void TC3_CompareInitialize( void )
     TC3_REGS->COUNT16.TC_CTRLA = TC_CTRLA_MODE_COUNT16 | TC_CTRLA_PRESCALER_DIV1 | TC_CTRLA_PRESCSYNC_PRESC ;
 
     /* Configure waveform generation mode */
-    TC3_REGS->COUNT16.TC_WAVE = (uint8_t)TC_WAVE_WAVEGEN_NFRQ;
+    TC3_REGS->COUNT16.TC_WAVE = (uint8_t)TC_WAVE_WAVEGEN_NPWM;
 
     /* Configure timer one shot mode & direction */
     TC3_REGS->COUNT16.TC_CTRLBSET = (uint8_t)(TC_CTRLBSET_ONESHOT_Msk);
@@ -96,7 +96,7 @@ void TC3_CompareInitialize( void )
     TC3_REGS->COUNT16.TC_INTFLAG = (uint8_t)TC_INTFLAG_Msk;
 
 
-    TC3_REGS->COUNT16.TC_EVCTRL = (uint16_t)(TC_EVCTRL_OVFEO_Msk | TC_EVCTRL_TCEI_Msk | TC_EVCTRL_EVACT_START);
+    TC3_REGS->COUNT16.TC_EVCTRL = (uint16_t)(TC_EVCTRL_MCEO0_Msk | TC_EVCTRL_MCEO1_Msk | TC_EVCTRL_TCEI_Msk | TC_EVCTRL_EVACT_RETRIGGER);
     while((TC3_REGS->COUNT16.TC_SYNCBUSY) != 0U)
     {
         /* Wait for Write Synchronization */

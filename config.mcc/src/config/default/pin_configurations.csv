@@ -17,7 +17,7 @@ Pin Number,Pin ID,Custom Name,Function,Mode, Direction,Latch,Pull Up,Pull Down,D
 20,PB11,,Available,,,,,,NORMAL
 21,PA12,PIC_TX,SERCOM2_PAD0,Digital,High Impedance,n/a,No,No,NORMAL
 22,PA13,PIC_RX,SERCOM2_PAD1,Digital,High Impedance,n/a,No,No,NORMAL
-23,PA14,,Available,,,,,,NORMAL
+23,PA14,,GCLK_IO0,Digital,High Impedance,n/a,No,No,NORMAL
 24,PA15,,TCC0_WO5,Digital,High Impedance,n/a,No,No,NORMAL
 25,PA16,,PTC_X4/Y20,Analog,High Impedance,n/a,,,NORMAL
 26,PA17,,PTC_X5/Y21,Analog,High Impedance,n/a,,,NORMAL
@@ -25,7 +25,7 @@ Pin Number,Pin ID,Custom Name,Function,Mode, Direction,Latch,Pull Up,Pull Down,D
 28,PA19,,PTC_X7/Y23,Analog,High Impedance,n/a,,,NORMAL
 29,PA20,,PTC_X8/Y24,Analog,High Impedance,n/a,,,NORMAL
 30,PA21,,PTC_X9/Y25,Analog,High Impedance,n/a,,,NORMAL
-31,PA22,PSPARE1,GPIO,Digital,In,n/a,No,No,NORMAL
+31,PA22,,GCLK_IO6,Digital,In,n/a,No,No,NORMAL
 32,PA23,PSPARE2,GPIO,Digital,In,n/a,No,No,NORMAL
 33,PA24,,Available,,,,,,NORMAL
 34,PA25,LED_CH_EN,GPIO,Digital,Out,Low,,,NORMAL
