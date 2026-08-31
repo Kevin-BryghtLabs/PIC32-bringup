@@ -150,6 +150,8 @@ void SYS_Initialize ( void* data )
 
     EVSYS_Initialize();
 
+    DMAC_Initialize();
+
     TC0_CompareInitialize();
 
     RTC_Initialize();

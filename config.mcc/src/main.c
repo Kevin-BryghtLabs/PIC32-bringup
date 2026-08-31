@@ -123,6 +123,84 @@ static void sendTestMessage() {
 }
   #endif
 
+void spiTest() {
+  // LED zero code:  ^___
+  // LED one  code:  ^^^_
+  // - each char is 0.3us
+  // Reset is 80us of low
+
+#define LED_00  0x88
+#define LED_01  0x8E
+#define LED_10  0xE8
+#define LED_11  0xEE
+
+#define WHITE  LED_11, LED_11, LED_11, LED_11, LED_11, LED_11, LED_11, LED_11, LED_11, LED_11, LED_11, LED_11
+#define GREEN  LED_11, LED_11, LED_11, LED_11, LED_00, LED_00, LED_00, LED_00, LED_00, LED_00, LED_00, LED_00
+#define RED    LED_00, LED_00, LED_00, LED_00, LED_11, LED_11, LED_11, LED_11, LED_00, LED_00, LED_00, LED_00
+#define BLUE   LED_00, LED_00, LED_00, LED_00, LED_00, LED_00, LED_00, LED_00, LED_11, LED_11, LED_11, LED_11
+#define OFF    LED_00, LED_00, LED_00, LED_00, LED_00, LED_00, LED_00, LED_00, LED_00, LED_00, LED_00, LED_00
+
+// Each byte is 2.4us.  80 / 2.4 = 33.3333 bytes for RESET
+#define RESET \
+  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, \
+  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, \
+  0x00, 0x00
+
+// End with line high to not accidentally reset the LEDs
+//   - TODO: switch to GPIO and pull high(?)
+//#define LED_END       0xFF
+
+  // two bits payload per byte, 24 bits of color = 12 bytes of data per LED
+  static const uint8_t onLights[] = {
+    WHITE, RED, GREEN, BLUE,
+  };
+
+  static const uint8_t offLights[] = {
+    OFF, OFF, OFF, OFF,
+  };
+
+  static const uint8_t reset[] = {
+    RESET
+  };
+
+  static const uint8_t greenOnly[] = {
+    GREEN
+  };
+
+  static const uint8_t oneLowByte[] = {
+    0x00
+  };
+
+  static const unsigned delayLoops = 50;
+  static const unsigned cycles = 16;
+  static unsigned delay = 0;
+  static unsigned currentCycle = 0;
+
+  LED_CH_EN_Set();
+  if (delay++ >= delayLoops) {
+    delay = 0;
+    currentCycle++;
+    if (currentCycle >= cycles) {
+      currentCycle = 0;
+    }
+  }
+
+#if 0
+  for (unsigned i = 0; i < cycles; ++i) {
+    if (i == currentCycle) {
+      SERCOM1_SPI_WriteRead(onLights, sizeof(onLights), NULL, 0);
+    }
+    else {
+      SERCOM1_SPI_WriteRead(offLights, sizeof(offLights), NULL, 0);
+    }
+  }
+  SERCOM1_SPI_WriteRead(reset, sizeof(reset), NULL, 0);
+#else
+  SERCOM1_SPI_WriteRead(greenOnly, sizeof(greenOnly), NULL, 0);
+  SERCOM1_SPI_WriteRead(oneLowByte, sizeof(oneLowByte), NULL, 0);
+#endif
+}
+
 int main ( void )
 {
     /* Initialize all modules */
@@ -148,6 +226,8 @@ int main ( void )
     {
         /* Maintain state machines of all polled MPLAB Harmony modules. */
         SYS_Tasks ( );
+
+        spiTest();
 
         commProcess();
         
