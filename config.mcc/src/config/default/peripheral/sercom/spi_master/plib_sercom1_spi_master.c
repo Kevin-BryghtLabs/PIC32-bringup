@@ -252,7 +252,7 @@ bool SERCOM1_SPI_IsTransmitterBusy(void)
     Refer plib_sercom1_spi.h file for more information.
 */
 
-bool SERCOM1_SPI_WriteRead (void* pTransmitData, size_t txSize, void* pReceiveData, size_t rxSize)
+bool SERCOM1_SPI_WriteRead (const void* pTransmitData, size_t txSize, void* pReceiveData, size_t rxSize)
 {
     size_t txCount = 0U;
     size_t rxCount = 0U;
@@ -319,12 +319,12 @@ bool SERCOM1_SPI_WriteRead (void* pTransmitData, size_t txSize, void* pReceiveDa
             {
                 if(dataBits == (uint32_t)SPI_DATA_BITS_8)
                 {
-                    SERCOM1_REGS->SPIM.SERCOM_DATA = ((uint8_t*)pTransmitData)[txCount];
+                    SERCOM1_REGS->SPIM.SERCOM_DATA = ((const uint8_t*)pTransmitData)[txCount];
                     txCount++;
                 }
                 else
                 {
-                    SERCOM1_REGS->SPIM.SERCOM_DATA = ((uint16_t*)pTransmitData)[txCount] & SERCOM_SPIM_DATA_Msk;
+                    SERCOM1_REGS->SPIM.SERCOM_DATA = ((const uint16_t*)pTransmitData)[txCount] & SERCOM_SPIM_DATA_Msk;
                     txCount++;
                 }
             }

@@ -53,7 +53,7 @@
 // *****************************************************************************
 // *****************************************************************************
 
-#define DMAC_CHANNELS_NUMBER        1U
+#define DMAC_CHANNELS_NUMBER        5U
 
 #define DMAC_CRC_CHANNEL_OFFSET     0x20U
 
@@ -300,6 +300,87 @@ uint16_t DMAC_ChannelGetTransferredCount( DMAC_CHANNEL channel )
     return(transferredCount);
 }
 
+void DMAC_LinkedListDescriptorSetup (dmac_descriptor_registers_t* currentDescriptor,
+                                                    DMAC_CHANNEL_CONFIG setting,
+                                                    const void *srcAddr,
+                                                    const void *destAddr,
+                                                    size_t blockSize,
+                                                    dmac_descriptor_registers_t* nextDescriptor)
+{
+    uint8_t beat_size = 0U;
+    const uint32_t* pu32srcAddr = (const uint32_t*)srcAddr;
+    const uint32_t* pu32dstAddr = (const uint32_t*)destAddr;
+
+    currentDescriptor->DMAC_BTCTRL = (uint16_t)setting;
+
+    // Set source address
+    if ((currentDescriptor->DMAC_BTCTRL & DMAC_BTCTRL_SRCINC_Msk) == DMAC_BTCTRL_SRCINC_Msk)
+    {
+      currentDescriptor->DMAC_SRCADDR = ((uintptr_t)pu32srcAddr + blockSize);
+    }
+    else
+    {
+      currentDescriptor->DMAC_SRCADDR = (uintptr_t)(pu32srcAddr);
+    }
+
+    // Set destination address
+    if ((currentDescriptor->DMAC_BTCTRL & DMAC_BTCTRL_DSTINC_Msk) == DMAC_BTCTRL_DSTINC_Msk)
+    {
+      currentDescriptor->DMAC_DSTADDR = ((uintptr_t)pu32dstAddr + blockSize);
+    }
+    else
+    {
+      currentDescriptor->DMAC_DSTADDR = (uintptr_t)(pu32dstAddr);
+    }
+
+    // Calculate the beat size and then set the BTCNT value
+    beat_size = (uint8_t)((currentDescriptor->DMAC_BTCTRL & DMAC_BTCTRL_BEATSIZE_Msk) >> DMAC_BTCTRL_BEATSIZE_Pos);
+    currentDescriptor->DMAC_BTCNT = (uint16_t)(blockSize / (1UL << beat_size));
+
+    currentDescriptor->DMAC_DESCADDR = (uintptr_t) nextDescriptor;
+}
+/*******************************************************************************
+    This function submit a list of DMA transfers.
+********************************************************************************/
+bool DMAC_ChannelLinkedListTransfer (DMAC_CHANNEL channel, dmac_descriptor_registers_t* channelDesc)
+{
+    bool returnStatus = false;
+    uint8_t channelId = 0U;
+    bool busyStatus = dmacChannelObj[channel].busyStatus;
+
+    /* Save channel ID */
+    channelId = DMAC_REGS->DMAC_CHID;
+
+    /* Set the DMA channel */
+    DMAC_REGS->DMAC_CHID = (uint8_t)channel;
+
+    if ((((DMAC_REGS->DMAC_CHINTFLAG & (DMAC_CHINTENCLR_TCMPL_Msk | DMAC_CHINTENCLR_TERR_Msk)))!=0U) || (busyStatus == false))
+    {
+        /* Clear the transfer complete flag */
+        DMAC_REGS->DMAC_CHINTFLAG = DMAC_CHINTENCLR_TCMPL_Msk | DMAC_CHINTENCLR_TERR_Msk;
+
+        dmacChannelObj[channel].busyStatus = true;
+
+        (void)memcpy(&descriptor_section[channel], channelDesc, sizeof(dmac_descriptor_registers_t));
+
+        /* Enable the channel */
+        DMAC_REGS->DMAC_CHCTRLA |= (uint8_t)DMAC_CHCTRLA_ENABLE_Msk;
+
+        /* Verify if Trigger source is Software Trigger */
+        if (((DMAC_REGS->DMAC_CHCTRLB & DMAC_CHCTRLB_TRIGSRC_Msk) >> DMAC_CHCTRLB_TRIGSRC_Pos) == 0x00U)
+        {
+            /* Trigger the DMA transfer */
+            DMAC_REGS->DMAC_SWTRIGCTRL |= (1UL << (uint32_t)channel);
+        }
+
+        returnStatus = true;
+    }
+
+    /* Restore channel ID */
+    DMAC_REGS->DMAC_CHID = channelId;
+
+    return returnStatus;
+}
 
 void DMAC_ChannelSuspend ( DMAC_CHANNEL channel )
 {

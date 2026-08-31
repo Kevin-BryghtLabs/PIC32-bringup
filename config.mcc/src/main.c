@@ -29,8 +29,8 @@
 #include "bl_piece_id.hpp"
 #include "definitions.h"                // SYS function prototypes
 #include "timer.h"
-#include "bl_ble_packet_headers.h"
-#include "bl_sensor_hub_firmware_version.h"
+//#include "bl_ble_packet_headers.h"
+//#include "bl_sensor_hub_firmware_version.h"
 #include "bl_uart.h"
 
 // *****************************************************************************
@@ -123,12 +123,6 @@ static void sendTestMessage() {
 }
   #endif
 
-void spiTest() {
-  // LED zero code:  ^___
-  // LED one  code:  ^^^_
-  // - each char is 0.3us
-  // Reset is 80us of low
-
 #define LED_00  0x88
 #define LED_01  0x8E
 #define LED_10  0xE8
@@ -145,6 +139,89 @@ void spiTest() {
   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, \
   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, \
   0x00, 0x00
+
+// Arbitrary, but should be long enough to set up the next transfer
+#define LEDS_PER_BLOCK_TRANSFER       8
+
+// 888 GRB
+#define COLOR_BYTES_PER_LED           3
+
+// The LED waveform needs 4 SPI bits to encode 2 payload LED bits
+//   8 Total payload bits / 2 payload bits per TX byte = 4 SPI bytes
+#define SPI_BYTES_PER_LED_BYTE        4
+
+#define LED_SPI_BLOCK_SIZE    (LEDS_PER_BLOCK_TRANSFER * COLOR_BYTES_PER_LED * SPI_BYTES_PER_LED_BYTE)
+
+static const uint8_t AllGreen[LED_SPI_BLOCK_SIZE] = {
+  GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN,
+};
+
+static const uint8_t AllBlue[LED_SPI_BLOCK_SIZE] = {
+  BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE,
+};
+
+static const uint8_t AllRed[LED_SPI_BLOCK_SIZE] = {
+  RED, RED, RED, RED, RED, RED, RED, RED,
+};
+
+static const uint8_t AllWhite[LED_SPI_BLOCK_SIZE] = {
+  WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE,
+};
+
+static uint8_t ledPayloadBuffer0[LED_SPI_BLOCK_SIZE] = {
+  GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN,
+};
+static uint8_t ledPayloadBuffer1[LED_SPI_BLOCK_SIZE] = {
+  RED, RED, RED, RED, RED, RED, RED, RED,
+};
+
+static const uint8_t ZeroByte = 0;
+
+__attribute__ ((aligned (8))) dmac_descriptor_registers_t dmaDescriptors[5];
+
+#define DMA_SPI_LED_BTCTRL \
+   (DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_BLOCKACT_INT | DMAC_BTCTRL_VALID_Msk | DMAC_BTCTRL_SRCINC_Msk)
+
+#define DMA_SPI_RESET_BTCTRL \
+   (DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_BLOCKACT_INT | DMAC_BTCTRL_VALID_Msk)
+
+static unsigned updateIdx = 0;
+
+static void setLedTXPinToGPIO() {
+  PORT_REGS->GROUP[0].PORT_OUTCLR = ((uint32_t)1U << 0);
+  PORT_REGS->GROUP[0].PORT_DIRSET = ((uint32_t)1U << 0);
+  PORT_PinGPIOConfig(PORT_PIN_PA00);
+}
+
+static void setLedTXPinToSPI() {
+  PORT_PinPeripheralFunctionConfig(PORT_PIN_PA00, 0x03);
+}
+
+static void dmaBlockDone(DMAC_TRANSFER_EVENT event, uintptr_t contextHandle) {
+  if (event == DMAC_TRANSFER_EVENT_COMPLETE) {
+    if (updateIdx == 0) {
+      // End of warmup period
+    }
+    else if (updateIdx == 1) {
+      memcpy(ledPayloadBuffer0, AllBlue, LED_SPI_BLOCK_SIZE);
+    }
+    else if (updateIdx == 2) {
+      memcpy(ledPayloadBuffer1, AllWhite, LED_SPI_BLOCK_SIZE);
+    }
+    else if (updateIdx == 3) {
+      // SPI leaves this pin idling high which makes LEDs sad.  Switch
+      // to a GPIO during the final transfer so we can leave it low.
+      setLedTXPinToGPIO();
+    }
+    updateIdx++;
+  }
+}
+
+void spiTest() {
+  // LED zero code:  ^___
+  // LED one  code:  ^^^_
+  // - each char is 0.3us
+  // Reset is 80us of low
 
 // End with line high to not accidentally reset the LEDs
 //   - TODO: switch to GPIO and pull high(?)
@@ -171,19 +248,87 @@ void spiTest() {
     0x00
   };
 
-  static const unsigned delayLoops = 50;
+  static const unsigned delayLoops = 5000;
   static const unsigned cycles = 16;
   static unsigned delay = 0;
   static unsigned currentCycle = 0;
 
+  updateIdx = 0;
+
+  memcpy(ledPayloadBuffer0, AllGreen, LED_SPI_BLOCK_SIZE);
+  memcpy(ledPayloadBuffer1, AllRed, LED_SPI_BLOCK_SIZE);
+
   LED_CH_EN_Set();
+  DMAC_ChannelCallbackRegister(DMAC_CHANNEL_0, dmaBlockDone, 0);
+  DMAC_LinkedListDescriptorSetup(&dmaDescriptors[0],
+      DMA_SPI_LED_BTCTRL,
+      ledPayloadBuffer0,
+      (void *)&SERCOM1_REGS->SPIM.SERCOM_DATA,
+      sizeof(ledPayloadBuffer0),
+      &dmaDescriptors[1]);
+
+  DMAC_LinkedListDescriptorSetup(&dmaDescriptors[1],
+      DMA_SPI_LED_BTCTRL,
+      ledPayloadBuffer1,
+      (void *)&SERCOM1_REGS->SPIM.SERCOM_DATA,
+      sizeof(ledPayloadBuffer1),
+      &dmaDescriptors[2]);
+
+  DMAC_LinkedListDescriptorSetup(&dmaDescriptors[2],
+      DMA_SPI_RESET_BTCTRL,
+      &ZeroByte,
+      (void *)&SERCOM1_REGS->SPIM.SERCOM_DATA,
+      16,
+      NULL);
+
+  DMAC_LinkedListDescriptorSetup(&dmaDescriptors[3],
+      DMA_SPI_RESET_BTCTRL,
+      &ZeroByte,
+      (void *)&SERCOM1_REGS->SPIM.SERCOM_DATA,
+      16,
+      &dmaDescriptors[0]);
+
+#if 0
+  DMAC_LinkedListDescriptorSetup(&dmaDescriptors[2],
+      DMA_SPI_LED_BTCTRL,
+      ledPayloadBuffer0,
+      (void *)&SERCOM1_REGS->SPIM.SERCOM_DATA,
+      sizeof(ledPayloadBuffer0),
+      &dmaDescriptors[3]);
+
+  DMAC_LinkedListDescriptorSetup(&dmaDescriptors[3],
+      DMA_SPI_LED_BTCTRL,
+      ledPayloadBuffer1,
+      (void *)&SERCOM1_REGS->SPIM.SERCOM_DATA,
+      sizeof(ledPayloadBuffer1),
+      NULL);
+#endif
+
+  // Start transmitting a low level so SPI will drive it low
+  SERCOM1_REGS->SPIM.SERCOM_DATA = 0,
+
+  // Set up DMA to start transfer of buffers when the first byte completes
+  DMAC_ChannelLinkedListTransfer(DMAC_CHANNEL_0, &dmaDescriptors[3]);
+
+  // SPI should be driving the correct low signal by now; switch pin mux
+  setLedTXPinToSPI();
+
+  //DMAC_ChannelTransfer(DMAC_CHANNEL_0, ledPayloadBuffer, (void *)&SERCOM1_REGS->SPIM.SERCOM_DATA, sizeof(ledPayloadBuffer));
+  return;
+
+#if 0
   if (delay++ >= delayLoops) {
     delay = 0;
+
+    DMAC_ChannelTransfer(DMAC_CHANNEL_0, ledPayloadBuffer, (void *)&SERCOM1_REGS->SPIM.SERCOM_DATA, sizeof(ledPayloadBuffer));
+#if 0
     currentCycle++;
     if (currentCycle >= cycles) {
       currentCycle = 0;
     }
+#endif
   }
+#endif
 
 #if 0
   for (unsigned i = 0; i < cycles; ++i) {
@@ -196,8 +341,8 @@ void spiTest() {
   }
   SERCOM1_SPI_WriteRead(reset, sizeof(reset), NULL, 0);
 #else
-  SERCOM1_SPI_WriteRead(greenOnly, sizeof(greenOnly), NULL, 0);
-  SERCOM1_SPI_WriteRead(oneLowByte, sizeof(oneLowByte), NULL, 0);
+  //SERCOM1_SPI_WriteRead(greenOnly, sizeof(greenOnly), NULL, 0);
+  //SERCOM1_SPI_WriteRead(oneLowByte, sizeof(oneLowByte), NULL, 0);
 #endif
 }
 
@@ -219,7 +364,7 @@ int main ( void )
     initPieceId();
     startPieceId();
 
-    uint32_t switchInterval = 15000;
+    uint32_t switchInterval = 5000;
     uint32_t nextSwitchMs = getCurrentTimeMs() + switchInterval;
 
     while ( true )
@@ -227,14 +372,13 @@ int main ( void )
         /* Maintain state machines of all polled MPLAB Harmony modules. */
         SYS_Tasks ( );
 
-        spiTest();
-
         commProcess();
         
         uint32_t now = getCurrentTimeMs();
         if (now >= nextSwitchMs) {
           nextSwitchMs += switchInterval;
           switchPieceId();
+          spiTest();
         }
 
         delay(1);

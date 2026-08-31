@@ -53,9 +53,9 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/peripheral/clock/plib_clock.h
   hash: 01c269741541514e997ef61546f4dbb0e23f66e27c6a957162557f13b4638baf
 - file: ../src/config/default/peripheral/dmac/plib_dmac.c
-  hash: 3a34d1465e6c82c590e1e1981222c6771dba26c25f3ec9c19c36018f8f24ae79
+  hash: 1c6c068ff5e0ac9c685818dd7ec623d15915fc94953d6a25199c1bfdd5c5220c
 - file: ../src/config/default/peripheral/dmac/plib_dmac.h
-  hash: 3a2c43fa53bb62d4f8703bceb0909b7785338653372b1e786bd980008f81a08f
+  hash: b6ea9b70943ab1220db8ca2b9226ff369938eff505c5bbd269f38d0489733ee2
 - file: ../src/config/default/peripheral/evsys/plib_evsys.c
   hash: d2017b3ce58ec2b5ce711781b80374f3c2871ffbd5c043893085fd36c503da8a
 - file: ../src/config/default/peripheral/evsys/plib_evsys.h

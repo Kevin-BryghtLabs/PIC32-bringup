@@ -5042,6 +5042,17 @@ data:
           type: User
         type: Values
       type: Boolean
+    DMAC_LL_ENABLE:
+      attributes:
+        id: DMAC_LL_ENABLE
+        label: Use Linked List Mode ?
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
   userData:
     children:
     - attributes:
