@@ -146,11 +146,13 @@ void SYS_Initialize ( void* data )
 
     SERCOM2_USART_Initialize();
 
+    SERCOM1_SPI_Initialize();
+
     EVSYS_Initialize();
 
-    RTC_Initialize();
-
     TC0_CompareInitialize();
+
+    RTC_Initialize();
 
     TC3_CompareInitialize();
 

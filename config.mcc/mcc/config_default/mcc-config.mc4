@@ -25,7 +25,7 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/PIC32CM6408JH00048.ld
   hash: 65f6cc7bbdd30f18bf6e79c9369c7f755a4da37120ba08660dc9bcbe440ebf47
 - file: ../src/config/default/definitions.h
-  hash: 144a098c6e7a6d3a599ed2237354aa53696ac895d981047a6bbc811d1cdd5c53
+  hash: 906aa09c493164b7d5d0a86af1c0b0a8312fe6fe4bc004dd4ccb257df196ab08
 - file: ../src/config/default/device.h
   hash: ebec3c93ae73497dd0456e83a24acc27bca9da841c0ad5d8c8bd053b270f3b87
 - file: ../src/config/default/device_cache.h
@@ -35,7 +35,7 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/exceptions.c
   hash: d1567a190561858cc1cb7e796cf1a29720e52b9799bbd88b087993d8539e137f
 - file: ../src/config/default/initialization.c
-  hash: ffaf11b481c33a08200ed63676614681e9cba07c0a81cf5436721037f286b799
+  hash: 1ca4671f74f2b9d310839f81cc04a55ae02e6baa0f2892cb17281fe75353ed29
 - file: ../src/config/default/interrupts.c
   hash: 3eb20c1f10ba796836bc84ca5448148950f862beba2ab49e82378dcd13c70433
 - file: ../src/config/default/interrupts.h
@@ -49,7 +49,7 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/peripheral/adc/plib_adc_common.h
   hash: 35ad76e53c160402e7183e57e85cb656efa929008b2db976f150ea603570b63e
 - file: ../src/config/default/peripheral/clock/plib_clock.c
-  hash: 8152058869a0e395aa66b14003e694279beb24cc2755efce1ade6b8e8e4404f8
+  hash: 1821d777b854537fb3facb33bd3d36a3d24818bc8f2623984f78b66777aebba6
 - file: ../src/config/default/peripheral/clock/plib_clock.h
   hash: 01c269741541514e997ef61546f4dbb0e23f66e27c6a957162557f13b4638baf
 - file: ../src/config/default/peripheral/evsys/plib_evsys.c
@@ -76,6 +76,12 @@ generatedFileHashHistoryMap:
   hash: 92e9a13ceda691e011ad7efff84d616e8466f744723f8135850fc171fd53ac3b
 - file: ../src/config/default/peripheral/rtc/plib_rtc_timer.c
   hash: f43f44c5c6b1739cbc31208a75fdc6c6ec28f7132c39917bc8e5d4a52689fe7c
+- file: ../src/config/default/peripheral/sercom/spi_master/plib_sercom1_spi_master.c
+  hash: d4286d0824074b7e0ec894c7bc5afa703e027ee40bedaba57f761e8c69c003d8
+- file: ../src/config/default/peripheral/sercom/spi_master/plib_sercom1_spi_master.h
+  hash: 94858ce75946aab8706a2b90a08d79a392fffb1a766510e906874e644e221886
+- file: ../src/config/default/peripheral/sercom/spi_master/plib_sercom_spi_master_common.h
+  hash: 06e3c7813e1608b5008e3c8955569f9cff04bef321a34c35421f7979368a4ada
 - file: ../src/config/default/peripheral/sercom/usart/plib_sercom2_usart.c
   hash: 86a542bb770f07559b205b5a279e4e26945e2c7c181eafdca845bf35bbccffb8
 - file: ../src/config/default/peripheral/sercom/usart/plib_sercom2_usart.h
