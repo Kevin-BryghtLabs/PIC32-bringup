@@ -168,12 +168,7 @@ static const uint8_t AllWhite[LED_SPI_BLOCK_SIZE] = {
   WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE,
 };
 
-static uint8_t ledPayloadBuffer0[LED_SPI_BLOCK_SIZE] = {
-  GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN,
-};
-static uint8_t ledPayloadBuffer1[LED_SPI_BLOCK_SIZE] = {
-  RED, RED, RED, RED, RED, RED, RED, RED,
-};
+static uint8_t ledPayloadBuffer[2][LED_SPI_BLOCK_SIZE];
 
 static const uint8_t ZeroByte = 0;
 
@@ -186,6 +181,9 @@ __attribute__ ((aligned (8))) dmac_descriptor_registers_t dmaDescriptors[5];
    (DMAC_BTCTRL_BEATSIZE_BYTE | DMAC_BTCTRL_BLOCKACT_INT | DMAC_BTCTRL_VALID_Msk)
 
 static unsigned updateIdx = 0;
+static unsigned ledFillIdx = 0;
+static unsigned ledSentIdx = 0;
+static unsigned nextBuffer = 0;
 
 static void setLedTXPinToGPIO() {
   PORT_REGS->GROUP[0].PORT_OUTCLR = ((uint32_t)1U << 0);
@@ -197,8 +195,109 @@ static void setLedTXPinToSPI() {
   PORT_PinPeripheralFunctionConfig(PORT_PIN_PA00, 0x03);
 }
 
+enum {
+  COLOR_OFF,
+  COLOR_RED,
+  COLOR_GREEN,
+  COLOR_BLUE,
+  COLOR_CYAN,
+  COLOR_MAGENTA,
+  COLOR_YELLOW,
+  COLOR_WHITE,
+
+  COLOR_COUNT
+};
+
+static uint8_t palette[COLOR_COUNT][3] = {
+  [COLOR_OFF]       = { 0x00, 0x00, 0x00 },
+  [COLOR_RED]       = { 0x55, 0x00, 0x00 },
+  [COLOR_GREEN]     = { 0x11, 0x55, 0x00 },
+  [COLOR_BLUE]      = { 0x00, 0x00, 0x55 },
+  [COLOR_CYAN]      = { 0x00, 0x55, 0x55 },
+  [COLOR_MAGENTA]   = { 0x55, 0x00, 0x55 },
+  [COLOR_YELLOW]    = { 0x55, 0x55, 0x00 },
+  [COLOR_WHITE]     = { 0x55, 0x55, 0x55 },
+};
+
+static const uint8_t bitPairTxPattern[] = {
+  [0] = LED_00,
+  [1] = LED_01,
+  [2] = LED_10,
+  [3] = LED_11,
+};
+
+static uint8_t ledValues[64] = {
+  COLOR_OFF, COLOR_RED, COLOR_GREEN, COLOR_BLUE, COLOR_CYAN, COLOR_MAGENTA, COLOR_YELLOW, COLOR_WHITE,
+  COLOR_OFF, COLOR_RED, COLOR_GREEN, COLOR_BLUE, COLOR_CYAN, COLOR_MAGENTA, COLOR_YELLOW, COLOR_WHITE,
+  COLOR_OFF, COLOR_RED, COLOR_GREEN, COLOR_BLUE, COLOR_CYAN, COLOR_MAGENTA, COLOR_YELLOW, COLOR_WHITE,
+  COLOR_OFF, COLOR_RED, COLOR_GREEN, COLOR_BLUE, COLOR_CYAN, COLOR_MAGENTA, COLOR_YELLOW, COLOR_WHITE,
+  COLOR_OFF, COLOR_RED, COLOR_GREEN, COLOR_BLUE, COLOR_CYAN, COLOR_MAGENTA, COLOR_YELLOW, COLOR_WHITE,
+  COLOR_OFF, COLOR_RED, COLOR_GREEN, COLOR_BLUE, COLOR_CYAN, COLOR_MAGENTA, COLOR_YELLOW, COLOR_WHITE,
+  COLOR_OFF, COLOR_RED, COLOR_GREEN, COLOR_BLUE, COLOR_CYAN, COLOR_MAGENTA, COLOR_YELLOW, COLOR_WHITE,
+  COLOR_OFF, COLOR_RED, COLOR_GREEN, COLOR_BLUE, COLOR_CYAN, COLOR_MAGENTA, COLOR_YELLOW, COLOR_WHITE,
+};
+
+static void fillSPIBuffer(unsigned startIdx, uint8_t * spiBuffer) {
+  for (unsigned i = 0; i < LEDS_PER_BLOCK_TRANSFER; ++i) {
+    const uint8_t colorVal = ledValues[startIdx++];
+
+    *spiBuffer++ = bitPairTxPattern[(palette[colorVal][1] >> 6) & 0x03];
+    *spiBuffer++ = bitPairTxPattern[(palette[colorVal][1] >> 4) & 0x03];
+    *spiBuffer++ = bitPairTxPattern[(palette[colorVal][1] >> 2) & 0x03];
+    *spiBuffer++ = bitPairTxPattern[(palette[colorVal][1] >> 0) & 0x03];
+    *spiBuffer++ = bitPairTxPattern[(palette[colorVal][0] >> 6) & 0x03];
+    *spiBuffer++ = bitPairTxPattern[(palette[colorVal][0] >> 4) & 0x03];
+    *spiBuffer++ = bitPairTxPattern[(palette[colorVal][0] >> 2) & 0x03];
+    *spiBuffer++ = bitPairTxPattern[(palette[colorVal][0] >> 0) & 0x03];
+    *spiBuffer++ = bitPairTxPattern[(palette[colorVal][2] >> 6) & 0x03];
+    *spiBuffer++ = bitPairTxPattern[(palette[colorVal][2] >> 4) & 0x03];
+    *spiBuffer++ = bitPairTxPattern[(palette[colorVal][2] >> 2) & 0x03];
+    *spiBuffer++ = bitPairTxPattern[(palette[colorVal][2] >> 0) & 0x03];
+  }
+}
+
+typedef enum DMAStates {
+  STATE_START,
+  STATE_TRANSFER,
+  STATE_END
+} DMAStates;
+
+static DMAStates dmaState;
+
 static void dmaBlockDone(DMAC_TRANSFER_EVENT event, uintptr_t contextHandle) {
   if (event == DMAC_TRANSFER_EVENT_COMPLETE) {
+    switch (dmaState) {
+      case STATE_START:
+        dmaState = STATE_TRANSFER;
+        break;
+
+      case STATE_TRANSFER:
+        ledSentIdx += LEDS_PER_BLOCK_TRANSFER;
+        if (ledSentIdx >= 64) {
+          // We have just sent the final transfer.  The next interrupt will be
+          // the one after the "end" transfer of zeros while we turn
+          dmaState = STATE_END;
+        }
+        else {
+          fillSPIBuffer(ledFillIdx, ledPayloadBuffer[0]);
+
+          ledFillIdx += LEDS_PER_BLOCK_TRANSFER;
+          if (ledFillIdx >= 64) {
+            // We are filling the final transfer, tell it to transition
+            // to the end state after sending
+            dmaDescriptors[nextBuffer].DMAC_DESCADDR = (uintptr_t)&dmaDescriptors[2];
+          }
+
+          nextBuffer ^= 1;
+        }
+        break;
+
+      case STATE_END:
+        setLedTXPinToGPIO();
+        break;
+    }
+
+#if 0
     if (updateIdx == 0) {
       // End of warmup period
     }
@@ -214,7 +313,9 @@ static void dmaBlockDone(DMAC_TRANSFER_EVENT event, uintptr_t contextHandle) {
       setLedTXPinToGPIO();
     }
     updateIdx++;
+#endif
   }
+
 }
 
 void spiTest() {
@@ -253,26 +354,30 @@ void spiTest() {
   static unsigned delay = 0;
   static unsigned currentCycle = 0;
 
-  updateIdx = 0;
+  dmaState = STATE_START;
+  //updateIdx = 0;
+  ledSentIdx = 0;
+  nextBuffer = 0;
 
-  memcpy(ledPayloadBuffer0, AllGreen, LED_SPI_BLOCK_SIZE);
-  memcpy(ledPayloadBuffer1, AllRed, LED_SPI_BLOCK_SIZE);
+  fillSPIBuffer(LEDS_PER_BLOCK_TRANSFER * 0, ledPayloadBuffer[0]);
+  fillSPIBuffer(LEDS_PER_BLOCK_TRANSFER * 1, ledPayloadBuffer[1]);
+  ledFillIdx = LEDS_PER_BLOCK_TRANSFER * 2;
 
   LED_CH_EN_Set();
   DMAC_ChannelCallbackRegister(DMAC_CHANNEL_0, dmaBlockDone, 0);
   DMAC_LinkedListDescriptorSetup(&dmaDescriptors[0],
       DMA_SPI_LED_BTCTRL,
-      ledPayloadBuffer0,
+      ledPayloadBuffer[0],
       (void *)&SERCOM1_REGS->SPIM.SERCOM_DATA,
-      sizeof(ledPayloadBuffer0),
+      sizeof(ledPayloadBuffer[0]),
       &dmaDescriptors[1]);
 
   DMAC_LinkedListDescriptorSetup(&dmaDescriptors[1],
       DMA_SPI_LED_BTCTRL,
-      ledPayloadBuffer1,
+      ledPayloadBuffer[1],
       (void *)&SERCOM1_REGS->SPIM.SERCOM_DATA,
-      sizeof(ledPayloadBuffer1),
-      &dmaDescriptors[2]);
+      sizeof(ledPayloadBuffer[1]),
+      &dmaDescriptors[0]);
 
   DMAC_LinkedListDescriptorSetup(&dmaDescriptors[2],
       DMA_SPI_RESET_BTCTRL,
@@ -298,7 +403,7 @@ void spiTest() {
 
   DMAC_LinkedListDescriptorSetup(&dmaDescriptors[3],
       DMA_SPI_LED_BTCTRL,
-      ledPayloadBuffer1,
+      ledPayloadBuffer[1],
       (void *)&SERCOM1_REGS->SPIM.SERCOM_DATA,
       sizeof(ledPayloadBuffer1),
       NULL);
