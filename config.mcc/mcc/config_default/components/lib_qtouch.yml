@@ -101,16 +101,34 @@ data:
       attributes:
         id: DEF_DIGI_FILT_GAIN0
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN1:
       attributes:
         id: DEF_DIGI_FILT_GAIN1
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN10:
       attributes:
         id: DEF_DIGI_FILT_GAIN10
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN100:
       attributes:
@@ -166,6 +184,12 @@ data:
       attributes:
         id: DEF_DIGI_FILT_GAIN11
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN110:
       attributes:
@@ -221,6 +245,12 @@ data:
       attributes:
         id: DEF_DIGI_FILT_GAIN12
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN120:
       attributes:
@@ -276,6 +306,12 @@ data:
       attributes:
         id: DEF_DIGI_FILT_GAIN13
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN130:
       attributes:
@@ -311,346 +347,760 @@ data:
       attributes:
         id: DEF_DIGI_FILT_GAIN14
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN15:
       attributes:
         id: DEF_DIGI_FILT_GAIN15
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN16:
       attributes:
         id: DEF_DIGI_FILT_GAIN16
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN17:
       attributes:
         id: DEF_DIGI_FILT_GAIN17
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN18:
       attributes:
         id: DEF_DIGI_FILT_GAIN18
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN19:
       attributes:
         id: DEF_DIGI_FILT_GAIN19
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN2:
       attributes:
         id: DEF_DIGI_FILT_GAIN2
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN20:
       attributes:
         id: DEF_DIGI_FILT_GAIN20
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN21:
       attributes:
         id: DEF_DIGI_FILT_GAIN21
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN22:
       attributes:
         id: DEF_DIGI_FILT_GAIN22
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN23:
       attributes:
         id: DEF_DIGI_FILT_GAIN23
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN24:
       attributes:
         id: DEF_DIGI_FILT_GAIN24
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN25:
       attributes:
         id: DEF_DIGI_FILT_GAIN25
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN26:
       attributes:
         id: DEF_DIGI_FILT_GAIN26
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN27:
       attributes:
         id: DEF_DIGI_FILT_GAIN27
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN28:
       attributes:
         id: DEF_DIGI_FILT_GAIN28
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN29:
       attributes:
         id: DEF_DIGI_FILT_GAIN29
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN3:
       attributes:
         id: DEF_DIGI_FILT_GAIN3
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN30:
       attributes:
         id: DEF_DIGI_FILT_GAIN30
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN31:
       attributes:
         id: DEF_DIGI_FILT_GAIN31
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN32:
       attributes:
         id: DEF_DIGI_FILT_GAIN32
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN33:
       attributes:
         id: DEF_DIGI_FILT_GAIN33
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN34:
       attributes:
         id: DEF_DIGI_FILT_GAIN34
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN35:
       attributes:
         id: DEF_DIGI_FILT_GAIN35
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN36:
       attributes:
         id: DEF_DIGI_FILT_GAIN36
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN37:
       attributes:
         id: DEF_DIGI_FILT_GAIN37
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN38:
       attributes:
         id: DEF_DIGI_FILT_GAIN38
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN39:
       attributes:
         id: DEF_DIGI_FILT_GAIN39
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN4:
       attributes:
         id: DEF_DIGI_FILT_GAIN4
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN40:
       attributes:
         id: DEF_DIGI_FILT_GAIN40
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN41:
       attributes:
         id: DEF_DIGI_FILT_GAIN41
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN42:
       attributes:
         id: DEF_DIGI_FILT_GAIN42
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN43:
       attributes:
         id: DEF_DIGI_FILT_GAIN43
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN44:
       attributes:
         id: DEF_DIGI_FILT_GAIN44
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN45:
       attributes:
         id: DEF_DIGI_FILT_GAIN45
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN46:
       attributes:
         id: DEF_DIGI_FILT_GAIN46
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN47:
       attributes:
         id: DEF_DIGI_FILT_GAIN47
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN48:
       attributes:
         id: DEF_DIGI_FILT_GAIN48
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN49:
       attributes:
         id: DEF_DIGI_FILT_GAIN49
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN5:
       attributes:
         id: DEF_DIGI_FILT_GAIN5
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN50:
       attributes:
         id: DEF_DIGI_FILT_GAIN50
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN51:
       attributes:
         id: DEF_DIGI_FILT_GAIN51
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN52:
       attributes:
         id: DEF_DIGI_FILT_GAIN52
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN53:
       attributes:
         id: DEF_DIGI_FILT_GAIN53
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN54:
       attributes:
         id: DEF_DIGI_FILT_GAIN54
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN55:
       attributes:
         id: DEF_DIGI_FILT_GAIN55
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN56:
       attributes:
         id: DEF_DIGI_FILT_GAIN56
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN57:
       attributes:
         id: DEF_DIGI_FILT_GAIN57
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN58:
       attributes:
         id: DEF_DIGI_FILT_GAIN58
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN59:
       attributes:
         id: DEF_DIGI_FILT_GAIN59
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN6:
       attributes:
         id: DEF_DIGI_FILT_GAIN6
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN60:
       attributes:
         id: DEF_DIGI_FILT_GAIN60
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN61:
       attributes:
         id: DEF_DIGI_FILT_GAIN61
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN62:
       attributes:
         id: DEF_DIGI_FILT_GAIN62
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN63:
       attributes:
         id: DEF_DIGI_FILT_GAIN63
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN64:
       attributes:
         id: DEF_DIGI_FILT_GAIN64
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN65:
       attributes:
         id: DEF_DIGI_FILT_GAIN65
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN66:
       attributes:
         id: DEF_DIGI_FILT_GAIN66
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN67:
       attributes:
         id: DEF_DIGI_FILT_GAIN67
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN68:
       attributes:
         id: DEF_DIGI_FILT_GAIN68
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN69:
       attributes:
         id: DEF_DIGI_FILT_GAIN69
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN7:
       attributes:
         id: DEF_DIGI_FILT_GAIN7
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN70:
       attributes:
         id: DEF_DIGI_FILT_GAIN70
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN71:
       attributes:
         id: DEF_DIGI_FILT_GAIN71
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN72:
       attributes:
         id: DEF_DIGI_FILT_GAIN72
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN73:
       attributes:
         id: DEF_DIGI_FILT_GAIN73
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN74:
       attributes:
         id: DEF_DIGI_FILT_GAIN74
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN75:
       attributes:
         id: DEF_DIGI_FILT_GAIN75
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN76:
       attributes:
         id: DEF_DIGI_FILT_GAIN76
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN77:
       attributes:
@@ -671,6 +1121,12 @@ data:
       attributes:
         id: DEF_DIGI_FILT_GAIN8
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN80:
       attributes:
@@ -726,6 +1182,12 @@ data:
       attributes:
         id: DEF_DIGI_FILT_GAIN9
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN90:
       attributes:
@@ -781,16 +1243,34 @@ data:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING0
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING1:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING1
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING10:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING10
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING100:
       attributes:
@@ -846,6 +1326,12 @@ data:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING11
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING110:
       attributes:
@@ -901,6 +1387,12 @@ data:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING12
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING120:
       attributes:
@@ -956,6 +1448,12 @@ data:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING13
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING130:
       attributes:
@@ -991,346 +1489,760 @@ data:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING14
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING15:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING15
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING16:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING16
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING17:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING17
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING18:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING18
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING19:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING19
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING2:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING2
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING20:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING20
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING21:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING21
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING22:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING22
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING23:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING23
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING24:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING24
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING25:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING25
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING26:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING26
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING27:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING27
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING28:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING28
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING29:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING29
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING3:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING3
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING30:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING30
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING31:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING31
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING32:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING32
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING33:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING33
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING34:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING34
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING35:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING35
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING36:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING36
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING37:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING37
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING38:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING38
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING39:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING39
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING4:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING4
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING40:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING40
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING41:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING41
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING42:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING42
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING43:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING43
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING44:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING44
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING45:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING45
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING46:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING46
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING47:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING47
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING48:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING48
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING49:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING49
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING5:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING5
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING50:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING50
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING51:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING51
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING52:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING52
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING53:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING53
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING54:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING54
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING55:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING55
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING56:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING56
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING57:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING57
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING58:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING58
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING59:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING59
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING6:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING6
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING60:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING60
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING61:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING61
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING62:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING62
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING63:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING63
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING64:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING64
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING65:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING65
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING66:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING66
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING67:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING67
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING68:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING68
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING69:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING69
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING7:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING7
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING70:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING70
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING71:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING71
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING72:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING72
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING73:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING73
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING74:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING74
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING75:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING75
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING76:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING76
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING77:
       attributes:
@@ -1351,6 +2263,12 @@ data:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING8
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING80:
       attributes:
@@ -1406,6 +2324,12 @@ data:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING9
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING90:
       attributes:
@@ -2151,16 +3075,34 @@ data:
       attributes:
         id: DEF_NOD_GAIN_ANA0
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA1:
       attributes:
         id: DEF_NOD_GAIN_ANA1
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA10:
       attributes:
         id: DEF_NOD_GAIN_ANA10
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA100:
       attributes:
@@ -2216,6 +3158,12 @@ data:
       attributes:
         id: DEF_NOD_GAIN_ANA11
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA110:
       attributes:
@@ -2271,6 +3219,12 @@ data:
       attributes:
         id: DEF_NOD_GAIN_ANA12
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA120:
       attributes:
@@ -2326,6 +3280,12 @@ data:
       attributes:
         id: DEF_NOD_GAIN_ANA13
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA130:
       attributes:
@@ -2361,346 +3321,760 @@ data:
       attributes:
         id: DEF_NOD_GAIN_ANA14
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA15:
       attributes:
         id: DEF_NOD_GAIN_ANA15
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA16:
       attributes:
         id: DEF_NOD_GAIN_ANA16
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA17:
       attributes:
         id: DEF_NOD_GAIN_ANA17
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA18:
       attributes:
         id: DEF_NOD_GAIN_ANA18
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA19:
       attributes:
         id: DEF_NOD_GAIN_ANA19
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA2:
       attributes:
         id: DEF_NOD_GAIN_ANA2
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA20:
       attributes:
         id: DEF_NOD_GAIN_ANA20
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA21:
       attributes:
         id: DEF_NOD_GAIN_ANA21
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA22:
       attributes:
         id: DEF_NOD_GAIN_ANA22
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA23:
       attributes:
         id: DEF_NOD_GAIN_ANA23
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA24:
       attributes:
         id: DEF_NOD_GAIN_ANA24
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA25:
       attributes:
         id: DEF_NOD_GAIN_ANA25
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA26:
       attributes:
         id: DEF_NOD_GAIN_ANA26
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA27:
       attributes:
         id: DEF_NOD_GAIN_ANA27
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA28:
       attributes:
         id: DEF_NOD_GAIN_ANA28
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA29:
       attributes:
         id: DEF_NOD_GAIN_ANA29
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA3:
       attributes:
         id: DEF_NOD_GAIN_ANA3
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA30:
       attributes:
         id: DEF_NOD_GAIN_ANA30
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA31:
       attributes:
         id: DEF_NOD_GAIN_ANA31
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA32:
       attributes:
         id: DEF_NOD_GAIN_ANA32
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA33:
       attributes:
         id: DEF_NOD_GAIN_ANA33
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA34:
       attributes:
         id: DEF_NOD_GAIN_ANA34
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA35:
       attributes:
         id: DEF_NOD_GAIN_ANA35
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA36:
       attributes:
         id: DEF_NOD_GAIN_ANA36
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA37:
       attributes:
         id: DEF_NOD_GAIN_ANA37
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA38:
       attributes:
         id: DEF_NOD_GAIN_ANA38
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA39:
       attributes:
         id: DEF_NOD_GAIN_ANA39
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA4:
       attributes:
         id: DEF_NOD_GAIN_ANA4
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA40:
       attributes:
         id: DEF_NOD_GAIN_ANA40
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA41:
       attributes:
         id: DEF_NOD_GAIN_ANA41
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA42:
       attributes:
         id: DEF_NOD_GAIN_ANA42
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA43:
       attributes:
         id: DEF_NOD_GAIN_ANA43
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA44:
       attributes:
         id: DEF_NOD_GAIN_ANA44
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA45:
       attributes:
         id: DEF_NOD_GAIN_ANA45
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA46:
       attributes:
         id: DEF_NOD_GAIN_ANA46
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA47:
       attributes:
         id: DEF_NOD_GAIN_ANA47
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA48:
       attributes:
         id: DEF_NOD_GAIN_ANA48
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA49:
       attributes:
         id: DEF_NOD_GAIN_ANA49
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA5:
       attributes:
         id: DEF_NOD_GAIN_ANA5
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA50:
       attributes:
         id: DEF_NOD_GAIN_ANA50
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA51:
       attributes:
         id: DEF_NOD_GAIN_ANA51
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA52:
       attributes:
         id: DEF_NOD_GAIN_ANA52
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA53:
       attributes:
         id: DEF_NOD_GAIN_ANA53
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA54:
       attributes:
         id: DEF_NOD_GAIN_ANA54
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA55:
       attributes:
         id: DEF_NOD_GAIN_ANA55
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA56:
       attributes:
         id: DEF_NOD_GAIN_ANA56
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA57:
       attributes:
         id: DEF_NOD_GAIN_ANA57
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA58:
       attributes:
         id: DEF_NOD_GAIN_ANA58
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA59:
       attributes:
         id: DEF_NOD_GAIN_ANA59
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA6:
       attributes:
         id: DEF_NOD_GAIN_ANA6
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA60:
       attributes:
         id: DEF_NOD_GAIN_ANA60
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA61:
       attributes:
         id: DEF_NOD_GAIN_ANA61
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA62:
       attributes:
         id: DEF_NOD_GAIN_ANA62
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA63:
       attributes:
         id: DEF_NOD_GAIN_ANA63
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA64:
       attributes:
         id: DEF_NOD_GAIN_ANA64
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA65:
       attributes:
         id: DEF_NOD_GAIN_ANA65
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA66:
       attributes:
         id: DEF_NOD_GAIN_ANA66
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA67:
       attributes:
         id: DEF_NOD_GAIN_ANA67
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA68:
       attributes:
         id: DEF_NOD_GAIN_ANA68
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA69:
       attributes:
         id: DEF_NOD_GAIN_ANA69
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA7:
       attributes:
         id: DEF_NOD_GAIN_ANA7
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA70:
       attributes:
         id: DEF_NOD_GAIN_ANA70
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA71:
       attributes:
         id: DEF_NOD_GAIN_ANA71
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA72:
       attributes:
         id: DEF_NOD_GAIN_ANA72
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA73:
       attributes:
         id: DEF_NOD_GAIN_ANA73
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA74:
       attributes:
         id: DEF_NOD_GAIN_ANA74
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA75:
       attributes:
         id: DEF_NOD_GAIN_ANA75
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA76:
       attributes:
         id: DEF_NOD_GAIN_ANA76
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA77:
       attributes:
@@ -2721,6 +4095,12 @@ data:
       attributes:
         id: DEF_NOD_GAIN_ANA8
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA80:
       attributes:
@@ -2776,6 +4156,12 @@ data:
       attributes:
         id: DEF_NOD_GAIN_ANA9
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA90:
       attributes:
@@ -3895,16 +5281,34 @@ data:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR0
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR1:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR1
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR10:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR10
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR100:
       attributes:
@@ -3960,6 +5364,12 @@ data:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR11
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR110:
       attributes:
@@ -4015,6 +5425,12 @@ data:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR12
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR120:
       attributes:
@@ -4070,6 +5486,12 @@ data:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR13
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR130:
       attributes:
@@ -4105,346 +5527,760 @@ data:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR14
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR15:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR15
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR16:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR16
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR17:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR17
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR18:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR18
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR19:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR19
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR2:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR2
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR20:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR20
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR21:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR21
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR22:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR22
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR23:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR23
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR24:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR24
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR25:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR25
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR26:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR26
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR27:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR27
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR28:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR28
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR29:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR29
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR3:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR3
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR30:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR30
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR31:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR31
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR32:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR32
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR33:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR33
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR34:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR34
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR35:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR35
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR36:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR36
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR37:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR37
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR38:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR38
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR39:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR39
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR4:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR4
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR40:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR40
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR41:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR41
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR42:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR42
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR43:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR43
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR44:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR44
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR45:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR45
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR46:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR46
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR47:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR47
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR48:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR48
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR49:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR49
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR5:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR5
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR50:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR50
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR51:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR51
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR52:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR52
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR53:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR53
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR54:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR54
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR55:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR55
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR56:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR56
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR57:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR57
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR58:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR58
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR59:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR59
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR6:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR6
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR60:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR60
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR61:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR61
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR62:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR62
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR63:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR63
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR64:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR64
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR65:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR65
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR66:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR66
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR67:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR67
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR68:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR68
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR69:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR69
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR7:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR7
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR70:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR70
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR71:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR71
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR72:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR72
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR73:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR73
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR74:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR74
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR75:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR75
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR76:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR76
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR77:
       attributes:
@@ -4465,6 +6301,12 @@ data:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR8
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR80:
       attributes:
@@ -4520,6 +6362,12 @@ data:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR9
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR90:
       attributes:
@@ -7995,6 +9843,12 @@ data:
       attributes:
         id: DEF_SEL_FREQ_INIT
         label: Acquisition Frequency
+      children:
+      - children:
+        - attributes:
+            value: '16'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_SENSOR_DET_THRESHOLD0:
       attributes:
@@ -10055,6 +11909,12 @@ data:
       attributes:
         id: DEF_TOUCH_MEASUREMENT_PERIOD_MS
         label: Scan Rate (ms)
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_TUNE_IN_COUNT:
       attributes:

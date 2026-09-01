@@ -47,6 +47,8 @@ void sendFirmwareVersion(void){
     sendGeneric(NRF52_FW_VER, sizeof(verData), verData);
 }
 
+void ledUpdate(const uint8_t * data);
+
 /*******************************************************************************
  * Function Name: DecodePacketData
  ********************************************************************************
@@ -71,6 +73,11 @@ void DecodePacketData(const uint8_t bleData[], int dataLength) {
   else if (bleData[0] == FIRMWARE_UPDATE){
     delay(100);
     //firmwareUpdate();
+  }
+  else if (bleData[0] == SETLEDS){
+    if (dataLength == 64 * 3 + 1) {
+      ledUpdate(&bleData[1]);
+    }
   }
 #if 0
   else if (bleData[0] == CALIBRATE){

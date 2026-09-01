@@ -25,7 +25,7 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/PIC32CM6408JH00048.ld
   hash: 65f6cc7bbdd30f18bf6e79c9369c7f755a4da37120ba08660dc9bcbe440ebf47
 - file: ../src/config/default/definitions.h
-  hash: cc5ddf7e73167d7e3f2f8dc2cd31ca67eb6c63a7a0376a58260eda1c0bc43dcb
+  hash: e50f03c0328af4bc808de10408cb0135ee761781db7d71da3bbe566351ffe0a1
 - file: ../src/config/default/device.h
   hash: ebec3c93ae73497dd0456e83a24acc27bca9da841c0ad5d8c8bd053b270f3b87
 - file: ../src/config/default/device_cache.h
@@ -35,7 +35,7 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/exceptions.c
   hash: d1567a190561858cc1cb7e796cf1a29720e52b9799bbd88b087993d8539e137f
 - file: ../src/config/default/initialization.c
-  hash: 96d74651567eb223c71ba2d90e995e30e9a3c299d405d0d1847f614160f4617d
+  hash: 2d7ae25ac6d819e8b60c9dfe63b71bfd5267a2280603308b58f57d3376a9ebf0
 - file: ../src/config/default/interrupts.c
   hash: 3f950e5ad9a768ed3ffc897fcf09a7efb863cbccf96fbc7433b6f2a06aedb23d
 - file: ../src/config/default/interrupts.h
@@ -143,7 +143,7 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/touch/touch.c
   hash: 19c6bc66d69401409f006e70c9282d74696600ab998551e698c11e1d05e548e1
 - file: ../src/config/default/touch/touch.h
-  hash: c21a57dd83850a8da36df4c4c6c2f73abc74cf017eb48ede9b842bb85c7c9a82
+  hash: 40fe7933cd2c11c0373c0e83c13150a51e14c06d3811a4941e8fa27333a8e35a
 - file: ../src/config/default/touch/touch_api_ptc.h
   hash: 13b0f417485dd1faff131548982e43f00534819670afc4ceaab6d6bec2ffd246
 - file: ../src/config/default/touch/touch_example.c

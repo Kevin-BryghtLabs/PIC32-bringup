@@ -226,34 +226,32 @@ static const uint8_t bitPairTxPattern[] = {
   [3] = LED_11,
 };
 
-static uint8_t ledValues[64] = {
-  COLOR_OFF, COLOR_RED, COLOR_GREEN, COLOR_BLUE, COLOR_CYAN, COLOR_MAGENTA, COLOR_YELLOW, COLOR_WHITE,
-  COLOR_OFF, COLOR_RED, COLOR_GREEN, COLOR_BLUE, COLOR_CYAN, COLOR_MAGENTA, COLOR_YELLOW, COLOR_WHITE,
-  COLOR_OFF, COLOR_RED, COLOR_GREEN, COLOR_BLUE, COLOR_CYAN, COLOR_MAGENTA, COLOR_YELLOW, COLOR_WHITE,
-  COLOR_OFF, COLOR_RED, COLOR_GREEN, COLOR_BLUE, COLOR_CYAN, COLOR_MAGENTA, COLOR_YELLOW, COLOR_WHITE,
-  COLOR_OFF, COLOR_RED, COLOR_GREEN, COLOR_BLUE, COLOR_CYAN, COLOR_MAGENTA, COLOR_YELLOW, COLOR_WHITE,
-  COLOR_OFF, COLOR_RED, COLOR_GREEN, COLOR_BLUE, COLOR_CYAN, COLOR_MAGENTA, COLOR_YELLOW, COLOR_WHITE,
-  COLOR_OFF, COLOR_RED, COLOR_GREEN, COLOR_BLUE, COLOR_CYAN, COLOR_MAGENTA, COLOR_YELLOW, COLOR_WHITE,
-  COLOR_OFF, COLOR_RED, COLOR_GREEN, COLOR_BLUE, COLOR_CYAN, COLOR_MAGENTA, COLOR_YELLOW, COLOR_WHITE,
-};
+static uint8_t ledValues[64][3];
 
 static void fillSPIBuffer(unsigned startIdx, uint8_t * spiBuffer) {
   for (unsigned i = 0; i < LEDS_PER_BLOCK_TRANSFER; ++i) {
-    const uint8_t colorVal = ledValues[startIdx++];
+    const uint8_t * colorVals = ledValues[startIdx++];
 
-    *spiBuffer++ = bitPairTxPattern[(palette[colorVal][1] >> 6) & 0x03];
-    *spiBuffer++ = bitPairTxPattern[(palette[colorVal][1] >> 4) & 0x03];
-    *spiBuffer++ = bitPairTxPattern[(palette[colorVal][1] >> 2) & 0x03];
-    *spiBuffer++ = bitPairTxPattern[(palette[colorVal][1] >> 0) & 0x03];
-    *spiBuffer++ = bitPairTxPattern[(palette[colorVal][0] >> 6) & 0x03];
-    *spiBuffer++ = bitPairTxPattern[(palette[colorVal][0] >> 4) & 0x03];
-    *spiBuffer++ = bitPairTxPattern[(palette[colorVal][0] >> 2) & 0x03];
-    *spiBuffer++ = bitPairTxPattern[(palette[colorVal][0] >> 0) & 0x03];
-    *spiBuffer++ = bitPairTxPattern[(palette[colorVal][2] >> 6) & 0x03];
-    *spiBuffer++ = bitPairTxPattern[(palette[colorVal][2] >> 4) & 0x03];
-    *spiBuffer++ = bitPairTxPattern[(palette[colorVal][2] >> 2) & 0x03];
-    *spiBuffer++ = bitPairTxPattern[(palette[colorVal][2] >> 0) & 0x03];
+    *spiBuffer++ = bitPairTxPattern[(colorVals[1] >> 6) & 0x03];
+    *spiBuffer++ = bitPairTxPattern[(colorVals[1] >> 4) & 0x03];
+    *spiBuffer++ = bitPairTxPattern[(colorVals[1] >> 2) & 0x03];
+    *spiBuffer++ = bitPairTxPattern[(colorVals[1] >> 0) & 0x03];
+    *spiBuffer++ = bitPairTxPattern[(colorVals[0] >> 6) & 0x03];
+    *spiBuffer++ = bitPairTxPattern[(colorVals[0] >> 4) & 0x03];
+    *spiBuffer++ = bitPairTxPattern[(colorVals[0] >> 2) & 0x03];
+    *spiBuffer++ = bitPairTxPattern[(colorVals[0] >> 0) & 0x03];
+    *spiBuffer++ = bitPairTxPattern[(colorVals[2] >> 6) & 0x03];
+    *spiBuffer++ = bitPairTxPattern[(colorVals[2] >> 4) & 0x03];
+    *spiBuffer++ = bitPairTxPattern[(colorVals[2] >> 2) & 0x03];
+    *spiBuffer++ = bitPairTxPattern[(colorVals[2] >> 0) & 0x03];
   }
+}
+
+static bool ledDirty = false;
+
+void ledUpdate(const uint8_t * data) {
+  memcpy(ledValues, data, sizeof(ledValues));
+  ledDirty = true;
 }
 
 typedef enum DMAStates {
@@ -263,6 +261,7 @@ typedef enum DMAStates {
 } DMAStates;
 
 static DMAStates dmaState;
+static volatile bool LedDMABusy = false;
 
 static void dmaBlockDone(DMAC_TRANSFER_EVENT event, uintptr_t contextHandle) {
   if (event == DMAC_TRANSFER_EVENT_COMPLETE) {
@@ -279,7 +278,7 @@ static void dmaBlockDone(DMAC_TRANSFER_EVENT event, uintptr_t contextHandle) {
           dmaState = STATE_END;
         }
         else {
-          fillSPIBuffer(ledFillIdx, ledPayloadBuffer[0]);
+          fillSPIBuffer(ledFillIdx, ledPayloadBuffer[nextBuffer]);
 
           ledFillIdx += LEDS_PER_BLOCK_TRANSFER;
           if (ledFillIdx >= 64) {
@@ -294,6 +293,7 @@ static void dmaBlockDone(DMAC_TRANSFER_EVENT event, uintptr_t contextHandle) {
 
       case STATE_END:
         setLedTXPinToGPIO();
+        LedDMABusy = false;
         break;
     }
 
@@ -318,7 +318,7 @@ static void dmaBlockDone(DMAC_TRANSFER_EVENT event, uintptr_t contextHandle) {
 
 }
 
-void spiTest() {
+void sendLedData() {
   // LED zero code:  ^___
   // LED one  code:  ^^^_
   // - each char is 0.3us
@@ -409,6 +409,8 @@ void spiTest() {
       NULL);
 #endif
 
+  LedDMABusy = true;
+
   // Start transmitting a low level so SPI will drive it low
   SERCOM1_REGS->SPIM.SERCOM_DATA = 0,
 
@@ -417,6 +419,11 @@ void spiTest() {
 
   // SPI should be driving the correct low signal by now; switch pin mux
   setLedTXPinToSPI();
+
+  while (LedDMABusy) {
+  }
+
+  ledDirty = false;
 
   //DMAC_ChannelTransfer(DMAC_CHANNEL_0, ledPayloadBuffer, (void *)&SERCOM1_REGS->SPIM.SERCOM_DATA, sizeof(ledPayloadBuffer));
   return;
@@ -451,6 +458,40 @@ void spiTest() {
 #endif
 }
 
+static void capCal(void) {
+  for (unsigned i = 0; i < DEF_NUM_CHANNELS; i++) {
+    calibrate_node(i);
+  }
+}
+
+uint16_t sens[DEF_NUM_CHANNELS];
+
+static void sendTestData(uint16_t val, uint16_t cc){
+  uint16_t buffer[2];
+  buffer[0] = val;
+  buffer[1] = cc;
+  sendGeneric(UI_ADVANCE, sizeof(buffer), buffer);
+}
+
+static void readCap(void) {
+  touch_process();
+  if (measurement_done_touch) {
+    for (unsigned i = 0; i < DEF_NUM_CHANNELS; i++) {
+      sens[i] = get_sensor_node_signal(i);
+    }
+    sendGeneric(SEND_DATA, sizeof(sens), sens);
+    measurement_done_touch = 0;
+  }
+  //volatile uint16_t sens4 = get_sensor_node_signal(4);
+  //volatile uint16_t sens5 = get_sensor_node_signal(5);
+  //volatile uint16_t sens6 = get_sensor_node_signal(6);
+  //volatile uint16_t sens7 = get_sensor_node_signal(7);
+  //volatile uint16_t sens8 = get_sensor_node_signal(8);
+  //volatile uint16_t sens9 = get_sensor_node_signal(9);
+
+  //uint16_t test = sens0 + sens1 + sens2 + sens3;
+}
+
 int main ( void )
 {
     /* Initialize all modules */
@@ -464,13 +505,18 @@ int main ( void )
 
     commStartup();
 
+    capCal();
+
     //TCC0_PWMStart();
 
-    initPieceId();
-    startPieceId();
+    //initPieceId();
+    //startPieceId();
 
     uint32_t switchInterval = 5000;
     uint32_t nextSwitchMs = getCurrentTimeMs() + switchInterval;
+
+    uint32_t capInterval = 1000;
+    uint32_t nextCapMs = getCurrentTimeMs() + capInterval;
 
     while ( true )
     {
@@ -478,12 +524,23 @@ int main ( void )
         SYS_Tasks ( );
 
         commProcess();
-        
+
+        if (ledDirty) {
+          sendLedData();
+        }
+        else {
+          readCap();
+        }
+
         uint32_t now = getCurrentTimeMs();
         if (now >= nextSwitchMs) {
           nextSwitchMs += switchInterval;
           switchPieceId();
-          spiTest();
+          //spiTest();
+        }
+        if (now >= nextCapMs) {
+          nextCapMs += capInterval;
+          //spiTest();
         }
 
         delay(1);
