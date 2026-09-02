@@ -174,6 +174,32 @@ static void readCap(void) {
   //uint16_t test = sens0 + sens1 + sens2 + sens3;
 }
 
+int hubLog(char type, const char * fmt, ...) __attribute__((format(printf, 2, 3)));
+
+int hubLog(char type, const char * fmt, ...) {
+  // Packet must fit in a uint8_t length
+  char buffer[245];
+
+  va_list args;
+
+  va_start(args, fmt);
+  int res = vsnprintf(buffer, sizeof(buffer), fmt, args);
+  va_end(args);
+
+  if (res >= 0) {
+    unsigned length = res;
+    if (length >= sizeof(buffer)) {
+      length = sizeof(buffer) - 1;
+    }
+    // Send the null byte
+    length += 1;
+    sendGenericStart(DEBUG_MESSAGE, length + 1);
+    sendGenericData1(type);
+    sendGenericData(buffer, length);
+    sendGenericDone();
+  }
+}
+
 int main ( void )
 {
     /* Initialize all modules */
