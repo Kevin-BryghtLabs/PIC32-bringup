@@ -122,10 +122,6 @@ generatedFileHashHistoryMap:
   hash: a4f1774c6f1f8c6cd522567536c9e9d75ca63259b868015ac9b0fb0aeeffe1f4
 - file: ../src/config/default/touch/lib/qtm_acq_pic32cmjh_0x0020.X.a
   hash: 9bad2eca8badda2a89ddf9a9e9c5a2a022196a7ba32b432bf6ab7009c2eee27d
-- file: ../src/config/default/touch/lib/qtm_freq_hop_auto_cm0p_0x0004.X.a
-  hash: 0cc61b670ccb0ebd7693034a5745421fee4bdf43b6d3e6a708a40e9140ad4551
-- file: ../src/config/default/touch/lib/qtm_freq_hop_cm0p_0x0006.X.a
-  hash: cee4068df9fa1c713dacf6b7ac164de83642186c50fe82f70470d25a2689d328
 - file: ../src/config/default/touch/lib/qtm_touch_key_cm0p_0x0002.X.a
   hash: ffa2f4c39c786edd62ed89e458a1a1bd65e083947c42c1abe48432f589497045
 - file: ../src/config/default/touch/qtm_acq_pic32cmjh_0x0020_api.h
@@ -134,18 +130,14 @@ generatedFileHashHistoryMap:
   hash: 6c1437460320048b82a68499bf56719d5c4e11a117a1c34a55f2d0a4af640151
 - file: ../src/config/default/touch/qtm_common_components_api.h
   hash: 27367c4c6332d8ea31c183e3946108168deea1cbb2d59c21ec00404bb6e4e34f
-- file: ../src/config/default/touch/qtm_freq_hop_0x0006_api.h
-  hash: 24ed3242e37471cbe9dd2507e931e88e843c683c9750d30e08f91a9d62a8e7e5
-- file: ../src/config/default/touch/qtm_freq_hop_auto_0x0004_api.h
-  hash: a0e06e45e438b797edcb61796bc74da1b1e488b45ee5263f2a638acdbffe35c9
 - file: ../src/config/default/touch/qtm_touch_key_0x0002_api.h
   hash: 4840f9cd8def73a029c2090d101548329c92bdf13bd19410029aab45234b42e2
 - file: ../src/config/default/touch/touch.c
-  hash: 19c6bc66d69401409f006e70c9282d74696600ab998551e698c11e1d05e548e1
+  hash: 25aa9ddd35bed4a100cfd4061ba130bad3791a581e08fd699200750bcfb81c33
 - file: ../src/config/default/touch/touch.h
-  hash: 40fe7933cd2c11c0373c0e83c13150a51e14c06d3811a4941e8fa27333a8e35a
+  hash: 7f9f5bf653e3ba11a5542e14372b8849437291b4c2818f8edf01ac797b1baa92
 - file: ../src/config/default/touch/touch_api_ptc.h
-  hash: 13b0f417485dd1faff131548982e43f00534819670afc4ceaab6d6bec2ffd246
+  hash: 468c19e1f812152728b1d5fa7ec465955dc03954b6975e85e7fb3209bdf05f17
 - file: ../src/config/default/touch/touch_example.c
   hash: d3886e41864780d669a76d3f944edddd661f5164796488891b2b4b3d3734e194
 - file: ../src/config/default/touch/touch_example.h

@@ -119,311 +119,311 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 
 #define NODE_0_PARAMS                                                                                               \
 {                                                                                                                  \
- X(0), Y(9), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(0), Y(9), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_1_PARAMS                                                                                               \
 {                                                                                                                  \
- X(0), Y(8), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(0), Y(8), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_2_PARAMS                                                                                               \
 {                                                                                                                  \
- X(0), Y(14), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(0), Y(14), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_3_PARAMS                                                                                               \
 {                                                                                                                  \
- X(0), Y(15), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(0), Y(15), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_4_PARAMS                                                                                               \
 {                                                                                                                  \
- X(0), Y(2), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(0), Y(2), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_5_PARAMS                                                                                               \
 {                                                                                                                  \
- X(0), Y(3), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(0), Y(3), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_6_PARAMS                                                                                               \
 {                                                                                                                  \
- X(0), Y(4), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(0), Y(4), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_7_PARAMS                                                                                               \
 {                                                                                                                  \
- X(0), Y(5), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(0), Y(5), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_8_PARAMS                                                                                               \
 {                                                                                                                  \
- X(7), Y(9), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(7), Y(9), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_9_PARAMS                                                                                               \
 {                                                                                                                  \
- X(7), Y(8), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(7), Y(8), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_10_PARAMS                                                                                               \
 {                                                                                                                  \
- X(7), Y(14), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(7), Y(14), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_11_PARAMS                                                                                               \
 {                                                                                                                  \
- X(7), Y(15), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(7), Y(15), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_12_PARAMS                                                                                               \
 {                                                                                                                  \
- X(7), Y(2), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(7), Y(2), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_13_PARAMS                                                                                               \
 {                                                                                                                  \
- X(7), Y(3), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(7), Y(3), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_14_PARAMS                                                                                               \
 {                                                                                                                  \
- X(7), Y(4), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(7), Y(4), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_15_PARAMS                                                                                               \
 {                                                                                                                  \
- X(7), Y(5), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(7), Y(5), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_16_PARAMS                                                                                               \
 {                                                                                                                  \
- X(1), Y(9), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(1), Y(9), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_17_PARAMS                                                                                               \
 {                                                                                                                  \
- X(1), Y(8), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(1), Y(8), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_18_PARAMS                                                                                               \
 {                                                                                                                  \
- X(1), Y(14), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(1), Y(14), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_19_PARAMS                                                                                               \
 {                                                                                                                  \
- X(1), Y(15), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(1), Y(15), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_20_PARAMS                                                                                               \
 {                                                                                                                  \
- X(1), Y(2), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(1), Y(2), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_21_PARAMS                                                                                               \
 {                                                                                                                  \
- X(1), Y(3), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(1), Y(3), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_22_PARAMS                                                                                               \
 {                                                                                                                  \
- X(1), Y(4), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(1), Y(4), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_23_PARAMS                                                                                               \
 {                                                                                                                  \
- X(1), Y(5), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(1), Y(5), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_24_PARAMS                                                                                               \
 {                                                                                                                  \
- X(6), Y(9), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(6), Y(9), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_25_PARAMS                                                                                               \
 {                                                                                                                  \
- X(6), Y(8), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(6), Y(8), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_26_PARAMS                                                                                               \
 {                                                                                                                  \
- X(6), Y(14), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(6), Y(14), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_27_PARAMS                                                                                               \
 {                                                                                                                  \
- X(6), Y(15), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(6), Y(15), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_28_PARAMS                                                                                               \
 {                                                                                                                  \
- X(6), Y(2), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(6), Y(2), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_29_PARAMS                                                                                               \
 {                                                                                                                  \
- X(6), Y(3), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(6), Y(3), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_30_PARAMS                                                                                               \
 {                                                                                                                  \
- X(6), Y(4), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(6), Y(4), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_31_PARAMS                                                                                               \
 {                                                                                                                  \
- X(6), Y(5), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(6), Y(5), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_32_PARAMS                                                                                               \
 {                                                                                                                  \
- X(2), Y(9), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(2), Y(9), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_33_PARAMS                                                                                               \
 {                                                                                                                  \
- X(2), Y(8), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(2), Y(8), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_34_PARAMS                                                                                               \
 {                                                                                                                  \
- X(2), Y(14), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(2), Y(14), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_35_PARAMS                                                                                               \
 {                                                                                                                  \
- X(2), Y(15), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(2), Y(15), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_36_PARAMS                                                                                               \
 {                                                                                                                  \
- X(2), Y(2), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(2), Y(2), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_37_PARAMS                                                                                               \
 {                                                                                                                  \
- X(2), Y(3), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(2), Y(3), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_38_PARAMS                                                                                               \
 {                                                                                                                  \
- X(2), Y(4), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(2), Y(4), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_39_PARAMS                                                                                               \
 {                                                                                                                  \
- X(2), Y(5), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(2), Y(5), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_40_PARAMS                                                                                               \
 {                                                                                                                  \
- X(5), Y(9), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(5), Y(9), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_41_PARAMS                                                                                               \
 {                                                                                                                  \
- X(5), Y(8), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(5), Y(8), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_42_PARAMS                                                                                               \
 {                                                                                                                  \
- X(5), Y(14), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(5), Y(14), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_43_PARAMS                                                                                               \
 {                                                                                                                  \
- X(5), Y(15), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(5), Y(15), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_44_PARAMS                                                                                               \
 {                                                                                                                  \
- X(5), Y(2), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(5), Y(2), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_45_PARAMS                                                                                               \
 {                                                                                                                  \
- X(5), Y(3), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(5), Y(3), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_46_PARAMS                                                                                               \
 {                                                                                                                  \
- X(5), Y(4), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(5), Y(4), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_47_PARAMS                                                                                               \
 {                                                                                                                  \
- X(5), Y(5), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(5), Y(5), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_48_PARAMS                                                                                               \
 {                                                                                                                  \
- X(3), Y(9), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(3), Y(9), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_49_PARAMS                                                                                               \
 {                                                                                                                  \
- X(3), Y(8), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(3), Y(8), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_50_PARAMS                                                                                               \
 {                                                                                                                  \
- X(3), Y(14), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(3), Y(14), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_51_PARAMS                                                                                               \
 {                                                                                                                  \
- X(3), Y(15), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(3), Y(15), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_52_PARAMS                                                                                               \
 {                                                                                                                  \
- X(3), Y(2), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(3), Y(2), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_53_PARAMS                                                                                               \
 {                                                                                                                  \
- X(3), Y(3), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(3), Y(3), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_54_PARAMS                                                                                               \
 {                                                                                                                  \
- X(3), Y(4), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(3), Y(4), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_55_PARAMS                                                                                               \
 {                                                                                                                  \
- X(3), Y(5), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(3), Y(5), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_56_PARAMS                                                                                               \
 {                                                                                                                  \
- X(4), Y(9), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(4), Y(9), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_57_PARAMS                                                                                               \
 {                                                                                                                  \
- X(4), Y(8), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(4), Y(8), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_58_PARAMS                                                                                               \
 {                                                                                                                  \
- X(4), Y(14), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(4), Y(14), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_59_PARAMS                                                                                               \
 {                                                                                                                  \
- X(4), Y(15), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(4), Y(15), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_60_PARAMS                                                                                               \
 {                                                                                                                  \
- X(4), Y(2), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(4), Y(2), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_61_PARAMS                                                                                               \
 {                                                                                                                  \
- X(4), Y(3), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(4), Y(3), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_62_PARAMS                                                                                               \
 {                                                                                                                  \
- X(4), Y(4), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(4), Y(4), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_63_PARAMS                                                                                               \
 {                                                                                                                  \
- X(4), Y(5), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(4), Y(5), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_64_PARAMS                                                                                               \
 {                                                                                                                  \
- X(9), Y(5), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(9), Y(5), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_65_PARAMS                                                                                               \
 {                                                                                                                  \
- X(8), Y(5), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(8), Y(5), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_66_PARAMS                                                                                               \
 {                                                                                                                  \
- X(9), Y(4), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(9), Y(4), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_67_PARAMS                                                                                               \
 {                                                                                                                  \
- X(8), Y(4), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(8), Y(4), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_68_PARAMS                                                                                               \
 {                                                                                                                  \
- X(9), Y(3), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(9), Y(3), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_69_PARAMS                                                                                               \
 {                                                                                                                  \
- X(8), Y(3), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(8), Y(3), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_70_PARAMS                                                                                               \
 {                                                                                                                  \
- X(9), Y(2), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(9), Y(2), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_71_PARAMS                                                                                               \
 {                                                                                                                  \
- X(8), Y(2), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(8), Y(2), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_72_PARAMS                                                                                               \
 {                                                                                                                  \
- X(9), Y(15), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(9), Y(15), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_73_PARAMS                                                                                               \
 {                                                                                                                  \
- X(8), Y(15), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(8), Y(15), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_74_PARAMS                                                                                               \
 {                                                                                                                  \
- X(9), Y(14), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(9), Y(14), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_75_PARAMS                                                                                               \
 {                                                                                                                  \
- X(8), Y(9), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(8), Y(9), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 #define NODE_76_PARAMS                                                                                               \
 {                                                                                                                  \
- X(9), Y(9), 0, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
+ X(9), Y(9), 8, NODE_RSEL_PRSC(RSEL_VAL_20, (uint8_t)PRSC_DIV_SEL_4), NODE_GAIN(GAIN_2, GAIN_8), (uint8_t)FILTER_LEVEL_8                   \
 }
 
 /**********************************************************/
@@ -905,14 +905,14 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
  * Range: 0 to 255.
  * Default value: 4.
  */
-#define DEF_TOUCH_DET_INT 4u
+#define DEF_TOUCH_DET_INT 0u
 
 /* De-bounce counter for additional measurements to confirm away from touch signal
  * to initiate Away from touch re-calibration.
  * Range: 0 to 255.
  * Default value: 5.
  */
-#define DEF_ANTI_TCH_DET_INT 5u
+#define DEF_ANTI_TCH_DET_INT 0u
 
 /* Threshold beyond with automatic sensor recalibration is initiated.
  * Range: RECAL_100/ RECAL_50 / RECAL_25 / RECAL_12_5 / RECAL_6_25 / MAX_RECAL
@@ -926,7 +926,7 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
  * Range: 0-255
  * Default value: 20u = 4 seconds.
  */
-#define DEF_TCH_DRIFT_RATE 20u
+#define DEF_TCH_DRIFT_RATE 0u
 
 /* Rate at which sensor reference value is adjusted towards sensor signal value
  * when signal value is less than reference.
@@ -934,20 +934,20 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
  * Range: 0-255
  * Default value: 5u = 1 second.
  */
-#define DEF_ANTI_TCH_DRIFT_RATE 5u
+#define DEF_ANTI_TCH_DRIFT_RATE 0u
 
 /* Time to restrict drift on all sensor when one or more sensors are activated.
  * Units: 200ms
  * Range: 0-255
  * Default value: 20u = 4 seconds.
  */
-#define DEF_DRIFT_HOLD_TIME 20u
+#define DEF_DRIFT_HOLD_TIME 0u
 
 /* Set mode for additional sensor measurements based on touch activity.
  * Range: REBURST_NONE / REBURST_UNRESOLVED / REBURST_ALL
  * Default value: REBURST_UNRESOLVED
  */
-#define DEF_REBURST_MODE (uint8_t)REBURST_UNRESOLVED
+#define DEF_REBURST_MODE (uint8_t)REBURST_NONE
 
 /* Sensor maximum ON duration upon touch.
  * Range: 0-255
@@ -958,37 +958,6 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 
 
 
-/**********************************************************/
-/********* Frequency Hop Module ****************/
-/**********************************************************/
-
-/* sets the frequency steps for hop.
- * Range: 3 to 7.
- * Default value: 3
- */
-#define NUM_FREQ_STEPS 3u
-
-/* PTC Sampling Delay Selection - 0 to 15 PTC CLK cycles */
-
-#define DEF_MEDIAN_FILTER_FREQUENCIES (uint8_t)FREQ_SEL_0,(uint8_t)FREQ_SEL_1,(uint8_t)FREQ_SEL_2
-
-/* Enable / Disable the frequency hop auto tune
- * Range: 0 / 1
- * Default value: 1
- */
-#define DEF_FREQ_AUTOTUNE_ENABLE 1u
-
-/* sets the maximum variance for Frequency Hop Auto tune.
- * Range: 1 to 255.
- * Default value: 15
- */
-#define FREQ_AUTOTUNE_MAX_VARIANCE 25u
-
-/* sets the Tune in count for Frequency Hop Auto tune.
- * Range: 1 to 255.
- * Default value: 6
- */
-#define FREQ_AUTOTUNE_COUNT_IN 6u
 
 /**********************************************************/
 /***************** Communication - Data Streamer ******************/
@@ -1010,8 +979,6 @@ extern qtm_acq_pic32cmjh_node_config_t ptc_seq_node_cfg1[DEF_NUM_CHANNELS];
 extern qtm_touch_key_group_config_t qtlib_key_grp_config_set1;
 extern qtm_touch_key_data_t qtlib_key_data_set1[DEF_NUM_SENSORS];
 extern qtm_touch_key_config_t qtlib_key_configs_set1[DEF_NUM_SENSORS];
-/* Frequency Hop Autotune variables */
-extern qtm_freq_hop_autotune_config_t qtm_freq_hop_autotune_config1;
 extern uint8_t module_error_code;
 
 

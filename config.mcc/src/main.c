@@ -459,12 +459,22 @@ void sendLedData() {
 }
 
 static void capCal(void) {
-  for (unsigned i = 0; i < DEF_NUM_CHANNELS; i++) {
+  for (unsigned i = 0; i < DEF_NUM_SENSORS; i++) {
     calibrate_node(i);
   }
 }
 
-uint16_t sens[DEF_NUM_CHANNELS];
+static bool isCalDone() {
+  for(unsigned i = 0; i < DEF_NUM_SENSORS; ++i) {
+    if(qtlib_key_data_set1[i].node_data_struct_ptr->node_acq_status & NODE_CAL_MASK) {
+      return false;
+    }
+  }
+  return true;
+}
+
+uint16_t sens[DEF_NUM_SENSORS];
+uint16_t cc[DEF_NUM_SENSORS];
 
 static void sendTestData(uint16_t val, uint16_t cc){
   uint16_t buffer[2];
@@ -475,11 +485,17 @@ static void sendTestData(uint16_t val, uint16_t cc){
 
 static void readCap(void) {
   touch_process();
+  if (!isCalDone()) {
+    return;
+  }
+
   if (measurement_done_touch) {
-    for (unsigned i = 0; i < DEF_NUM_CHANNELS; i++) {
+    for (unsigned i = 0; i < DEF_NUM_SENSORS; i++) {
       sens[i] = get_sensor_node_signal(i);
+      cc[i] = get_sensor_cc_val(i);
     }
     sendGeneric(SEND_DATA, sizeof(sens), sens);
+    sendGeneric(TOUCH_CC_VALS, sizeof(cc), cc);
     measurement_done_touch = 0;
   }
   //volatile uint16_t sens4 = get_sensor_node_signal(4);
@@ -525,12 +541,12 @@ int main ( void )
 
         commProcess();
 
-        if (ledDirty) {
-          sendLedData();
-        }
-        else {
+        //if (ledDirty) {
+          //sendLedData();
+        //}
+        //else {
           readCap();
-        }
+        //}
 
         uint32_t now = getCurrentTimeMs();
         if (now >= nextSwitchMs) {

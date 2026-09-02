@@ -76,11 +76,23 @@ data:
       attributes:
         id: DEF_ANTI_TCH_DET_INT
         label: Away from Touch Recal Intergration Count
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: Integer
     DEF_ANTI_TCH_DRIFT_RATE:
       attributes:
         id: DEF_ANTI_TCH_DRIFT_RATE
         label: Away from Touch Drift Rate
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: Integer
     DEF_ANTI_TCH_RECAL_THRSHLD:
       attributes:
@@ -2385,6 +2397,12 @@ data:
       attributes:
         id: DEF_DRIFT_HOLD_TIME
         label: Drift Hold Time
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: Integer
     DEF_MAX_ON_DURATION:
       attributes:
@@ -6438,6 +6456,12 @@ data:
       attributes:
         id: DEF_REBURST_MODE
         label: Re-burst mode
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_SCR_CONTACT_THRESHOLD0:
       attributes:
@@ -11214,21 +11238,45 @@ data:
       attributes:
         id: DEF_TCH_DRIFT_RATE
         label: Touch Drift Rate
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY0:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY0
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY1:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY1
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY10:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY10
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY100:
       attributes:
@@ -11284,6 +11332,12 @@ data:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY11
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY110:
       attributes:
@@ -11339,6 +11393,12 @@ data:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY12
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY120:
       attributes:
@@ -11394,6 +11454,12 @@ data:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY13
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY130:
       attributes:
@@ -11429,346 +11495,760 @@ data:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY14
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY15:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY15
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY16:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY16
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY17:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY17
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY18:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY18
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY19:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY19
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY2:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY2
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY20:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY20
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY21:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY21
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY22:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY22
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY23:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY23
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY24:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY24
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY25:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY25
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY26:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY26
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY27:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY27
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY28:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY28
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY29:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY29
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY3:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY3
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY30:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY30
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY31:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY31
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY32:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY32
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY33:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY33
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY34:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY34
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY35:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY35
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY36:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY36
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY37:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY37
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY38:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY38
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY39:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY39
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY4:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY4
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY40:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY40
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY41:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY41
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY42:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY42
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY43:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY43
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY44:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY44
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY45:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY45
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY46:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY46
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY47:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY47
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY48:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY48
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY49:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY49
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY5:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY5
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY50:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY50
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY51:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY51
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY52:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY52
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY53:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY53
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY54:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY54
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY55:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY55
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY56:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY56
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY57:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY57
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY58:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY58
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY59:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY59
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY6:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY6
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY60:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY60
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY61:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY61
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY62:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY62
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY63:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY63
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY64:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY64
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY65:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY65
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY66:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY66
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY67:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY67
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY68:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY68
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY69:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY69
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY7:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY7
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY70:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY70
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY71:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY71
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY72:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY72
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY73:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY73
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY74:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY74
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY75:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY75
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY76:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY76
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY77:
       attributes:
@@ -11789,6 +12269,12 @@ data:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY8
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY80:
       attributes:
@@ -11844,6 +12330,12 @@ data:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY9
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY90:
       attributes:
@@ -11899,6 +12391,12 @@ data:
       attributes:
         id: DEF_TOUCH_DET_INT
         label: Detect Integration
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_MAX_VARIANCE:
       attributes:
@@ -13372,6 +13870,12 @@ data:
       attributes:
         id: ENABLE_FREQ_HOP
         label: Enable Frequency Hop
+      children:
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
       type: Boolean
     ENABLE_GESTURE:
       attributes:
@@ -13439,6 +13943,12 @@ data:
       attributes:
         id: FREQ_AUTOTUNE
         label: Enable Frequency Auto Tuning
+      children:
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
       type: Boolean
     FREQ_HOP_STEPS:
       attributes:
@@ -21300,4 +21810,75 @@ data:
         id: WHEEL_START_QUADRANT_COUNT
         label: Wheel Start Quadrant count
       type: Integer
+    TOUCH_HOP_LIB:
+      attributes:
+        id: TOUCH_HOP_LIB
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      type: Library
+    TOUCH_HOP_HEADER:
+      attributes:
+        id: TOUCH_HOP_HEADER
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      type: File
+    TOUCH_HOP_AUTO_LIB:
+      attributes:
+        id: TOUCH_HOP_AUTO_LIB
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      type: Library
+    TOUCH_HOP_AUTO_HEADER:
+      attributes:
+        id: TOUCH_HOP_AUTO_HEADER
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      type: File
+    FREQ_HOP_MENU:
+      attributes:
+        id: FREQ_HOP_MENU
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      type: Menu
   userData: {}
