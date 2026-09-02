@@ -221,6 +221,14 @@ void touch_init(void)
 	
 }
 
+bool allowTouch(void);
+
+static bool touchTriggered = false;
+
+bool touchInProgress(void) {
+  return touchTriggered && !measurement_done_touch;
+}
+
 /*============================================================================
 void touch_process(void)
 ------------------------------------------------------------------------------
@@ -236,7 +244,7 @@ void touch_process(void)
     touch_ret_t touch_ret;
 
     /* check the time_to_measure_touch for Touch Acquisition */
-    if (time_to_measure_touch_var == 1u) {
+    if (time_to_measure_touch_var == 1u && allowTouch()) {
 
         /* Do the acquisition */
          touch_ret = qtm_ptc_start_measurement_seq(&qtlib_acq_set1, qtm_measure_complete_callback);
@@ -245,6 +253,7 @@ void touch_process(void)
         if (TOUCH_SUCCESS == touch_ret) {
             /* Clear the Measure request flag */
 			time_to_measure_touch_var = 0;
+      touchTriggered = true;
         }
     }
     /* check the flag for node level post processing */
@@ -272,6 +281,7 @@ void touch_process(void)
             time_to_measure_touch_var = 1u;
         } else {
             measurement_done_touch =1u;
+            touchTriggered = false;
         }
     }
 

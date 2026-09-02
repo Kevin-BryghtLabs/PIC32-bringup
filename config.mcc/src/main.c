@@ -142,7 +142,6 @@ static bool isCalDone() {
 }
 
 uint16_t sens[DEF_NUM_SENSORS];
-uint16_t cc[DEF_NUM_SENSORS];
 
 static void sendTestData(uint16_t val, uint16_t cc){
   uint16_t buffer[2];
@@ -160,10 +159,7 @@ static void readCap(void) {
   if (measurement_done_touch) {
     for (unsigned i = 0; i < DEF_NUM_SENSORS; i++) {
       sens[i] = get_sensor_node_signal(i);
-      cc[i] = get_sensor_cc_val(i);
     }
-    sendGeneric(SEND_DATA, sizeof(sens), sens);
-    sendGeneric(TOUCH_CC_VALS, sizeof(cc), cc);
     measurement_done_touch = 0;
   }
   //volatile uint16_t sens4 = get_sensor_node_signal(4);
@@ -174,6 +170,19 @@ static void readCap(void) {
   //volatile uint16_t sens9 = get_sensor_node_signal(9);
 
   //uint16_t test = sens0 + sens1 + sens2 + sens3;
+}
+
+void sendCapData() {
+  sendGeneric(SEND_DATA, sizeof(sens), sens);
+}
+
+bool touchInProgress();
+
+bool doLeds = true;
+bool doSync = true;
+
+bool allowTouch(void) {
+  return !doSync || !ledTransmitInProgress();
 }
 
 int hubLog(char type, const char * fmt, ...) __attribute__((format(printf, 2, 3)));
@@ -222,11 +231,11 @@ int main ( void )
     //initPieceId();
     //startPieceId();
 
-    uint32_t switchInterval = 5000;
+    uint32_t switchInterval = 10000;
     uint32_t nextSwitchMs = getCurrentTimeMs() + switchInterval;
 
-    uint32_t capInterval = 1000;
-    uint32_t nextCapMs = getCurrentTimeMs() + capInterval;
+    uint32_t capSendInterval = 50;
+    uint32_t nextCapSendMs = getCurrentTimeMs() + capSendInterval;
 
     while ( true )
     {
@@ -235,12 +244,28 @@ int main ( void )
 
         commProcess();
 
-        if (ledTaskShouldRun()) {
-          ledTask();
+        // Wait until CapTouch is not running to start next LED transmit
+        if (ledTaskShouldRun() && (!doSync || !touchInProgress())) {
+          if (doLeds) {
+            ledTask();
+          }
         }
-        else if (!ledTransmitInProgress()) {
-          //readCap();
+        // This just advances the Touch processing; starting a touch is gated
+        // on allowTouch()
+        readCap();
+
+        uint32_t now = getCurrentTimeMs();
+        if (now >= nextCapSendMs) {
+          nextCapSendMs += capSendInterval;
+          sendCapData();
         }
+        if (now >= nextSwitchMs) {
+          nextSwitchMs += switchInterval;
+          //doLeds = !doLeds;
+          doSync = !doSync;
+          hubLog('I', "Sync: %u", doSync);
+        }
+
         //if (ledDirty) {
           //sendLedData();
         //}
