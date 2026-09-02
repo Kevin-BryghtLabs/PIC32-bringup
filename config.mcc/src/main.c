@@ -211,7 +211,7 @@ int main ( void )
           ledTask();
         }
         else if (!ledTransmitInProgress()) {
-          readCap();
+          //readCap();
         }
         //if (ledDirty) {
           //sendLedData();
@@ -219,16 +219,16 @@ int main ( void )
         //else {
         //}
 
-        uint32_t now = getCurrentTimeMs();
-        if (now >= nextSwitchMs) {
-          nextSwitchMs += switchInterval;
-          switchPieceId();
+        //uint32_t now = getCurrentTimeMs();
+        //if (now >= nextSwitchMs) {
+          //nextSwitchMs += switchInterval;
+          //switchPieceId();
           //spiTest();
-        }
-        if (now >= nextCapMs) {
-          nextCapMs += capInterval;
+        //}
+        //if (now >= nextCapMs) {
+          //nextCapMs += capInterval;
           //spiTest();
-        }
+        //}
 
         delay(1);
     }

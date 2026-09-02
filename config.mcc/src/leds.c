@@ -151,7 +151,8 @@ static void dmaBlockDone(DMAC_TRANSFER_EVENT event, uintptr_t contextHandle) {
           if (ledFillIdx >= LED_COUNT) {
             // We just filled the final transfer, tell it to transition
             // to the end state after sending
-            dmaDescriptors[currentBuffer].DMAC_DESCADDR = (uintptr_t)&dmaDescriptors[DMA_DESC_RESET];
+            unsigned descriptorIdx = currentBuffer == 0 ? DMA_DESC_BUFFER0 : DMA_DESC_BUFFER1;
+            dmaDescriptors[descriptorIdx].DMAC_DESCADDR = (uintptr_t)&dmaDescriptors[DMA_DESC_RESET];
           }
 
           currentBuffer ^= 1;
