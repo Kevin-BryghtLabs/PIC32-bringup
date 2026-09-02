@@ -22,8 +22,10 @@
 // *****************************************************************************
 // *****************************************************************************
 
+#include <stdarg.h>
 #include <stddef.h>                     // Defines NULL
 #include <stdbool.h>                    // Defines true
+#include <stdio.h>
 #include <stdlib.h>                     // Defines EXIT_FAILURE
 #include "bl_ble_parser.h"
 #include "bl_piece_id.hpp"
