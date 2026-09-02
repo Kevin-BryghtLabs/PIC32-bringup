@@ -87,7 +87,7 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/peripheral/sercom/spi_master/plib_sercom_spi_master_common.h
   hash: 06e3c7813e1608b5008e3c8955569f9cff04bef321a34c35421f7979368a4ada
 - file: ../src/config/default/peripheral/sercom/usart/plib_sercom2_usart.c
-  hash: 86a542bb770f07559b205b5a279e4e26945e2c7c181eafdca845bf35bbccffb8
+  hash: 853478eaf6e2c4ac8ad83c5680bf65226fceab9ea1010852c55a863ab85c5bf6
 - file: ../src/config/default/peripheral/sercom/usart/plib_sercom2_usart.h
   hash: 4ab7717726a19aa31b04cb4ea2dea4082167fa6ecc9bc16acf532d7fb171b739
 - file: ../src/config/default/peripheral/sercom/usart/plib_sercom_usart_common.h
