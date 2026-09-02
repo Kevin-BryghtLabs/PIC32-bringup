@@ -14,7 +14,7 @@
 #include "bl_uart.h"
 
 #include "timer.h" // For `delay`, can remove if we get the standard headers
-//#include "touch_dual_acq.h"
+#include "leds.h"
 
 /*******************************************************************************
  * Global constants
@@ -47,8 +47,6 @@ void sendFirmwareVersion(void){
     sendGeneric(NRF52_FW_VER, sizeof(verData), verData);
 }
 
-void ledUpdate(const uint8_t * data);
-
 /*******************************************************************************
  * Function Name: DecodePacketData
  ********************************************************************************
@@ -76,7 +74,7 @@ void DecodePacketData(const uint8_t bleData[], int dataLength) {
   }
   else if (bleData[0] == SETLEDS){
     if (dataLength == 64 * 3 + 1) {
-      ledUpdate(&bleData[1]);
+      ledUpdateAll(&bleData[1], 64 * 3);
     }
   }
 #if 0
