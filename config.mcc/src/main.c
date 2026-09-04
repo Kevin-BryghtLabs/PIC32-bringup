@@ -22,6 +22,7 @@
 // *****************************************************************************
 // *****************************************************************************
 
+#include <assert.h>
 #include <stdarg.h>
 #include <stddef.h>                     // Defines NULL
 #include <stdbool.h>                    // Defines true
@@ -143,6 +144,22 @@ static bool isCalDone() {
 
 uint16_t sens[DEF_NUM_SENSORS];
 
+static const uint8_t sensIdxMap[DEF_NUM_SENSORS] = {
+  // Chessboard is transposed
+   0,  8, 16, 24, 32, 40, 48, 56,
+   1,  9, 17, 25, 33, 41, 49, 57,
+   2, 10, 18, 26, 34, 42, 50, 58,
+   3, 11, 19, 27, 35, 43, 51, 59,
+   4, 12, 20, 28, 36, 44, 52, 60,
+   5, 13, 21, 29, 37, 45, 53, 61,
+   6, 14, 22, 30, 38, 46, 54, 62,
+   7, 15, 23, 31, 39, 47, 55, 63,
+
+   // Others are fine
+   64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76,
+};
+static_assert(sizeof(sensIdxMap) == DEF_NUM_SENSORS);
+
 static void sendTestData(uint16_t val, uint16_t cc){
   uint16_t buffer[2];
   buffer[0] = val;
@@ -158,7 +175,7 @@ static void readCap(void) {
 
   if (measurement_done_touch) {
     for (unsigned i = 0; i < DEF_NUM_SENSORS; i++) {
-      sens[i] = get_sensor_node_signal(i);
+      sens[sensIdxMap[i]] = get_sensor_node_signal(i);
     }
     measurement_done_touch = 0;
   }
@@ -262,8 +279,8 @@ int main ( void )
         if (now >= nextSwitchMs) {
           nextSwitchMs += switchInterval;
           //doLeds = !doLeds;
-          doSync = !doSync;
-          hubLog('I', "Sync: %u", doSync);
+          //doSync = !doSync;
+          //hubLog('I', "Sync: %u", doSync);
         }
 
         //if (ledDirty) {
