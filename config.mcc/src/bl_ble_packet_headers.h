@@ -167,6 +167,7 @@ enum
     USER_SETTINGS               = 0xE7,
     FACTORY_CONTROL             = 0xE8,
     UI_CONTROL                  = 0xE9,
+    ALS_VALUE                   = 0xEA,
 
     PCAP_BLE_BOARD_RX           = 0xF0, //PacketCapture
     PCAP_BLE_BOARD_TX           = 0xF1,
@@ -175,7 +176,7 @@ enum
     PROFILE_STATUS              = 0xF3, //0B: query, 2B:[1B idx, 1B count], 18B: [1B idx|1B count|16B GUID]
     DATA_TRANSFER               = 0xF4,
 
-    TOUCH_CC_VALS               = 0xF8, //Compensation capacitor. 0B: query. 2x uint16_t: {square, val}, 2B x 64: full set
+    TOUCH_CC_VALS               = 0xF8, //Compensation capacitor. 0B: query. 2x uint16_t: {square, val}, 2B x [capSensorCount]: full set
     PIECE_ID_DATA               = 0xF9,
     PIECE_ID_CFG                = 0xFA,
     PIECE_ID_FREQS              = 0xFB,

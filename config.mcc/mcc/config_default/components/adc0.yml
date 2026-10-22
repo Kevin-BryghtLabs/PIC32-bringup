@@ -106,7 +106,7 @@ data:
       children:
       - children:
         - attributes:
-            value: HW Event Trigger
+            value: SW Trigger
           type: User
         type: Values
       type: Combo
@@ -134,6 +134,12 @@ data:
       attributes:
         id: ADC_CTRLC_DIFFMODE
         label: Enable Differential Mode
+      children:
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
       type: Boolean
     ADC_CTRLC_LEFTADJ:
       attributes:
@@ -431,6 +437,12 @@ data:
       attributes:
         id: ADC_SAMPCTRL_SAMPLEN
         label: Select Sample Length (cycles)
+      children:
+      - children:
+        - attributes:
+            value: '4'
+          type: User
+        type: Values
       type: Integer
     ADC_SEQCTRL_SEQ0:
       attributes:

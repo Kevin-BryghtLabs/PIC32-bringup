@@ -11,6 +11,7 @@
 //#include "BL_piece_id.h"
 //#include "BL_piece_id_packet.h"
 #include "bl_sensor_hub_firmware_version.h"
+#include "bl_touch.h"
 #include "bl_uart.h"
 
 #include "timer.h" // For `delay`, can remove if we get the standard headers
@@ -20,6 +21,13 @@
  * Global constants
  *******************************************************************************/
 
+//#define MAX(a, b)    ((a) > (b) ? (a) : (b))
+//
+//#define TX_BUFFER_SIZE
+
+//void touchSendCCVals();
+//void touchSetCCVals(const uint8_t * ccData, size_t size);
+//void startTouchCalibration();
 
 static uint16_t load_u16(const void *p)
 {
@@ -77,20 +85,12 @@ void DecodePacketData(const uint8_t bleData[], int dataLength) {
       ledUpdateAll(&bleData[1], 64 * 3);
     }
   }
-#if 0
   else if (bleData[0] == CALIBRATE){
-    if(cuStateData.parameters.previousState != CU_CALIBRATE) {
-      cuStateData.parameters.previousState = cuStateData.state;
-    }
-    cuStateData.state = CU_CALIBRATE;
-//    cuStateData.flags.calibrateFlag = true;
+    touchStartCalibration();
   }
-
   else if(bleData[0] == RECALIBRATE){
-    cuStateData.flags.recalibrationFlag = true;
-    cuStateData.state = CU_CALIBRATE;
+    touchStartCalibration();
   }
-#endif
   // Used for sending touch data over BLE
   else if(bleData[0] == ENABLE_DATA_STREAMING){
 //    BLEDataStream = 1;
@@ -131,19 +131,15 @@ void DecodePacketData(const uint8_t bleData[], int dataLength) {
           }
       }
   }
+#endif
   else if(bleData[0] == TOUCH_CC_VALS && dataLength == 1) {
-    sendTouchCcVals();
+    touchSendCCVals();
   }
-  else if(bleData[0] == TOUCH_CC_VALS && dataLength == 1 + 128) {
-    for(unsigned sq = 0; sq < 64; ++sq) {
-      uint16_t val = load_u16(bleData + 1 + 2 * sq);
-      if(val != get_sensor_cc_val(sq))
-      {
-        update_sensor_cc_val(sq, val);
-      }
-    }
-    cuStateData.flags.ccValsSetFlag = true;
+  //else if(bleData[0] == TOUCH_CC_VALS && dataLength == 1 + DEF_NUM_SENSORS * sizeof(uint16_t)) {
+  else if(bleData[0] == TOUCH_CC_VALS && dataLength > 1) {
+    touchSetCCVals(&bleData[1], dataLength - 1);
   }
+#if 0
   else if(bleData[0] == PIECE_ID_FREQS && dataLength == 1){
     sendGeneric(PIECE_ID_FREQS, sizeof(piece_id_tone_table), &piece_id_tone_table);
   }

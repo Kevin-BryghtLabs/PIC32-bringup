@@ -9,8 +9,10 @@
 extern "C" {
 #endif
 
+void ledInit();
+
 // Set the led color values
-//void ledUpdateAll(const uint8_t * data, size_t size);
+void ledUpdateAll(const uint8_t * data, size_t size);
 void ledUpdate(const uint8_t * data);
 
 // LED task functions

@@ -81,6 +81,11 @@ volatile uint8_t measurement_done_touch = 0u;
 /* Error Handling */
 uint8_t module_error_code = 0u;
 
+// Function to detect overwriting this library by MCC.
+// If this call fails to resolve, we need to redo our custom
+// hacks into this library
+void touchGenerateCanary() {
+}
 
 /* Acquisition module internal data - Size to largest acquisition set */
 static uint16_t touch_acq_signals_raw[DEF_NUM_CHANNELS];

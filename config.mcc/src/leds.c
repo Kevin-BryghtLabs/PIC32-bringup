@@ -1,4 +1,5 @@
 #include "definitions.h"
+#include "timer.h"
 
 // Number of LEDs driven by the PIC32
 #define LED_COUNT                     64
@@ -77,6 +78,8 @@ static unsigned currentBuffer = 0;
 
 // Is LED data pending update to the LEDs themselves
 static volatile bool ledDirty = false;
+
+static uint32_t lastUpdateTimeMs = 0;
 
 // DMA Descriptors
 __attribute__ ((aligned (8))) dmac_descriptor_registers_t dmaDescriptors[DMA_DESC_COUNT];
@@ -184,7 +187,21 @@ static void sendLedData() {
   fillSPIBuffer(LEDS_PER_BLOCK_TRANSFER * 1, ledPayloadBuffer[1]);
   ledFillIdx = LEDS_PER_BLOCK_TRANSFER * 2;
 
-  LED_CH_EN_Set();
+  bool anyOn = false;
+  for (unsigned i = 0; i < LED_COUNT; ++i) {
+    if (ledValues[i][RED] || ledValues[i][GREEN] || ledValues[i][BLUE]) {
+      anyOn = true;
+      break;
+    }
+  }
+
+  if (anyOn) {
+    LED_CH_EN_Set();
+  }
+  else {
+    LED_CH_EN_Clear();
+    return;
+  }
 
   // Set interrupt handler
   DMAC_ChannelCallbackRegister(DMAC_CHANNEL_0, dmaBlockDone, 0);
@@ -231,6 +248,7 @@ static void sendLedData() {
   // Set false here so that if data is updated while writing
   // we know we need to immediately do another update
   ledDirty = false;
+  lastUpdateTimeMs = getCurrentTimeMs();
 
   ledDMABusy = true;
 
@@ -252,8 +270,26 @@ bool ledTransmitInProgress() {
 }
 
 bool ledTaskShouldRun() {
-  // TODO: Add periodic re-write even if not dirty to make sure HW state is correct?
-  return ledDirty && !ledDMABusy;
+  if (ledDMABusy) {
+    return false;
+  }
+
+  if (ledDirty) {
+    return true;
+  }
+
+  uint32_t now = getCurrentTimeMs();
+  if (now - lastUpdateTimeMs > 1000) {
+    return true;
+  }
+
+  return false;
+}
+
+void ledInit() {
+  memset(ledValues, 0, sizeof(ledValues));
+  // Do an initial update
+  ledDirty = true;
 }
 
 void ledTask() {
@@ -261,19 +297,13 @@ void ledTask() {
 }
 
 void ledUpdateAll(const uint8_t * data, size_t size) {
-  memcpy(ledValues, data, sizeof(ledValues));
-  ledDirty = true;
-#if 0
   size_t copyBytes = sizeof(ledValues);
   if (copyBytes > size) {
     // % 3 to make sure we don't write a partial LED color tuple
     copyBytes = size - (size % 3);
   }
 
-  ledDirty = (memcmp(data, ledValues, copyBytes) != 0);
-  if (ledDirty) {
-    memcpy(ledValues, data, copyBytes);
-  }
-#endif
+  memcpy(ledValues, data, copyBytes);
+  ledDirty = true;
 }
 

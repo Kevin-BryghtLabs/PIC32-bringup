@@ -30,6 +30,7 @@
 #include <stdlib.h>                     // Defines EXIT_FAILURE
 #include "bl_ble_parser.h"
 #include "bl_piece_id.hpp"
+#include "bl_touch.h"
 #include "definitions.h"                // SYS function prototypes
 #include "timer.h"
 #include "leds.h"
@@ -127,39 +128,6 @@ static void sendTestMessage() {
 }
   #endif
 
-static void capCal(void) {
-  for (unsigned i = 0; i < DEF_NUM_SENSORS; i++) {
-    calibrate_node(i);
-  }
-}
-
-static bool isCalDone() {
-  for(unsigned i = 0; i < DEF_NUM_SENSORS; ++i) {
-    if(qtlib_key_data_set1[i].node_data_struct_ptr->node_acq_status & NODE_CAL_MASK) {
-      return false;
-    }
-  }
-  return true;
-}
-
-uint16_t sens[DEF_NUM_SENSORS];
-
-static const uint8_t sensIdxMap[DEF_NUM_SENSORS] = {
-  // Chessboard is transposed
-   0,  8, 16, 24, 32, 40, 48, 56,
-   1,  9, 17, 25, 33, 41, 49, 57,
-   2, 10, 18, 26, 34, 42, 50, 58,
-   3, 11, 19, 27, 35, 43, 51, 59,
-   4, 12, 20, 28, 36, 44, 52, 60,
-   5, 13, 21, 29, 37, 45, 53, 61,
-   6, 14, 22, 30, 38, 46, 54, 62,
-   7, 15, 23, 31, 39, 47, 55, 63,
-
-   // Others are fine
-   64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76,
-};
-static_assert(sizeof(sensIdxMap) == DEF_NUM_SENSORS);
-
 static void sendTestData(uint16_t val, uint16_t cc){
   uint16_t buffer[2];
   buffer[0] = val;
@@ -167,32 +135,8 @@ static void sendTestData(uint16_t val, uint16_t cc){
   sendGeneric(UI_ADVANCE, sizeof(buffer), buffer);
 }
 
-static void readCap(void) {
-  touch_process();
-  if (!isCalDone()) {
-    return;
-  }
-
-  if (measurement_done_touch) {
-    for (unsigned i = 0; i < DEF_NUM_SENSORS; i++) {
-      sens[sensIdxMap[i]] = get_sensor_node_signal(i);
-    }
-    measurement_done_touch = 0;
-  }
-  //volatile uint16_t sens4 = get_sensor_node_signal(4);
-  //volatile uint16_t sens5 = get_sensor_node_signal(5);
-  //volatile uint16_t sens6 = get_sensor_node_signal(6);
-  //volatile uint16_t sens7 = get_sensor_node_signal(7);
-  //volatile uint16_t sens8 = get_sensor_node_signal(8);
-  //volatile uint16_t sens9 = get_sensor_node_signal(9);
-
-  //uint16_t test = sens0 + sens1 + sens2 + sens3;
-}
-
-void sendCapData() {
-  sendGeneric(SEND_DATA, sizeof(sens), sens);
-}
-
+// Hacked into Harmony library touch behavior so we can detect
+// when touch is running
 bool touchInProgress();
 
 bool doLeds = true;
@@ -200,32 +144,6 @@ bool doSync = true;
 
 bool allowTouch(void) {
   return !doSync || !ledTransmitInProgress();
-}
-
-int hubLog(char type, const char * fmt, ...) __attribute__((format(printf, 2, 3)));
-
-int hubLog(char type, const char * fmt, ...) {
-  // Packet must fit in a uint8_t length
-  char buffer[245];
-
-  va_list args;
-
-  va_start(args, fmt);
-  int res = vsnprintf(buffer, sizeof(buffer), fmt, args);
-  va_end(args);
-
-  if (res >= 0) {
-    unsigned length = res;
-    if (length >= sizeof(buffer)) {
-      length = sizeof(buffer) - 1;
-    }
-    // Send the null byte
-    length += 1;
-    sendGenericStart(DEBUG_MESSAGE, length + 1);
-    sendGenericData1(type);
-    sendGenericData(buffer, length);
-    sendGenericDone();
-  }
 }
 
 int main ( void )
@@ -238,10 +156,13 @@ int main ( void )
     timerInit();
 
     ADC0_Enable();
+    ADC0_ChannelSelect(ADC_INPUTCTRL_MUXPOS_AIN0, ADC_INPUTCTRL_MUXNEG_GND);
+
+    ledInit();
+
+    touchInit();
 
     commStartup();
-
-    capCal();
 
     //TCC0_PWMStart();
 
@@ -251,8 +172,8 @@ int main ( void )
     uint32_t switchInterval = 10000;
     uint32_t nextSwitchMs = getCurrentTimeMs() + switchInterval;
 
-    uint32_t capSendInterval = 50;
-    uint32_t nextCapSendMs = getCurrentTimeMs() + capSendInterval;
+    uint32_t alsInterval = 250;
+    uint32_t nextAlsMs = getCurrentTimeMs() + alsInterval;
 
     while ( true )
     {
@@ -267,22 +188,26 @@ int main ( void )
             ledTask();
           }
         }
-        // This just advances the Touch processing; starting a touch is gated
-        // on allowTouch()
-        readCap();
+
+        touchTask();
 
         uint32_t now = getCurrentTimeMs();
-        if (now >= nextCapSendMs) {
-          nextCapSendMs += capSendInterval;
-          sendCapData();
-        }
         if (now >= nextSwitchMs) {
           nextSwitchMs += switchInterval;
+          //touchSendCCVals();
           //doLeds = !doLeds;
           //doSync = !doSync;
           //hubLog('I', "Sync: %u", doSync);
         }
 
+        if (now >= nextAlsMs) {
+          nextAlsMs += alsInterval;
+          if (ADC0_ConversionSequenceIsFinished()) {
+            uint16_t val = ADC0_ConversionResultGet();
+            sendGeneric(ALS_VALUE, sizeof(val), &val);
+            ADC0_ConversionStart();
+          }
+        }
         //if (ledDirty) {
           //sendLedData();
         //}

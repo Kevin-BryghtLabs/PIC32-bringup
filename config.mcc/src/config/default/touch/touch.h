@@ -984,6 +984,7 @@ extern uint8_t module_error_code;
 
 extern volatile uint8_t measurement_done_touch;
 
+void touchGenerateCanary();
 
 
 

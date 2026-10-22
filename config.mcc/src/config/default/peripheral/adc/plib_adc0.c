@@ -108,8 +108,6 @@ void ADC0_Initialize( void )
 
     /* Clear all interrupt flags */
     ADC0_REGS->ADC_INTFLAG = (uint8_t)ADC_INTFLAG_Msk;
-    /* Events configuration  */
-    ADC0_REGS->ADC_EVCTRL = (uint8_t)(ADC_EVCTRL_STARTEI_Msk);
 
     while(0U != ADC0_REGS->ADC_SYNCBUSY)
     {

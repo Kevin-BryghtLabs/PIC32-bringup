@@ -152,9 +152,9 @@ void SYS_Initialize ( void* data )
 
     DMAC_Initialize();
 
-    TC0_CompareInitialize();
-
     RTC_Initialize();
+
+    TC0_CompareInitialize();
 
     TC3_CompareInitialize();
 
