@@ -25,7 +25,7 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/PIC32CM6408JH00048.ld
   hash: 65f6cc7bbdd30f18bf6e79c9369c7f755a4da37120ba08660dc9bcbe440ebf47
 - file: ../src/config/default/definitions.h
-  hash: 8acf51807b134d6532650def5d9b8d24fe0952a7a0f211f89f38a2c1a9a8efb5
+  hash: cc5ddf7e73167d7e3f2f8dc2cd31ca67eb6c63a7a0376a58260eda1c0bc43dcb
 - file: ../src/config/default/device.h
   hash: ebec3c93ae73497dd0456e83a24acc27bca9da841c0ad5d8c8bd053b270f3b87
 - file: ../src/config/default/device_cache.h
@@ -35,7 +35,7 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/exceptions.c
   hash: d1567a190561858cc1cb7e796cf1a29720e52b9799bbd88b087993d8539e137f
 - file: ../src/config/default/initialization.c
-  hash: 971e933bafe610e7e13c2346ab83dd22b50cb4b3ce9e7966eaa11a63304f6087
+  hash: 96d74651567eb223c71ba2d90e995e30e9a3c299d405d0d1847f614160f4617d
 - file: ../src/config/default/interrupts.c
   hash: 3f950e5ad9a768ed3ffc897fcf09a7efb863cbccf96fbc7433b6f2a06aedb23d
 - file: ../src/config/default/interrupts.h
@@ -49,7 +49,7 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/peripheral/adc/plib_adc_common.h
   hash: 35ad76e53c160402e7183e57e85cb656efa929008b2db976f150ea603570b63e
 - file: ../src/config/default/peripheral/clock/plib_clock.c
-  hash: 1821d777b854537fb3facb33bd3d36a3d24818bc8f2623984f78b66777aebba6
+  hash: 61b118dfdb251d75a54ce9d6c2d020459dd41b8551b4969f74ff931b31d89af5
 - file: ../src/config/default/peripheral/clock/plib_clock.h
   hash: 01c269741541514e997ef61546f4dbb0e23f66e27c6a957162557f13b4638baf
 - file: ../src/config/default/peripheral/dmac/plib_dmac.c
