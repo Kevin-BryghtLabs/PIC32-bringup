@@ -172,6 +172,9 @@ int main ( void )
     uint32_t switchInterval = 10000;
     uint32_t nextSwitchMs = getCurrentTimeMs() + switchInterval;
 
+    uint32_t pidInterval = 1000;
+    uint32_t nextPidMs = getCurrentTimeMs() + pidInterval;
+
     uint32_t alsInterval = 250;
     uint32_t nextAlsMs = getCurrentTimeMs() + alsInterval;
 
@@ -182,6 +185,7 @@ int main ( void )
 
         commProcess();
 
+#if 0
         // Wait until CapTouch is not running to start next LED transmit
         if (ledTaskShouldRun() && (!doSync || !touchInProgress())) {
           if (doLeds) {
@@ -190,6 +194,7 @@ int main ( void )
         }
 
         touchTask();
+#endif
 
         uint32_t now = getCurrentTimeMs();
         if (now >= nextSwitchMs) {
@@ -200,6 +205,27 @@ int main ( void )
           //hubLog('I', "Sync: %u", doSync);
         }
 
+        if (now >= nextPidMs) {
+          nextPidMs += pidInterval;
+
+          //Start interrogation
+          //adc_done = false;
+
+          switchPieceId();
+
+          //volatile uint32_t count0 = 0;
+          //volatile uint32_t count1 = 0;
+
+          //Wait for result
+          //while(!adc_done){
+            //asm volatile ("nop");
+          //};
+
+          //uint8_t data = ADC0_ConversionResultGet();
+          //(void)data;
+          //sendGenericData1(data);
+        }
+#if 0
         if (now >= nextAlsMs) {
           nextAlsMs += alsInterval;
           if (ADC0_ConversionSequenceIsFinished()) {
@@ -208,6 +234,8 @@ int main ( void )
             ADC0_ConversionStart();
           }
         }
+#endif
+
         //if (ledDirty) {
           //sendLedData();
         //}

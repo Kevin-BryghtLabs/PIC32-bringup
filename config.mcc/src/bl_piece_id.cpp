@@ -1,10 +1,13 @@
 #include "bl_piece_id.hpp"
 #include "bl_piece_id_freq_calc.hpp"
+#include "hub_log.h"
 #include "peripheral/port/plib_port.h"
-#include "peripheral/tc/plib_tc0.h"
+//#include "peripheral/tc/plib_tc0.h"
 #include "peripheral/tc/plib_tc3.h"
 #include "peripheral/tcc/plib_tcc0.h"
+#include "peripheral/tcc/plib_tcc1.h"
 #include "pic32cm6408jh00048.h"
+#include <cstdlib>
 
 // The Clock chain is:
 //
@@ -109,11 +112,29 @@ void initPll() {
     }
 }
 
-void setPulseCount(uint8_t pulses) {
+void setPulseCount(uint8_t pulses, const PllTccConfig & config) {
     if (pulses > 0) {
         pulses -= 1;
     }
-    TC0_REGS->COUNT8.TC_COUNT = pulses;
+
+    const uint32_t highTimeTicks = config.tccCnt / 2;
+    const uint32_t perTicks = config.tccCnt - 1;
+    const uint32_t lowTimeTicks = perTicks - highTimeTicks;
+    uint32_t eventTimeTicks = 0;
+    if (lowTimeTicks < 5) {
+        eventTimeTicks = highTimeTicks + 1;
+    }
+    else {
+        eventTimeTicks = highTimeTicks + (lowTimeTicks / 5);
+    }
+    const uint32_t pulsesTimeInTCCTicks = pulses * config.tccCnt + eventTimeTicks;
+
+    TCC1_REGS->TCC_COUNT = pulsesTimeInTCCTicks;
+    hubLog('I', "TCC1: %u * %lu + %lu = %lu", pulses, config.tccCnt, eventTimeTicks, pulsesTimeInTCCTicks);
+    while (TCC1_REGS->TCC_SYNCBUSY != 0U)
+    {
+        /* Wait for Write Synchronization */
+    }
 }
 
 void disablePll() {
@@ -169,11 +190,11 @@ void initPieceId() {
     initPll();
 }
 
-void setPieceId(unsigned idx) {
-    const PllTccConfig config = getPllTccConfigForFreq(frequencies[idx]);
+void setPieceId(uint32_t freq) {
+    const PllTccConfig config = getPllTccConfigForFreq(freq);
 
     TCC0_PWMStop();
-    TC0_CompareStop();
+    TCC1_PWMStop();
     disablePll();
     disableGclk(8);
 
@@ -195,13 +216,19 @@ void setPieceId(unsigned idx) {
         /* Wait for sync */
     }
 
-    TC0_CompareInitialize();
-    setPulseCount(10);
-    TC0_CompareStart();
+    TCC1_PWMInitialize();
+    setPulseCount(10, config);
+    // Manually set "None" generator event so we can start both TCC0 and TCC1 at the same
+    // time with a software event.  MCC doesn't support "None".
 
-    // Enable does not start counting when an input START event is configured;
-    // this timer will not run until triggered by TC0
-    TC3_CompareStart();
+    // EVSYS channel 1: software-triggered START for TCC0 + TCC1 (no generator)
+    EVSYS_REGS->EVSYS_CHANNEL[1] = EVSYS_CHANNEL_EVGEN(0UL)      // NONE
+                                | EVSYS_CHANNEL_PATH(2UL)       // asynchronous (required for TCC users)
+                                | EVSYS_CHANNEL_EDGSEL(0UL);    // must be 0 on the async path
+
+    // USER.CHANNEL holds channel number + 1
+    EVSYS_REGS->EVSYS_USER[9]  = EVSYS_USER_CHANNEL(2UL);        // TCC0 EV0 <- channel 1
+    EVSYS_REGS->EVSYS_USER[15] = EVSYS_USER_CHANNEL(2UL);        // TCC1 EV0 <- channel 1
 
     uint16_t tc3StartCount = 0x0;
 
@@ -218,23 +245,47 @@ void setPieceId(unsigned idx) {
 
     // Enable does not start counting when an input START event is configured;
     // this timer will not run until triggered by TC0
-    TC3_CompareStart();
+    //TC3_CompareStart();
 
     PID_DRAIN_EN_Toggle();
 
     TCC0_PWMStart();
+    TCC1_PWMStart();
+    // Fire software event
+    EVSYS_REGS->EVSYS_SWEVT = EVSYS_SWEVT_CHANNEL1_Msk;
+
     // "Retrigger" TCC0 to start after stop
     //TCC0_REGS->TCC_CTRLBSET = TCC_CTRLBSET_CMD(1);
 }
 
 unsigned freqIdx = 0;
 
+static constexpr uint32_t FreqMin = 3'000'000u;
+static constexpr uint32_t FreqMax = 10'000'000u;
+static constexpr uint32_t FreqStep =  500'000u;
+
+uint32_t freqVal = FreqMin;
+
+uint32_t randVal(uint32_t below) {
+  uint32_t val = rand();
+  val %= below;
+  return val;
+}
+
+uint32_t getRandStep() {
+  uint32_t val = randVal(FreqStep);
+  return val + FreqStep / 2;
+}
+
 void switchPieceId() {
-  freqIdx++;
-  if (freqIdx >= sizeof(frequencies) / sizeof(frequencies[0])) {
-    freqIdx = 0;
+  freqVal += getRandStep();
+  while (freqVal > FreqMax) {
+    freqVal -= (FreqMax - FreqMin);
   }
-  setPieceId(freqIdx);
+
+  hubLog('I', "%u", freqVal);
+
+  setPieceId(freqVal);
 }
 
 void startPieceId() {
