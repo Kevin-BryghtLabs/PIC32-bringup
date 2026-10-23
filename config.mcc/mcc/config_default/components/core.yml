@@ -141,7 +141,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '0x43920d'
+            value: '0x43960d'
           type: Dynamic
         type: Values
       type: String
@@ -5087,6 +5087,30 @@ data:
           type: User
         type: Values
       type: Integer
+    TCC1_CLOCK_FREQUENCY:
+      attributes:
+        id: TCC1_CLOCK_FREQUENCY
+        label: TCC1 Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '52250000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    TCC1_CLOCK_ENABLE:
+      attributes:
+        id: TCC1_CLOCK_ENABLE
+        label: TCC1 Clock Enable
+      children:
+      - children:
+        - attributes:
+            id: tcc1
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
   userData:
     children:
     - attributes:

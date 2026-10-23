@@ -37,7 +37,7 @@ data:
       - children:
         - attributes:
             id: evsys
-            value: 'true'
+            value: 'false'
           type: Dynamic
         type: Values
       type: Boolean
@@ -153,7 +153,7 @@ data:
       - children:
         - attributes:
             id: tcc0
-            value: 'true'
+            value: 'false'
           type: Dynamic
         type: Values
       type: Boolean
@@ -237,7 +237,7 @@ data:
       - children:
         - attributes:
             id: tcc0
-            value: 'false'
+            value: 'true'
           type: Dynamic
         type: Values
       type: Boolean
@@ -293,7 +293,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '48'
+            value: '71'
           type: User
         type: Values
       type: KeyValueSet
@@ -312,12 +312,6 @@ data:
       attributes:
         id: EVSYS_USER_23
         label: TC0_EVU Channel Selection
-      children:
-      - children:
-        - attributes:
-            value: '2'
-          type: User
-        type: Values
       type: KeyValueSet
     EVSYS_USER_10:
       attributes:
@@ -519,4 +513,62 @@ data:
           type: Dynamic
         type: Values
       type: Boolean
+    USER_TCC1_EV_0_READY:
+      attributes:
+        id: USER_TCC1_EV_0_READY
+        label: USER_TCC1_EV_0_READY
+      children:
+      - children:
+        - attributes:
+            id: tcc1
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    GENERATOR_TCC1_OVF_ACTIVE:
+      attributes:
+        id: GENERATOR_TCC1_OVF_ACTIVE
+        label: GENERATOR_TCC1_OVF_ACTIVE
+      children:
+      - children:
+        - attributes:
+            id: tcc1
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    USER_TCC0_EV_0_READY:
+      attributes:
+        id: USER_TCC0_EV_0_READY
+        label: USER_TCC0_EV_0_READY
+      children:
+      - children:
+        - attributes:
+            id: tcc0
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    EVSYS_USER_9:
+      attributes:
+        id: EVSYS_USER_9
+        label: TCC0_EV_0 Channel Selection
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: KeyValueSet
+    EVSYS_USER_15:
+      attributes:
+        id: EVSYS_USER_15
+        label: TCC1_EV_0 Channel Selection
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: KeyValueSet
   userData: {}

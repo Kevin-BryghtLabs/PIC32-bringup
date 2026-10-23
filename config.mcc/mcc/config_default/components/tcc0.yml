@@ -296,7 +296,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '1'
+            value: '0'
           type: User
         type: Values
       type: KeyValueSet
@@ -447,6 +447,20 @@ data:
       attributes:
         id: TCC_5_DRVCTRL_NRE_NRV
         label: Select Level for Output 5
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     TCC_6PATT_PGE:
       attributes:
@@ -802,6 +816,12 @@ data:
       attributes:
         id: TCC_EVCTRL_EVACT0
         label: Select Input Event 0 Action
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     TCC_EVCTRL_EVACT1:
       attributes:
@@ -810,7 +830,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '0'
+            value: '5'
           type: User
         type: Values
       type: KeyValueSet
@@ -861,7 +881,7 @@ data:
       children:
       - children:
         - attributes:
-            value: 'true'
+            value: 'false'
           type: User
         type: Values
       type: Boolean

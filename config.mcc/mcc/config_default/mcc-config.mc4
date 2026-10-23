@@ -21,6 +21,7 @@ modules:
 - tc3
 - tc4
 - tcc0
+- tcc1
 generatedFileHashHistoryMap:
 - file: ../src/config/default/PIC32CM6408JH00048.ld
   hash: 65f6cc7bbdd30f18bf6e79c9369c7f755a4da37120ba08660dc9bcbe440ebf47
@@ -57,7 +58,7 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/peripheral/dmac/plib_dmac.h
   hash: b6ea9b70943ab1220db8ca2b9226ff369938eff505c5bbd269f38d0489733ee2
 - file: ../src/config/default/peripheral/evsys/plib_evsys.c
-  hash: d2017b3ce58ec2b5ce711781b80374f3c2871ffbd5c043893085fd36c503da8a
+  hash: fa9671087aeb5aff46e40ade09f1c8bec42fe0feaa68b3556d203aaacfffa431
 - file: ../src/config/default/peripheral/evsys/plib_evsys.h
   hash: 60592f03ddb0e1201aeacfcd7ddbb69862444d7bda04cd8d66df468e435fc4c8
 - file: ../src/config/default/peripheral/nvic/plib_nvic.c
