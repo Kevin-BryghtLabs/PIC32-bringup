@@ -32,5 +32,6 @@
         "pic32-test-default": [],
         "pic32-test-no-bootloader": []
     },
-    "C_Cpp.intelliSenseEngine": "disabled"
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "cmake.sourceDirectory": "/home/kevin/mplab-vscode/pic32-test/cmake/pic32-test/no-bootloader"
 }

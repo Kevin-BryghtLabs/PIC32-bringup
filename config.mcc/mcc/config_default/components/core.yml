@@ -35,7 +35,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '48'
+            value: '1'
           type: User
         type: Values
       type: Integer
@@ -47,7 +47,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '48'
+            value: '1'
           type: Dynamic
         type: Values
       type: Integer
@@ -59,7 +59,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '1000000'
+            value: '52250000'
           type: Dynamic
         type: Values
       type: Integer
@@ -2326,7 +2326,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '52250000'
+            value: '1000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -2338,7 +2338,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '52250000'
+            value: '1000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -3837,7 +3837,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '6'
+            value: '2'
           type: User
         type: Values
       type: KeyValueSet
@@ -3848,7 +3848,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -3882,7 +3882,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '6'
           type: User
         type: Values
       type: KeyValueSet
@@ -5053,6 +5053,40 @@ data:
           type: User
         type: Values
       type: Boolean
+    GCLK_2_SRC:
+      attributes:
+        id: GCLK_2_SRC
+        label: Source Selection
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: KeyValueSet
+    GCLK_6_DIVIDER_VALUE:
+      attributes:
+        id: GCLK_6_DIVIDER_VALUE
+        label: GCLK_6_DIVIDER_VALUE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '48'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_6_DIV:
+      attributes:
+        id: GCLK_6_DIV
+        label: Division Factor
+      children:
+      - children:
+        - attributes:
+            value: '48'
+          type: User
+        type: Values
+      type: Integer
   userData:
     children:
     - attributes:
