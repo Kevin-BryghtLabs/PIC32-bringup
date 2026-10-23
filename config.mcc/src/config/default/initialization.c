@@ -142,9 +142,9 @@ void SYS_Initialize ( void* data )
 
 
 
-    NVMCTRL_Initialize( );
-
     SERCOM2_USART_Initialize();
+
+    NVMCTRL_Initialize( );
 
     SERCOM1_SPI_Initialize();
 
@@ -159,6 +159,8 @@ void SYS_Initialize ( void* data )
     TC3_CompareInitialize();
 
     TC4_TimerInitialize();
+
+    TCC1_PWMInitialize();
 
     TCC0_PWMInitialize();
 
