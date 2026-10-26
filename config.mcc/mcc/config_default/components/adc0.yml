@@ -150,6 +150,12 @@ data:
       attributes:
         id: ADC_CTRLC_RESSEL
         label: Select Result Resolution
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     ADC_CTRLC_WINMODE:
       attributes:
@@ -234,6 +240,12 @@ data:
       attributes:
         id: ADC_INTENSET_RESRDY
         label: Enable Result Ready Interrupt
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     ADC_INTENSET_WINMON:
       attributes:
@@ -587,4 +599,28 @@ data:
           type: Dynamic
         type: Values
       type: String
+    ADC_ADJRES:
+      attributes:
+        id: ADC_ADJRES
+        label: ADC_ADJRES
+      children:
+      - children:
+        - attributes:
+            id: adc0
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+    ADC_SAMPLENUM:
+      attributes:
+        id: ADC_SAMPLENUM
+        label: ADC_SAMPLENUM
+      children:
+      - children:
+        - attributes:
+            id: adc0
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
   userData: {}
