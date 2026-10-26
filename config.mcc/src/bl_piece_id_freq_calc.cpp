@@ -166,23 +166,36 @@ static constexpr PllTccConfig calcConfigVals(uint32_t targetFreq, uint8_t gclkDi
 
 PllTccConfig getPllTccConfigForFreq(uint32_t targetFreq) {
   PllTccConfig best;
+  PllTccConfig bestOddTcc;
+  bool haveBest = false;
 
   uint32_t minError = std::numeric_limits<uint32_t>::max();
+  uint32_t minOddError = std::numeric_limits<uint32_t>::max();
 
   // Scan through the available range of GClk values, calculating the
   // LDR and Tcc values for each and determining the resulting error
   // from the requested frequency.  Return the config with lowest error.
   FOR_DIV_VALUES(gclkDiv) {
     PllTccConfig config = calcConfigVals(targetFreq, gclkDiv);
+    const uint32_t posError = config.error < 0 ? -config.error : config.error;
 
-    uint32_t posError = config.error < 0 ? -config.error : config.error;
-    if (posError < minError) {
-      minError = posError;
-      best = config;
+    const bool isOddTcc = config.tccCnt & 1;
+    if (isOddTcc) {
+      if (posError < minOddError) {
+        minOddError = posError;
+        bestOddTcc = config;
+      }
+    }
+    else {
+      if (posError < minError) {
+        minError = posError;
+        best = config;
+        haveBest = true;
+      }
     }
   }
 
-  return best;
+  return haveBest ? best : bestOddTcc;
 }
 
 #if defined (PC_TEST)
