@@ -63,6 +63,7 @@ void RTC_InterruptHandler (void);
 void DMAC_InterruptHandler (void);
 void SERCOM2_USART_InterruptHandler (void);
 void TC4_TimerInterruptHandler (void);
+void ADC0_InterruptHandler (void);
 void PTC_Handler (void);
 
 
