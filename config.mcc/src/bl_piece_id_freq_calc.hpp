@@ -8,6 +8,7 @@ struct PllTccConfig {
   uint8_t ldrFrac = 0;
   uint16_t ldrWhole = 0;
   uint32_t tccCnt = 0;
+  uint32_t pllOut = 0;
   int32_t error = 0;
 
   // Allows functions returning this type to be constexpr

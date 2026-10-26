@@ -166,7 +166,7 @@ int main ( void )
 
     //TCC0_PWMStart();
 
-    //initPieceId();
+    initPieceId();
     //startPieceId();
 
     uint32_t switchInterval = 10000;

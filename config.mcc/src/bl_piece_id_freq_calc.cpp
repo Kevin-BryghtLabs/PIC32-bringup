@@ -155,9 +155,8 @@ static constexpr PllTccConfig calcConfigVals(uint32_t targetFreq, uint8_t gclkDi
   config.ldrWhole = ldr / LdrScalar;
   config.ldrFrac = ldr % LdrScalar;
   config.tccCnt = gclk >> shift;
-
-  const uint32_t pllOut = gclk * ldr / PllDiv / LdrScalar;
-  const uint32_t tccOut = pllOut / config.tccCnt;
+  config.pllOut = gclk * ldr / PllDiv / LdrScalar;
+  const uint32_t tccOut = config.pllOut / config.tccCnt;
 
   config.error = tccOut - targetFreq;
 
@@ -165,6 +164,8 @@ static constexpr PllTccConfig calcConfigVals(uint32_t targetFreq, uint8_t gclkDi
 }
 
 PllTccConfig getPllTccConfigForFreq(uint32_t targetFreq) {
+  static constexpr uint32_t TCCMaxInputFreq = 92'000'000;
+
   PllTccConfig best;
   PllTccConfig bestOddTcc;
   bool haveBest = false;
@@ -177,6 +178,10 @@ PllTccConfig getPllTccConfigForFreq(uint32_t targetFreq) {
   // from the requested frequency.  Return the config with lowest error.
   FOR_DIV_VALUES(gclkDiv) {
     PllTccConfig config = calcConfigVals(targetFreq, gclkDiv);
+    if (config.pllOut > TCCMaxInputFreq) {
+      continue;
+    }
+
     const uint32_t posError = config.error < 0 ? -config.error : config.error;
 
     const bool isOddTcc = config.tccCnt & 1;

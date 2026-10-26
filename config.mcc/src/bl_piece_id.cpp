@@ -53,8 +53,10 @@
 //
 //  TCC ... no notes?
 //
-//
-//
+
+#define ARRAY_SIZE(a) (sizeof(a) / sizeof((a)[0]))
+
+
 enum GenClkSrc {
   XOSC        = 0x0,  // XOSC oscillator output
   GCLKIN      = 0x1,  // Generator input pad (GCLK_IO)
@@ -164,35 +166,55 @@ void setPllMult(uint16_t whole, uint8_t frac) {
     }
 }
 
-uint32_t frequencies[] = {
-  //1'000'000,
-  //1'500'000,
-  //2'000'000,
-  //2'500'000,
-  3'000'000,
-  3'500'000,
-  4'000'000,
-  4'500'000,
-  5'000'000,
-  5'500'000,
-  6'000'000,
-  6'500'000,
-  7'000'000,
-  7'500'000,
-  8'000'000,
-  8'500'000,
-  9'000'000,
-  9'500'000,
-  10'000'000,
+struct FrequencyData {
+  uint32_t frequency;
+  PllTccConfig config;
 };
 
+FrequencyData frequencies[] = {
+  { 1'000'000, {} },
+  { 1'500'000, {} },
+  { 2'000'000, {} },
+  { 2'500'000, {} },
+  { 3'000'000, {} },
+  { 3'500'000, {} },
+  { 4'000'000, {} },
+  { 4'500'000, {} },
+  { 5'000'000, {} },
+  { 5'500'000, {} },
+  { 6'000'000, {} },
+  { 6'500'000, {} },
+  { 7'000'000, {} },
+  { 7'500'000, {} },
+  { 8'000'000, {} },
+  { 8'500'000, {} },
+  { 9'000'000, {} },
+  { 9'500'000, {} },
+  { 10'000'000, {} },
+};
+
+static size_t FrequencyCount = ARRAY_SIZE(frequencies);
+
+static void calculateFrequencyConfigs() {
+  for (unsigned i = 0; i < FrequencyCount; ++i) {
+    frequencies[i].config = getPllTccConfigForFreq(frequencies[i].frequency);
+  }
+}
+
 void initPieceId() {
+    calculateFrequencyConfigs();
     initPll();
 }
 
-void setPieceId(uint32_t freq) {
-    const PllTccConfig config = getPllTccConfigForFreq(freq);
+void setPieceId(unsigned freqIdx) {
+    if (freqIdx >= FrequencyCount) {
+        return;
+    }
 
+    auto & config = frequencies[freqIdx].config;
+
+    // TODO: Could maybe parallelize some of these waits?  Write different systems
+    // then wait for sync?
     TCC0_PWMStop();
     TCC1_PWMStop();
     disablePll();
@@ -200,7 +222,7 @@ void setPieceId(uint32_t freq) {
 
     setGclkDiv(8, config.gclkDiv);
 
-    const uint32_t whole = config.ldrWhole- 1;
+    const uint32_t whole = config.ldrWhole - 1;
     const uint32_t frac = config.ldrFrac;
 
     setPllMult(whole, frac);
@@ -258,8 +280,7 @@ void setPieceId(uint32_t freq) {
     //TCC0_REGS->TCC_CTRLBSET = TCC_CTRLBSET_CMD(1);
 }
 
-unsigned freqIdx = 0;
-
+#ifdef RANDOM_STEP
 static constexpr uint32_t FreqMin = 3'000'000u;
 static constexpr uint32_t FreqMax = 10'000'000u;
 static constexpr uint32_t FreqStep =  500'000u;
@@ -287,6 +308,19 @@ void switchPieceId() {
 
   setPieceId(freqVal);
 }
+#else
+
+unsigned freqIdx = 0;
+
+void switchPieceId() {
+  if (freqIdx >= FrequencyCount) {
+    freqIdx = 0;
+  }
+
+  setPieceId(freqIdx);
+  freqIdx++;
+}
+#endif
 
 void startPieceId() {
   freqIdx = 0;
