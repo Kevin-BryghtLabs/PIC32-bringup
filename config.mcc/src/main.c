@@ -32,6 +32,7 @@
 #include "bl_piece_id.hpp"
 #include "bl_touch.h"
 #include "definitions.h"                // SYS function prototypes
+#include "hub_log.h"
 #include "timer.h"
 #include "leds.h"
 //#include "bl_ble_packet_headers.h"
@@ -146,6 +147,12 @@ bool allowTouch(void) {
   return !doSync || !ledTransmitInProgress();
 }
 
+static volatile bool adc_done;
+
+void adcIrq(ADC_STATUS status, uintptr_t context){
+    adc_done = true;
+}
+
 int main ( void )
 {
     /* Initialize all modules */
@@ -155,6 +162,7 @@ int main ( void )
 
     timerInit();
 
+    ADC0_CallbackRegister(adcIrq, 0);
     ADC0_Enable();
     ADC0_ChannelSelect(ADC_INPUTCTRL_MUXPOS_AIN0, ADC_INPUTCTRL_MUXNEG_GND);
 
@@ -209,7 +217,7 @@ int main ( void )
           nextPidMs += pidInterval;
 
           //Start interrogation
-          //adc_done = false;
+          adc_done = false;
 
           switchPieceId();
 
@@ -217,11 +225,12 @@ int main ( void )
           //volatile uint32_t count1 = 0;
 
           //Wait for result
-          //while(!adc_done){
-            //asm volatile ("nop");
-          //};
+          while(!adc_done){
+            asm volatile ("nop");
+          };
 
-          //uint8_t data = ADC0_ConversionResultGet();
+          uint16_t data = ADC0_ConversionResultGet();
+          hubLog('I', "ADC: %3x", data);
           //(void)data;
           //sendGenericData1(data);
         }

@@ -106,7 +106,7 @@ data:
       children:
       - children:
         - attributes:
-            value: SW Trigger
+            value: HW Event Trigger
           type: User
         type: Values
       type: Combo

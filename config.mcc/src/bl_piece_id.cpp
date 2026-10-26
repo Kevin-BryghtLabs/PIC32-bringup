@@ -1,6 +1,7 @@
 #include "bl_piece_id.hpp"
 #include "bl_piece_id_freq_calc.hpp"
 #include "hub_log.h"
+#include "peripheral/adc/plib_adc0.h"
 #include "peripheral/port/plib_port.h"
 //#include "peripheral/tc/plib_tc0.h"
 #include "peripheral/tc/plib_tc3.h"
@@ -265,9 +266,11 @@ void setPieceId(unsigned freqIdx) {
     // Clear PORTB 23 on event
     PORT_REGS->GROUP[1].PORT_EVCTRL = PORT_EVCTRL_PORTEI0_Msk | PORT_EVCTRL_EVACT0(2) | PORT_EVCTRL_PID0(23);
 
+    ADC0_ChannelSelect(ADC_POSINPUT_AIN1, ADC_NEGINPUT_GND);
+
     // Enable does not start counting when an input START event is configured;
     // this timer will not run until triggered by TC0
-    //TC3_CompareStart();
+    TC3_CompareStart();
 
     PID_DRAIN_EN_Toggle();
 
