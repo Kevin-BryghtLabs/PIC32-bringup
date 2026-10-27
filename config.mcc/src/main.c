@@ -186,6 +186,13 @@ int main ( void )
     uint32_t alsInterval = 250;
     uint32_t nextAlsMs = getCurrentTimeMs() + alsInterval;
 
+    // When we are doing both captouch and pieceID this needs to be called
+    // when switching to start pieceID
+    setupPieceId();
+
+    unsigned count = 0;
+    unsigned spot = 0;
+
     while ( true )
     {
         /* Maintain state machines of all polled MPLAB Harmony modules. */
@@ -213,13 +220,22 @@ int main ( void )
           //hubLog('I', "Sync: %u", doSync);
         }
 
-        if (now >= nextPidMs) {
+        if (true) {
           nextPidMs += pidInterval;
 
           //Start interrogation
           adc_done = false;
 
-          switchPieceId();
+          if (++count >= 3000) {
+            count = 0;
+            spot++;
+            if (spot >= 64) {
+              spot = 0;
+            }
+            hubLog('I', "Spot: %u", spot);
+          }
+
+          switchPieceId(spot);
 
           //volatile uint32_t count0 = 0;
           //volatile uint32_t count1 = 0;
@@ -230,7 +246,8 @@ int main ( void )
           };
 
           uint16_t data = ADC0_ConversionResultGet();
-          hubLog('I', "ADC: %3x", data);
+          //hubLog('I', "ADC: %3x", data);
+
           //(void)data;
           //sendGenericData1(data);
         }

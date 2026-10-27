@@ -69,6 +69,112 @@ enum GenClkSrc {
   FDPLL96M    = 0x7,  // DPLL96M output
 };
 
+// Top-level "master" mux
+static constexpr PORT_PIN MMA0_PIN    = PORT_PIN_PA08;
+static constexpr PORT_PIN MMA1_PIN    = PORT_PIN_PA09;
+static constexpr PORT_PIN MMA2_PIN    = PORT_PIN_PA10;
+static constexpr uint32_t MMA0_BIT    = (1 << MMA0_PIN);
+static constexpr uint32_t MMA1_BIT    = (1 << MMA1_PIN);
+static constexpr uint32_t MMA2_BIT    = (1 << MMA2_PIN);
+
+// Second-level "slave" mux
+static constexpr PORT_PIN MSA0_PIN    = PORT_PIN_PA11;
+static constexpr PORT_PIN MSA1_PIN    = PORT_PIN_PA16;
+static constexpr PORT_PIN MSA2_PIN    = PORT_PIN_PA17;
+static constexpr uint32_t MSA0_BIT    = (1 << MSA0_PIN);
+static constexpr uint32_t MSA1_BIT    = (1 << MSA1_PIN);
+static constexpr uint32_t MSA2_BIT    = (1 << MSA2_PIN);
+
+static constexpr uint32_t MMA_MASK = MMA0_BIT | MMA1_BIT | MMA2_BIT;
+static constexpr uint32_t MSA_MASK = MSA0_BIT | MSA1_BIT | MSA2_BIT;
+
+// The board PieceId nets look like this in a top-down view:
+//
+//   S33 S40 S41 S48 S52 S53 S60 S61
+//   S34 S39 S42 S47 S51 S54 S59 S62
+//   S35 S38 S43 S46 S50 S55 S58 S63
+//   S36 S37 S44 S45 S49 S56 S57 S64
+//   S1  S8  S9  S16 S20 S21 S28 S29
+//   S2  S7  S10 S15 S19 S22 S27 S30
+//   S3  S6  S11 S14 S18 S23 S26 S31
+//   S4  S5  S12 S13 S17 S24 S25 S32
+
+// Reducing each by 1 to be 0-indexed instead of 1-indexed
+// and flipping top to bottom so that spot 0 == A1, we get:
+static uint8_t spotToNetMap[] = {
+  3,  4, 11, 12, 16, 23, 24, 31,
+  2,  5, 10, 13, 17, 22, 25, 30,
+  1,  6,  9, 14, 18, 21, 26, 29,
+  0,  7,  8, 15, 19, 20, 27, 28,
+ 35, 36, 43, 44, 48, 55, 56, 63,
+ 34, 37, 42, 45, 49, 54, 57, 62,
+ 33, 38, 41, 46, 50, 53, 58, 61,
+ 32, 39, 40, 47, 51, 52, 59, 60,
+};
+static_assert(sizeof(spotToNetMap) == 64);
+
+static const uint32_t MMABitsForValue[] = {
+         0 |        0 |        0,
+         0 |        0 | MMA0_BIT,
+         0 | MMA1_BIT |        0,
+         0 | MMA1_BIT | MMA0_BIT,
+  MMA2_BIT |        0 |        0,
+  MMA2_BIT |        0 | MMA0_BIT,
+  MMA2_BIT | MMA1_BIT |        0,
+  MMA2_BIT | MMA1_BIT | MMA0_BIT,
+};
+
+static const uint32_t MSABitsForValue[] = {
+         0 |        0 |        0,
+         0 |        0 | MSA0_BIT,
+         0 | MSA1_BIT |        0,
+         0 | MSA1_BIT | MSA0_BIT,
+  MSA2_BIT |        0 |        0,
+  MSA2_BIT |        0 | MSA0_BIT,
+  MSA2_BIT | MSA1_BIT |        0,
+  MSA2_BIT | MSA1_BIT | MSA0_BIT,
+};
+
+static void configPinsForPieceId(void)
+{
+    static constexpr PORT_PIN muxPins[] = {
+      MMA0_PIN, MMA1_PIN, MMA2_PIN,
+      MSA0_PIN, MSA1_PIN, MSA2_PIN,
+    };
+    static constexpr size_t MuxPinCount = ARRAY_SIZE(muxPins);
+
+    for (unsigned i = 0; i < MuxPinCount; ++i) {
+        const PORT_PIN pin = muxPins[i];
+
+        PORT_PinGPIOConfig(pin);
+        PORT_PinClear(pin);
+        PORT_PinOutputEnable(pin);
+    }
+}
+
+static void selectMuxPathForSpot(uint8_t spot) {
+  if (spot > ARRAY_SIZE(spotToNetMap)) {
+    return;
+  }
+
+  const uint8_t net = spotToNetMap[spot];
+  const uint8_t mma = net / 8;
+  const uint8_t msa = net % 8;
+
+  const uint32_t mmaBits = MMABitsForValue[mma];
+  const uint32_t msaBits = MSABitsForValue[msa];
+
+  const uint32_t setBits = (mmaBits | msaBits) & (MMA_MASK | MSA_MASK);
+  const uint32_t clrBits = (MMA_MASK | MSA_MASK) & ~mmaBits & ~msaBits;
+
+  PORT_REGS->GROUP[0].PORT_OUTSET = setBits;
+  PORT_REGS->GROUP[0].PORT_OUTCLR = clrBits;
+}
+
+static void enableMuxes() {
+  MUX_EN_Set();
+}
+
 void disableGclk(uint8_t gclkNum) {
     uint32_t val = GCLK_REGS->GCLK_GENCTRL[gclkNum];
     val &= ~(GCLK_GENCTRL_GENEN_Msk);
@@ -133,7 +239,7 @@ void setPulseCount(uint8_t pulses, const PllTccConfig & config) {
     const uint32_t pulsesTimeInTCCTicks = pulses * config.tccCnt + eventTimeTicks;
 
     TCC1_REGS->TCC_COUNT = pulsesTimeInTCCTicks;
-    hubLog('I', "TCC1: %u * %lu + %lu = %lu", pulses, config.tccCnt, eventTimeTicks, pulsesTimeInTCCTicks);
+    //hubLog('I', "TCC1: %u * %lu + %lu = %lu", pulses, config.tccCnt, eventTimeTicks, pulsesTimeInTCCTicks);
     while (TCC1_REGS->TCC_SYNCBUSY != 0U)
     {
         /* Wait for Write Synchronization */
@@ -202,9 +308,15 @@ static void calculateFrequencyConfigs() {
   }
 }
 
+// Call once to initialize systems after boot
 void initPieceId() {
     calculateFrequencyConfigs();
     initPll();
+}
+
+// Call after captouch or any other task which shares resources with PieceId
+void setupPieceId() {
+  configPinsForPieceId();
 }
 
 void setPieceId(unsigned freqIdx) {
@@ -315,10 +427,13 @@ void switchPieceId() {
 
 unsigned freqIdx = 0;
 
-void switchPieceId() {
+void switchPieceId(uint8_t spot) {
   if (freqIdx >= FrequencyCount) {
     freqIdx = 0;
   }
+
+  selectMuxPathForSpot(spot);
+  enableMuxes();
 
   setPieceId(freqIdx);
   freqIdx++;
