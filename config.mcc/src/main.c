@@ -147,12 +147,6 @@ bool allowTouch(void) {
   return !doSync || !ledTransmitInProgress();
 }
 
-static volatile bool adc_done;
-
-void adcIrq(ADC_STATUS status, uintptr_t context){
-    adc_done = true;
-}
-
 int main ( void )
 {
     /* Initialize all modules */
@@ -161,10 +155,6 @@ int main ( void )
     signalStateInit();
 
     timerInit();
-
-    ADC0_CallbackRegister(adcIrq, 0);
-    ADC0_Enable();
-    ADC0_ChannelSelect(ADC_INPUTCTRL_MUXPOS_AIN0, ADC_INPUTCTRL_MUXNEG_GND);
 
     ledInit();
 
@@ -186,12 +176,8 @@ int main ( void )
     uint32_t alsInterval = 250;
     uint32_t nextAlsMs = getCurrentTimeMs() + alsInterval;
 
-    // When we are doing both captouch and pieceID this needs to be called
-    // when switching to start pieceID
-    setupPieceId();
-
-    unsigned count = 0;
     unsigned spot = 0;
+    bool triggered = 0;
 
     while ( true )
     {
@@ -220,36 +206,38 @@ int main ( void )
           //hubLog('I', "Sync: %u", doSync);
         }
 
-        if (true) {
+        if (now >= nextPidMs) {
           nextPidMs += pidInterval;
 
-          //Start interrogation
-          adc_done = false;
+          // When we are doing both captouch and pieceID this needs to be called
+          // when switching to start pieceID
+          setupPieceId();
 
-          if (++count >= 3000) {
-            count = 0;
-            spot++;
-            if (spot >= 64) {
-              spot = 0;
+          //switchPieceId(spot);
+          startPieceId(spot);
+          triggered = true;
+        }
+
+        pieceIdTask();
+
+        if (triggered) {
+          if (pieceIdComplete()) {
+            triggered = false;
+            const uint16_t * pieceIdResults;
+            size_t resultCount;
+
+            if (getPieceIdResult(&pieceIdResults, &resultCount)) {
+              char buffer[256];
+              unsigned pos = 0;
+              buffer[0] = 0;
+
+              for (unsigned i = 0; i < resultCount; ++i) {
+                pos += snprintf(&buffer[pos], sizeof(buffer) - pos, " %4u", pieceIdResults[i]);
+              }
+
+              hubLog('I', "Read:%s", buffer);
             }
-            hubLog('I', "Spot: %u", spot);
           }
-
-          switchPieceId(spot);
-
-          //volatile uint32_t count0 = 0;
-          //volatile uint32_t count1 = 0;
-
-          //Wait for result
-          while(!adc_done){
-            asm volatile ("nop");
-          };
-
-          uint16_t data = ADC0_ConversionResultGet();
-          //hubLog('I', "ADC: %3x", data);
-
-          //(void)data;
-          //sendGenericData1(data);
         }
 #if 0
         if (now >= nextAlsMs) {

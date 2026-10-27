@@ -135,6 +135,36 @@ static const uint32_t MSABitsForValue[] = {
   MSA2_BIT | MSA1_BIT | MSA0_BIT,
 };
 
+struct FrequencyData {
+  uint32_t frequency;
+  uint16_t drainDelayCounts;
+  uint16_t ringTimeCounts;
+  PllTccConfig config;
+};
+
+FrequencyData frequencies[] = {
+  { 1'000'000, 64, 255, {} },
+  { 1'500'000, 43, 170, {} },
+  { 2'000'000, 32, 128, {} },
+  { 2'500'000, 26, 102, {} },
+  { 3'000'000, 22,  85, {} },
+  { 3'500'000, 19,  73, {} },
+  { 4'000'000, 16,  64, {} },
+  { 4'500'000, 15,  57, {} },
+  { 5'000'000, 13,  51, {} },
+  { 5'500'000, 12,  47, {} },
+  { 6'000'000, 11,  43, {} },
+  { 6'500'000, 10,  40, {} },
+  { 7'000'000, 10,  37, {} },
+  { 7'500'000,  9,  34, {} },
+  { 8'000'000,  8,  32, {} },
+  { 8'500'000,  8,  30, {} },
+  { 9'000'000,  8,  29, {} },
+  { 9'500'000,  7,  27, {} },
+};
+
+static size_t FrequencyCount = ARRAY_SIZE(frequencies);
+
 static void configPinsForPieceId(void)
 {
     static constexpr PORT_PIN muxPins[] = {
@@ -173,6 +203,19 @@ static void selectMuxPathForSpot(uint8_t spot) {
 
 static void enableMuxes() {
   MUX_EN_Set();
+}
+
+static void disableMuxes() {
+  MUX_EN_Clear();
+}
+
+static uint16_t pieceIdResult[ARRAY_SIZE(frequencies)];
+static uint8_t frequencyIdx;
+static bool pieceIdRunning;
+static volatile bool adc_done;
+
+void adcIrq(ADC_STATUS status, uintptr_t context){
+    adc_done = true;
 }
 
 void disableGclk(uint8_t gclkNum) {
@@ -273,35 +316,6 @@ void setPllMult(uint16_t whole, uint8_t frac) {
     }
 }
 
-struct FrequencyData {
-  uint32_t frequency;
-  PllTccConfig config;
-};
-
-FrequencyData frequencies[] = {
-  { 1'000'000, {} },
-  { 1'500'000, {} },
-  { 2'000'000, {} },
-  { 2'500'000, {} },
-  { 3'000'000, {} },
-  { 3'500'000, {} },
-  { 4'000'000, {} },
-  { 4'500'000, {} },
-  { 5'000'000, {} },
-  { 5'500'000, {} },
-  { 6'000'000, {} },
-  { 6'500'000, {} },
-  { 7'000'000, {} },
-  { 7'500'000, {} },
-  { 8'000'000, {} },
-  { 8'500'000, {} },
-  { 9'000'000, {} },
-  { 9'500'000, {} },
-  { 10'000'000, {} },
-};
-
-static size_t FrequencyCount = ARRAY_SIZE(frequencies);
-
 static void calculateFrequencyConfigs() {
   for (unsigned i = 0; i < FrequencyCount; ++i) {
     frequencies[i].config = getPllTccConfigForFreq(frequencies[i].frequency);
@@ -316,7 +330,19 @@ void initPieceId() {
 
 // Call after captouch or any other task which shares resources with PieceId
 void setupPieceId() {
+  ADC0_CallbackRegister(adcIrq, 0);
+  ADC0_ChannelSelect(ADC_POSINPUT_AIN1, ADC_NEGINPUT_GND);
+  ADC0_Enable();
   configPinsForPieceId();
+}
+
+void stopPieceId() {
+  disableMuxes();
+  TCC0_PWMStop();
+  TCC1_PWMStop();
+  TC3_CompareStop();
+  ADC0_Disable();
+  ADC0_CallbackRegister(nullptr, 0);
 }
 
 void setPieceId(unsigned freqIdx) {
@@ -324,6 +350,7 @@ void setPieceId(unsigned freqIdx) {
         return;
     }
 
+    adc_done = false;
     auto & config = frequencies[freqIdx].config;
 
     // TODO: Could maybe parallelize some of these waits?  Write different systems
@@ -352,6 +379,9 @@ void setPieceId(unsigned freqIdx) {
     }
 
     TCC1_PWMInitialize();
+    // PWM interface doesn't expose oneshot; set manually
+    TCC1_REGS->TCC_CTRLBSET = TCC_CTRLBSET_ONESHOT(1);
+
     setPulseCount(10, config);
     // Manually set "None" generator event so we can start both TCC0 and TCC1 at the same
     // time with a software event.  MCC doesn't support "None".
@@ -367,8 +397,8 @@ void setPieceId(unsigned freqIdx) {
 
     uint16_t tc3StartCount = 0x0;
 
-    TC3_REGS->COUNT16.TC_CC[0] = 96;
-    TC3_REGS->COUNT16.TC_CC[1] = 255;
+    TC3_REGS->COUNT16.TC_CC[0] = frequencies[freqIdx].drainDelayCounts;
+    TC3_REGS->COUNT16.TC_CC[1] = frequencies[freqIdx].ringTimeCounts;
 
     while((TC3_REGS->COUNT16.TC_SYNCBUSY) != 0U)
     {
@@ -378,13 +408,11 @@ void setPieceId(unsigned freqIdx) {
     // Clear PORTB 23 on event
     PORT_REGS->GROUP[1].PORT_EVCTRL = PORT_EVCTRL_PORTEI0_Msk | PORT_EVCTRL_EVACT0(2) | PORT_EVCTRL_PID0(23);
 
-    ADC0_ChannelSelect(ADC_POSINPUT_AIN1, ADC_NEGINPUT_GND);
-
     // Enable does not start counting when an input START event is configured;
     // this timer will not run until triggered by TC0
     TC3_CompareStart();
 
-    PID_DRAIN_EN_Toggle();
+    PID_DRAIN_EN_Set();
 
     TCC0_PWMStart();
     TCC1_PWMStart();
@@ -425,8 +453,7 @@ void switchPieceId() {
 }
 #else
 
-unsigned freqIdx = 0;
-
+#if 0
 void switchPieceId(uint8_t spot) {
   if (freqIdx >= FrequencyCount) {
     freqIdx = 0;
@@ -439,8 +466,57 @@ void switchPieceId(uint8_t spot) {
   freqIdx++;
 }
 #endif
+#endif
 
-void startPieceId() {
-  freqIdx = 0;
-  setPieceId(freqIdx);
+bool pieceIdComplete() {
+  return !pieceIdRunning;
+}
+
+bool getPieceIdResult(const uint16_t ** ptr, size_t * count) {
+  *ptr = pieceIdResult;
+  *count = FrequencyCount;
+
+  // Todo:  valid?
+  return true;
+}
+
+void pieceIdTask() {
+  if (pieceIdRunning) {
+    if (adc_done) {
+      adc_done = false;
+      pieceIdResult[frequencyIdx] = ADC0_ConversionResultGet();
+      frequencyIdx++;
+
+      //PID_DRAIN_EN_Set();
+      asm volatile ("nop");
+      asm volatile ("nop");
+      asm volatile ("nop");
+      asm volatile ("nop");
+      asm volatile ("nop");
+      asm volatile ("nop");
+      asm volatile ("nop");
+      asm volatile ("nop");
+      asm volatile ("nop");
+      asm volatile ("nop");
+      //PID_DRAIN_EN_Clear();
+
+      if (frequencyIdx < FrequencyCount) {
+        setPieceId(frequencyIdx);
+      }
+      else {
+        stopPieceId();
+        pieceIdRunning = false;
+      }
+    }
+  }
+}
+
+void startPieceId(uint8_t spot) {
+  frequencyIdx = 0;
+  pieceIdRunning = true;
+
+  selectMuxPathForSpot(spot);
+  enableMuxes();
+
+  setPieceId(frequencyIdx);
 }
