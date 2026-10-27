@@ -83,7 +83,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: 'true'
+            value: 'false'
           type: Dynamic
         type: Values
       type: Boolean
@@ -95,7 +95,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '48000000'
+            value: '0'
           type: Dynamic
         type: Values
       type: Integer
@@ -141,7 +141,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '0x43960d'
+            value: '0x43860d'
           type: Dynamic
         type: Values
       type: String
@@ -1453,7 +1453,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: 'true'
+            value: 'false'
           type: Dynamic
         type: Values
       type: Boolean
@@ -1465,7 +1465,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '48000000'
+            value: '0'
           type: Dynamic
         type: Values
       type: Integer
@@ -1473,13 +1473,6 @@ data:
       attributes:
         id: TC0_INTERRUPT_ENABLE
         label: Vector Peripheral Enable
-      children:
-      - children:
-        - attributes:
-            id: tc0
-            value: 'false'
-          type: Dynamic
-        type: Values
       type: Boolean
     TC0_INTERRUPT_ENABLE_UPDATE:
       attributes:
@@ -1497,25 +1490,11 @@ data:
       attributes:
         id: TC0_INTERRUPT_HANDLER
         label: Vector Peripheral Handler
-      children:
-      - children:
-        - attributes:
-            id: tc0
-            value: TC0_Handler
-          type: Dynamic
-        type: Values
       type: String
     TC0_INTERRUPT_HANDLER_LOCK:
       attributes:
         id: TC0_INTERRUPT_HANDLER_LOCK
         label: Vector Peripheral Handler Lock
-      children:
-      - children:
-        - attributes:
-            id: tc0
-            value: 'false'
-          type: Dynamic
-        type: Values
       type: Boolean
     SERCOM2_CORE_CLOCK_FREQUENCY:
       attributes:

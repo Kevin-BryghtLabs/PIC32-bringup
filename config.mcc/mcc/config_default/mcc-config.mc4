@@ -17,7 +17,6 @@ modules:
 - rtc
 - sercom1
 - sercom2
-- tc0
 - tc3
 - tc4
 - tcc0
