@@ -25,7 +25,7 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/PIC32CM6408JH00048.ld
   hash: 65f6cc7bbdd30f18bf6e79c9369c7f755a4da37120ba08660dc9bcbe440ebf47
 - file: ../src/config/default/definitions.h
-  hash: a9a03386f9b6ba7537122e5cae39807826a8071b6cb61957b3b27ae21620de5f
+  hash: 912dc4070a09d8ae6b926fe3da08676a672a8cb515d1b9f9259803f0116cedb8
 - file: ../src/config/default/device.h
   hash: ebec3c93ae73497dd0456e83a24acc27bca9da841c0ad5d8c8bd053b270f3b87
 - file: ../src/config/default/device_cache.h
