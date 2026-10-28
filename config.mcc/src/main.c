@@ -267,7 +267,7 @@ int main ( void )
           //spiTest();
         //}
 
-        delay(1);
+        //delay(1);
     }
 
     /* Execution should not come here during normal operation */

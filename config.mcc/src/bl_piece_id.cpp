@@ -289,6 +289,40 @@ void setPulseCount(uint8_t pulses, const PllTccConfig & config) {
     }
 }
 
+void setUpDrainAndRingTimeTriggers(unsigned freqIdx) {
+    // MCC doesn't expose oneshot; set manually
+    TC3_REGS->COUNT16.TC_CTRLBSET = TC_CTRLBSET_ONESHOT(1);
+
+    TC3_REGS->COUNT16.TC_CC[0] = frequencies[freqIdx].drainDelayCounts;
+    TC3_REGS->COUNT16.TC_CC[1] = frequencies[freqIdx].ringTimeCounts;
+
+    while((TC3_REGS->COUNT16.TC_SYNCBUSY) != 0U)
+    {
+        /* Wait for Write Synchronization */
+    }
+
+    // Clear PORTB 23 on event
+    PORT_REGS->GROUP[1].PORT_EVCTRL = PORT_EVCTRL_PORTEI0_Msk | PORT_EVCTRL_EVACT0(2) | PORT_EVCTRL_PID0(23);
+}
+
+void setUpSoftwareEventTriggerForTccs() {
+    // Manually set "None" generator event so we can start both TCC0 and TCC1 at the same
+    // time with a software event.  MCC doesn't support "None".
+
+    // EVSYS channel 1: software-triggered START for TCC0 + TCC1 (no generator)
+    EVSYS_REGS->EVSYS_CHANNEL[1] = EVSYS_CHANNEL_EVGEN(0UL)      // NONE
+                                | EVSYS_CHANNEL_PATH(2UL)       // asynchronous (required for TCC users)
+                                | EVSYS_CHANNEL_EDGSEL(0UL);    // must be 0 on the async path
+
+    // USER.CHANNEL holds channel number + 1
+    EVSYS_REGS->EVSYS_USER[9]  = EVSYS_USER_CHANNEL(2UL);        // TCC0 EV0 <- channel 1
+    EVSYS_REGS->EVSYS_USER[15] = EVSYS_USER_CHANNEL(2UL);        // TCC1 EV0 <- channel 1
+}
+
+void sendSoftwareEventTriggerForTccs() {
+    EVSYS_REGS->EVSYS_SWEVT = EVSYS_SWEVT_CHANNEL1_Msk;
+}
+
 void disablePll() {
     OSCCTRL_REGS->OSCCTRL_DPLLCTRLA = (uint8_t)(0);
 
@@ -319,6 +353,7 @@ void setPllMult(uint16_t whole, uint8_t frac) {
 static void calculateFrequencyConfigs() {
   for (unsigned i = 0; i < FrequencyCount; ++i) {
     frequencies[i].config = getPllTccConfigForFreq(frequencies[i].frequency);
+    hubLog('I', "Freq %u: GCLKDiv: %u", i, frequencies[i].config.gclkDiv);
   }
 }
 
@@ -345,6 +380,12 @@ void stopPieceId() {
   ADC0_CallbackRegister(nullptr, 0);
 }
 
+// I tried removing the peripheral resets and making a "2nd and later" setup,
+// that just reconfigured without resetting, but it made no difference.  The
+// setup time is dominated by the PLL sync, and resets are very fast in
+// comparison.
+//   - All with resets: 669us
+//   - No resets on 2-N: 666us
 void setPieceId(unsigned freqIdx) {
     if (freqIdx >= FrequencyCount) {
         return;
@@ -353,8 +394,6 @@ void setPieceId(unsigned freqIdx) {
     adc_done = false;
     auto & config = frequencies[freqIdx].config;
 
-    // TODO: Could maybe parallelize some of these waits?  Write different systems
-    // then wait for sync?
     TCC0_PWMStop();
     TCC1_PWMStop();
     disablePll();
@@ -368,6 +407,21 @@ void setPieceId(unsigned freqIdx) {
     setPllMult(whole, frac);
     enablePll();
 
+    // Do as much of the unrelated setup as we can between enabling PLL and
+    // setting up TCC0/TCC1, as the PLL sync takes a long time.  The TCC write
+    // syncs will end up waiting for it, so doing other work here makes the
+    // full setup time shorter.
+    TC3_CompareStop();
+    TC3_CompareInitialize();
+
+    setUpDrainAndRingTimeTriggers(freqIdx);
+
+    // Enable does not start counting when an input START event is configured;
+    // this timer will not run until triggered by TCC1
+    TC3_CompareStart();
+
+    setUpSoftwareEventTriggerForTccs();
+
     TCC0_PWMInitialize();
 
     TCC0_REGS->TCC_CC[1] = config.tccCnt / 2;
@@ -379,48 +433,18 @@ void setPieceId(unsigned freqIdx) {
     }
 
     TCC1_PWMInitialize();
-    // PWM interface doesn't expose oneshot; set manually
+    // MCC doesn't expose oneshot; set manually
     TCC1_REGS->TCC_CTRLBSET = TCC_CTRLBSET_ONESHOT(1);
 
     setPulseCount(10, config);
-    // Manually set "None" generator event so we can start both TCC0 and TCC1 at the same
-    // time with a software event.  MCC doesn't support "None".
-
-    // EVSYS channel 1: software-triggered START for TCC0 + TCC1 (no generator)
-    EVSYS_REGS->EVSYS_CHANNEL[1] = EVSYS_CHANNEL_EVGEN(0UL)      // NONE
-                                | EVSYS_CHANNEL_PATH(2UL)       // asynchronous (required for TCC users)
-                                | EVSYS_CHANNEL_EDGSEL(0UL);    // must be 0 on the async path
-
-    // USER.CHANNEL holds channel number + 1
-    EVSYS_REGS->EVSYS_USER[9]  = EVSYS_USER_CHANNEL(2UL);        // TCC0 EV0 <- channel 1
-    EVSYS_REGS->EVSYS_USER[15] = EVSYS_USER_CHANNEL(2UL);        // TCC1 EV0 <- channel 1
-
-    uint16_t tc3StartCount = 0x0;
-
-    TC3_REGS->COUNT16.TC_CC[0] = frequencies[freqIdx].drainDelayCounts;
-    TC3_REGS->COUNT16.TC_CC[1] = frequencies[freqIdx].ringTimeCounts;
-
-    while((TC3_REGS->COUNT16.TC_SYNCBUSY) != 0U)
-    {
-        /* Wait for Write Synchronization */
-    }
-
-    // Clear PORTB 23 on event
-    PORT_REGS->GROUP[1].PORT_EVCTRL = PORT_EVCTRL_PORTEI0_Msk | PORT_EVCTRL_EVACT0(2) | PORT_EVCTRL_PID0(23);
-
-    // Enable does not start counting when an input START event is configured;
-    // this timer will not run until triggered by TC0
-    TC3_CompareStart();
 
     PID_DRAIN_EN_Set();
 
     TCC0_PWMStart();
     TCC1_PWMStart();
-    // Fire software event
-    EVSYS_REGS->EVSYS_SWEVT = EVSYS_SWEVT_CHANNEL1_Msk;
 
-    // "Retrigger" TCC0 to start after stop
-    //TCC0_REGS->TCC_CTRLBSET = TCC_CTRLBSET_CMD(1);
+    // Fire software event to start both TCCs
+    sendSoftwareEventTriggerForTccs();
 }
 
 #ifdef RANDOM_STEP
@@ -486,19 +510,6 @@ void pieceIdTask() {
       adc_done = false;
       pieceIdResult[frequencyIdx] = ADC0_ConversionResultGet();
       frequencyIdx++;
-
-      //PID_DRAIN_EN_Set();
-      asm volatile ("nop");
-      asm volatile ("nop");
-      asm volatile ("nop");
-      asm volatile ("nop");
-      asm volatile ("nop");
-      asm volatile ("nop");
-      asm volatile ("nop");
-      asm volatile ("nop");
-      asm volatile ("nop");
-      asm volatile ("nop");
-      //PID_DRAIN_EN_Clear();
 
       if (frequencyIdx < FrequencyCount) {
         setPieceId(frequencyIdx);

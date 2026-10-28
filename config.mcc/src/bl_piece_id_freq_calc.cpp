@@ -114,7 +114,12 @@ uint8_t divValues[] = {
 };
 #define FOR_DIV_VALUES(var)   for (unsigned var : divValues)
 #else
-#define FOR_DIV_VALUES(var)   for (unsigned var = 24; var <= 255; ++var)
+// Don't search above ~48.  Larger values than this divide the GCLK8 input to
+// the PLL too slow and take a long time for the PLL to sync, slowing down
+// the whole scan.
+//  - A divisor of 24 makes GCLK8 2MHz which syncs after about 19us.
+//  - A divisor of 244 makes GCLK8 ~200Khz which syncs after about 130us.
+#define FOR_DIV_VALUES(var)   for (unsigned var = 24; var <= 48; ++var)
 #endif
 
 // The GClk used as the reference clock for the PLL is the 48Mhz
