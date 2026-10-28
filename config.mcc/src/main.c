@@ -147,6 +147,22 @@ bool allowTouch(void) {
   return !doSync || !ledTransmitInProgress();
 }
 
+//Packet header PIECE_ID_DATA carriers multiples of this structure.
+typedef struct
+{
+    /*
+    TODO: remove header2. header2 is a copy of the regular packet header,
+    because November touch and associated USB<>BLE adapter
+    use 2-byte headers, while everything else uses 1B size, 1B header.
+    */
+    uint8_t header2;//PIECE_ID_DATA
+    uint8_t square;//also not PIECE_ID_DATA.
+    uint16_t new_tones;//bitfield showing which were updated this scan
+
+    //Raw ADC values per rank/file/tone
+    uint8_t data[/*PIECE_ID_TONES*/12];
+} piece_id_packet_t;
+
 int main ( void )
 {
     /* Initialize all modules */
@@ -170,8 +186,11 @@ int main ( void )
     uint32_t switchInterval = 10000;
     uint32_t nextSwitchMs = getCurrentTimeMs() + switchInterval;
 
-    uint32_t pidInterval = 1000;
+    uint32_t pidInterval = 100;
     uint32_t nextPidMs = getCurrentTimeMs() + pidInterval;
+
+    uint32_t pidLogInterval = 1000;
+    uint32_t nextPidLogMs = getCurrentTimeMs() + pidLogInterval;
 
     uint32_t alsInterval = 250;
     uint32_t nextAlsMs = getCurrentTimeMs() + alsInterval;
@@ -231,11 +250,23 @@ int main ( void )
               unsigned pos = 0;
               buffer[0] = 0;
 
-              for (unsigned i = 0; i < resultCount; ++i) {
-                pos += snprintf(&buffer[pos], sizeof(buffer) - pos, " %4u", pieceIdResults[i]);
+              if (now >= nextPidLogMs) {
+                nextPidLogMs += pidLogInterval;
+                for (unsigned i = 0; i < resultCount; ++i) {
+                  pos += snprintf(&buffer[pos], sizeof(buffer) - pos, " %4u", pieceIdResults[i]);
+                }
+                hubLog('I', "Read:%s", buffer);
               }
 
-              hubLog('I', "Read:%s", buffer);
+              piece_id_packet_t packet;
+              packet.header2 = PIECE_ID_DATA;
+              packet.square = 0;
+              packet.new_tones = 0x0fff;
+              for (unsigned i = 0; i < 12; i++) {
+                packet.data[i] = pieceIdResults[i];
+              }
+
+              sendGeneric(PIECE_ID_DATA, sizeof(packet), &packet);
             }
           }
         }

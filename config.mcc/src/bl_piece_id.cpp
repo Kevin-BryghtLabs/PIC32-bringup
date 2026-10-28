@@ -9,6 +9,7 @@
 #include "peripheral/tcc/plib_tcc1.h"
 #include "pic32cm6408jh00048.h"
 #include <cstdlib>
+#include <cinttypes>
 
 // The Clock chain is:
 //
@@ -350,10 +351,24 @@ void setPllMult(uint16_t whole, uint8_t frac) {
     }
 }
 
+static void calculateFrequencyConfigForIndex(unsigned idx) {
+  FrequencyData & data = frequencies[idx];
+
+  data.config = getPllTccConfigForFreq(data.frequency);
+  hubLog('I', "%u: F%" PRIu32 " G%" PRIu8 " W%" PRIu16 " f%" PRIu8 " Tc%" PRIu32 " Pl%" PRIu32 " E%" PRIi32,
+      idx,
+      data.frequency,
+      data.config.gclkDiv,
+      data.config.ldrWhole,
+      data.config.ldrFrac,
+      data.config.tccCnt,
+      data.config.pllOut,
+      data.config.error);
+}
+
 static void calculateFrequencyConfigs() {
   for (unsigned i = 0; i < FrequencyCount; ++i) {
-    frequencies[i].config = getPllTccConfigForFreq(frequencies[i].frequency);
-    hubLog('I', "Freq %u: GCLKDiv: %u", i, frequencies[i].config.gclkDiv);
+    calculateFrequencyConfigForIndex(i);
   }
 }
 
@@ -501,6 +516,20 @@ bool getPieceIdResult(const uint16_t ** ptr, size_t * count) {
   *count = FrequencyCount;
 
   // Todo:  valid?
+  return true;
+}
+
+bool pieceIdSetFrequencyParams(unsigned idx, uint32_t frequency, uint16_t drainCounts48MHz, uint16_t ringCounts48MHz) {
+  if (idx >= FrequencyCount) {
+    return false;
+  }
+
+  frequencies[idx].frequency = frequency;
+  frequencies[idx].drainDelayCounts = drainCounts48MHz;
+  frequencies[idx].ringTimeCounts = ringCounts48MHz;
+
+  calculateFrequencyConfigForIndex(idx);
+
   return true;
 }
 
