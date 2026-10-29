@@ -56,7 +56,9 @@
 //  TCC ... no notes?
 //
 
+#ifndef ARRAY_SIZE
 #define ARRAY_SIZE(a) (sizeof(a) / sizeof((a)[0]))
+#endif
 
 
 enum GenClkSrc {
@@ -143,7 +145,7 @@ struct FrequencyData {
   PllTccConfig config;
 };
 
-FrequencyData frequencies[] = {
+FrequencyData frequencies[30] = {
   { 1'000'000, 64, 255, {} },
   { 1'500'000, 43, 170, {} },
   { 2'000'000, 32, 128, {} },
@@ -295,7 +297,7 @@ void setUpDrainAndRingTimeTriggers(unsigned freqIdx) {
     TC3_REGS->COUNT16.TC_CTRLBSET = TC_CTRLBSET_ONESHOT(1);
 
     TC3_REGS->COUNT16.TC_CC[0] = frequencies[freqIdx].drainDelayCounts;
-    TC3_REGS->COUNT16.TC_CC[1] = frequencies[freqIdx].ringTimeCounts;
+    TC3_REGS->COUNT16.TC_CC[1] = frequencies[freqIdx].drainDelayCounts + frequencies[freqIdx].ringTimeCounts;
 
     while((TC3_REGS->COUNT16.TC_SYNCBUSY) != 0U)
     {
@@ -351,19 +353,24 @@ void setPllMult(uint16_t whole, uint8_t frac) {
     }
 }
 
+bool isQuiet = false;
+
 static void calculateFrequencyConfigForIndex(unsigned idx) {
   FrequencyData & data = frequencies[idx];
 
   data.config = getPllTccConfigForFreq(data.frequency);
-  hubLog('I', "%u: F%" PRIu32 " G%" PRIu8 " W%" PRIu16 " f%" PRIu8 " Tc%" PRIu32 " Pl%" PRIu32 " E%" PRIi32,
-      idx,
-      data.frequency,
-      data.config.gclkDiv,
-      data.config.ldrWhole,
-      data.config.ldrFrac,
-      data.config.tccCnt,
-      data.config.pllOut,
-      data.config.error);
+
+  if (!isQuiet) {
+    hubLog('I', "%u: F%" PRIu32 " G%" PRIu8 " W%" PRIu16 " f%" PRIu8 " Tc%" PRIu32 " Pl%" PRIu32 " E%" PRIi32,
+        idx,
+        data.frequency,
+        data.config.gclkDiv,
+        data.config.ldrWhole,
+        data.config.ldrFrac,
+        data.config.tccCnt,
+        data.config.pllOut,
+        data.config.error);
+  }
 }
 
 static void calculateFrequencyConfigs() {
@@ -519,8 +526,12 @@ bool getPieceIdResult(const uint16_t ** ptr, size_t * count) {
   return true;
 }
 
+void pieceIdSetQuiet(bool quiet) {
+  isQuiet = quiet;
+}
+
 bool pieceIdSetFrequencyParams(unsigned idx, uint32_t frequency, uint16_t drainCounts48MHz, uint16_t ringCounts48MHz) {
-  if (idx >= FrequencyCount) {
+  if (idx >= ARRAY_SIZE(frequencies)) {
     return false;
   }
 
@@ -531,6 +542,38 @@ bool pieceIdSetFrequencyParams(unsigned idx, uint32_t frequency, uint16_t drainC
   calculateFrequencyConfigForIndex(idx);
 
   return true;
+}
+
+void pieceIdSetFrequencyCount(unsigned count) {
+  FrequencyCount = count;
+}
+
+unsigned pieceIdGetFrequencyCount() {
+  return FrequencyCount;
+}
+
+uint32_t pieceIdGetFrequency(unsigned idx) {
+  if (idx < FrequencyCount) {
+    return frequencies[idx].frequency;
+  }
+
+  return 0;
+}
+
+uint32_t pieceIdGetDelay(unsigned idx) {
+  if (idx < FrequencyCount) {
+    return frequencies[idx].drainDelayCounts;
+  }
+
+  return 0;
+}
+
+uint32_t pieceIdGetRing(unsigned idx) {
+  if (idx < FrequencyCount) {
+    return frequencies[idx].ringTimeCounts;
+  }
+
+  return 0;
 }
 
 void pieceIdTask() {
@@ -555,6 +598,7 @@ void startPieceId(uint8_t spot) {
   frequencyIdx = 0;
   pieceIdRunning = true;
 
+  setupPieceId();
   selectMuxPathForSpot(spot);
   enableMuxes();
 

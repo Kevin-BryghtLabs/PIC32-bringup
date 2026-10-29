@@ -151,6 +151,7 @@ void DecodePacketData(const uint8_t bleData[], int dataLength) {
     for(unsigned i = 0; i < 12; ++i){
       pieceIdSetFrequencyParams(i, piece_id_tone_table[i][0], piece_id_tone_table[i][1], piece_id_tone_table[i][2]);
     }
+    pieceIdSetFrequencyCount(12);
   }
   else if(bleData[0] == UI_ADVANCE){
     sendGeneric(bleData[0], dataLength - 1, bleData + 1);

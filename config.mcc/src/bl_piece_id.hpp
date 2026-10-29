@@ -16,7 +16,13 @@ void switchPieceId(uint8_t spot);
 void pieceIdTask();
 bool pieceIdComplete();
 bool getPieceIdResult(const uint16_t ** ptr, size_t * count);
+void pieceIdSetQuiet(bool quiet);
 bool pieceIdSetFrequencyParams(unsigned idx, uint32_t frequency, uint16_t drainCounts48MHz, uint16_t ringCounts48MHz);
+void pieceIdSetFrequencyCount(unsigned count);
+unsigned pieceIdGetFrequencyCount();
+uint32_t pieceIdGetFrequency(unsigned idx);
+uint32_t pieceIdGetDelay(unsigned idx);
+uint32_t pieceIdGetRing(unsigned idx);
 
 #ifdef __cplusplus
 }
