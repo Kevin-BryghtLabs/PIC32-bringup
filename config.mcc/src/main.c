@@ -168,6 +168,9 @@ typedef struct
     uint8_t data[/*PIECE_ID_TONES*/12];
 } piece_id_packet_t;
 
+// *******************************************************
+// ********************** SCAN ***************************
+// *******************************************************
 void buildPidScanTable(uint32_t startFreq, uint32_t endFreq, uint32_t stepFreq, uint16_t delay, uint16_t ring) {
   unsigned count = 0;
 
@@ -352,8 +355,6 @@ void pieceScanComplete() {
   }
 }
 
-#define DO_SCAN 1
-
 void pieceScanTask() {
   if (!pieceScanActive) {
     return;
@@ -376,6 +377,85 @@ void pieceScanTask() {
     }
   }
 }
+
+// *******************************************************
+// ********************** COMPARE  ***********************
+// *******************************************************
+
+bool pieceCompareActive;
+enum Phase pieceComparePhase;
+uint8_t compareSpots[] = { 28, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, };
+uint16_t pieceCompareResults[ARRAY_SIZE(compareSpots)][12];
+
+unsigned compareSpotIdx = 0;
+
+void pieceCompareStart() {
+  pieceCompareActive = true;
+  compareSpotIdx = 0;
+  startPieceId(compareSpots[0]);
+}
+
+void pieceCompareComplete() {
+  const unsigned count = pieceIdGetFrequencyCount();
+#if 0
+  unsigned bestIdx = 0;
+  int16_t bestDelta = 0;
+
+  for (unsigned i = 0; i < count && i < 40; i++) {
+    deltas[i] = pieceCompareResults[1][i] - pieceCompareResults[0][i];
+    if (deltas[i] > bestDelta) {
+      bestIdx = i;
+      bestDelta = deltas[i];
+    }
+  }
+#endif
+
+  for (unsigned s = 0; s < ARRAY_SIZE(compareSpots); s++) {
+    unsigned pos = 0;
+    for (unsigned i = 0; i < count; ++i) {
+      pos += snprintf(&buffer[pos], sizeof(buffer) - pos, " %3u", pieceCompareResults[s][i]);
+    }
+    hubLog('I', "Spot %2u:%s", compareSpots[s], buffer);
+  }
+
+#if 0
+  unsigned pos = 0;
+  for (unsigned i = 0; i < count; ++i) {
+    pos += snprintf(&buffer[pos], sizeof(buffer) - pos, " %+3" PRIi16, deltas[i]);
+  }
+  hubLog('I', "Deltas: %s", buffer);
+#endif
+}
+
+void pieceCompareTask() {
+  if (!pieceCompareActive) {
+    return;
+  }
+
+  pieceIdTask();
+  if (pieceIdComplete()) {
+    const uint16_t *res;
+    size_t resCount;
+    getPieceIdResult(&res, &resCount);
+    memcpy(pieceCompareResults[compareSpotIdx], res, resCount * sizeof(res[0]));
+    compareSpotIdx++;
+
+    if (compareSpotIdx < ARRAY_SIZE(compareSpots)) {
+      startPieceId(compareSpots[compareSpotIdx]);
+    }
+    else {
+      pieceCompareActive = false;
+      pieceCompareComplete();
+    }
+  }
+}
+
+#define DO_SCAN 0
+#define DO_COMPARE 1
+
+#if DO_SCAN && DO_COMPARE
+#error Both DO_SCAN and DO_COMPARE enabled
+#endif
 
 int main ( void )
 {
@@ -412,6 +492,9 @@ int main ( void )
     unsigned spot = 0;
     bool triggered = 0;
 
+    selectMuxPathForSpot(0);
+    enableMuxes();
+
     while ( true )
     {
         /* Maintain state machines of all polled MPLAB Harmony modules. */
@@ -439,6 +522,7 @@ int main ( void )
           //hubLog('I', "Sync: %u", doSync);
         }
 
+#if 0
         if (now >= nextPidMs) {
           nextPidMs += pidInterval;
 
@@ -449,6 +533,8 @@ int main ( void )
           //switchPieceId(spot);
 #if (DO_SCAN)
           pieceScanStart();
+#elif (DO_COMPARE)
+          pieceCompareStart();
 #else
           startPieceId(spot);
           triggered = true;
@@ -457,6 +543,8 @@ int main ( void )
 
 #if (DO_SCAN)
         pieceScanTask();
+#elif (DO_COMPARE)
+        pieceCompareTask();
 #else
         pieceIdTask();
 
@@ -521,6 +609,7 @@ int main ( void )
         //}
 
         //delay(1);
+#endif
     }
 
     /* Execution should not come here during normal operation */

@@ -185,10 +185,13 @@ static void configPinsForPieceId(void)
     }
 }
 
-static void selectMuxPathForSpot(uint8_t spot) {
+void selectMuxPathForSpot(uint8_t spot) {
   if (spot > ARRAY_SIZE(spotToNetMap)) {
     return;
   }
+
+  // REMOVE -- Maybe
+  configPinsForPieceId();
 
   const uint8_t net = spotToNetMap[spot];
   const uint8_t mma = net / 8;
@@ -204,7 +207,7 @@ static void selectMuxPathForSpot(uint8_t spot) {
   PORT_REGS->GROUP[0].PORT_OUTCLR = clrBits;
 }
 
-static void enableMuxes() {
+void enableMuxes() {
   MUX_EN_Set();
 }
 

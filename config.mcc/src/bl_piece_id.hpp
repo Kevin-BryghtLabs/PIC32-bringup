@@ -24,6 +24,10 @@ uint32_t pieceIdGetFrequency(unsigned idx);
 uint32_t pieceIdGetDelay(unsigned idx);
 uint32_t pieceIdGetRing(unsigned idx);
 
+//REMOVE
+void selectMuxPathForSpot(uint8_t spot);
+void enableMuxes();
+
 #ifdef __cplusplus
 }
 #endif
