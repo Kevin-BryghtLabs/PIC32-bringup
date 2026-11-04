@@ -85,7 +85,7 @@ data:
       - children:
         - attributes:
             id: evsys
-            value: 'false'
+            value: 'true'
           type: Dynamic
         type: Values
       type: Boolean
@@ -218,7 +218,7 @@ data:
       - children:
         - attributes:
             id: evsys
-            value: 'false'
+            value: 'true'
           type: Dynamic
         type: Values
       type: Boolean
@@ -554,6 +554,75 @@ data:
       - children:
         - attributes:
             value: '2'
+          type: User
+        type: Values
+      type: KeyValueSet
+    GENERATOR_DMAC_CH_1_ACTIVE:
+      attributes:
+        id: GENERATOR_DMAC_CH_1_ACTIVE
+        label: GENERATOR_DMAC_CH_1_ACTIVE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    USER_DMAC_CH_1_READY:
+      attributes:
+        id: USER_DMAC_CH_1_READY
+        label: USER_DMAC_CH_1_READY
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    USER_TC2_EVU_READY:
+      attributes:
+        id: USER_TC2_EVU_READY
+        label: USER_TC2_EVU_READY
+      children:
+      - children:
+        - attributes:
+            id: tc2
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    EVSYS_CHANNEL_5:
+      attributes:
+        id: EVSYS_CHANNEL_5
+        label: Enable Channel 5
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    EVSYS_CHANNEL_5_GENERATOR:
+      attributes:
+        id: EVSYS_CHANNEL_5_GENERATOR
+        label: Event Source
+      children:
+      - children:
+        - attributes:
+            value: '11'
+          type: User
+        type: Values
+      type: KeyValueSet
+    EVSYS_USER_25:
+      attributes:
+        id: EVSYS_USER_25
+        label: TC2_EVU Channel Selection
+      children:
+      - children:
+        - attributes:
+            value: '6'
           type: User
         type: Values
       type: KeyValueSet

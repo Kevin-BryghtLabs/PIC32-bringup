@@ -509,6 +509,13 @@ data:
       attributes:
         id: TC_SLAVE_MODE
         label: Slave Mode
+      children:
+      - children:
+        - attributes:
+            id: tc3
+            value: 'false'
+          type: Dynamic
+        type: Values
       type: Boolean
     TC_TIMER_CTRLBSET_ONESHOT:
       attributes:

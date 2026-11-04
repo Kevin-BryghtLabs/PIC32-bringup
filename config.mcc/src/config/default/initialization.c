@@ -156,6 +156,8 @@ void SYS_Initialize ( void* data )
 
     TC3_CompareInitialize();
 
+    TC2_CompareInitialize();
+
     TC4_TimerInitialize();
 
     TCC1_PWMInitialize();

@@ -141,7 +141,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '0x43860d'
+            value: '0x43c60d'
           type: Dynamic
         type: Values
       type: String
@@ -4942,7 +4942,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '1'
+            value: '2'
           type: Dynamic
         type: Values
       type: Integer
@@ -5174,6 +5174,277 @@ data:
           type: Dynamic
         type: Values
       type: String
+    DMAC_CHCTRLB_LVL_CH_0:
+      attributes:
+        id: DMAC_CHCTRLB_LVL_CH_0
+        label: Channel Priority Level
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
+      type: KeyValueSet
+    DMAC_ENABLE_CH_1:
+      attributes:
+        id: DMAC_ENABLE_CH_1
+        label: Use DMAC Channel 1
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    DMAC_BTCTRL_SRCINC_CH_1:
+      attributes:
+        id: DMAC_BTCTRL_SRCINC_CH_1
+        label: Source Address Mode
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    DMAC_BTCTRL_DSTINC_CH_1:
+      attributes:
+        id: DMAC_BTCTRL_DSTINC_CH_1
+        label: Destination Address Mode
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    DMAC_CHCTRLB_TRIGACT_CH_1:
+      attributes:
+        id: DMAC_CHCTRLB_TRIGACT_CH_1
+        label: Trigger Action
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    DMAC_CHCTRLB_TRIGSRC_CH_1_PERID_VAL:
+      attributes:
+        id: DMAC_CHCTRLB_TRIGSRC_CH_1_PERID_VAL
+        label: PERID Value
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '6'
+          type: Dynamic
+        type: Values
+      type: Integer
+    DMAC_BTCTRL_BEATSIZE_CH_1:
+      attributes:
+        id: DMAC_BTCTRL_BEATSIZE_CH_1
+        label: Beat Size
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    DMAC_CHCTRLB_TRIGSRC_CH_1:
+      attributes:
+        id: DMAC_CHCTRLB_TRIGSRC_CH_1
+        label: Trigger Source
+      children:
+      - children:
+        - attributes:
+            value: SERCOM2_Receive
+          type: User
+        type: Values
+      type: Combo
+    DMAC_ENABLE_EVSYS_OUT_1:
+      attributes:
+        id: DMAC_ENABLE_EVSYS_OUT_1
+        label: Enable Event Output for Channel 1
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    DMAC_BTCTRL_EVSYS_EVOSEL_1:
+      attributes:
+        id: DMAC_BTCTRL_EVSYS_EVOSEL_1
+        label: Event Output Selection
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: KeyValueSet
+    TC2_CLOCK_FREQUENCY:
+      attributes:
+        id: TC2_CLOCK_FREQUENCY
+        label: TC2 Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '48000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    TC2_CLOCK_ENABLE:
+      attributes:
+        id: TC2_CLOCK_ENABLE
+        label: TC2 Clock Enable
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC2_INTERRUPT_ENABLE_UPDATE:
+      attributes:
+        id: TC2_INTERRUPT_ENABLE_UPDATE
+        label: NVIC Peripheral Enable/Disable Update
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    NVIC_22_0_ENABLE:
+      attributes:
+        id: NVIC_22_0_ENABLE
+        label: Enable Timer/Counter 2 Interrupt
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC2_INTERRUPT_ENABLE:
+      attributes:
+        id: TC2_INTERRUPT_ENABLE
+        label: Vector Peripheral Enable
+      children:
+      - children:
+        - attributes:
+            id: tc2
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    NVIC_22_0_HANDLER:
+      attributes:
+        id: NVIC_22_0_HANDLER
+        label: Handler
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: TC2_Handler
+          type: Dynamic
+        type: Values
+      type: String
+    TC2_INTERRUPT_HANDLER:
+      attributes:
+        id: TC2_INTERRUPT_HANDLER
+        label: Vector Peripheral Handler
+      children:
+      - children:
+        - attributes:
+            id: tc2
+            value: TC2_Handler
+          type: Dynamic
+        type: Values
+      type: String
+    NVIC_22_0_HANDLER_LOCK:
+      attributes:
+        id: NVIC_22_0_HANDLER_LOCK
+        label: Handler Lock
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TC2_INTERRUPT_HANDLER_LOCK:
+      attributes:
+        id: TC2_INTERRUPT_HANDLER_LOCK
+        label: Vector Peripheral Handler Lock
+      children:
+      - children:
+        - attributes:
+            id: tc2
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    EVSYS_5_CLOCK_FREQUENCY:
+      attributes:
+        id: EVSYS_5_CLOCK_FREQUENCY
+        label: EVSYS_5 Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '48000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_ID_11_FREQ:
+      attributes:
+        id: GCLK_ID_11_FREQ
+        label: 'Peripheral Channel 11 Frequency '
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '48000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    GCLK_ID_11_CHEN:
+      attributes:
+        id: GCLK_ID_11_CHEN
+        label: Peripheral Channel 11 Clock Enable
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    EVSYS_5_CLOCK_ENABLE:
+      attributes:
+        id: EVSYS_5_CLOCK_ENABLE
+        label: EVSYS_5 Clock Enable
+      children:
+      - children:
+        - attributes:
+            id: evsys
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
   userData:
     children:
     - attributes:

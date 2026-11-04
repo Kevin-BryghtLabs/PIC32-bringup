@@ -33,5 +33,15 @@
         "pic32-test-no-bootloader": []
     },
     "C_Cpp.intelliSenseEngine": "disabled",
-    "cmake.sourceDirectory": "/home/kevin/mplab-vscode/pic32-test/cmake/pic32-test/no-bootloader"
+    "cmake.sourceDirectory": "/home/kevin/mplab-vscode/pic32-test/cmake/pic32-test/no-bootloader",
+    "mplab.ioview.columnHeaders": {
+        "pic32-test-no-bootloader": [
+            "Name",
+            "Address",
+            "Description",
+            "Decimal",
+            "Value",
+            "Bits"
+        ]
+    }
 }

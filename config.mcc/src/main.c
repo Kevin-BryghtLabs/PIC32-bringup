@@ -31,6 +31,7 @@
 #include "bl_ble_parser.h"
 #include "bl_piece_id.hpp"
 #include "bl_touch.h"
+#include "bl_uart_dma.hpp"
 #include "definitions.h"                // SYS function prototypes
 #include "hub_log.h"
 #include "timer.h"
@@ -102,6 +103,16 @@ void commStartup() {
 }
 
 void commProcess() {
+    if (bl_uart_has_overflowed()) {
+      hubLog('E', "UART RX DMA Overflow");
+      bl_uart_clear_overflow();
+    }
+
+    if (bl_uart_has_event_sync_error()) {
+      hubLog('E', "UART RX DMA Event sync error");
+      bl_uart_clear_event_sync_error();
+    }
+
     while (processRxFifo()) {
         DecodePacketData(uartRxBuffer, bleDataLength);
     }
@@ -486,6 +497,8 @@ int main ( void )
     signalStateInit();
 
     timerInit();
+
+    bl_uart_dma_init();
 
     ledInit();
 

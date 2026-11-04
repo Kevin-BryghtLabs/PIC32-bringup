@@ -3,6 +3,7 @@
 #include "bl_ble_packet_headers.h"
 #include "bl_fletcher16.hpp"
 #include "bl_uart.h"
+#include "bl_uart_dma.hpp"
 #include "definitions.h"
 
 static volatile bool uartErrFlag;
@@ -33,11 +34,43 @@ void APP_UartRxCallbackHandler(SERCOM_USART_EVENT event, uintptr_t context) {
     }
 }
 
+static bool addByte(uint8_t byte) {
+    rx_checksum.update(&byte, sizeof(byte));
+
+    if (dataCounter == 0) {
+        if(byte != NRF52_HEADER)
+        {
+            rx_checksum.reset();
+            asm volatile("nop");
+            return false;
+        }
+    }
+    else if(dataCounter == 1){
+      dataUartLength = byte;
+    }
+    else if (dataCounter >= 2) {
+      uartRxBuffer[dataCounter - 2] = byte;
+    }
+    dataCounter++;
+    if (dataCounter >= dataUartLength + 4) {
+      dataCounter = 0;
+      bleDataLength = dataUartLength;
+      dataUartLength = 0;
+
+      //Checksum(data+checkBytes)==0 if all is good
+      return !rx_checksum.finish();
+    }
+
+    return false;
+}
+
 //Process data from the fifo until...
 //packet found: return true
 //end of FIFO: return false
 bool processRxFifo(void)
 {
+    uint8_t buffer[16];
+
     if(uartErrFlag)
     {
         uartErrFlag = false;
@@ -45,45 +78,34 @@ bool processRxFifo(void)
         dataCounter = 0;
 
         //Discard current FIFO data
-        while(SERCOM2_USART_ReadCountGet())
-        {
-            uint8_t trashBuffer;
-            SERCOM2_USART_Read(&trashBuffer, sizeof(trashBuffer));
+        while(bl_uart_read(buffer, sizeof(buffer))) {
         }
 
         rx_checksum.reset();
         return false;
     }
 
-    while(SERCOM2_USART_ReadCountGet())
-    {
-        uint8_t data;
-        SERCOM2_USART_Read(&data, sizeof(data));
-        rx_checksum.update(&data, sizeof(data));
+    while (true) {
+      unsigned readSize = 1;
+      if (dataUartLength > 0) {
+        readSize = dataUartLength + 4 - dataCounter;
+        if (readSize > sizeof(buffer)) {
+          readSize = sizeof(buffer);
+        }
+      }
 
-        if (dataCounter == 0) {
-            if(data != NRF52_HEADER)
-            {
-                rx_checksum.reset();
-                asm volatile("nop");
-                continue;
-            }
-        }
-        else if(dataCounter == 1){
-          dataUartLength = data;
-        }
-        else if (dataCounter >= 2) {
-          uartRxBuffer[dataCounter - 2] = data;
-        }
-        dataCounter++;
-        if (dataCounter >= dataUartLength + 4) {
-          dataCounter = 0;
-          bleDataLength = dataUartLength;
+      unsigned size = bl_uart_read(buffer, readSize);
+      if (!size) {
+        break;
+      }
 
-          //Checksum(data+checkBytes)==0 if all is good
-          return !rx_checksum.finish();
+      for (unsigned i = 0; i < size; ++i) {
+        if (addByte(buffer[i])) {
+          return true;
         }
+      }
     }
+
     return false;
 }
 
