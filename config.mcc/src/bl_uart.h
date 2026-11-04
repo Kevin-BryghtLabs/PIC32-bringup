@@ -15,8 +15,12 @@ extern int bleDataLength;
 //Transmit API - send a packet, parts at a time.
 //Data() may be called multiple times. Total Data() len must match Start() len.
 void sendGenericStart(uint8_t command, uint8_t len);
+
+// If calling sendGenericData{,1} without a following sendGenericDone, then
+// see comment in bl_uart_tx.cpp file
 void sendGenericData(const void * data_, uint8_t len);
 void sendGenericData1(uint8_t byte);
+
 void sendGenericDone(void);
 
 

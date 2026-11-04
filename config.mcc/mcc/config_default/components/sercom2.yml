@@ -735,7 +735,7 @@ data:
         type: Attributes
       - children:
         - attributes:
-            value: '512'
+            value: '8'
           type: User
         type: Values
       type: Integer
@@ -814,7 +814,7 @@ data:
         type: Attributes
       - children:
         - attributes:
-            value: '512'
+            value: '8'
           type: User
         type: Values
       type: Integer

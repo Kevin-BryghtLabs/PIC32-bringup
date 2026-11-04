@@ -54,9 +54,9 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/peripheral/clock/plib_clock.h
   hash: 01c269741541514e997ef61546f4dbb0e23f66e27c6a957162557f13b4638baf
 - file: ../src/config/default/peripheral/dmac/plib_dmac.c
-  hash: 9785233f4349efcc67b7784dfb3fb4e254d32d6ace96670ffd8797925614c155
+  hash: 5e95a8daefdf7e29d011bee3f3723ffb1e23c42f57c787f2b24707b641460362
 - file: ../src/config/default/peripheral/dmac/plib_dmac.h
-  hash: 2bff2dbdee47c84647a6b346efb9dddba435cd0ee1a89f47bb930e56982eed21
+  hash: b32a8e4ae3f6300bb1d1e0e2507bf384f9eb39829ad6ee0edf6dd683d3dc06a6
 - file: ../src/config/default/peripheral/evsys/plib_evsys.c
   hash: f13f2bf9927fd771932bbbe8d43a9a510af1085dc6771545c364682a00c0ddb9
 - file: ../src/config/default/peripheral/evsys/plib_evsys.h
@@ -88,7 +88,7 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/peripheral/sercom/spi_master/plib_sercom_spi_master_common.h
   hash: 06e3c7813e1608b5008e3c8955569f9cff04bef321a34c35421f7979368a4ada
 - file: ../src/config/default/peripheral/sercom/usart/plib_sercom2_usart.c
-  hash: 853478eaf6e2c4ac8ad83c5680bf65226fceab9ea1010852c55a863ab85c5bf6
+  hash: 5e5c6312bcd0622ea6e31fea9b43a9c002de19041ec6aaccae1f9649ef313576
 - file: ../src/config/default/peripheral/sercom/usart/plib_sercom2_usart.h
   hash: 4ab7717726a19aa31b04cb4ea2dea4082167fa6ecc9bc16acf532d7fb171b739
 - file: ../src/config/default/peripheral/sercom/usart/plib_sercom_usart_common.h

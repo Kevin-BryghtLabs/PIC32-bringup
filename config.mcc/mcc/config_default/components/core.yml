@@ -4942,7 +4942,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '2'
+            value: '3'
           type: Dynamic
         type: Values
       type: Integer
@@ -5445,6 +5445,88 @@ data:
           type: Dynamic
         type: Values
       type: Boolean
+    DMAC_ENABLE_CH_2:
+      attributes:
+        id: DMAC_ENABLE_CH_2
+        label: Use DMAC Channel 2
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    DMAC_BTCTRL_SRCINC_CH_2:
+      attributes:
+        id: DMAC_BTCTRL_SRCINC_CH_2
+        label: Source Address Mode
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    DMAC_CHCTRLB_TRIGACT_CH_2:
+      attributes:
+        id: DMAC_CHCTRLB_TRIGACT_CH_2
+        label: Trigger Action
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    DMAC_BTCTRL_BEATSIZE_CH_2:
+      attributes:
+        id: DMAC_BTCTRL_BEATSIZE_CH_2
+        label: Beat Size
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    DMAC_CHCTRLB_TRIGSRC_CH_2_PERID_VAL:
+      attributes:
+        id: DMAC_CHCTRLB_TRIGSRC_CH_2_PERID_VAL
+        label: PERID Value
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '7'
+          type: Dynamic
+        type: Values
+      type: Integer
+    DMAC_BTCTRL_DSTINC_CH_2:
+      attributes:
+        id: DMAC_BTCTRL_DSTINC_CH_2
+        label: Destination Address Mode
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    DMAC_CHCTRLB_TRIGSRC_CH_2:
+      attributes:
+        id: DMAC_CHCTRLB_TRIGSRC_CH_2
+        label: Trigger Source
+      children:
+      - children:
+        - attributes:
+            value: SERCOM2_Transmit
+          type: User
+        type: Values
+      type: Combo
   userData:
     children:
     - attributes:

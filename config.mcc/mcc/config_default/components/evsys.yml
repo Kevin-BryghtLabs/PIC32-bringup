@@ -626,4 +626,28 @@ data:
           type: User
         type: Values
       type: KeyValueSet
+    GENERATOR_DMAC_CH_2_ACTIVE:
+      attributes:
+        id: GENERATOR_DMAC_CH_2_ACTIVE
+        label: GENERATOR_DMAC_CH_2_ACTIVE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    USER_DMAC_CH_2_READY:
+      attributes:
+        id: USER_DMAC_CH_2_READY
+        label: USER_DMAC_CH_2_READY
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
   userData: {}

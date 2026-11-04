@@ -2,6 +2,7 @@
 #include "bl_ble_packet_headers.h"
 #include "bl_fletcher16.hpp"
 #include "bl_uart.h"
+#include "bl_uart_dma.hpp"
 #include "definitions.h"
 
 static fletcher16 tx_checksum;
@@ -30,6 +31,11 @@ void sendGenericStart(uint8_t command, uint8_t length)
  *  This function sends data for a packet. sendGenericStart() must have been
  *  called already with the full application layer packet length. This function
  *  updates the TX checksum.
+ *
+ * NOTE:
+ *  If UART DMA is enabled and this function is called without calling
+ *  sendGenericDone at the end of the data/packet, then bl_uart_tx_flush
+ *  should be called to send the queued data.
  *******************************************************************************/
 void sendGenericData(const void * data_, uint8_t len)
 {
@@ -37,7 +43,7 @@ void sendGenericData(const void * data_, uint8_t len)
   tx_checksum.update(data, len);
   while(len)
   {
-    size_t sent = SERCOM2_USART_Write(data, len);
+    size_t sent = bl_uart_write(data, len);
     data += sent;
     len -= sent;
   }    
@@ -48,6 +54,11 @@ void sendGenericData(const void * data_, uint8_t len)
  ********************************************************************************
  * Summary:
  *  This simple wrapper function sends 1 byte of data, and updates tx checksum.
+ *
+ * NOTE:
+ *  If UART DMA is enabled and this function is called without calling
+ *  sendGenericDone at the end of the data/packet, then bl_uart_tx_flush
+ *  should be called to send the queued data.
  *******************************************************************************/
 void sendGenericData1(uint8_t byte)
 {
@@ -70,7 +81,8 @@ void sendGenericDone()
   size_t len = sizeof(f16);
   while(len)
   {
-    size_t sent = SERCOM2_USART_Write(data, len);
+    size_t sent = bl_uart_write(data, len);
+    bl_uart_tx_flush();
     data += sent;
     len -= sent;
   }
