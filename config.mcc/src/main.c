@@ -153,8 +153,7 @@ bool allowTouch(void) {
 }
 
 //Packet header PIECE_ID_DATA carriers multiples of this structure.
-typedef struct
-{
+typedef struct {
     /*
     TODO: remove header2. header2 is a copy of the regular packet header,
     because November touch and associated USB<>BLE adapter
@@ -168,6 +167,9 @@ typedef struct
     uint8_t data[/*PIECE_ID_TONES*/12];
 } piece_id_packet_t;
 
+// *******************************************************
+// ********************** SCAN ***************************
+// *******************************************************
 void buildPidScanTable(uint32_t startFreq, uint32_t endFreq, uint32_t stepFreq, uint16_t delay, uint16_t ring) {
   unsigned count = 0;
 
@@ -223,6 +225,9 @@ uint32_t bestFreq = 0;
 uint32_t bestDelay = 0;
 uint32_t bestRing = 0;
 
+unsigned pidLoopCount = 0;
+unsigned pidLogRatio = 1;
+
 unsigned scanSpotIdx = 0;
 
 void pieceScanStartPhase() {
@@ -231,45 +236,45 @@ void pieceScanStartPhase() {
 
   switch (pieceScanPhase) {
     case COARSE_FREQ:
-      hubLog('I', "** COARSE_FREQ **");
-      buildPidScanTable(1000000, 4000000, 250000, defaultDelay, defaultRing);
+      //hubLog('I', "** COARSE_FREQ **");
+      buildPidScanTable(1000000, 4500000, 250000, defaultDelay, defaultRing);
       startPieceId(scanSpots[0]);
       break;
 
     case COARSE_DELAY:
-      hubLog('I', "** COARSE_DELAY **");
+      //hubLog('I', "** COARSE_DELAY **");
       buildDelayScanTable(5, 100, 5, bestFreq, defaultRing);
       startPieceId(scanSpots[0]);
       break;
 
     case COARSE_RING:
-      hubLog('I', "** COARSE_RING **");
+      //hubLog('I', "** COARSE_RING **");
       buildRingScanTable(5, 100, 5, bestFreq, bestDelay);
       startPieceId(scanSpots[0]);
       break;
 
     case FINE_FREQ:
-      hubLog('I', "** FINE_FREQ **");
+      //hubLog('I', "** FINE_FREQ **");
       buildPidScanTable(bestFreq - 250000, bestFreq + 250000, 50000, bestDelay, bestRing);
       startPieceId(scanSpots[0]);
       break;
 
     case FINE_DELAY:
-      hubLog('I', "** FINE_DELAY **");
+      //hubLog('I', "** FINE_DELAY **");
       uint16_t delayStart = bestDelay <= 10 ? 1 : bestDelay - 10;
       buildDelayScanTable(delayStart, bestDelay + 10, 1, bestFreq, bestRing);
       startPieceId(scanSpots[0]);
       break;
 
     case FINE_RING:
-      hubLog('I', "** FINE_RING **");
+      //hubLog('I', "** FINE_RING **");
       uint16_t ringStart = bestRing <= 10 ? 1 : bestRing - 10;
       buildRingScanTable(ringStart, bestRing + 10, 1, bestFreq, bestDelay);
       startPieceId(scanSpots[0]);
       break;
 
     case PERFECT_FREQ:
-      hubLog('I', "** PERFECT_FREQ **");
+      //hubLog('I', "** PERFECT_FREQ **");
       buildPidScanTable(bestFreq - 50000, bestFreq + 50000, 10000, bestDelay, bestRing);
       startPieceId(scanSpots[0]);
       break;
@@ -306,25 +311,37 @@ void pieceScanComplete() {
     }
   }
 
+  pidLoopCount++;
+  bool pidLog = pidLoopCount >= pidLogRatio;
+  if (pidLog) {
+    pidLoopCount = 0;
+  }
+
   for (unsigned s = 0; s < ARRAY_SIZE(scanSpots); s++) {
     unsigned pos = 0;
     for (unsigned i = 0; i < count; ++i) {
       pos += snprintf(&buffer[pos], sizeof(buffer) - pos, " %3u", pieceScanResults[s][i]);
     }
-    hubLog('I', "Spot %2u:%s", scanSpots[s], buffer);
+    if (pidLog) {
+      //hubLog('I', "Spot %2u:%s", scanSpots[s], buffer);
+    }
   }
 
+#if 0
   unsigned pos = 0;
   for (unsigned i = 0; i < count; ++i) {
     pos += snprintf(&buffer[pos], sizeof(buffer) - pos, " %+3" PRIi16, deltas[i]);
   }
   hubLog('I', "Deltas: %s", buffer);
+#endif
 
   switch (pieceScanPhase) {
     case COARSE_FREQ:
     case FINE_FREQ:
     case PERFECT_FREQ:
-      hubLog('I', "Best: [%u] %7u Hz  %4" PRIu32 " DD %4" PRIu32 " RT", bestIdx, pieceIdGetFrequency(bestIdx), pieceIdGetDelay(bestIdx), pieceIdGetRing(bestIdx));
+      if (pidLog && pieceScanPhase == PERFECT_FREQ) {
+        hubLog('I', "Best: [%u] %7u Hz  %4" PRIu32 " DD %4" PRIu32 " RT", bestIdx, pieceIdGetFrequency(bestIdx), pieceIdGetDelay(bestIdx), pieceIdGetRing(bestIdx));
+      }
       bestFreq = pieceIdGetFrequency(bestIdx);
       pieceScanPhase++;
       pieceScanStartPhase();
@@ -332,7 +349,7 @@ void pieceScanComplete() {
 
     case COARSE_DELAY:
     case FINE_DELAY:
-      hubLog('I', "Best: [%u] %7u Hz  %4" PRIu32 " DD %4" PRIu32 " RT", bestIdx, pieceIdGetFrequency(bestIdx), pieceIdGetDelay(bestIdx), pieceIdGetRing(bestIdx));
+      //hubLog('I', "Best: [%u] %7u Hz  %4" PRIu32 " DD %4" PRIu32 " RT", bestIdx, pieceIdGetFrequency(bestIdx), pieceIdGetDelay(bestIdx), pieceIdGetRing(bestIdx));
       bestDelay = pieceIdGetDelay(bestIdx);
       pieceScanPhase++;
       pieceScanStartPhase();
@@ -340,7 +357,7 @@ void pieceScanComplete() {
 
     case COARSE_RING:
     case FINE_RING:
-      hubLog('I', "BestSig: [%u] %7u Hz  %4" PRIu32 " DD %4" PRIu32 " RT", bestSigIdx, pieceIdGetFrequency(bestSigIdx), pieceIdGetDelay(bestSigIdx), pieceIdGetRing(bestSigIdx));
+      //hubLog('I', "BestSig: [%u] %7u Hz  %4" PRIu32 " DD %4" PRIu32 " RT", bestSigIdx, pieceIdGetFrequency(bestSigIdx), pieceIdGetDelay(bestSigIdx), pieceIdGetRing(bestSigIdx));
       bestRing = pieceIdGetRing(bestSigIdx);
       pieceScanPhase++;
       pieceScanStartPhase();
@@ -351,8 +368,6 @@ void pieceScanComplete() {
       break;
   }
 }
-
-#define DO_SCAN 1
 
 void pieceScanTask() {
   if (!pieceScanActive) {
@@ -377,6 +392,92 @@ void pieceScanTask() {
   }
 }
 
+// *******************************************************
+// ********************** COMPARE  ***********************
+// *******************************************************
+
+bool pieceCompareActive;
+enum Phase pieceComparePhase;
+uint8_t compareSpots[] = { 28, 0, 8, 16, 24, 32, 40, 48, 56, 9, 10, 11, };
+//uint8_t compareSpots[] = { 0 };
+uint16_t pieceCompareResults[ARRAY_SIZE(compareSpots)][12];
+
+unsigned compareSpotIdx = 0;
+
+void pieceCompareStart() {
+  pieceCompareActive = true;
+  compareSpotIdx = 0;
+  startPieceId(compareSpots[0]);
+}
+
+void pieceCompareComplete() {
+  const unsigned count = pieceIdGetFrequencyCount();
+
+  pidLoopCount++;
+  bool pidLog = pidLoopCount >= pidLogRatio;
+  if (pidLog) {
+    pidLoopCount = 0;
+  }
+
+  piece_id_packet_t packets[ARRAY_SIZE(compareSpots)];
+
+  for (unsigned s = 0; s < ARRAY_SIZE(compareSpots); s++) {
+    piece_id_packet_t * pkt = &packets[s];
+    pkt->header2 = PIECE_ID_DATA;
+    pkt->square = compareSpots[s];
+    pkt->new_tones = (1 << pieceIdGetFrequencyCount()) - 1;
+
+    unsigned pos = 0;
+    for (unsigned i = 0; i < count; ++i) {
+      pkt->data[i] = pieceCompareResults[s][i];
+      pos += snprintf(&buffer[pos], sizeof(buffer) - pos, " %3u", pieceCompareResults[s][i]);
+    }
+    if (pidLog) {
+      hubLog('I', "Spot %2u:%s", compareSpots[s], buffer);
+    }
+  }
+  sendGeneric(PIECE_ID_DATA, sizeof(packets), packets);
+}
+
+void pieceCompareTask() {
+  if (!pieceCompareActive) {
+    return;
+  }
+
+  pieceIdTask();
+  if (pieceIdComplete()) {
+    const uint16_t *res;
+    size_t resCount;
+    getPieceIdResult(&res, &resCount);
+    memcpy(pieceCompareResults[compareSpotIdx], res, resCount * sizeof(res[0]));
+    compareSpotIdx++;
+
+    if (compareSpotIdx < ARRAY_SIZE(compareSpots)) {
+      startPieceId(compareSpots[compareSpotIdx]);
+    }
+    else {
+      pieceCompareActive = false;
+      pieceCompareComplete();
+    }
+  }
+}
+
+#define switchInterval 10000
+#define pidInterval 100
+#define pidLogInterval 1000
+#define alsInterval 250
+
+#define DO_SCAN 0
+#define DO_COMPARE 1
+
+#if DO_SCAN && DO_COMPARE
+#error Both DO_SCAN and DO_COMPARE enabled
+#endif
+
+#if DO_SCAN && (pidInterval < 300)
+#error pidInterval is too short for DO_SCAN
+#endif
+
 int main ( void )
 {
     /* Initialize all modules */
@@ -397,20 +498,15 @@ int main ( void )
     initPieceId();
     //startPieceId();
 
-    uint32_t switchInterval = 10000;
     uint32_t nextSwitchMs = getCurrentTimeMs() + switchInterval;
-
-    uint32_t pidInterval = 2000;
     uint32_t nextPidMs = getCurrentTimeMs() + pidInterval;
-
-    uint32_t pidLogInterval = 1000;
     uint32_t nextPidLogMs = getCurrentTimeMs() + pidLogInterval;
-
-    uint32_t alsInterval = 250;
     uint32_t nextAlsMs = getCurrentTimeMs() + alsInterval;
 
     unsigned spot = 0;
     bool triggered = 0;
+
+    pidLogRatio = pidLogInterval / pidInterval;
 
     while ( true )
     {
@@ -431,6 +527,7 @@ int main ( void )
 #endif
 
         uint32_t now = getCurrentTimeMs();
+
         if (now >= nextSwitchMs) {
           nextSwitchMs += switchInterval;
           //touchSendCCVals();
@@ -449,6 +546,8 @@ int main ( void )
           //switchPieceId(spot);
 #if (DO_SCAN)
           pieceScanStart();
+#elif (DO_COMPARE)
+          pieceCompareStart();
 #else
           startPieceId(spot);
           triggered = true;
@@ -457,6 +556,8 @@ int main ( void )
 
 #if (DO_SCAN)
         pieceScanTask();
+#elif (DO_COMPARE)
+        pieceCompareTask();
 #else
         pieceIdTask();
 

@@ -145,6 +145,8 @@ struct FrequencyData {
   PllTccConfig config;
 };
 
+#if 0
+// List of frequencies used for testing parameter calculation
 FrequencyData frequencies[30] = {
   { 1'000'000, 64, 255, {} },
   { 1'500'000, 43, 170, {} },
@@ -165,8 +167,46 @@ FrequencyData frequencies[30] = {
   { 9'000'000,  8,  29, {} },
   { 9'500'000,  7,  27, {} },
 };
-
+#endif
+#if 0
+// Claude-generated frequency list, characterized by DO_SCAN
+FrequencyData frequencies[] = {
+  /* W Knight - 183  */ { 1'960'000, 30,   2, {} },
+  /* B Knight - 150  */ { 2'150'000, 30,   3, {} },
+  /* W ROOK   - 133  */ { 2'300'000, 30,   3, {} },
+  /* B Queen  - 110  */ { 2'480'000, 25,   3, {} },
+  /* W Pawn   - 94   */ { 2'750'000, 26,   6, {} },
+  /* B King   - 80   */ { 2'850'000, 27,   4, {} },
+  /* W Bishop - 68   */ { 3'150'000, 25,   5, {} },
+  /* B Rook   - 57   */ { 3'380'000, 35,   4, {} },
+  /* W Qween  - 49   */ { 3'620'000, 28,   6, {} },
+  /* B Pawn   - 43   */ { 3'900'000, 34,   5, {} },
+  /* W King   - 35.2 */ { 4'200'000, 30,   3, {} },
+  /* B Bishop - 30   */ { 4'520'000, 34,   6, {} },
+};
+#endif
+// Claude-generated frequency list, calculated driving frequency
+FrequencyData frequencies[] = {
+  /* W Knight - 183  */ { 1'960'000, 30,   2, {} },
+  /* B Knight - 150  */ { 2'151'000, 30,   3, {} },
+  /* W ROOK   - 133  */ { 2'312'000, 30,   3, {} },
+  /* B Queen  - 110  */ { 2'489'000, 25,   3, {} },
+  /* W Pawn   - 94   */ { 2'678'000, 26,   6, {} },
+  /* B King   - 80   */ { 2'882'000, 27,   4, {} },
+  /* W Bishop - 68   */ { 3'100'000, 25,   5, {} },
+  /* B Rook   - 57   */ { 3'332'000, 35,   4, {} },
+  /* W Qween  - 49   */ { 3'585'000, 28,   6, {} },
+  /* B Pawn   - 43   */ { 3'854'000, 34,   5, {} },
+  /* W King   - 35.2 */ { 4'149'000, 30,   3, {} },
+  /* B Bishop - 30   */ { 4'464'000, 34,   6, {} },
+};
 static size_t FrequencyCount = ARRAY_SIZE(frequencies);
+
+static bool isSamePllConfig(const PllTccConfig & a, const PllTccConfig & b) {
+  return a.gclkDiv == b.gclkDiv
+    && a.ldrWhole == b.ldrWhole
+    && a.ldrFrac == b.ldrFrac;
+}
 
 static void configPinsForPieceId(void)
 {
@@ -256,7 +296,7 @@ void initPll() {
 
     // Configure filter to High-Damping to reduce jitter from fractional PLL
     //   Also default lock time and Gclk reference
-    OSCCTRL_REGS->OSCCTRL_DPLLCTRLB = OSCCTRL_DPLLCTRLB_FILTER(0UL) | OSCCTRL_DPLLCTRLB_LTIME(0UL)| OSCCTRL_DPLLCTRLB_REFCLK(2UL) ;
+    OSCCTRL_REGS->OSCCTRL_DPLLCTRLB = OSCCTRL_DPLLCTRLB_FILTER(OSCCTRL_DPLLCTRLB_FILTER_HDFILT_Val) | OSCCTRL_DPLLCTRLB_LTIME(0UL)| OSCCTRL_DPLLCTRLB_REFCLK(2UL) ;
 
     /* Selection of the DPLL Pre-Scalar */
    OSCCTRL_REGS->OSCCTRL_DPLLPRESC = (uint8_t)OSCCTRL_DPLLPRESC_PRESC(0UL);
@@ -418,16 +458,27 @@ void setPieceId(unsigned freqIdx) {
 
     TCC0_PWMStop();
     TCC1_PWMStop();
-    disablePll();
-    disableGclk(8);
 
-    setGclkDiv(8, config.gclkDiv);
+    bool skipPllInit = false;
+    if (freqIdx > 0) {
+      skipPllInit = isSamePllConfig(config, frequencies[freqIdx - 1].config);
+    }
 
-    const uint32_t whole = config.ldrWhole - 1;
-    const uint32_t frac = config.ldrFrac;
+    if (!skipPllInit) {
+      disablePll();
+      disableGclk(8);
 
-    setPllMult(whole, frac);
-    enablePll();
+      setGclkDiv(8, config.gclkDiv);
+
+      const uint32_t whole = config.ldrWhole - 1;
+      const uint32_t frac = config.ldrFrac;
+
+      setPllMult(whole, frac);
+      enablePll();
+    }
+    else {
+      //hubLog('I', "Same: %u & %u", freqIdx, freqIdx - 1);
+    }
 
     // Do as much of the unrelated setup as we can between enabling PLL and
     // setting up TCC0/TCC1, as the PLL sync takes a long time.  The TCC write
@@ -465,6 +516,7 @@ void setPieceId(unsigned freqIdx) {
     TCC0_PWMStart();
     TCC1_PWMStart();
 
+    OSCCTRL_REGS->OSCCTRL_INTFLAG = OSCCTRL_INTFLAG_DPLLLCKF_Msk;
     // Fire software event to start both TCCs
     sendSoftwareEventTriggerForTccs();
 }
@@ -579,6 +631,9 @@ uint32_t pieceIdGetRing(unsigned idx) {
 void pieceIdTask() {
   if (pieceIdRunning) {
     if (adc_done) {
+      if (OSCCTRL_REGS->OSCCTRL_INTFLAG & OSCCTRL_INTFLAG_DPLLLCKF_Msk) {
+        hubLog('W', "PLL LOCK LOST");
+      }
       adc_done = false;
       pieceIdResult[frequencyIdx] = ADC0_ConversionResultGet();
       frequencyIdx++;
