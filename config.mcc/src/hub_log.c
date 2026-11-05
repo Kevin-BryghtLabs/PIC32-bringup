@@ -21,10 +21,12 @@ int hubLog(char type, const char * fmt, ...) {
     }
     // Send the null byte
     length += 1;
+#if 0
     sendGenericStart(DEBUG_MESSAGE, length + 1);
     sendGenericData1(type);
     sendGenericData(buffer, length);
     sendGenericDone();
+#endif
   }
 }
 

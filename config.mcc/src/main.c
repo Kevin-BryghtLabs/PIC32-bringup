@@ -39,6 +39,7 @@
 //#include "bl_ble_packet_headers.h"
 //#include "bl_sensor_hub_firmware_version.h"
 #include "bl_uart.h"
+#include "uart_test.hpp"
 #include <inttypes.h>
 
 // *****************************************************************************
@@ -506,7 +507,7 @@ int main ( void )
 
     touchInit();
 
-    commStartup();
+    //commStartup();
 
     //TCC0_PWMStart();
 
@@ -528,7 +529,11 @@ int main ( void )
         /* Maintain state machines of all polled MPLAB Harmony modules. */
         SYS_Tasks ( );
 
-        commProcess();
+        //commProcess();
+
+        uartSendTestData();
+        uartVerifyTestData();
+        continue;
 
 #if 0
         // Wait until CapTouch is not running to start next LED transmit

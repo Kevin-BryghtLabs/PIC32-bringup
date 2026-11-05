@@ -39,6 +39,7 @@ void sendGenericStart(uint8_t command, uint8_t length)
  *******************************************************************************/
 void sendGenericData(const void * data_, uint8_t len)
 {
+#if 0
   uint8_t * data = (uint8_t*)data_;
   tx_checksum.update(data, len);
   while(len)
@@ -47,6 +48,7 @@ void sendGenericData(const void * data_, uint8_t len)
     data += sent;
     len -= sent;
   }    
+#endif
 }
 
 /*******************************************************************************
@@ -76,6 +78,7 @@ void sendGenericData1(uint8_t byte)
  *******************************************************************************/
 void sendGenericDone()
 {
+#if 0
   uint16_t f16 = tx_checksum.gencheck();
   uint8_t * data = (uint8_t*)&f16;
   size_t len = sizeof(f16);
@@ -86,6 +89,7 @@ void sendGenericDone()
     data += sent;
     len -= sent;
   }
+#endif
 }
 
 /*******************************************************************************
