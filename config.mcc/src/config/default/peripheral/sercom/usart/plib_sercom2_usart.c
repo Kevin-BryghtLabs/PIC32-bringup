@@ -58,8 +58,8 @@
 // *****************************************************************************
 
 
-/* SERCOM2 USART baud value for 250000 Hz baud rate */
-#define SERCOM2_USART_INT_BAUD_VALUE            (60074UL)
+/* SERCOM2 USART baud value for 500000 Hz baud rate */
+#define SERCOM2_USART_INT_BAUD_VALUE            (54613UL)
 
 static volatile SERCOM_USART_RING_BUFFER_OBJECT sercom2USARTObj;
 

@@ -455,7 +455,7 @@ data:
       - children:
         - attributes:
             id: sercom2
-            value: '6'
+            value: '2'
           type: Dynamic
         type: Values
       type: Integer
@@ -506,7 +506,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '250000'
+            value: '500000'
           type: User
         type: Values
       type: Integer
@@ -518,7 +518,7 @@ data:
       - children:
         - attributes:
             id: sercom2
-            value: '60074'
+            value: '54613'
           type: Dynamic
         type: Values
       type: Integer
