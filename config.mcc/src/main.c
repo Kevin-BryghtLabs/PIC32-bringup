@@ -119,8 +119,6 @@ void commProcess() {
     }
 }
 
-
-
 #if 0
 static void sendTestMessage() {
   static uint8_t message[11] = { NRF52_HEADER, sizeof(message)-4, 'H', 'e', 'l', 'l', 'o' };
@@ -271,19 +269,21 @@ void pieceScanStartPhase() {
       startPieceId(scanSpots[0]);
       break;
 
-    case FINE_DELAY:
+    case FINE_DELAY: {
       //hubLog('I', "** FINE_DELAY **");
       uint16_t delayStart = bestDelay <= 10 ? 1 : bestDelay - 10;
       buildDelayScanTable(delayStart, bestDelay + 10, 1, bestFreq, bestRing);
       startPieceId(scanSpots[0]);
       break;
+    }
 
-    case FINE_RING:
+    case FINE_RING: {
       //hubLog('I', "** FINE_RING **");
       uint16_t ringStart = bestRing <= 10 ? 1 : bestRing - 10;
       buildRingScanTable(ringStart, bestRing + 10, 1, bestFreq, bestDelay);
       startPieceId(scanSpots[0]);
       break;
+    }
 
     case PERFECT_FREQ:
       //hubLog('I', "** PERFECT_FREQ **");
@@ -301,7 +301,7 @@ void pieceScanStart() {
   pieceScanStartPhase();
 }
 
-char buffer[128];
+static char buffer[128];
 int16_t deltas[40];
 
 void pieceScanComplete() {
