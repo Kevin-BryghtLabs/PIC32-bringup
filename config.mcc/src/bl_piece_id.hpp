@@ -9,14 +9,15 @@
 extern "C" {
 #endif
 
-void initPieceId();
-void setupPieceId();
-void startPieceId(uint8_t spot);
-void switchPieceId(uint8_t spot);
+void pieceIdInit();
+bool pieceIdReady(uint32_t now);
+void pieceIdStart();
+
 void pieceIdTask();
-bool pieceIdComplete();
-bool getPieceIdResult(const uint16_t ** ptr, size_t * count);
+bool pieceIdInProgress();
+
 void pieceIdSetQuiet(bool quiet);
+
 bool pieceIdSetFrequencyParams(unsigned idx, uint32_t frequency, uint16_t drainCounts48MHz, uint16_t ringCounts48MHz);
 void pieceIdSetFrequencyCount(unsigned count);
 unsigned pieceIdGetFrequencyCount();

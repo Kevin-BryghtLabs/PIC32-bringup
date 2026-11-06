@@ -12,7 +12,7 @@
 //#include "BL_piece_id_packet.h"
 #include "bl_piece_id.hpp"
 #include "bl_sensor_hub_firmware_version.h"
-#include "bl_touch.h"
+#include "bl_touch.hpp"
 #include "bl_uart.h"
 
 #include "timer.h" // For `delay`, can remove if we get the standard headers
@@ -58,6 +58,8 @@ void sendFirmwareVersion(void){
     sendGeneric(NRF52_FW_VER, sizeof(verData), verData);
 }
 
+uint32_t ledMsgCount = 0;
+
 /*******************************************************************************
  * Function Name: DecodePacketData
  ********************************************************************************
@@ -84,15 +86,16 @@ void DecodePacketData(const uint8_t bleData[], int dataLength) {
     //firmwareUpdate();
   }
   else if (bleData[0] == SETLEDS){
+    ledMsgCount++;
     if (dataLength == 64 * 3 + 1) {
       ledUpdateAll(&bleData[1], 64 * 3);
     }
   }
   else if (bleData[0] == CALIBRATE){
-    touchStartCalibration();
+    capTouchStartCalibration();
   }
   else if(bleData[0] == RECALIBRATE){
-    touchStartCalibration();
+    capTouchStartCalibration();
   }
   // Used for sending touch data over BLE
   else if(bleData[0] == ENABLE_DATA_STREAMING){
@@ -136,17 +139,16 @@ void DecodePacketData(const uint8_t bleData[], int dataLength) {
   }
 #endif
   else if(bleData[0] == TOUCH_CC_VALS && dataLength == 1) {
-    touchSendCCVals();
+    capTouchSendCCVals();
   }
   //else if(bleData[0] == TOUCH_CC_VALS && dataLength == 1 + DEF_NUM_SENSORS * sizeof(uint16_t)) {
   else if(bleData[0] == TOUCH_CC_VALS && dataLength > 1) {
-    touchSetCCVals(&bleData[1], dataLength - 1);
+    capTouchSetCCVals(&bleData[1], dataLength - 1);
   }
   else if(bleData[0] == PIECE_ID_FREQS && dataLength == 1){
     sendGeneric(PIECE_ID_FREQS, sizeof(piece_id_tone_table), &piece_id_tone_table);
   }
   else if(bleData[0] == PIECE_ID_FREQS) { // && dataLength == 1 + sizeof(piece_id_tone_table)){
-    hubLog('I', "Got Freqs, dataLen %u vs %u", dataLength, 1 + sizeof(piece_id_tone_table));
     memcpy(&piece_id_tone_table, bleData + 1, sizeof(piece_id_tone_table));
     for(unsigned i = 0; i < 12; ++i){
       pieceIdSetFrequencyParams(i, piece_id_tone_table[i][0], piece_id_tone_table[i][1], piece_id_tone_table[i][2]);

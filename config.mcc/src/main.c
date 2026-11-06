@@ -1,54 +1,16 @@
-/*******************************************************************************
-  Main Source File
-
-  Company:
-    Microchip Technology Inc.
-
-  File Name:
-    main.c
-
-  Summary:
-    This file contains the "main" function for a project.
-
-  Description:
-    This file contains the "main" function for a project.  The
-    "main" function calls the "SYS_Initialize" function to initialize the state
-    machines of all modules in the system
- *******************************************************************************/
-
-// *****************************************************************************
-// *****************************************************************************
-// Section: Included Files
-// *****************************************************************************
-// *****************************************************************************
-
-#include <assert.h>
-#include <stdarg.h>
 #include <stddef.h>                     // Defines NULL
 #include <stdbool.h>                    // Defines true
-#include <stdio.h>
 #include <stdlib.h>                     // Defines EXIT_FAILURE
-#include "bl_ble_parser.h"
+#include "bl_als.hpp"
+#include "bl_comm.hpp"
 #include "bl_piece_id.hpp"
-#include "bl_touch.h"
+#include "bl_touch.hpp"
 #include "bl_uart_dma.hpp"
 #include "definitions.h"                // SYS function prototypes
 #include "hub_log.h"
 #include "timer.h"
 #include "leds.h"
-//#include "bl_ble_packet_headers.h"
-//#include "bl_sensor_hub_firmware_version.h"
-#include "bl_uart.h"
 #include <inttypes.h>
-
-// *****************************************************************************
-// *****************************************************************************
-// Section: Main Entry Point
-// *****************************************************************************
-// *****************************************************************************
-//#define SENSOR_HUB_VERSION_MAJOR 0
-//#define SENSOR_HUB_VERSION_MINOR 0
-//#define SENSOR_HUB_VERSION_MICRO 1
 
 #if 0
 void sendFirmwareVersion(void){
@@ -56,14 +18,6 @@ void sendFirmwareVersion(void){
     sendGeneric(NRF52_FW_VER, sizeof(verData), verData);
 }
 #endif
-
-#ifndef ARRAY_SIZE
-#define ARRAY_SIZE(a) (sizeof(a) / sizeof((a)[0]))
-#endif
-
-enum {
-    APP_ADD_FIRST_STATE_HERE = 1,
-};
 
 void signalStateInit(void) {
     // Leave levels unchanged from bootloader
@@ -88,84 +42,68 @@ void signalState(int pulses) {
     //PSPARE1_Clear();
 }
 
-void commStartup() {
-  //Wait a bit to ensure the UART lines have come up and other side should be ready.
-  for(unsigned i = 0; i < 5; ++i){
-    delay(1);
+bool canRunAls(bool pieceIdActive) {
+  // ALS and PieceID both use the ADC
+  return !pieceIdActive;
+}
+
+bool canStartPieceId(bool alsActive, bool capTouchActive) {
+  // ALS and PieceID both use the ADC
+  // CapTouch lines shared with PieceID mux control lines; can't do both at once
+  return !alsActive && !capTouchActive;
+}
+
+bool canStartLEDs(bool capTouchActive) {
+  // LED signals interfere with captouch (LEDs can be on, but the SPI signals
+  // when updating cause interference)
+  return !capTouchActive;
+}
+
+bool canStartCapTouch(bool pieceIdActive, bool ledsActive) {
+  // LED signals interfere with captouch
+  // CapTouch lines shared with PieceID mux control lines; can't do both at once
+  return !pieceIdActive && !ledsActive;
+}
+
+int turn = 0;
+
+void startReadyTasks() {
+  const uint32_t now = getCurrentTimeMs();
+
+  if (alsReady(now) && canRunAls(pieceIdInProgress())) {
+    alsStart();
+    return;
   }
 
-  //Send 300B of zeros to reset the ESP32 parser in the event it is mid-frame
-  for(unsigned i = 0; i < 300; ++i){
-    sendGenericData1(0x00);
-  }
-  bl_uart_tx_flush();
+  switch (turn) {
+    case 0:
+      if (ledReady(now) && canStartLEDs(capTouchInProgress())) {
+        ledStart();
+        turn++;
+      }
+      break;
 
-  sendFirmwareVersion();
-}
+    case 1:
+      if (capTouchReady() && canStartCapTouch(pieceIdInProgress(), ledTransmitInProgress())) {
+        capTouchStart();
+        turn++;
+      }
+      break;
 
-void commProcess() {
-    if (bl_uart_has_rx_overflowed()) {
-      hubLog('E', "UART RX DMA Overflow");
-      bl_uart_clear_rx_overflow();
-    }
+    case 2:
+      if (pieceIdReady(now) && canStartPieceId(alsReadInProgress(), capTouchInProgress())) {
+        pieceIdStart();
+        turn++;
+      }
+      break;
 
-    if (bl_uart_has_rx_event_sync_error()) {
-      hubLog('E', "UART RX DMA Event sync error");
-      bl_uart_clear_rx_event_sync_error();
-    }
-
-    while (processRxFifo()) {
-        DecodePacketData(uartRxBuffer, bleDataLength);
-    }
-}
-
-#if 0
-static void sendTestMessage() {
-  static uint8_t message[11] = { NRF52_HEADER, sizeof(message)-4, 'H', 'e', 'l', 'l', 'o' };
-  static const uint8_t fletcherStart = sizeof(message) - 2;
-  static const uint8_t adcStart = 7;
-
-  if (getCurrentTimeMs() >= nextSendTime) {
-      uint16_t alsVal = ADC0_ConversionResultGet();
-
-      message[adcStart + 0] = alsVal >> 8;
-      message[adcStart + 1] = alsVal & 0xff;
-
-      fletcher_reset();
-      fletcher_update(message, sizeof(message) - 2);
-      uint16_t csum = fletcher_finish();
-      // Little endian
-      message[fletcherStart + 0] = csum & 0xFF;
-      message[fletcherStart + 1] = csum >> 8;
-
-      SERCOM2_USART_Write(message, sizeof(message));
-      nextSendTime += sendIntervalMs;
+    default:
+      turn = 0;
   }
 }
-  #endif
 
-static void sendTestData(uint16_t val, uint16_t cc){
-  uint16_t buffer[2];
-  buffer[0] = val;
-  buffer[1] = cc;
-  sendGeneric(UI_ADVANCE, sizeof(buffer), buffer);
-}
-
-// Hacked into Harmony library touch behavior so we can detect
-// when touch is running
-bool touchInProgress();
-
-bool doLeds = true;
-bool doSync = true;
-
-bool allowTouch(void) {
-  return !doSync || !ledTransmitInProgress();
-}
-
-#define switchInterval 10000
-#define pidInterval 100
-#define pidLogInterval 1000
-#define alsInterval 250
+uint32_t nextPrintMs = 0;
+uint32_t printIntervalMs = 3000;
 
 int main ( void )
 {
@@ -179,138 +117,36 @@ int main ( void )
     bl_uart_dma_rx_init();
     bl_uart_dma_tx_init();
 
+    commInit();
+
+    alsInit();
     ledInit();
-
-    touchInit();
-
-    commStartup();
-
-    //TCC0_PWMStart();
-
-    initPieceId();
-    //startPieceId();
-
-    uint32_t nextSwitchMs = getCurrentTimeMs() + switchInterval;
-    uint32_t nextPidMs = getCurrentTimeMs() + pidInterval;
-    uint32_t nextPidLogMs = getCurrentTimeMs() + pidLogInterval;
-    uint32_t nextAlsMs = getCurrentTimeMs() + alsInterval;
-
-    unsigned spot = 0;
-    bool triggered = 0;
+    capTouchInit();
+    pieceIdInit();
 
     while ( true )
     {
         /* Maintain state machines of all polled MPLAB Harmony modules. */
         SYS_Tasks ( );
 
-        commProcess();
+        commTask();
 
-#if 0
-        // Wait until CapTouch is not running to start next LED transmit
-        if (ledTaskShouldRun() && (!doSync || !touchInProgress())) {
-          if (doLeds) {
-            ledTask();
-          }
-        }
+        startReadyTasks();
 
-        touchTask();
-#endif
-
-        uint32_t now = getCurrentTimeMs();
-
-        if (now >= nextSwitchMs) {
-          nextSwitchMs += switchInterval;
-          //touchSendCCVals();
-          //doLeds = !doLeds;
-          //doSync = !doSync;
-          //hubLog('I', "Sync: %u", doSync);
-        }
-
-        if (now >= nextPidMs) {
-          nextPidMs += pidInterval;
-
-          // When we are doing both captouch and pieceID this needs to be called
-          // when switching to start pieceID
-          setupPieceId();
-
-          //switchPieceId(spot);
-          startPieceId(spot);
-          triggered = true;
-        }
-
+        alsTask();
+        ledTask();
+        capTouchTask();
         pieceIdTask();
 
-        if (triggered) {
-          if (pieceIdComplete()) {
-            triggered = false;
-            const uint16_t * pieceIdResults;
-            size_t resultCount;
-
-            if (getPieceIdResult(&pieceIdResults, &resultCount)) {
-              char buffer[256];
-              unsigned pos = 0;
-              buffer[0] = 0;
-
-              if (now >= nextPidLogMs) {
-                nextPidLogMs += pidLogInterval;
-                for (unsigned i = 0; i < resultCount; ++i) {
-                  pos += snprintf(&buffer[pos], sizeof(buffer) - pos, " %4u", pieceIdResults[i]);
-                }
-                hubLog('I', "Read:%s", buffer);
-              }
-
-#if 0
-              piece_id_packet_t packet;
-              packet.header2 = PIECE_ID_DATA;
-              packet.square = 0;
-              packet.new_tones = 0x0fff;
-              for (unsigned i = 0; i < 12; i++) {
-                packet.data[i] = pieceIdResults[i];
-              }
-
-              sendGeneric(PIECE_ID_DATA, sizeof(packet), &packet);
-#endif
-            }
-          }
+        uint32_t now = getCurrentTimeMs();
+        if (now >= nextPrintMs) {
+          nextPrintMs += printIntervalMs;
+          extern uint32_t ledMsgCount;
+          hubLog('I', "LedMessages: %u", ledMsgCount);
         }
-#if 0
-        if (now >= nextAlsMs) {
-          nextAlsMs += alsInterval;
-          if (ADC0_ConversionSequenceIsFinished()) {
-            uint16_t val = ADC0_ConversionResultGet();
-            sendGeneric(ALS_VALUE, sizeof(val), &val);
-            ADC0_ConversionStart();
-          }
-        }
-#endif
-
-        //if (ledDirty) {
-          //sendLedData();
-        //}
-        //else {
-        //}
-
-        //uint32_t now = getCurrentTimeMs();
-        //if (now >= nextSwitchMs) {
-          //nextSwitchMs += switchInterval;
-          //switchPieceId();
-          //spiTest();
-        //}
-        //if (now >= nextCapMs) {
-          //nextCapMs += capInterval;
-          //spiTest();
-        //}
-
-        //delay(1);
     }
 
     /* Execution should not come here during normal operation */
 
     return ( EXIT_FAILURE );
 }
-
-
-/*******************************************************************************
- End of File
-*/
-

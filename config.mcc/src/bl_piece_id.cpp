@@ -1,5 +1,8 @@
 #include "bl_piece_id.hpp"
+
+#include "bl_ble_packet_headers.h"
 #include "bl_piece_id_freq_calc.hpp"
+#include "bl_uart.h"
 #include "hub_log.h"
 #include "peripheral/adc/plib_adc0.h"
 #include "peripheral/port/plib_port.h"
@@ -257,11 +260,11 @@ static uint8_t frequencyIdx;
 static bool pieceIdRunning;
 static volatile bool adc_done;
 
-void adcIrq(ADC_STATUS status, uintptr_t context){
+static void adcIrq(ADC_STATUS status, uintptr_t context){
     adc_done = true;
 }
 
-void disableGclk(uint8_t gclkNum) {
+static void disableGclk(uint8_t gclkNum) {
     uint32_t val = GCLK_REGS->GCLK_GENCTRL[gclkNum];
     val &= ~(GCLK_GENCTRL_GENEN_Msk);
     GCLK_REGS->GCLK_GENCTRL[gclkNum] = val;
@@ -271,7 +274,7 @@ void disableGclk(uint8_t gclkNum) {
     }
 }
 
-void setGclkDiv(uint8_t gclkNum, uint8_t divider) {
+static void setGclkDiv(uint8_t gclkNum, uint8_t divider) {
     uint32_t val = GCLK_REGS->GCLK_GENCTRL[gclkNum];
 
     // Set divider
@@ -286,7 +289,7 @@ void setGclkDiv(uint8_t gclkNum, uint8_t divider) {
     }
 }
 
-void initPll() {
+static void initPll() {
     // Enable GClk 8
     GCLK_REGS->GCLK_PCHCTRL[0] = GCLK_PCHCTRL_GEN(0x8UL)  | GCLK_PCHCTRL_CHEN_Msk;
     while ((GCLK_REGS->GCLK_PCHCTRL[0] & GCLK_PCHCTRL_CHEN_Msk) != GCLK_PCHCTRL_CHEN_Msk)
@@ -307,7 +310,7 @@ void initPll() {
     }
 }
 
-void setPulseCount(uint8_t pulses, const PllTccConfig & config) {
+static void setPulseCount(uint8_t pulses, const PllTccConfig & config) {
     if (pulses > 0) {
         pulses -= 1;
     }
@@ -332,7 +335,7 @@ void setPulseCount(uint8_t pulses, const PllTccConfig & config) {
     }
 }
 
-void setUpDrainAndRingTimeTriggers(unsigned freqIdx) {
+static void setUpDrainAndRingTimeTriggers(unsigned freqIdx) {
     // MCC doesn't expose oneshot; set manually
     TC3_REGS->COUNT16.TC_CTRLBSET = TC_CTRLBSET_ONESHOT(1);
 
@@ -348,7 +351,7 @@ void setUpDrainAndRingTimeTriggers(unsigned freqIdx) {
     PORT_REGS->GROUP[1].PORT_EVCTRL = PORT_EVCTRL_PORTEI0_Msk | PORT_EVCTRL_EVACT0(2) | PORT_EVCTRL_PID0(23);
 }
 
-void setUpSoftwareEventTriggerForTccs() {
+static void setUpSoftwareEventTriggerForTccs() {
     // Manually set "None" generator event so we can start both TCC0 and TCC1 at the same
     // time with a software event.  MCC doesn't support "None".
 
@@ -362,11 +365,11 @@ void setUpSoftwareEventTriggerForTccs() {
     EVSYS_REGS->EVSYS_USER[15] = EVSYS_USER_CHANNEL(2UL);        // TCC1 EV0 <- channel 1
 }
 
-void sendSoftwareEventTriggerForTccs() {
+static void sendSoftwareEventTriggerForTccs() {
     EVSYS_REGS->EVSYS_SWEVT = EVSYS_SWEVT_CHANNEL1_Msk;
 }
 
-void disablePll() {
+static void disablePll() {
     OSCCTRL_REGS->OSCCTRL_DPLLCTRLA = (uint8_t)(0);
 
     while((OSCCTRL_REGS->OSCCTRL_DPLLSYNCBUSY & OSCCTRL_DPLLSYNCBUSY_ENABLE_Msk) == OSCCTRL_DPLLSYNCBUSY_ENABLE_Msk )
@@ -375,7 +378,7 @@ void disablePll() {
     }
 }
 
-void enablePll() {
+static void enablePll() {
     OSCCTRL_REGS->OSCCTRL_DPLLCTRLA = (uint8_t)(OSCCTRL_DPLLCTRLA_ENABLE_Msk);
 
     while((OSCCTRL_REGS->OSCCTRL_DPLLSYNCBUSY & OSCCTRL_DPLLSYNCBUSY_ENABLE_Msk) == OSCCTRL_DPLLSYNCBUSY_ENABLE_Msk )
@@ -384,7 +387,7 @@ void enablePll() {
     }
 }
 
-void setPllMult(uint16_t whole, uint8_t frac) {
+static void setPllMult(uint16_t whole, uint8_t frac) {
     OSCCTRL_REGS->OSCCTRL_DPLLRATIO = OSCCTRL_DPLLRATIO_LDRFRAC(frac) | OSCCTRL_DPLLRATIO_LDR(whole);
 
     while((OSCCTRL_REGS->OSCCTRL_DPLLSYNCBUSY & OSCCTRL_DPLLSYNCBUSY_DPLLRATIO_Msk) == OSCCTRL_DPLLSYNCBUSY_DPLLRATIO_Msk)
@@ -420,20 +423,20 @@ static void calculateFrequencyConfigs() {
 }
 
 // Call once to initialize systems after boot
-void initPieceId() {
+void pieceIdInit() {
     calculateFrequencyConfigs();
     initPll();
 }
 
 // Call after captouch or any other task which shares resources with PieceId
-void setupPieceId() {
+static void setupPieceId() {
   ADC0_CallbackRegister(adcIrq, 0);
   ADC0_ChannelSelect(ADC_POSINPUT_AIN1, ADC_NEGINPUT_GND);
   ADC0_Enable();
   configPinsForPieceId();
 }
 
-void stopPieceId() {
+static void stopPieceId() {
   disableMuxes();
   TCC0_PWMStop();
   TCC1_PWMStop();
@@ -448,7 +451,7 @@ void stopPieceId() {
 // comparison.
 //   - All with resets: 669us
 //   - No resets on 2-N: 666us
-void setPieceId(unsigned freqIdx) {
+static void setPieceId(unsigned freqIdx) {
     if (freqIdx >= FrequencyCount) {
         return;
     }
@@ -521,6 +524,34 @@ void setPieceId(unsigned freqIdx) {
     sendSoftwareEventTriggerForTccs();
 }
 
+// TODO: Include the shared header for this
+typedef struct
+{
+    /*
+    TODO: remove header2. header2 is a copy of the regular packet header,
+    because November touch and associated USB<>BLE adapter
+    use 2-byte headers, while everything else uses 1B size, 1B header.
+    */
+    uint8_t header2;//PIECE_ID_DATA
+    uint8_t square;//also not PIECE_ID_DATA.
+    uint16_t new_tones;//bitfield showing which were updated this scan
+
+    //Raw ADC values per rank/file/tone
+    uint8_t data[12];
+} piece_id_packet_t;
+
+void onComplete() {
+  piece_id_packet_t packet;
+  packet.header2 = PIECE_ID_DATA;
+  packet.square = 0;
+  packet.new_tones = 0x0fff;
+  for (unsigned i = 0; i < 12; i++) {
+    packet.data[i] = pieceIdResult[i];
+  }
+
+  sendGeneric(PIECE_ID_DATA, sizeof(packet), &packet);
+}
+
 #ifdef RANDOM_STEP
 static constexpr uint32_t FreqMin = 3'000'000u;
 static constexpr uint32_t FreqMax = 10'000'000u;
@@ -566,8 +597,8 @@ void switchPieceId(uint8_t spot) {
 #endif
 #endif
 
-bool pieceIdComplete() {
-  return !pieceIdRunning;
+bool pieceIdInProgress() {
+  return pieceIdRunning;
 }
 
 bool getPieceIdResult(const uint16_t ** ptr, size_t * count) {
@@ -628,6 +659,11 @@ uint32_t pieceIdGetRing(unsigned idx) {
   return 0;
 }
 
+bool pieceIdReady(uint32_t now) {
+  // Do pieceId when we're not doing anything else
+  return true;
+}
+
 void pieceIdTask() {
   if (pieceIdRunning) {
     if (adc_done) {
@@ -644,18 +680,21 @@ void pieceIdTask() {
       else {
         stopPieceId();
         pieceIdRunning = false;
+        onComplete();
       }
     }
   }
 }
 
-void startPieceId(uint8_t spot) {
+void pieceIdStart() {
   frequencyIdx = 0;
   pieceIdRunning = true;
+
+  // TODO: FIX
+  uint8_t spot = 0;
 
   setupPieceId();
   selectMuxPathForSpot(spot);
   enableMuxes();
-
   setPieceId(frequencyIdx);
 }

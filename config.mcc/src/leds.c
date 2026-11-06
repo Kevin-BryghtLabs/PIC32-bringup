@@ -195,6 +195,10 @@ static void sendLedData() {
     }
   }
 
+  // Set false here so that if data is updated while writing
+  // we know we need to immediately do another update
+  ledDirty = false;
+
   if (anyOn) {
     LED_CH_EN_Set();
   }
@@ -245,9 +249,6 @@ static void sendLedData() {
       RESET_SPI_BYTE_LENGTH,
       NULL);
 
-  // Set false here so that if data is updated while writing
-  // we know we need to immediately do another update
-  ledDirty = false;
   lastUpdateTimeMs = getCurrentTimeMs();
 
   ledDMABusy = true;
@@ -269,7 +270,7 @@ bool ledTransmitInProgress() {
   return ledDMABusy;
 }
 
-bool ledTaskShouldRun() {
+bool ledReady(uint32_t now) {
   if (ledDMABusy) {
     return false;
   }
@@ -278,8 +279,14 @@ bool ledTaskShouldRun() {
     return true;
   }
 
-  uint32_t now = getCurrentTimeMs();
+  if (now - lastUpdateTimeMs < 10) {
+    // Should not get updates from ESP32 any faster than this, but
+    // don't let LED starve out other tasks if we do
+    return false;
+  }
+
   if (now - lastUpdateTimeMs > 1000) {
+    // Occasional forced update of all LEDs in case of hardware error
     return true;
   }
 
@@ -292,8 +299,12 @@ void ledInit() {
   ledDirty = true;
 }
 
-void ledTask() {
+void ledStart() {
   sendLedData();
+}
+
+void ledTask() {
+  // Everything is automatic with DMA and interrupts, no task
 }
 
 void ledUpdateAll(const uint8_t * data, size_t size) {
@@ -306,4 +317,3 @@ void ledUpdateAll(const uint8_t * data, size_t size) {
   memcpy(ledValues, data, copyBytes);
   ledDirty = true;
 }
-

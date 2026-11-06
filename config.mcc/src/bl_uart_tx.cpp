@@ -24,6 +24,8 @@ void sendGenericStart(uint8_t command, uint8_t length)
   sendGenericData1(command);
 }
 
+#define USE_DMA 1
+
 /*******************************************************************************
  * Function Name: sendGenericData
  ********************************************************************************
@@ -43,7 +45,11 @@ void sendGenericData(const void * data_, uint8_t len)
   tx_checksum.update(data, len);
   while(len)
   {
+#if USE_DMA
     size_t sent = bl_uart_write(data, len);
+#else
+    size_t sent = SERCOM2_USART_Write(data, len);
+#endif
     data += sent;
     len -= sent;
   }    
@@ -81,8 +87,12 @@ void sendGenericDone()
   size_t len = sizeof(f16);
   while(len)
   {
+#if USE_DMA
     size_t sent = bl_uart_write(data, len);
     bl_uart_tx_flush();
+#else
+    size_t sent = SERCOM2_USART_Write(data, len);
+#endif
     data += sent;
     len -= sent;
   }

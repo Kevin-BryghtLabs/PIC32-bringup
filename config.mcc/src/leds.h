@@ -15,8 +15,9 @@ void ledInit();
 void ledUpdateAll(const uint8_t * data, size_t size);
 void ledUpdate(const uint8_t * data);
 
-// LED task functions
-bool ledTaskShouldRun();
+// Returns true if the ledTask should be run
+bool ledReady(uint32_t now);
+void ledStart();
 void ledTask();
 bool ledTransmitInProgress();
 
