@@ -4,6 +4,7 @@
 #include "bl_als.hpp"
 #include "bl_comm.hpp"
 #include "bl_piece_id.hpp"
+#include "bl_shu_stats.hpp"
 #include "bl_touch.hpp"
 #include "bl_uart_dma.hpp"
 #include "definitions.h"                // SYS function prototypes
@@ -31,15 +32,6 @@ void signalStateInit(void) {
     // Wiggle PSPARE2 once with PSPARE1 high to indicate bootloader running
     PSPARE2_Clear();
     PSPARE2_Set();
-}
-
-void signalState(int pulses) {
-    //PSPARE1_Set();
-    for (unsigned i = 0; i < pulses; ++i) {
-        PSPARE2_Clear();
-        PSPARE2_Set();
-    }
-    //PSPARE1_Clear();
 }
 
 bool canRunAls(bool pieceIdActive) {
@@ -119,6 +111,8 @@ int main ( void )
 
     commInit();
 
+    shuStatsInit();
+
     alsInit();
     ledInit();
     capTouchInit();
@@ -126,6 +120,8 @@ int main ( void )
 
     while ( true )
     {
+        uint32_t now = getCurrentTimeMs();
+
         /* Maintain state machines of all polled MPLAB Harmony modules. */
         SYS_Tasks ( );
 
@@ -138,7 +134,8 @@ int main ( void )
         capTouchTask();
         pieceIdTask();
 
-        uint32_t now = getCurrentTimeMs();
+        shuStatsTask(now);
+
         if (now >= nextPrintMs) {
           nextPrintMs += printIntervalMs;
           extern uint32_t ledMsgCount;

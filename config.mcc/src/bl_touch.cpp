@@ -3,6 +3,7 @@
 #include <assert.h>
 #include <stdbool.h>
 #include "bl_ble_packet_headers.h"
+#include "bl_shu_stats.hpp"
 #include "bl_uart.h"
 #include "bl_util.h"
 #include "definitions.h"
@@ -36,6 +37,7 @@ static constexpr PORT_PIN CAP_Y14_PIN = PORT_PIN_PB08;
 static constexpr PORT_PIN CAP_Y15_PIN = PORT_PIN_PB09;
 
 static const uint32_t capSendIntervalMs = 50;
+static uint32_t capTouchStartTicks = 0;
 
 static uint32_t nextCapSendMs;
 static bool sendCalibrationStatusWhenFinished;
@@ -113,6 +115,8 @@ bool capTouchInProgress() {
 }
 
 void capTouchStart() {
+  capTouchStartTicks = getCurrentTimeTicks();
+
   capTouchRunning = true;
   touchTimerElapsed = false;
   configPinsForCapTouch();
@@ -143,6 +147,9 @@ void capTouchTask() {
     for (unsigned i = 0; i < DEF_NUM_SENSORS; i++) {
       sens[i] = get_sensor_node_signal(i);
     }
+
+    uint32_t doneTicks = getCurrentTimeTicks();
+    shuStatsAddSample(Stat_CapTouch_SampleTime, doneTicks - capTouchStartTicks);
 
     capTouchRunning = false;
 

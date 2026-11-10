@@ -1,3 +1,4 @@
+#include "bl_shu_stats.hpp"
 #include "definitions.h"
 #include "timer.h"
 
@@ -78,6 +79,9 @@ static unsigned currentBuffer = 0;
 
 // Is LED data pending update to the LEDs themselves
 static volatile bool ledDirty = false;
+
+// Starting time in ticks (for stats calculation)
+static uint32_t ledStartTicks = 0;
 
 static uint32_t lastUpdateTimeMs = 0;
 
@@ -185,6 +189,9 @@ static void dmaBlockDone(DMAC_TRANSFER_EVENT event, uintptr_t contextHandle) {
 
       case STATE_END:
         setLedTXPinToGPIO();
+        const uint32_t doneTicks = getCurrentTimeTicks();
+        shuStatsAddSample(Stat_LED_UpdateTime, doneTicks - ledStartTicks);
+
         ledDMABusy = false;
         break;
     }
@@ -321,6 +328,7 @@ void ledInit() {
 }
 
 void ledStart() {
+  ledStartTicks = getCurrentTimeTicks();
   sendLedData();
 }
 

@@ -2,6 +2,7 @@
 
 #include "bl_ble_packet_headers.h"
 #include "bl_piece_id_freq_calc.hpp"
+#include "bl_shu_stats.hpp"
 #include "bl_uart.h"
 #include "hub_log.h"
 #include "peripheral/adc/plib_adc0.h"
@@ -11,6 +12,7 @@
 #include "peripheral/tcc/plib_tcc0.h"
 #include "peripheral/tcc/plib_tcc1.h"
 #include "pic32cm6408jh00048.h"
+#include "timer.h"
 #include <cstdlib>
 #include <cinttypes>
 
@@ -204,6 +206,8 @@ FrequencyData frequencies[] = {
   /* B Bishop - 30   */ { 4'464'000, 34,   6, {} },
 };
 static size_t FrequencyCount = ARRAY_SIZE(frequencies);
+
+static uint32_t pieceIdStartTicks = 0;
 
 static bool isSamePllConfig(const PllTccConfig & a, const PllTccConfig & b) {
   return a.gclkDiv == b.gclkDiv
@@ -679,6 +683,10 @@ void pieceIdTask() {
       }
       else {
         stopPieceId();
+
+        uint32_t doneTicks = getCurrentTimeTicks();
+        shuStatsAddSample(Stat_PieceId_SquareTime, doneTicks - pieceIdStartTicks);
+
         pieceIdRunning = false;
         onComplete();
       }
@@ -687,6 +695,8 @@ void pieceIdTask() {
 }
 
 void pieceIdStart() {
+  pieceIdStartTicks = getCurrentTimeTicks();
+
   frequencyIdx = 0;
   pieceIdRunning = true;
 
