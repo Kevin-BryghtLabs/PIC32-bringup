@@ -5527,6 +5527,17 @@ data:
           type: User
         type: Values
       type: Combo
+    NVIC_24_0_PRIORITY:
+      attributes:
+        id: NVIC_24_0_PRIORITY
+        label: Priority
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: Combo
   userData:
     children:
     - attributes:
