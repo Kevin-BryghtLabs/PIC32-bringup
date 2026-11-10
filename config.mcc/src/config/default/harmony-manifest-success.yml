@@ -8,9 +8,9 @@ creation_date: 2026-11-05T12:28:59.732-06:00[America/Chicago]    # ISO 8601 form
 operating_system: Linux
 mcc_mode: VSCodePlugin            # [IDE|Standalone|Headless]
 mcc_version: v5.7.1
-mcc_core_version: v5.9.1
+mcc_core_version: v5.9.2
 mplabx_version: NA        # if MPLAB X plugin only
-harmony_version: 1.7.2
+harmony_version: 1.7.3
 compiler: NA
 
 modules:

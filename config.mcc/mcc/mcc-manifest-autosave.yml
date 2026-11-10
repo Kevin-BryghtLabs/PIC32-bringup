@@ -9,8 +9,8 @@ mcc_mode_version: Unknown
 device_name: PIC32CM6408JH00048
 compiler: N/A
 mcc_version: 5.7.1
-mcc_core_version: 5.9.1
-content_manager_version: 7.0.0
+mcc_core_version: 5.9.2
+content_manager_version: 7.0.1
 is_mcc_offline: false
 is_using_prerelease_versions: false
 mcc_content_registries: https://registry.npmjs.org/
