@@ -1118,6 +1118,12 @@ data:
       attributes:
         id: DEF_DIGI_FILT_GAIN77
         label: Digital Filter Gain
+      children:
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_GAIN78:
       attributes:
@@ -1258,7 +1264,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1269,7 +1275,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1280,7 +1286,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1341,7 +1347,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1402,7 +1408,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1463,7 +1469,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1504,7 +1510,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1515,7 +1521,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1526,7 +1532,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1537,7 +1543,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1548,7 +1554,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1559,7 +1565,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1570,7 +1576,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1581,7 +1587,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1592,7 +1598,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1603,7 +1609,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1614,7 +1620,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1625,7 +1631,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1636,7 +1642,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1647,7 +1653,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1658,7 +1664,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1669,7 +1675,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1680,7 +1686,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1691,7 +1697,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1702,7 +1708,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1713,7 +1719,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1724,7 +1730,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1735,7 +1741,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1746,7 +1752,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1757,7 +1763,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1768,7 +1774,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1779,7 +1785,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1790,7 +1796,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1801,7 +1807,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1812,7 +1818,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1823,7 +1829,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1834,7 +1840,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1845,7 +1851,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1856,7 +1862,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1867,7 +1873,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1878,7 +1884,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1889,7 +1895,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1900,7 +1906,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1911,7 +1917,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1922,7 +1928,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1933,7 +1939,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1944,7 +1950,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1955,7 +1961,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1966,7 +1972,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1977,7 +1983,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1988,7 +1994,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -1999,7 +2005,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -2010,7 +2016,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -2021,7 +2027,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -2032,7 +2038,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -2043,7 +2049,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -2054,7 +2060,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -2065,7 +2071,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -2076,7 +2082,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -2087,7 +2093,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -2098,7 +2104,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -2109,7 +2115,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -2120,7 +2126,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -2131,7 +2137,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -2142,7 +2148,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -2153,7 +2159,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -2164,7 +2170,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -2175,7 +2181,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -2186,7 +2192,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -2197,7 +2203,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -2208,7 +2214,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -2219,7 +2225,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -2230,7 +2236,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -2241,7 +2247,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -2252,7 +2258,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -2260,6 +2266,12 @@ data:
       attributes:
         id: DEF_DIGI_FILT_OVERSAMPLING77
         label: Digital Filter Oversampling
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_DIGI_FILT_OVERSAMPLING78:
       attributes:
@@ -2278,7 +2290,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -2339,7 +2351,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -4098,6 +4110,12 @@ data:
       attributes:
         id: DEF_NOD_GAIN_ANA77
         label: Analog Gain
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_GAIN_ANA78:
       attributes:
@@ -6304,6 +6322,12 @@ data:
       attributes:
         id: DEF_NOD_SERIES_RESISTOR77
         label: Series Resistor
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
       type: KeyValueSet
     DEF_NOD_SERIES_RESISTOR78:
       attributes:
@@ -12254,6 +12278,12 @@ data:
       attributes:
         id: DEF_TOUCH_CHARGE_SHARE_DELAY77
         label: Additional Charge Share Delay
+      children:
+      - children:
+        - attributes:
+            value: '8'
+          type: User
+        type: Values
       type: Integer
     DEF_TOUCH_CHARGE_SHARE_DELAY78:
       attributes:
@@ -12410,7 +12440,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '5'
+            value: '20'
           type: User
         type: Values
       type: Integer
@@ -13963,7 +13993,7 @@ data:
       - children:
         - attributes:
             id: lib_qtouch
-            value: X(0),X(0),X(0),X(0),X(0),X(0),X(0),X(0),X(7),X(7),X(7),X(7),X(7),X(7),X(7),X(7),X(1),X(1),X(1),X(1),X(1),X(1),X(1),X(1),X(6),X(6),X(6),X(6),X(6),X(6),X(6),X(6),X(2),X(2),X(2),X(2),X(2),X(2),X(2),X(2),X(5),X(5),X(5),X(5),X(5),X(5),X(5),X(5),X(3),X(3),X(3),X(3),X(3),X(3),X(3),X(3),X(4),X(4),X(4),X(4),X(4),X(4),X(4),X(4),X(9),X(8),X(9),X(8),X(9),X(8),X(9),X(8),X(9),X(8),X(9),X(8),X(9)
+            value: X(0),X(7),X(1),X(6),X(2),X(5),X(3),X(4),X(0),X(7),X(1),X(6),X(2),X(5),X(3),X(4),X(0),X(7),X(1),X(6),X(2),X(5),X(3),X(4),X(0),X(7),X(1),X(6),X(2),X(5),X(3),X(4),X(0),X(7),X(1),X(6),X(2),X(5),X(3),X(4),X(0),X(7),X(1),X(6),X(2),X(5),X(3),X(4),X(0),X(7),X(1),X(6),X(2),X(5),X(3),X(4),X(0),X(7),X(1),X(6),X(2),X(5),X(3),X(4),X(9),X(8),X(8),X(9),X(8),X(9),X(8),X(9),X(8),X(9),X(8),X(9),X(8),X(9)
           type: Dynamic
         type: Values
       type: String
@@ -13975,7 +14005,7 @@ data:
       - children:
         - attributes:
             id: lib_qtouch
-            value: Y(9),Y(8),Y(14),Y(15),Y(2),Y(3),Y(4),Y(5),Y(9),Y(8),Y(14),Y(15),Y(2),Y(3),Y(4),Y(5),Y(9),Y(8),Y(14),Y(15),Y(2),Y(3),Y(4),Y(5),Y(9),Y(8),Y(14),Y(15),Y(2),Y(3),Y(4),Y(5),Y(9),Y(8),Y(14),Y(15),Y(2),Y(3),Y(4),Y(5),Y(9),Y(8),Y(14),Y(15),Y(2),Y(3),Y(4),Y(5),Y(9),Y(8),Y(14),Y(15),Y(2),Y(3),Y(4),Y(5),Y(9),Y(8),Y(14),Y(15),Y(2),Y(3),Y(4),Y(5),Y(5),Y(5),Y(4),Y(4),Y(3),Y(3),Y(2),Y(2),Y(15),Y(15),Y(14),Y(9),Y(9)
+            value: Y(9),Y(9),Y(9),Y(9),Y(9),Y(9),Y(9),Y(9),Y(8),Y(8),Y(8),Y(8),Y(8),Y(8),Y(8),Y(8),Y(14),Y(14),Y(14),Y(14),Y(14),Y(14),Y(14),Y(14),Y(15),Y(15),Y(15),Y(15),Y(15),Y(15),Y(15),Y(15),Y(2),Y(2),Y(2),Y(2),Y(2),Y(2),Y(2),Y(2),Y(3),Y(3),Y(3),Y(3),Y(3),Y(3),Y(3),Y(3),Y(4),Y(4),Y(4),Y(4),Y(4),Y(4),Y(4),Y(4),Y(5),Y(5),Y(5),Y(5),Y(5),Y(5),Y(5),Y(5),Y(9),Y(9),Y(14),Y(14),Y(15),Y(15),Y(2),Y(2),Y(3),Y(3),Y(4),Y(4),Y(5),Y(5)
           type: Dynamic
         type: Values
       type: String
@@ -14130,7 +14160,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '0'
+            value: '7'
           type: User
         type: Values
       type: KeyValueSet
@@ -14141,7 +14171,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '7'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -14202,7 +14232,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '7'
+            value: '6'
           type: User
         type: Values
       type: KeyValueSet
@@ -14263,7 +14293,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '7'
+            value: '2'
           type: User
         type: Values
       type: KeyValueSet
@@ -14324,7 +14354,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '7'
+            value: '5'
           type: User
         type: Values
       type: KeyValueSet
@@ -14365,7 +14395,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '7'
+            value: '3'
           type: User
         type: Values
       type: KeyValueSet
@@ -14376,7 +14406,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '7'
+            value: '4'
           type: User
         type: Values
       type: KeyValueSet
@@ -14387,7 +14417,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '1'
+            value: '0'
           type: User
         type: Values
       type: KeyValueSet
@@ -14398,7 +14428,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '1'
+            value: '7'
           type: User
         type: Values
       type: KeyValueSet
@@ -14420,7 +14450,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '1'
+            value: '6'
           type: User
         type: Values
       type: KeyValueSet
@@ -14431,7 +14461,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '0'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -14442,7 +14472,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '1'
+            value: '2'
           type: User
         type: Values
       type: KeyValueSet
@@ -14453,7 +14483,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '1'
+            value: '5'
           type: User
         type: Values
       type: KeyValueSet
@@ -14464,7 +14494,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '1'
+            value: '3'
           type: User
         type: Values
       type: KeyValueSet
@@ -14475,7 +14505,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '1'
+            value: '4'
           type: User
         type: Values
       type: KeyValueSet
@@ -14486,7 +14516,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '6'
+            value: '0'
           type: User
         type: Values
       type: KeyValueSet
@@ -14497,7 +14527,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '6'
+            value: '7'
           type: User
         type: Values
       type: KeyValueSet
@@ -14508,7 +14538,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '6'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -14530,7 +14560,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '6'
+            value: '2'
           type: User
         type: Values
       type: KeyValueSet
@@ -14541,7 +14571,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '6'
+            value: '5'
           type: User
         type: Values
       type: KeyValueSet
@@ -14552,7 +14582,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '0'
+            value: '6'
           type: User
         type: Values
       type: KeyValueSet
@@ -14563,7 +14593,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '6'
+            value: '3'
           type: User
         type: Values
       type: KeyValueSet
@@ -14574,7 +14604,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '6'
+            value: '4'
           type: User
         type: Values
       type: KeyValueSet
@@ -14585,7 +14615,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '0'
           type: User
         type: Values
       type: KeyValueSet
@@ -14596,7 +14626,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '7'
           type: User
         type: Values
       type: KeyValueSet
@@ -14607,7 +14637,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -14618,7 +14648,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '6'
           type: User
         type: Values
       type: KeyValueSet
@@ -14640,7 +14670,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '5'
           type: User
         type: Values
       type: KeyValueSet
@@ -14651,7 +14681,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '3'
           type: User
         type: Values
       type: KeyValueSet
@@ -14662,7 +14692,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '4'
           type: User
         type: Values
       type: KeyValueSet
@@ -14673,7 +14703,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '0'
+            value: '2'
           type: User
         type: Values
       type: KeyValueSet
@@ -14684,7 +14714,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '5'
+            value: '0'
           type: User
         type: Values
       type: KeyValueSet
@@ -14695,7 +14725,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '5'
+            value: '7'
           type: User
         type: Values
       type: KeyValueSet
@@ -14706,7 +14736,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '5'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -14717,7 +14747,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '5'
+            value: '6'
           type: User
         type: Values
       type: KeyValueSet
@@ -14728,7 +14758,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '5'
+            value: '2'
           type: User
         type: Values
       type: KeyValueSet
@@ -14750,7 +14780,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '5'
+            value: '3'
           type: User
         type: Values
       type: KeyValueSet
@@ -14761,7 +14791,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '5'
+            value: '4'
           type: User
         type: Values
       type: KeyValueSet
@@ -14772,7 +14802,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '0'
           type: User
         type: Values
       type: KeyValueSet
@@ -14783,7 +14813,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '7'
           type: User
         type: Values
       type: KeyValueSet
@@ -14794,7 +14824,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '0'
+            value: '5'
           type: User
         type: Values
       type: KeyValueSet
@@ -14805,7 +14835,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -14816,7 +14846,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '6'
           type: User
         type: Values
       type: KeyValueSet
@@ -14827,7 +14857,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '2'
           type: User
         type: Values
       type: KeyValueSet
@@ -14838,7 +14868,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '5'
           type: User
         type: Values
       type: KeyValueSet
@@ -14860,7 +14890,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '4'
           type: User
         type: Values
       type: KeyValueSet
@@ -14871,7 +14901,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '4'
+            value: '0'
           type: User
         type: Values
       type: KeyValueSet
@@ -14882,7 +14912,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '4'
+            value: '7'
           type: User
         type: Values
       type: KeyValueSet
@@ -14893,7 +14923,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '4'
+            value: '1'
           type: User
         type: Values
       type: KeyValueSet
@@ -14904,7 +14934,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '4'
+            value: '6'
           type: User
         type: Values
       type: KeyValueSet
@@ -14915,7 +14945,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '0'
+            value: '3'
           type: User
         type: Values
       type: KeyValueSet
@@ -14926,7 +14956,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '4'
+            value: '2'
           type: User
         type: Values
       type: KeyValueSet
@@ -14937,7 +14967,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '4'
+            value: '5'
           type: User
         type: Values
       type: KeyValueSet
@@ -14948,7 +14978,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '4'
+            value: '3'
           type: User
         type: Values
       type: KeyValueSet
@@ -14992,7 +15022,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '9'
+            value: '8'
           type: User
         type: Values
       type: KeyValueSet
@@ -15003,7 +15033,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '8'
+            value: '9'
           type: User
         type: Values
       type: KeyValueSet
@@ -15014,7 +15044,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '9'
+            value: '8'
           type: User
         type: Values
       type: KeyValueSet
@@ -15025,7 +15055,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '8'
+            value: '9'
           type: User
         type: Values
       type: KeyValueSet
@@ -15036,7 +15066,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '0'
+            value: '4'
           type: User
         type: Values
       type: KeyValueSet
@@ -15047,7 +15077,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '9'
+            value: '8'
           type: User
         type: Values
       type: KeyValueSet
@@ -15058,7 +15088,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '8'
+            value: '9'
           type: User
         type: Values
       type: KeyValueSet
@@ -15069,7 +15099,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '9'
+            value: '8'
           type: User
         type: Values
       type: KeyValueSet
@@ -15080,7 +15110,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '8'
+            value: '9'
           type: User
         type: Values
       type: KeyValueSet
@@ -15091,7 +15121,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '9'
+            value: '8'
           type: User
         type: Values
       type: KeyValueSet
@@ -15102,7 +15132,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '8'
+            value: '9'
           type: User
         type: Values
       type: KeyValueSet
@@ -15113,7 +15143,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '9'
+            value: '8'
           type: User
         type: Values
       type: KeyValueSet
@@ -15121,6 +15151,12 @@ data:
       attributes:
         id: MUTL-X-INPUT_77
         label: Select X Pin for Channel 77
+      children:
+      - children:
+        - attributes:
+            value: '9'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-X-INPUT_78:
       attributes:
@@ -15139,7 +15175,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '7'
+            value: '0'
           type: User
         type: Values
       type: KeyValueSet
@@ -15272,7 +15308,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '6'
+            value: '7'
           type: User
         type: Values
       type: KeyValueSet
@@ -15283,7 +15319,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '8'
+            value: '6'
           type: User
         type: Values
       type: KeyValueSet
@@ -15344,7 +15380,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '9'
+            value: '6'
           type: User
         type: Values
       type: KeyValueSet
@@ -15405,7 +15441,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '6'
           type: User
         type: Values
       type: KeyValueSet
@@ -15466,7 +15502,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '6'
           type: User
         type: Values
       type: KeyValueSet
@@ -15507,7 +15543,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '4'
+            value: '6'
           type: User
         type: Values
       type: KeyValueSet
@@ -15518,7 +15554,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '5'
+            value: '6'
           type: User
         type: Values
       type: KeyValueSet
@@ -15529,7 +15565,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '7'
+            value: '8'
           type: User
         type: Values
       type: KeyValueSet
@@ -15540,7 +15576,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '6'
+            value: '8'
           type: User
         type: Values
       type: KeyValueSet
@@ -15562,7 +15598,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '9'
+            value: '8'
           type: User
         type: Values
       type: KeyValueSet
@@ -15573,7 +15609,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '8'
+            value: '7'
           type: User
         type: Values
       type: KeyValueSet
@@ -15584,7 +15620,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '8'
           type: User
         type: Values
       type: KeyValueSet
@@ -15595,7 +15631,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '8'
           type: User
         type: Values
       type: KeyValueSet
@@ -15606,7 +15642,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '4'
+            value: '8'
           type: User
         type: Values
       type: KeyValueSet
@@ -15617,7 +15653,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '5'
+            value: '8'
           type: User
         type: Values
       type: KeyValueSet
@@ -15628,7 +15664,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '7'
+            value: '9'
           type: User
         type: Values
       type: KeyValueSet
@@ -15639,7 +15675,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '6'
+            value: '9'
           type: User
         type: Values
       type: KeyValueSet
@@ -15650,7 +15686,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '8'
+            value: '9'
           type: User
         type: Values
       type: KeyValueSet
@@ -15672,7 +15708,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '9'
           type: User
         type: Values
       type: KeyValueSet
@@ -15683,7 +15719,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '9'
           type: User
         type: Values
       type: KeyValueSet
@@ -15694,7 +15730,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '9'
+            value: '7'
           type: User
         type: Values
       type: KeyValueSet
@@ -15705,7 +15741,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '4'
+            value: '9'
           type: User
         type: Values
       type: KeyValueSet
@@ -15716,7 +15752,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '5'
+            value: '9'
           type: User
         type: Values
       type: KeyValueSet
@@ -15727,7 +15763,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '7'
+            value: '2'
           type: User
         type: Values
       type: KeyValueSet
@@ -15738,7 +15774,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '6'
+            value: '2'
           type: User
         type: Values
       type: KeyValueSet
@@ -15749,7 +15785,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '8'
+            value: '2'
           type: User
         type: Values
       type: KeyValueSet
@@ -15760,7 +15796,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '9'
+            value: '2'
           type: User
         type: Values
       type: KeyValueSet
@@ -15782,7 +15818,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '2'
           type: User
         type: Values
       type: KeyValueSet
@@ -15793,7 +15829,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '4'
+            value: '2'
           type: User
         type: Values
       type: KeyValueSet
@@ -15804,7 +15840,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '5'
+            value: '2'
           type: User
         type: Values
       type: KeyValueSet
@@ -15815,7 +15851,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '7'
           type: User
         type: Values
       type: KeyValueSet
@@ -15826,7 +15862,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '7'
+            value: '3'
           type: User
         type: Values
       type: KeyValueSet
@@ -15837,7 +15873,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '6'
+            value: '3'
           type: User
         type: Values
       type: KeyValueSet
@@ -15848,7 +15884,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '8'
+            value: '3'
           type: User
         type: Values
       type: KeyValueSet
@@ -15859,7 +15895,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '9'
+            value: '3'
           type: User
         type: Values
       type: KeyValueSet
@@ -15870,7 +15906,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '3'
           type: User
         type: Values
       type: KeyValueSet
@@ -15892,7 +15928,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '4'
+            value: '3'
           type: User
         type: Values
       type: KeyValueSet
@@ -15903,7 +15939,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '5'
+            value: '3'
           type: User
         type: Values
       type: KeyValueSet
@@ -15914,7 +15950,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '7'
+            value: '4'
           type: User
         type: Values
       type: KeyValueSet
@@ -15925,7 +15961,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '6'
+            value: '4'
           type: User
         type: Values
       type: KeyValueSet
@@ -15936,7 +15972,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '7'
           type: User
         type: Values
       type: KeyValueSet
@@ -15947,7 +15983,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '8'
+            value: '4'
           type: User
         type: Values
       type: KeyValueSet
@@ -15958,7 +15994,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '9'
+            value: '4'
           type: User
         type: Values
       type: KeyValueSet
@@ -15969,7 +16005,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '4'
           type: User
         type: Values
       type: KeyValueSet
@@ -15980,7 +16016,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '4'
           type: User
         type: Values
       type: KeyValueSet
@@ -16002,7 +16038,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '5'
+            value: '4'
           type: User
         type: Values
       type: KeyValueSet
@@ -16013,7 +16049,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '7'
+            value: '5'
           type: User
         type: Values
       type: KeyValueSet
@@ -16024,7 +16060,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '6'
+            value: '5'
           type: User
         type: Values
       type: KeyValueSet
@@ -16035,7 +16071,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '8'
+            value: '5'
           type: User
         type: Values
       type: KeyValueSet
@@ -16046,7 +16082,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '9'
+            value: '5'
           type: User
         type: Values
       type: KeyValueSet
@@ -16057,7 +16093,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '4'
+            value: '7'
           type: User
         type: Values
       type: KeyValueSet
@@ -16068,7 +16104,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '2'
+            value: '5'
           type: User
         type: Values
       type: KeyValueSet
@@ -16079,7 +16115,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '5'
           type: User
         type: Values
       type: KeyValueSet
@@ -16090,7 +16126,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '4'
+            value: '5'
           type: User
         type: Values
       type: KeyValueSet
@@ -16112,7 +16148,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '5'
+            value: '7'
           type: User
         type: Values
       type: KeyValueSet
@@ -16123,7 +16159,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '5'
+            value: '7'
           type: User
         type: Values
       type: KeyValueSet
@@ -16134,7 +16170,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '4'
+            value: '8'
           type: User
         type: Values
       type: KeyValueSet
@@ -16145,7 +16181,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '4'
+            value: '8'
           type: User
         type: Values
       type: KeyValueSet
@@ -16156,7 +16192,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '9'
           type: User
         type: Values
       type: KeyValueSet
@@ -16167,7 +16203,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '3'
+            value: '9'
           type: User
         type: Values
       type: KeyValueSet
@@ -16178,7 +16214,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '5'
+            value: '7'
           type: User
         type: Values
       type: KeyValueSet
@@ -16211,7 +16247,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '9'
+            value: '3'
           type: User
         type: Values
       type: KeyValueSet
@@ -16222,7 +16258,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '9'
+            value: '3'
           type: User
         type: Values
       type: KeyValueSet
@@ -16233,7 +16269,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '8'
+            value: '4'
           type: User
         type: Values
       type: KeyValueSet
@@ -16244,7 +16280,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '7'
+            value: '4'
           type: User
         type: Values
       type: KeyValueSet
@@ -16255,7 +16291,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '7'
+            value: '5'
           type: User
         type: Values
       type: KeyValueSet
@@ -16263,6 +16299,12 @@ data:
       attributes:
         id: MUTL-Y-INPUT_77
         label: Select Y Pin for Channel 77
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
       type: KeyValueSet
     MUTL-Y-INPUT_78:
       attributes:
@@ -16281,7 +16323,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '7'
+            value: '6'
           type: User
         type: Values
       type: KeyValueSet
@@ -17369,7 +17411,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '77'
+            value: '78'
           type: User
         type: Values
       type: Integer
@@ -18382,6 +18424,12 @@ data:
       attributes:
         id: TOUCH_ENABLE_CH_77
         label: Use touch channel 77
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_CH_78:
       attributes:
@@ -19524,6 +19572,12 @@ data:
       attributes:
         id: TOUCH_ENABLE_KEY_77
         label: Use touch channel 77
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
       type: Boolean
     TOUCH_ENABLE_KEY_78:
       attributes:
@@ -20344,7 +20398,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '77'
+            value: '78'
           type: User
         type: Values
       type: Integer

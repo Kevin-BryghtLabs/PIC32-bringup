@@ -606,6 +606,13 @@ uint8_t key_status = 0u;
         //Touch No detect
     }
 
+    key_status = get_sensor_state(77) & KEY_TOUCHED_MASK;
+    if (0u != key_status) {
+        //Touch detect
+    } else {
+        //Touch No detect
+    }
+
 
 }
 

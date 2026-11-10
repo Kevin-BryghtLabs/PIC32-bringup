@@ -26,7 +26,7 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/PIC32CM6408JH00048.ld
   hash: 65f6cc7bbdd30f18bf6e79c9369c7f755a4da37120ba08660dc9bcbe440ebf47
 - file: ../src/config/default/definitions.h
-  hash: 33463477775b475f68f0d1eb2b2aef940cef158d6c87b99183ce97fb6758ec48
+  hash: 0d13aa5a8c3bf2e1e60ffe7adb004336c7885a10149d5ac4a4cad8f1501bc0d2
 - file: ../src/config/default/device.h
   hash: ebec3c93ae73497dd0456e83a24acc27bca9da841c0ad5d8c8bd053b270f3b87
 - file: ../src/config/default/device_cache.h
@@ -36,7 +36,7 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/exceptions.c
   hash: d1567a190561858cc1cb7e796cf1a29720e52b9799bbd88b087993d8539e137f
 - file: ../src/config/default/initialization.c
-  hash: 271675ba4e136ca7f0af87d5efcc7eccf093cf5e6514d18b7661c708f2c228e9
+  hash: 128753d6e4539dec68800eaed6522f449305dcb967bef220aa9cfad090ef6155
 - file: ../src/config/default/interrupts.c
   hash: cfc7aef00609dbfd38b648f4630fbfd51ca8c765480bb4e4b072eb7ee1e33cfb
 - file: ../src/config/default/interrupts.h
@@ -138,13 +138,13 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/touch/qtm_touch_key_0x0002_api.h
   hash: 4840f9cd8def73a029c2090d101548329c92bdf13bd19410029aab45234b42e2
 - file: ../src/config/default/touch/touch.c
-  hash: 25aa9ddd35bed4a100cfd4061ba130bad3791a581e08fd699200750bcfb81c33
+  hash: ec1b6d81c6a50c78382d16dc160a1d73d94eb3d2cb50cd332c4ac0bb30427a24
 - file: ../src/config/default/touch/touch.h
-  hash: 7f9f5bf653e3ba11a5542e14372b8849437291b4c2818f8edf01ac797b1baa92
+  hash: 00c9d1783a03d70cd37318e23ebb42c2e8dc5c775ddd03d722e3f48a76960c3c
 - file: ../src/config/default/touch/touch_api_ptc.h
   hash: 468c19e1f812152728b1d5fa7ec465955dc03954b6975e85e7fb3209bdf05f17
 - file: ../src/config/default/touch/touch_example.c
-  hash: d3886e41864780d669a76d3f944edddd661f5164796488891b2b4b3d3734e194
+  hash: 1bd50bc8c713efed3ed58daa3c4e6a12606713c8d601610b39421107f48cad8d
 - file: ../src/config/default/touch/touch_example.h
   hash: d97d3b1b603e836e3ee9a7b3efd6a1166d9a100949cd67df7b448b9c7504d777
 - file: ../src/main.c
