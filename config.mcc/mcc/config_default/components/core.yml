@@ -430,7 +430,7 @@ data:
       children:
       - children:
         - attributes:
-            value: ''
+            value: Out
           type: User
         type: Values
       type: String
@@ -441,7 +441,7 @@ data:
       children:
       - children:
         - attributes:
-            value: ''
+            value: PSPARE1
           type: User
         type: Values
       type: String
@@ -456,7 +456,7 @@ data:
             value: ''
           type: Dynamic
         - attributes:
-            value: GCLK_IO6
+            value: GPIO
           type: User
         type: Values
       type: String
@@ -489,7 +489,7 @@ data:
       children:
       - children:
         - attributes:
-            value: H
+            value: GPIO
           type: User
         type: Values
       type: String
@@ -865,7 +865,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '0x2000000'
+            value: '0x2400000'
           type: Dynamic
         type: Values
       type: String
@@ -1069,7 +1069,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '0x3'
+            value: '0x2'
           type: Dynamic
         type: Values
       type: String
@@ -1261,7 +1261,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '0x7'
+            value: '0x0'
           type: Dynamic
         type: Values
       type: String
