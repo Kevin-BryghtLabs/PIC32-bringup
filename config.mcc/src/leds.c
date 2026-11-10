@@ -133,6 +133,24 @@ static void fillSPIBuffer(unsigned startIdx, uint8_t * spiBuffer) {
   }
 }
 
+// Stages of LED transfer:
+//                                                                 | ------------- Value at end -------------|
+// | Context |  Just sent  | State | Fill buffer 0 | Fill buffer 1 | currentBuffer | ledSentIdx | ledFillIdx |
+// |---------+-------------+-------+---------------+---------------+---------------+------------+------------|
+// | sendLedData (non-ISR) |  N/A  |     0 -  7    |    8 - 15     |       0       |      0     |     16     |
+// | ISR 1   |  Low start  | START |               |               |       0       |      0     |     16     |
+// | ISR 2   |    Data     |  TX   |    16 - 23    |               |       1       |      8     |     24     |
+// | ISR 3   |    Data     |  TX   |               |   24 - 31     |       0       |     16     |     32     |
+// | ISR 4   |    Data     |  TX   |    32 - 39    |               |       1       |     24     |     40     |
+// | ISR 5   |    Data     |  TX   |               |   40 - 47     |       0       |     32     |     48     |
+// | ISR 6   |    Data     |  TX   |    48 - 55    |               |       1       |     40     |     56     |
+// | ISR 7   |    Data     |  TX   |               |   56 - 63     |       0       |     48     |     64     |
+// | ISR 8 * |    Data     |  TX   |               |               |       0       |     56     |     64     |
+// | ISR 9 * |    Data     |  TX   |               |               |       0       |     64     |     64     |
+// | ISR 10  |   Reset     |  END  |               |               |       0       |     64     |     64     |
+//
+// * ISR 8 does not fill nor change currentBuffer because fillIdx is now 64
+// * ISR 9 hits the ledSentIdx check and transitions to END
 static void dmaBlockDone(DMAC_TRANSFER_EVENT event, uintptr_t contextHandle) {
   if (event == DMAC_TRANSFER_EVENT_COMPLETE) {
     switch (dmaState) {
@@ -147,17 +165,20 @@ static void dmaBlockDone(DMAC_TRANSFER_EVENT event, uintptr_t contextHandle) {
           // the one after the "RESET" low-signal transfer
           dmaState = STATE_END;
         }
-        else {
-          fillSPIBuffer(ledFillIdx, ledPayloadBuffer[currentBuffer]);
+        else if (ledFillIdx < LED_COUNT) {
+          // Copy off fill idx and update DMA first.  FillSPI takes a while (~26us), and while
+          // there should be plenty of time (~230us of SPI transfer), make sure the next DMA
+          // descriptor is correct before doing the long operation
+          unsigned fillIdxCopy = ledFillIdx;
 
           ledFillIdx += LEDS_PER_BLOCK_TRANSFER;
           if (ledFillIdx >= LED_COUNT) {
-            // We just filled the final transfer, tell it to transition
-            // to the end state after sending
+            // This will be the final transfer, tell it to transition to the end state after sending
             unsigned descriptorIdx = currentBuffer == 0 ? DMA_DESC_BUFFER0 : DMA_DESC_BUFFER1;
             dmaDescriptors[descriptorIdx].DMAC_DESCADDR = (uintptr_t)&dmaDescriptors[DMA_DESC_RESET];
           }
 
+          fillSPIBuffer(fillIdxCopy, ledPayloadBuffer[currentBuffer]);
           currentBuffer ^= 1;
         }
         break;
