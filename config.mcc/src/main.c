@@ -57,40 +57,23 @@ bool canStartCapTouch(bool pieceIdActive, bool ledsActive) {
   return !pieceIdActive && !ledsActive;
 }
 
-int turn = 0;
-
 void startReadyTasks() {
   const uint32_t now = getCurrentTimeMs();
 
   if (alsReady(now) && canRunAls(pieceIdInProgress())) {
     alsStart();
-    return;
   }
 
-  switch (turn) {
-    case 0:
-      if (ledReady(now) && canStartLEDs(capTouchInProgress())) {
-        ledStart();
-        turn++;
-      }
-      break;
+  if (ledReady(now) && canStartLEDs(capTouchInProgress())) {
+    ledStart();
+  }
 
-    case 1:
-      if (capTouchReady() && canStartCapTouch(pieceIdInProgress(), ledTransmitInProgress())) {
-        capTouchStart();
-        turn++;
-      }
-      break;
+  if (capTouchReady() && canStartCapTouch(pieceIdInProgress(), ledTransmitInProgress())) {
+    capTouchStart();
+  }
 
-    case 2:
-      if (pieceIdReady(now) && canStartPieceId(alsReadInProgress(), capTouchInProgress())) {
-        pieceIdStart();
-        turn++;
-      }
-      break;
-
-    default:
-      turn = 0;
+  if (pieceIdReady(now) && canStartPieceId(alsReadInProgress(), capTouchInProgress())) {
+    pieceIdStart();
   }
 }
 

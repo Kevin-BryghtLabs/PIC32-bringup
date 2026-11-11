@@ -665,7 +665,7 @@ uint32_t pieceIdGetRing(unsigned idx) {
 
 bool pieceIdReady(uint32_t now) {
   // Do pieceId when we're not doing anything else
-  return true;
+  return !pieceIdRunning;
 }
 
 void pieceIdTask() {

@@ -83,6 +83,9 @@ static volatile bool ledDirty = false;
 // Starting time in ticks (for stats calculation)
 static uint32_t ledStartTicks = 0;
 
+// LED dirty set time in ticks (for stats calculation)
+static uint32_t ledDirtyTicks = 0;
+
 static uint32_t lastUpdateTimeMs = 0;
 
 // DMA Descriptors
@@ -303,14 +306,14 @@ bool ledReady(uint32_t now) {
     return false;
   }
 
-  if (ledDirty) {
-    return true;
-  }
-
   if (now - lastUpdateTimeMs < 10) {
     // Should not get updates from ESP32 any faster than this, but
     // don't let LED starve out other tasks if we do
     return false;
+  }
+
+  if (ledDirty) {
+    return true;
   }
 
   if (now - lastUpdateTimeMs > 1000) {
@@ -329,6 +332,12 @@ void ledInit() {
 
 void ledStart() {
   ledStartTicks = getCurrentTimeTicks();
+
+  if (ledDirtyTicks > 0) {
+    shuStatsAddSample(Stat_LED_StartLatency,  ledStartTicks - ledDirtyTicks);
+    ledDirtyTicks = 0;
+  }
+
   sendLedData();
 }
 
@@ -345,4 +354,5 @@ void ledUpdateAll(const uint8_t * data, size_t size) {
 
   memcpy(ledValues, data, copyBytes);
   ledDirty = true;
+  ledDirtyTicks = getCurrentTimeTicks();
 }
