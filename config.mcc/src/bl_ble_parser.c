@@ -53,9 +53,17 @@ void sendTouchCcVals(void)
 }
 #endif
 
-void sendFirmwareVersion(void){
-    static const uint8_t verData[3] = {SENSOR_HUB_VERSION_MAJOR, SENSOR_HUB_VERSION_MINOR, SENSOR_HUB_VERSION_MICRO};
-    sendGeneric(NRF52_FW_VER, sizeof(verData), verData);
+void sendFirmwareVersion(void) {
+  static const uint8_t verData[3] = {SENSOR_HUB_VERSION_MAJOR, SENSOR_HUB_VERSION_MINOR, SENSOR_HUB_VERSION_MICRO};
+  sendGeneric(NRF52_FW_VER, sizeof(verData), verData);
+}
+
+void sendStartupMessage(void) {
+  uint8_t startupData[2];
+  const uint16_t resetCause = RSTC_ResetCauseGet();
+  memcpy(&startupData[0], &resetCause, sizeof(resetCause));
+
+  sendGeneric(STARTUP, sizeof(startupData), startupData);
 }
 
 uint32_t ledMsgCount = 0;

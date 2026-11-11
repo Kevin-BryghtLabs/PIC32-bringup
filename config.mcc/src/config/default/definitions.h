@@ -60,6 +60,7 @@
 #include "peripheral/pm/plib_pm.h"
 #include "peripheral/rtc/plib_rtc.h"
 #include "touch/touch.h"
+#include "peripheral/rstc/plib_rstc.h"
 #include "peripheral/tc/plib_tc3.h"
 #include "peripheral/tc/plib_tc2.h"
 #include "peripheral/tc/plib_tc4.h"

@@ -1,0 +1,65 @@
+configVersion: 1.0.0
+componentName: rstc
+coreVersion: 5.9.2
+device: PIC32CM6408JH00048
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: rstc
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.26.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition: {}
+  symbols:
+    RSTC_ENABLE:
+      attributes:
+        id: RSTC_ENABLE
+        label: Use Reset Controller ?
+      type: Boolean
+    RSTC_INSTANCE_NAME:
+      attributes:
+        id: RSTC_INSTANCE_NAME
+        label: RSTC_INSTANCE_NAME
+      type: String
+    RSTC_RCAUSE0:
+      attributes:
+        id: RSTC_RCAUSE0
+        label: Power On Reset
+      type: KeyValueSet
+    RSTC_RCAUSE1:
+      attributes:
+        id: RSTC_RCAUSE1
+        label: Brown Out CORE Detector Reset
+      type: KeyValueSet
+    RSTC_RCAUSE2:
+      attributes:
+        id: RSTC_RCAUSE2
+        label: Brown Out VDD Detector Reset
+      type: KeyValueSet
+    RSTC_RCAUSE3:
+      attributes:
+        id: RSTC_RCAUSE3
+        label: External Reset
+      type: KeyValueSet
+    RSTC_RCAUSE4:
+      attributes:
+        id: RSTC_RCAUSE4
+        label: Watchdog Reset
+      type: KeyValueSet
+    RSTC_RCAUSE5:
+      attributes:
+        id: RSTC_RCAUSE5
+        label: System Reset Request
+      type: KeyValueSet
+    RSTC_RCAUSE_LENGTH:
+      attributes:
+        id: RSTC_RCAUSE_LENGTH
+        label: RSTC_RCAUSE_LENGTH
+      type: Integer
+  userData: {}

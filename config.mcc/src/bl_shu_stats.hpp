@@ -18,6 +18,8 @@ typedef enum StatIdx {
   Stat_LED_StartLatency,
   Stat_PieceId_StartLatency,
 
+  Stat_TaskLoop,
+
   StatCount
 } StatIdx;
 

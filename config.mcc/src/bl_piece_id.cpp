@@ -422,8 +422,10 @@ static void calculateFrequencyConfigForIndex(unsigned idx) {
 
 static void calculateFrequencyConfigs() {
   for (unsigned i = 0; i < FrequencyCount; ++i) {
+    WDT_Clear();
     calculateFrequencyConfigForIndex(i);
   }
+  WDT_Clear();
 }
 
 // Call once to initialize systems after boot

@@ -150,6 +150,7 @@ enum
 
     DEBUG_MESSAGE               = 0xD0, // String payload to be printed or logged
     STATS_DATA                  = 0xD1, // Performance statistics report
+    STARTUP                     = 0xD2, // Sent on startup
 
     ENABLE_DATA_STREAMING       = 0xDA, // Header to enable touch data streaming
     BL_REGION                   = 0xDB, // Header for tell the app which bootloader is being used

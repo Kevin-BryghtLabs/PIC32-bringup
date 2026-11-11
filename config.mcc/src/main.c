@@ -2,6 +2,7 @@
 #include <stdbool.h>                    // Defines true
 #include <stdlib.h>                     // Defines EXIT_FAILURE
 #include "bl_als.hpp"
+#include "bl_ble_parser.h"
 #include "bl_comm.hpp"
 #include "bl_piece_id.hpp"
 #include "bl_shu_stats.hpp"
@@ -13,25 +14,10 @@
 #include "leds.h"
 #include <inttypes.h>
 
-#if 0
-void sendFirmwareVersion(void){
-    static const uint8_t verData[3] = {SENSOR_HUB_VERSION_MAJOR, SENSOR_HUB_VERSION_MINOR, SENSOR_HUB_VERSION_MICRO};
-    sendGeneric(NRF52_FW_VER, sizeof(verData), verData);
-}
-#endif
-
 void signalStateInit(void) {
     // Leave levels unchanged from bootloader
-    //PSPARE1_OutputEnable();
+    PSPARE1_OutputEnable();
     PSPARE2_OutputEnable();
-
-    // App keeps PSPARE1 low and sets it low to wiggle PSPARE2, opposite of bootloader
-    //PSPARE1_Clear();
-    PSPARE2_Set();
-
-    // Wiggle PSPARE2 once with PSPARE1 high to indicate bootloader running
-    PSPARE2_Clear();
-    PSPARE2_Set();
 }
 
 bool canRunAls(bool pieceIdActive) {
@@ -80,6 +66,12 @@ void startReadyTasks() {
 uint32_t nextPrintMs = 0;
 uint32_t printIntervalMs = 3000;
 
+static void wdtEnable() {
+  // Cycles are of the 1024KHz clock, so essentially 1ms
+  WDT_TimeoutPeriodSet(WDT_CONFIG_PER_CYC2048_Val);
+  WDT_Enable();
+}
+
 int main ( void )
 {
     /* Initialize all modules */
@@ -92,22 +84,26 @@ int main ( void )
     bl_uart_dma_rx_init();
     bl_uart_dma_tx_init();
 
+    // This takes a long time to send 300 zeros;
+    // configure WDT accordingly (or not at all before calling)
     commInit();
+    sendStartupMessage();
 
     shuStatsInit();
 
     alsInit();
     ledInit();
     capTouchInit();
+
+    // This takes a long time to calculate the parameters for all frequencies;
+    // configure WDT accordingly (or not at all before calling)
     pieceIdInit();
 
-    // Note: WDT is configured by fuse bits; enable/period/etc NOT
-    // configurable via API
-    WDT_Clear();
+    wdtEnable();
 
     while ( true )
     {
-        uint32_t now = getCurrentTimeMs();
+        uint32_t loopTimeMs = getCurrentTimeMs();
 
         /* Maintain state machines of all polled MPLAB Harmony modules. */
         SYS_Tasks ( );
@@ -121,15 +117,16 @@ int main ( void )
         capTouchTask();
         pieceIdTask();
 
-        shuStatsTask(now);
+        shuStatsTask(loopTimeMs);
 
-        WDT_Clear();
-
-        if (now >= nextPrintMs) {
+        if (loopTimeMs >= nextPrintMs) {
           nextPrintMs += printIntervalMs;
           extern uint32_t ledMsgCount;
           hubLog('I', "LedMessages: %u", ledMsgCount);
         }
+
+        shuStatsAddSample(Stat_TaskLoop, getCurrentTimeMs() - loopTimeMs);
+        WDT_Clear();
     }
 
     /* Execution should not come here during normal operation */

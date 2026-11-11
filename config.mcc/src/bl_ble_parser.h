@@ -19,6 +19,7 @@ extern "C" {
  * Function prototypes
  *******************************************************************************/
 void sendFirmwareVersion(void);
+void sendStartupMessage(void);
 void sendTouchCcVals(void);
 void DecodePacketData(const uint8_t bleData[],int dataLength);
 

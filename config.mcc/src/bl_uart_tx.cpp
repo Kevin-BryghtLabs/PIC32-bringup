@@ -47,6 +47,10 @@ void sendGenericData(const void * data_, uint8_t len)
   {
 #if USE_DMA
     size_t sent = bl_uart_write(data, len);
+    if (sent) {
+      // Clear WDT if we made any progress
+      WDT_Clear();
+    }
 #else
     size_t sent = SERCOM2_USART_Write(data, len);
 #endif
@@ -89,13 +93,17 @@ void sendGenericDone()
   {
 #if USE_DMA
     size_t sent = bl_uart_write(data, len);
-    bl_uart_tx_flush();
+    if (sent) {
+      // Clear WDT if we made any progress
+      WDT_Clear();
+    }
 #else
     size_t sent = SERCOM2_USART_Write(data, len);
 #endif
     data += sent;
     len -= sent;
   }
+  bl_uart_tx_flush();
 }
 
 /*******************************************************************************

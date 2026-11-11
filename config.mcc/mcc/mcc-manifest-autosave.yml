@@ -2,13 +2,13 @@
 
 manifest_file_version: 1.0.0
 project: config_default
-creation_date: 2026-11-11T08:30:55.766-06:00[America/Chicago]
+creation_date: 2026-11-11T11:03:10.530-06:00[America/Chicago]
 operating_system: Linux
 mcc_mode: VSCodePlugin
 mcc_mode_version: Unknown
 device_name: PIC32CM6408JH00048
 compiler: N/A
-mcc_version: 5.7.1
+mcc_version: 5.7.2
 mcc_core_version: 5.9.2
 content_manager_version: 7.0.1
 is_mcc_offline: false

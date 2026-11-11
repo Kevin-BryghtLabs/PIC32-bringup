@@ -15,6 +15,7 @@ void commInit() {
   //Send 300B of zeros to reset the ESP32 parser in the event it is mid-frame
   for(unsigned i = 0; i < 300; ++i){
     sendGenericData1(0x00);
+    WDT_Clear();
   }
   bl_uart_tx_flush();
 }

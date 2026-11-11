@@ -14,6 +14,7 @@ modules:
 - nvmctrl
 - pm
 - ptc
+- rstc
 - rtc
 - sercom1
 - sercom2
@@ -26,7 +27,7 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/PIC32CM6408JH00048.ld
   hash: 65f6cc7bbdd30f18bf6e79c9369c7f755a4da37120ba08660dc9bcbe440ebf47
 - file: ../src/config/default/definitions.h
-  hash: fa9343a4c1fbe20a0c13d9a0bdf4f8ea28c1298b56d2f31b0d9bb4376e5c3200
+  hash: fa21177ae2b1a83023c5443d3c08dd6b9053cb3bf5313a7512587be63746f7be
 - file: ../src/config/default/device.h
   hash: ebec3c93ae73497dd0456e83a24acc27bca9da841c0ad5d8c8bd053b270f3b87
 - file: ../src/config/default/device_cache.h
@@ -36,7 +37,7 @@ generatedFileHashHistoryMap:
 - file: ../src/config/default/exceptions.c
   hash: d1567a190561858cc1cb7e796cf1a29720e52b9799bbd88b087993d8539e137f
 - file: ../src/config/default/initialization.c
-  hash: 4e8a2e824e9f377024f5ced3f69838e6eacb4d5edae293177dc3f3e2bfdc8852
+  hash: 87ce65ca43e2c3a3e834845ecb5cce32e5c97b41f97fe26c309c14c51eb3df69
 - file: ../src/config/default/interrupts.c
   hash: cfc7aef00609dbfd38b648f4630fbfd51ca8c765480bb4e4b072eb7ee1e33cfb
 - file: ../src/config/default/interrupts.h
@@ -77,6 +78,10 @@ generatedFileHashHistoryMap:
   hash: 24dd2e6c4ea1064167e3e0989abb1ca261ac9ca78db517175249dba7530bb838
 - file: ../src/config/default/peripheral/port/plib_port.h
   hash: 557e99a19c576dcfdf7c0bc1e1fed76f551dd2fc77deb877ea3e09773702f32c
+- file: ../src/config/default/peripheral/rstc/plib_rstc.c
+  hash: 8ecdc07b01d576d30384c0a0370b97ac7dae835168106d04ba82cbbc7fc3c660
+- file: ../src/config/default/peripheral/rstc/plib_rstc.h
+  hash: 4bbc26611359ba011196747f94bed5a1ed18db49fa5baf9fbd1d2b5fb28d1f73
 - file: ../src/config/default/peripheral/rtc/plib_rtc.h
   hash: 92e9a13ceda691e011ad7efff84d616e8466f744723f8135850fc171fd53ac3b
 - file: ../src/config/default/peripheral/rtc/plib_rtc_timer.c
