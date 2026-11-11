@@ -80,10 +80,14 @@ static void configPinsForCapTouch(void)
 }
 
 static bool touchTimerElapsed;
+static uint32_t capTouchReadyTicks;
 
 void capTouchRtcHandler(RTC_TIMER32_INT_MASK intCause, uintptr_t context )
 {
   touchTimerElapsed = true;
+  if (capTouchReadyTicks == 0) {
+    capTouchReadyTicks = getCurrentTimeTicks();
+  }
 
   rtc_cb(intCause, context);
 }
@@ -116,6 +120,10 @@ bool capTouchInProgress() {
 
 void capTouchStart() {
   capTouchStartTicks = getCurrentTimeTicks();
+  if (capTouchReadyTicks > 0) {
+    shuStatsAddSample(Stat_CapTouch_StartLatency, capTouchStartTicks - capTouchReadyTicks);
+    capTouchReadyTicks = 0;
+  }
 
   capTouchRunning = true;
   touchTimerElapsed = false;

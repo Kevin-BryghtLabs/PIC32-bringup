@@ -208,6 +208,7 @@ FrequencyData frequencies[] = {
 static size_t FrequencyCount = ARRAY_SIZE(frequencies);
 
 static uint32_t pieceIdStartTicks = 0;
+static uint32_t pieceIdReadyTicks = 0;
 
 static bool isSamePllConfig(const PllTccConfig & a, const PllTccConfig & b) {
   return a.gclkDiv == b.gclkDiv
@@ -688,6 +689,7 @@ void pieceIdTask() {
 
         uint32_t doneTicks = getCurrentTimeTicks();
         shuStatsAddSample(Stat_PieceId_SquareTime, doneTicks - pieceIdStartTicks);
+        pieceIdReadyTicks = doneTicks;
 
         pieceIdRunning = false;
         onComplete();
@@ -698,6 +700,10 @@ void pieceIdTask() {
 
 void pieceIdStart() {
   pieceIdStartTicks = getCurrentTimeTicks();
+  if (pieceIdReadyTicks > 0) {
+    shuStatsAddSample(Stat_PieceId_StartLatency, pieceIdStartTicks - pieceIdReadyTicks );
+    pieceIdReadyTicks = 0;
+  }
 
   frequencyIdx = 0;
   pieceIdRunning = true;
