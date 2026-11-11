@@ -101,6 +101,10 @@ int main ( void )
     capTouchInit();
     pieceIdInit();
 
+    // Note: WDT is configured by fuse bits; enable/period/etc NOT
+    // configurable via API
+    WDT_Clear();
+
     while ( true )
     {
         uint32_t now = getCurrentTimeMs();
@@ -118,6 +122,8 @@ int main ( void )
         pieceIdTask();
 
         shuStatsTask(now);
+
+        WDT_Clear();
 
         if (now >= nextPrintMs) {
           nextPrintMs += printIntervalMs;

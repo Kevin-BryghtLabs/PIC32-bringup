@@ -61,9 +61,9 @@
 #pragma config BODVDD_HYST = DISABLED
 #pragma config NVMCTRL_REGION_LOCKS = 0xffffU // Enter Hexadecimal value
 
-#pragma config WDT_ENABLE = DISABLED
-#pragma config WDT_ALWAYSON = DISABLED
-#pragma config WDT_PER = CYC8
+#pragma config WDT_ENABLE = ENABLED
+#pragma config WDT_ALWAYSON = ENABLED
+#pragma config WDT_PER = CYC32
 
 #pragma config WDT_WINDOW = CYC8
 #pragma config WDT_EWOFFSET = CYC8
