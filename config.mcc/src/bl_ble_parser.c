@@ -18,6 +18,10 @@
 #include "timer.h" // For `delay`, can remove if we get the standard headers
 #include "leds.h"
 
+#ifndef ARRAY_SIZE
+#define ARRAY_SIZE(a) (sizeof(a) / sizeof((a)[0]))
+#endif
+
 static uint32_t piece_id_tone_table[12][3];/*1x freq hz, 1x drain delays, 1x adc delays*/
 
 /*******************************************************************************
@@ -64,6 +68,14 @@ void sendStartupMessage(void) {
   memcpy(&startupData[0], &resetCause, sizeof(resetCause));
 
   sendGeneric(STARTUP, sizeof(startupData), startupData);
+}
+
+static void populateToneTable() {
+  for (unsigned i = 0; i < ARRAY_SIZE(piece_id_tone_table); ++i) {
+    piece_id_tone_table[i][0] = pieceIdGetFrequency(i);
+    piece_id_tone_table[i][1] = pieceIdGetDelay(i);
+    piece_id_tone_table[i][2] = pieceIdGetRing(i);
+  }
 }
 
 uint32_t ledMsgCount = 0;
@@ -154,6 +166,7 @@ void DecodePacketData(const uint8_t bleData[], int dataLength) {
     capTouchSetCCVals(&bleData[1], dataLength - 1);
   }
   else if(bleData[0] == PIECE_ID_FREQS && dataLength == 1){
+    populateToneTable();
     sendGeneric(PIECE_ID_FREQS, sizeof(piece_id_tone_table), &piece_id_tone_table);
   }
   else if(bleData[0] == PIECE_ID_FREQS) { // && dataLength == 1 + sizeof(piece_id_tone_table)){

@@ -7,7 +7,6 @@
 #include "hub_log.h"
 #include "peripheral/adc/plib_adc0.h"
 #include "peripheral/port/plib_port.h"
-//#include "peripheral/tc/plib_tc0.h"
 #include "peripheral/tc/plib_tc3.h"
 #include "peripheral/tcc/plib_tcc0.h"
 #include "peripheral/tcc/plib_tcc1.h"
@@ -15,14 +14,48 @@
 #include "timer.h"
 #include <cstdlib>
 #include <cinttypes>
+#include <limits>
 
 // The Clock chain is:
 //
 // 48MHz OSC -> (Gclkdiv) GCLK8 (dynamic control to get target freq)
 // GCLK8     -> PLL  (48Mhz -> 96Mhz)  Div 1
-// PLL       -> TCC
-// TCC count and period determine the waveform
+// PLL       -> GClk2 (Peripherals are driven by GClks, not PLL directly)
+// GClk2     -> TCC0 & TCC1
+// TCC0 count and period determine the waveform
+// TCC1 driven by same clock and generates the Hard Fault event to stop TCC0 waveform
 //
+// GClk8 divider, PLL Mult, and TCC count are variables used to generate the
+// target frequency.  (See bl_piece_id_freq_calc.cpp)
+//
+///////////////////////////////////////////////////////////////////////////////////////
+//
+// TCC0 PWM: .....|^|_|^|_|^|_|^|_|^|_|^|_|^|_|^|_|^|_|^|_
+//
+// TCC1:     .....|---------------------------------------|
+//
+// TC3:      .............................................|-----@----@......
+//
+// DrainEn:  ___|^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^|___________
+//
+// ADC:                                                              S*****D
+//
+// TCC0 outputs its PWM signal as the TX pulse train for PieceId.
+// TCC1 is driven by the same clock and starts at the same time.  It counts the time until
+//   10 pulses have been generated on TCC0, then triggers a HW Event (A).
+// HW Event (A) on TCC0 generates a hard fault, stopping the timer and forcing the output
+//   low.  Hard fault is used because it is faster than events that have to synchronize to
+//   the TCC clock domain and it forces the output to a known state.
+// HW Event (A) triggers TC3 to start.  TC3 is configured with two Match/Compare counts,
+//   generating HW Events (B) and (C)
+// HW Event (B) causes the GPIO (PORT) controller to set the DrainEn GPIO low
+// HW Event (C) triggers a conversion on the ADC
+// The ADC generates an interrupt when conversion is complete, setting a flag.
+// Non-ISR software checks the flag, reads the value from the ADC and sets up the next
+//   frequency scan if necessary
+// 
+///////////////////////////////////////////////////////////////////////////////////////
+///
 // GClk notes
 //   - "Before a Generator is enabled, the corresponding clock source should be enabled."
 //   - "The Generator must be enabled (GENCTRLn.GENEN = 1) and the division factor must be
@@ -35,7 +68,6 @@
 //   - "When dividing a clock with an odd division factor, the duty-cycle will not be 50/50.
 //      Setting the Improve Duty Cycle bit of the Generator Control register (GENCTRLn.IDC)
 //      will result in a 50/50 duty cycle."
-//      (Maybe need to consider this for PLL behavior?  Probably not...)_
 //
 // PLL notes
 //   - "The frequency of the DPLL output clock CK is stable when the module is enabled and
@@ -58,24 +90,10 @@
 //      buffered.  ... the double buffering feature is not mandatory. The double buffering
 //      is disabled by writing a '1' to CTRLSET.LUPD."
 //
-//  TCC ... no notes?
-//
 
 #ifndef ARRAY_SIZE
 #define ARRAY_SIZE(a) (sizeof(a) / sizeof((a)[0]))
 #endif
-
-
-enum GenClkSrc {
-  XOSC        = 0x0,  // XOSC oscillator output
-  GCLKIN      = 0x1,  // Generator input pad (GCLK_IO)
-  GCLKGEN1    = 0x2,  // Generic clock generator 1 output
-  OSCULP32K   = 0x3,  // OSCULP32K oscillator output
-  OSC32K      = 0x4,  // OSC32K oscillator output
-  XOSC32K     = 0x5,  // XOSC32K oscillator output
-  OSC48M      = 0x6,  // OSC48M oscillator output
-  FDPLL96M    = 0x7,  // DPLL96M output
-};
 
 // Top-level "master" mux
 static constexpr PORT_PIN MMA0_PIN    = PORT_PIN_PA08;
@@ -178,35 +196,108 @@ FrequencyData frequencies[30] = {
 FrequencyData frequencies[] = {
   /* W Knight - 183  */ { 1'960'000, 30,   2, {} },
   /* B Knight - 150  */ { 2'150'000, 30,   3, {} },
-  /* W ROOK   - 133  */ { 2'300'000, 30,   3, {} },
+  /* W Rook   - 133  */ { 2'300'000, 30,   3, {} },
   /* B Queen  - 110  */ { 2'480'000, 25,   3, {} },
   /* W Pawn   - 94   */ { 2'750'000, 26,   6, {} },
   /* B King   - 80   */ { 2'850'000, 27,   4, {} },
   /* W Bishop - 68   */ { 3'150'000, 25,   5, {} },
   /* B Rook   - 57   */ { 3'380'000, 35,   4, {} },
-  /* W Qween  - 49   */ { 3'620'000, 28,   6, {} },
+  /* W Queen  - 49   */ { 3'620'000, 28,   6, {} },
   /* B Pawn   - 43   */ { 3'900'000, 34,   5, {} },
   /* W King   - 35.2 */ { 4'200'000, 30,   3, {} },
   /* B Bishop - 30   */ { 4'520'000, 34,   6, {} },
 };
 #endif
+#if 0
 // Claude-generated frequency list, calculated driving frequency
 FrequencyData frequencies[] = {
   /* W Knight - 183  */ { 1'960'000, 30,   2, {} },
   /* B Knight - 150  */ { 2'151'000, 30,   3, {} },
-  /* W ROOK   - 133  */ { 2'312'000, 30,   3, {} },
+  /* W Rook   - 133  */ { 2'312'000, 30,   3, {} },
   /* B Queen  - 110  */ { 2'489'000, 25,   3, {} },
   /* W Pawn   - 94   */ { 2'678'000, 26,   6, {} },
   /* B King   - 80   */ { 2'882'000, 27,   4, {} },
   /* W Bishop - 68   */ { 3'100'000, 25,   5, {} },
   /* B Rook   - 57   */ { 3'332'000, 35,   4, {} },
-  /* W Qween  - 49   */ { 3'585'000, 28,   6, {} },
+  /* W Queen  - 49   */ { 3'585'000, 28,   6, {} },
   /* B Pawn   - 43   */ { 3'854'000, 34,   5, {} },
   /* W King   - 35.2 */ { 4'149'000, 30,   3, {} },
   /* B Bishop - 30   */ { 4'464'000, 34,   6, {} },
 };
+#endif
+#if 0
+FrequencyData frequencies[] = {
+  /* W Knight -  0 - 271   */ { 1'624'000, 30,   2, {} },
+  /* B Knight -  1 - 223   */ { 1'785'000, 30,   3, {} },
+  /* W Rook   -  2 - 187.5 */ { 1'941'000, 30,   3, {} },
+  /* B Queen  -  3 - 153   */ { 2'140'000, 25,   3, {} },
+  /* W Pawn   -  4 - 125   */ { 2'355'000, 26,   6, {} },
+  /* B King   -  5 - 104   */ { 2'567'000, 27,   4, {} },
+  /* W Bishop -  6 - 84    */ { 2'834'000, 25,   5, {} },
+  /* B Rook   -  7 - 69.5  */ { 3'089'000, 35,   4, {} },
+  /* W Queen  -  8 - 56    */ { 3'402'000, 28,   6, {} },
+  /* B Pawn   -  9 - 46    */ { 3'707'000, 34,   5, {} },
+  /* W King   - 10 - 37    */ { 4'064'000, 30,   3, {} },
+  /* B Bishop - 11 - 29.5  */ { 4'458'000, 34,   6, {} },
+};
+#endif
+#if 0
+// Tested and tuned with NT
+FrequencyData frequencies[] = {
+  /* W Knight -  0 - 271   */ { 1'624'000, 25, 5, {} },
+  /* B Knight -  1 - 223   */ { 1'785'000, 24, 5, {} },
+  /* W Rook   -  2 - 187.5 */ { 1'941'000, 24, 5, {} },
+  /* B Queen  -  3 - 153   */ { 2'140'000, 24, 5, {} },
+  /* W Pawn   -  4 - 125   */ { 2'355'000, 23, 5, {} },
+  /* B King   -  5 - 104   */ { 2'567'000, 20, 5, {} },
+  /* W Bishop -  6 - 84    */ { 2'834'000, 18, 5, {} },
+  /* B Rook   -  7 - 69.5  */ { 3'089'000, 18, 5, {} },
+  /* W Queen  -  8 - 56    */ { 3'402'000, 18, 5, {} },
+  /* B Pawn   -  9 - 46    */ { 3'707'000, 17, 5, {} },
+  /* W King   - 10 - 37    */ { 4'064'000, 15, 5, {} },
+  /* B Bishop - 11 - 29.5  */ { 4'458'000, 15, 5, {} },
+};
+#endif
+// 2 more frequencies on low end
+FrequencyData frequencies[] = {
+  /* W Knight -  0 - 398   */ { 1'340'000, 26, 5, {} },
+  /* B Knight -  1 - 330   */ { 1'476'000, 26, 5, {} },
+  /* W Rook   -  2 - 271   */ { 1'624'000, 25, 5, {} },
+  /* B Queen  -  3 - 223   */ { 1'785'000, 24, 5, {} },
+  /* W Pawn   -  4 - 187.5 */ { 1'941'000, 24, 5, {} },
+  /* B King   -  5 - 153   */ { 2'140'000, 24, 5, {} },
+  /* W Bishop -  6 - 125   */ { 2'355'000, 23, 5, {} },
+  /* B Rook   -  7 - 104   */ { 2'567'000, 20, 5, {} },
+  /* W Queen  -  8 - 84    */ { 2'834'000, 18, 5, {} },
+  /* B Pawn   -  9 - 69.5  */ { 3'089'000, 18, 5, {} },
+  /* W King   - 10 - 56    */ { 3'402'000, 18, 5, {} },
+  /* B Bishop - 11 - 46    */ { 3'707'000, 17, 5, {} },
+};
+
 static size_t FrequencyCount = ARRAY_SIZE(frequencies);
 
+// Scans these spots first if any have been requested (lsb first)
+static uint64_t priorityScanBitBoard;
+
+// Scans these when nothing is set in the priority bitboard (lsb first)
+static uint64_t defaultScanBitBoard;
+
+// ADC values for each frequency on a single square
+static uint8_t pieceIdResult[ARRAY_SIZE(frequencies)];
+
+// Which frequency we are currently scanning
+static uint8_t frequencyIdx;
+
+// Which spot (square) we are currently scanning
+static uint8_t activeSpot;
+
+// Is PieceId scanning right now
+static bool pieceIdRunning;
+
+// Flag set by ADC ISR
+static volatile bool adcDone;
+
+// Stat calculation
 static uint32_t pieceIdStartTicks = 0;
 static uint32_t pieceIdReadyTicks = 0;
 
@@ -260,13 +351,8 @@ static void disableMuxes() {
   MUX_EN_Clear();
 }
 
-static uint16_t pieceIdResult[ARRAY_SIZE(frequencies)];
-static uint8_t frequencyIdx;
-static bool pieceIdRunning;
-static volatile bool adc_done;
-
 static void adcIrq(ADC_STATUS status, uintptr_t context){
-    adc_done = true;
+    adcDone = true;
 }
 
 static void disableGclk(uint8_t gclkNum) {
@@ -409,7 +495,7 @@ static void calculateFrequencyConfigForIndex(unsigned idx) {
   data.config = getPllTccConfigForFreq(data.frequency);
 
   if (!isQuiet) {
-    hubLog('I', "%u: F%" PRIu32 " G%" PRIu8 " W%" PRIu16 " f%" PRIu8 " Tc%" PRIu32 " Pl%" PRIu32 " E%" PRIi32,
+    hubLog('I', "%2u: F%7" PRIu32 " G%2" PRIu8 " W%2" PRIu16 " f%2" PRIu8 " Tc%3" PRIu32 " Pl%8" PRIu32 " E%+6" PRIi32 " D%2" PRIu16 " R%2" PRIu16,
         idx,
         data.frequency,
         data.config.gclkDiv,
@@ -417,7 +503,9 @@ static void calculateFrequencyConfigForIndex(unsigned idx) {
         data.config.ldrFrac,
         data.config.tccCnt,
         data.config.pllOut,
-        data.config.error);
+        data.config.error,
+        data.drainDelayCounts,
+        data.ringTimeCounts);
   }
 }
 
@@ -452,6 +540,42 @@ static void stopPieceId() {
   ADC0_CallbackRegister(nullptr, 0);
 }
 
+static uint8_t chooseScanSquare() {
+  uint64_t * bitboard = nullptr;
+
+  if (priorityScanBitBoard) {
+    bitboard = &priorityScanBitBoard;
+  }
+  else {
+    if (!defaultScanBitBoard) {
+      // If no priority squares specified and we have exhausted our
+      // default scan, then reset the default scan to all squares
+      defaultScanBitBoard = std::numeric_limits<uint64_t>::max();
+    }
+    bitboard = &defaultScanBitBoard;
+  }
+
+  const uint32_t low = *bitboard;
+  const uint32_t high = (*bitboard) >> 32;
+
+  uint8_t spot = 0;
+  if (low) {
+    spot = __builtin_ctz(low);
+  }
+  else if (high) {
+    spot = 32 + __builtin_ctz(high);
+  }
+
+  if (spot >= 64) {
+    spot = 0;
+  }
+
+  // Clear the square we selected
+  *bitboard &= ~(1ull << spot);
+
+  return spot;
+}
+
 // I tried removing the peripheral resets and making a "2nd and later" setup,
 // that just reconfigured without resetting, but it made no difference.  The
 // setup time is dominated by the PLL sync, and resets are very fast in
@@ -463,7 +587,7 @@ static void setPieceId(unsigned freqIdx) {
         return;
     }
 
-    adc_done = false;
+    adcDone = false;
     auto & config = frequencies[freqIdx].config;
 
     TCC0_PWMStop();
@@ -534,11 +658,6 @@ static void setPieceId(unsigned freqIdx) {
 // TODO: Include the shared header for this
 typedef struct
 {
-    /*
-    TODO: remove header2. header2 is a copy of the regular packet header,
-    because November touch and associated USB<>BLE adapter
-    use 2-byte headers, while everything else uses 1B size, 1B header.
-    */
     uint8_t header2;//PIECE_ID_DATA
     uint8_t square;//also not PIECE_ID_DATA.
     uint16_t new_tones;//bitfield showing which were updated this scan
@@ -547,73 +666,24 @@ typedef struct
     uint8_t data[12];
 } piece_id_packet_t;
 
-void onComplete() {
+static void onComplete() {
   piece_id_packet_t packet;
   packet.header2 = PIECE_ID_DATA;
-  packet.square = 0;
+  packet.square = activeSpot;
   packet.new_tones = 0x0fff;
-  for (unsigned i = 0; i < 12; i++) {
-    packet.data[i] = pieceIdResult[i];
-  }
+  memcpy(packet.data, pieceIdResult, sizeof(packet.data));
+  static_assert(sizeof(packet.data) == sizeof(pieceIdResult));
 
   sendGeneric(PIECE_ID_DATA, sizeof(packet), &packet);
 }
-
-#ifdef RANDOM_STEP
-static constexpr uint32_t FreqMin = 3'000'000u;
-static constexpr uint32_t FreqMax = 10'000'000u;
-static constexpr uint32_t FreqStep =  500'000u;
-
-uint32_t freqVal = FreqMin;
-
-uint32_t randVal(uint32_t below) {
-  uint32_t val = rand();
-  val %= below;
-  return val;
-}
-
-uint32_t getRandStep() {
-  uint32_t val = randVal(FreqStep);
-  return val + FreqStep / 2;
-}
-
-void switchPieceId() {
-  freqVal += getRandStep();
-  while (freqVal > FreqMax) {
-    freqVal -= (FreqMax - FreqMin);
-  }
-
-  hubLog('I', "%u", freqVal);
-
-  setPieceId(freqVal);
-}
-#else
-
-#if 0
-void switchPieceId(uint8_t spot) {
-  if (freqIdx >= FrequencyCount) {
-    freqIdx = 0;
-  }
-
-  selectMuxPathForSpot(spot);
-  enableMuxes();
-
-  setPieceId(freqIdx);
-  freqIdx++;
-}
-#endif
-#endif
 
 bool pieceIdInProgress() {
   return pieceIdRunning;
 }
 
-bool getPieceIdResult(const uint16_t ** ptr, size_t * count) {
-  *ptr = pieceIdResult;
-  *count = FrequencyCount;
-
-  // Todo:  valid?
-  return true;
+void pieceIdAddPrioritySquares(uint64_t bitboard) {
+  priorityScanBitBoard |= bitboard;
+  defaultScanBitBoard &= ~bitboard;
 }
 
 void pieceIdSetQuiet(bool quiet) {
@@ -650,7 +720,7 @@ uint32_t pieceIdGetFrequency(unsigned idx) {
   return 0;
 }
 
-uint32_t pieceIdGetDelay(unsigned idx) {
+uint16_t pieceIdGetDelay(unsigned idx) {
   if (idx < FrequencyCount) {
     return frequencies[idx].drainDelayCounts;
   }
@@ -658,7 +728,7 @@ uint32_t pieceIdGetDelay(unsigned idx) {
   return 0;
 }
 
-uint32_t pieceIdGetRing(unsigned idx) {
+uint16_t pieceIdGetRing(unsigned idx) {
   if (idx < FrequencyCount) {
     return frequencies[idx].ringTimeCounts;
   }
@@ -667,17 +737,14 @@ uint32_t pieceIdGetRing(unsigned idx) {
 }
 
 bool pieceIdReady(uint32_t now) {
-  // Do pieceId when we're not doing anything else
+  // Do pieceId any time we're not doing anything else
   return !pieceIdRunning;
 }
 
 void pieceIdTask() {
   if (pieceIdRunning) {
-    if (adc_done) {
-      if (OSCCTRL_REGS->OSCCTRL_INTFLAG & OSCCTRL_INTFLAG_DPLLLCKF_Msk) {
-        hubLog('W', "PLL LOCK LOST");
-      }
-      adc_done = false;
+    if (adcDone) {
+      adcDone = false;
       pieceIdResult[frequencyIdx] = ADC0_ConversionResultGet();
       frequencyIdx++;
 
@@ -708,11 +775,10 @@ void pieceIdStart() {
   frequencyIdx = 0;
   pieceIdRunning = true;
 
-  // TODO: FIX
-  uint8_t spot = 0;
+  activeSpot = chooseScanSquare();
 
   setupPieceId();
-  selectMuxPathForSpot(spot);
+  selectMuxPathForSpot(activeSpot);
   enableMuxes();
   setPieceId(frequencyIdx);
 }

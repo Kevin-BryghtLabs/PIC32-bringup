@@ -16,14 +16,16 @@ void pieceIdStart();
 void pieceIdTask();
 bool pieceIdInProgress();
 
+void pieceIdAddPrioritySquares(uint64_t bitboard);
+
 void pieceIdSetQuiet(bool quiet);
 
 bool pieceIdSetFrequencyParams(unsigned idx, uint32_t frequency, uint16_t drainCounts48MHz, uint16_t ringCounts48MHz);
 void pieceIdSetFrequencyCount(unsigned count);
 unsigned pieceIdGetFrequencyCount();
 uint32_t pieceIdGetFrequency(unsigned idx);
-uint32_t pieceIdGetDelay(unsigned idx);
-uint32_t pieceIdGetRing(unsigned idx);
+uint16_t pieceIdGetDelay(unsigned idx);
+uint16_t pieceIdGetRing(unsigned idx);
 
 #ifdef __cplusplus
 }
