@@ -161,9 +161,7 @@ void capTouchTask() {
 
     capTouchRunning = false;
 
-    // Clear flag so we can detect the next update.  The readings
-    // are automatically triggered by a timer (and limited by the
-    // `allowTouch` function, currently in main.c)
+    // Clear flag in harmony touch module; it will set it after the next reading
     measurement_done_touch = 0;
   }
 
@@ -172,11 +170,6 @@ void capTouchTask() {
     nextCapSendMs += capSendIntervalMs;
     sendCapData();
   }
-
-  // If this call is undefined or fails to link, the touch
-  // library has been overwritten by MCC.  Redo our custom
-  // hacks to that library.
-  //touchGenerateCanary();
 }
 
 void capTouchStartCalibration() {
