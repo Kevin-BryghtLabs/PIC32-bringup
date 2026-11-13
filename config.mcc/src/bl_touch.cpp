@@ -79,28 +79,27 @@ static void configPinsForCapTouch(void)
   }
 }
 
-static bool touchTimerElapsed;
+static volatile unsigned touchTimerElapsedCount;
 static uint32_t capTouchReadyTicks;
 
 void capTouchRtcHandler(RTC_TIMER32_INT_MASK intCause, uintptr_t context )
 {
-  touchTimerElapsed = true;
+  touchTimerElapsedCount++;
   if (capTouchReadyTicks == 0) {
     capTouchReadyTicks = getCurrentTimeTicks();
   }
-
-  rtc_cb(intCause, context);
 }
 
 void capTouchInit() {
   // Harmony touch library function `touch_init` called by SYS_Initialize, which
   // sets up the RTC timer with a handler that just sets a flag.  Lots of its
   // state is static so we can't affect it, but its rtc callback function is
-  // public.  We steal the RTC event to set our own flag that it's time to do
-  // touch, then we call its handler so it can set its internal flag.  We don't
-  // call its task that starts the capture until it is safe to do so.  This way
-  // we don't need any modifications to the MCC generated touch library, and can
-  // still coordinate capTouch with pieceId and LED systems
+  // public.  We steal the RTC event to call our own ISR, which counts ticks.
+  // When it's OK to start a captouch measurement (no conflict with captouch/LED),
+  // we call its ISR the correct number of times to update its internal timer and
+  // set its flag to start measurement. This way we don't need any modifications
+  // to the MCC generated touch library, and can still coordinate capTouch with
+  // pieceId and LED systems
 
   // Touch doesn't use its context at the moment, but double-check this if the library is updated
   RTC_Timer32CallbackRegister(capTouchRtcHandler, 0);
@@ -111,7 +110,7 @@ void capTouchInit() {
 static bool capTouchRunning;
 
 bool capTouchReady() {
-  return touchTimerElapsed;
+  return touchTimerElapsedCount > 0 && !capTouchRunning;
 }
 
 bool capTouchInProgress() {
@@ -126,7 +125,18 @@ void capTouchStart() {
   }
 
   capTouchRunning = true;
-  touchTimerElapsed = false;
+
+  // Read volatile count once
+  unsigned elapsed = touchTimerElapsedCount;
+  touchTimerElapsedCount = 0;
+
+  while (elapsed) {
+    // Tell touch library it's time to sample.
+    // Calling multiple times updates its internal timer for filtering
+    rtc_cb(RTC_TIMER32_INT_MASK_CMP0, 0);
+    elapsed--;
+  }
+
   configPinsForCapTouch();
 }
 
@@ -139,21 +149,19 @@ void capTouchTask() {
   // so that conflicts with other systems (LEDs, pieceId) can be managed.
   touch_process();
 
-  if (isCalibrating()) {
-    return;
-  }
-
-  if (sendCalibrationStatusWhenFinished) {
-    hubLog('I', "End node cal");
-    sendCalibrationStatusWhenFinished = false;
-    sendCalibrationFinished();
-  }
-
   // Harmony touch library global flag
   if (measurement_done_touch) {
-    // Copy signal values into local storage and trigger new read
-    for (unsigned i = 0; i < DEF_NUM_SENSORS; i++) {
-      sens[i] = get_sensor_node_signal(i);
+    if (!isCalibrating()) {
+      // Copy signal values into local storage and trigger new read
+      for (unsigned i = 0; i < DEF_NUM_SENSORS; i++) {
+        sens[i] = get_sensor_node_signal(i);
+      }
+
+      if (sendCalibrationStatusWhenFinished) {
+        hubLog('I', "End node cal");
+        sendCalibrationStatusWhenFinished = false;
+        sendCalibrationFinished();
+      }
     }
 
     uint32_t doneTicks = getCurrentTimeTicks();
